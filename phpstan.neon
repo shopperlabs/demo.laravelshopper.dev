@@ -1,0 +1,18 @@
+includes:
+    - ./vendor/nunomaduro/larastan/extension.neon
+
+parameters:
+  paths:
+    - app/
+
+  level: 6
+
+  excludePaths:
+    - app/Http/Controllers/Auth/
+    - app/Http/Middleware/
+    - app/Http/Requests/Auth
+    - app/Providers/AuthServiceProvider.php
+    - projects/shopper/
+
+  ignoreErrors:
+    - "#Unsafe usage of new static\\(\\)#"

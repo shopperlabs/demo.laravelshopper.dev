@@ -1,0 +1,4 @@
+.swiper-scrollbar-drag {
+  border-radius: 0;
+  background: theme('colors.primary.800');
+}

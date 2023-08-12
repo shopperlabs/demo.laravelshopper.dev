@@ -1,0 +1,8 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@import "base.css";
+@import "links.css";
+@import "sliders.css";
+@import "scrollbar.css";
