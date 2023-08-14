@@ -15,7 +15,7 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="font-sans antialiased">
+<body class="font-sans antialiased selection:bg-black selection:text-white">
 
     <div x-data="{ open: false }" @keydown.window.escape="open = false" class="min-h-screen flex flex-col justify-between">
         <div class="flex-1">

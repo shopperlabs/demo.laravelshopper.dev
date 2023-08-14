@@ -83,7 +83,7 @@
                     <x-forms.label for="email-address" class="sr-only">{{ __('Email address') }}</x-forms.label>
                     <x-forms.input id="email-address" type="text" autocomplete="email" required class="w-full min-w-0 appearance-none" />
                     <div class="mt-3 sm:ml-4 sm:mt-0 sm:flex-shrink-0">
-                        <x-buttons.default type="submit" class="py-2 px-4 text-base font-medium focus:ring-offset-secondary-800">
+                        <x-buttons.default :white-border="true" type="submit" class="py-2 px-4 text-base font-medium focus:ring-offset-secondary-800">
                             {{ __('Sign up') }}
                         </x-buttons.default>
                     </div>

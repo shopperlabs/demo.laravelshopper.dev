@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <div class="min-h-screen flex flex-col justify-center py-12">
+    <div class="min-h-full flex flex-col justify-center py-32 lg:py-64">
         <div class="sm:mx-auto sm:w-full sm:max-w-md px-4">
             <a href="{{ route('login') }}" class="group inline-flex items-center gap-x-2 text-secondary-500 hover:text-secondary-900 text-sm">
                 <span class="flex items-center justify-center h-8 w-8 rounded-full shadow-md shadow-secondary-800/5 transition border border-secondary-200 bg-secondary-50 ring-0 ring-white/10 group-hover:border-secondary-300">
