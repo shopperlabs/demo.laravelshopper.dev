@@ -5,7 +5,7 @@ namespace App\View\Components;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class ShopLayout extends Component
+final class ShopLayout extends Component
 {
     public function render(): View
     {

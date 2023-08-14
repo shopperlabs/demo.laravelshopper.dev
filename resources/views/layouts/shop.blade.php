@@ -13,17 +13,18 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 
-    <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
-    <script src="{{ mix('/js/app.js') }}" defer></script>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="font-sans antialiased">
 
-    <div x-data="{ open: false }" @keydown.window.escape="open = false">
-        @include('includes.header')
+    <div x-data="{ open: false }" @keydown.window.escape="open = false" class="min-h-screen flex flex-col justify-between">
+        <div class="flex-1">
+            @include('includes.header')
 
-        <main {{ $attributes->merge(['class' => 'z-0']) }}>
-            {{ $slot }}
-        </main>
+            <main {{ $attributes->merge(['class' => 'z-0 h-full']) }}>
+                {{ $slot }}
+            </main>
+        </div>
 
         @include('includes.footer')
     </div>

@@ -65,9 +65,7 @@ return [
     */
 
     'resources' => [
-        'stylesheets' => [
-            '/css/app.css',
-        ],
+        'stylesheets' => [],
         'scripts' => [],
     ],
 
