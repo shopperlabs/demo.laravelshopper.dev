@@ -19,7 +19,7 @@ final class RegisteredUserController extends Controller
 {
     public function create(): View
     {
-        return view('auth.register');
+        return view('pages.auth.register');
     }
 
     public function store(Request $request): RedirectResponse

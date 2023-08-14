@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomeController::class)->name('home');
 
-Route::get('/dashboard', fn () => view('dashboard'))
+Route::get('/dashboard', fn () => view('pages.dashboard'))
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 

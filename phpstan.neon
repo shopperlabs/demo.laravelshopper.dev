@@ -12,7 +12,5 @@ parameters:
     - app/Http/Middleware/
     - app/Http/Requests/Auth
     - app/Providers/AuthServiceProvider.php
-    - projects/shopper/
 
   ignoreErrors:
-    - "#Unsafe usage of new static\\(\\)#"
