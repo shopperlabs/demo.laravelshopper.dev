@@ -9,7 +9,7 @@
                 <div class="grid grid-cols-2 gap-8 xl:col-span-2">
                     <div class="space-y-12 md:grid md:grid-cols-2 md:gap-8 md:space-y-0">
                         <div>
-                            <h3 class="text-sm font-medium text-white font-heading">Customer Service</h3>
+                            <h3 class="text-sm font-medium text-white font-heading">{{ __('Customer Service') }}</h3>
                             <ul role="list" class="mt-6 space-y-6">
                                 <li>
                                     <x-footer-link href="#" text="{{ __('Contact') }}" />
@@ -29,7 +29,7 @@
                             </ul>
                         </div>
                         <div>
-                            <h3 class="text-sm font-medium text-white font-heading">Company</h3>
+                            <h3 class="text-sm font-medium text-white font-heading">{{ __('Company') }}</h3>
                             <ul role="list" class="mt-6 space-y-6">
                                 <li>
                                     <x-footer-link href="#" text="{{ __('Who we are') }}" />
@@ -39,7 +39,6 @@
                                 </li>
                                 <li>
                                     <x-footer-link href="#" text="{{ __('Press') }}" />
-                                    <a href="#" class="text-gray-500 hover:text-gray-600"></a>
                                 </li>
                                 <li>
                                     <x-footer-link href="#" text="{{ __('Careers') }}" />
@@ -49,19 +48,19 @@
                     </div>
                     <div class="space-y-12 md:grid md:grid-cols-2 md:gap-8 md:space-y-0">
                         <div>
-                            <h3 class="text-sm font-medium text-white font-heading">Legal</h3>
+                            <h3 class="text-sm font-medium text-white font-heading">{{ __('Legal') }}</h3>
                             <ul role="list" class="mt-6 space-y-6">
                                 <li>
-                                    <x-footer-link href="#" text="{{ __('Terms of Service') }}" />
+                                    <x-footer-link :href="route('legal', ['slug' => 'terms-of-use'])" text="{{ __('Terms of Service') }}" />
                                 </li>
                                 <li>
-                                    <x-footer-link href="#" text="{{ __('Return Policy') }}" />
+                                    <x-footer-link :href="route('legal', ['slug' => 'refund-policy'])" text="{{ __('Return Policy') }}" />
                                 </li>
                                 <li>
-                                    <x-footer-link href="#" text="{{ __('Privacy Policy') }}" />
+                                    <x-footer-link :href="route('legal', ['slug' => 'privacy-policy'])" text="{{ __('Privacy Policy') }}" />
                                 </li>
                                 <li>
-                                    <x-footer-link href="#" text="{{ __('Shipping Policy') }}" />
+                                    <x-footer-link :href="route('legal', ['slug' => 'shipping-policy'])" text="{{ __('Shipping Policy') }}" />
                                 </li>
                             </ul>
                         </div>

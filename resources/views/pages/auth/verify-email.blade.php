@@ -1,4 +1,4 @@
-<x-guest-layout>
+<x-layout.guest>
     <div class="min-h-screen flex flex-col justify-center py-12">
         <div class="sm:mx-auto sm:w-full sm:max-w-md px-4">
             <div class="mb-4 text-sm text-secondary-500">
@@ -32,4 +32,4 @@
             </div>
         </div>
     </div>
-</x-guest-layout>
+</x-layout.guest>

@@ -17,6 +17,7 @@
     "vite": "^4.4.9"
   },
   "dependencies": {
-    "@tailwindcss/aspect-ratio": "^0.4.2"
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "swiper": "^10.1.0"
   }
 }

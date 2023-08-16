@@ -1,4 +1,4 @@
-<x-guest-layout>
+<x-layout.guest>
     <div class="min-h-full flex flex-col justify-center py-32 lg:py-64">
         <div class="sm:mx-auto sm:w-full sm:max-w-md px-4">
             <a href="{{ route('login') }}" class="group inline-flex items-center gap-x-2 text-secondary-500 hover:text-secondary-900 text-sm">
@@ -35,4 +35,4 @@
             </form>
         </div>
     </div>
-</x-guest-layout>
+</x-layout.guest>

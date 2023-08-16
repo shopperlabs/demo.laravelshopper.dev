@@ -1,6 +1,6 @@
-<x-shop-layout>
+<x-layout.shop>
     <nav aria-label="{{ __('Offers') }}" class="border-b border-secondary-200">
-        <div class="mx-auto max-w-7xl lg:px-8">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6">
             <ul role="list" class="grid grid-cols-1 divide-y divide-secondary-200 lg:grid-cols-3 lg:divide-x lg:divide-y-0">
                 <li class="flex flex-col">
                     <a href="#" class="relative flex flex-1 flex-col justify-center bg-white px-4 py-6 text-center focus:z-10">
@@ -39,4 +39,6 @@
             </x-buttons.default>
         </div>
     </div>
-</x-shop-layout>
+
+    <x-category-list />
+</x-layout.shop>
