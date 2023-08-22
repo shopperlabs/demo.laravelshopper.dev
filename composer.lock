@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "eee13eda0b2b60b7b14a9bc2dd494ac0",
+    "content-hash": "fd732285a1e07980f9d57d8c5a33e1f9",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -5835,11 +5835,17 @@
         },
         {
             "name": "shopper/core",
-            "version": "dev-patch-models",
+            "version": "v2.0.0-beta2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/shopperlabs/core.git",
+                "reference": "a64f130ee3d961b58d346a37e1b8386ab5b96212"
+            },
             "dist": {
-                "type": "path",
-                "url": "../packages/shopper/packages/core",
-                "reference": "011239be04ce71e7355c23230ce2da74f9c1d43d"
+                "type": "zip",
+                "url": "https://api.github.com/repos/shopperlabs/core/zipball/a64f130ee3d961b58d346a37e1b8386ab5b96212",
+                "reference": "a64f130ee3d961b58d346a37e1b8386ab5b96212",
+                "shasum": ""
             },
             "require": {
                 "php": "^8.1",
@@ -5861,25 +5867,33 @@
                 ],
                 "psr-4": {
                     "Shopper\\Core\\": "src/",
-                    "Database\\Factories\\": "database/factories",
-                    "Database\\Seeders\\": "database/seeders"
+                    "Database\\Seeders\\": "database/seeders",
+                    "Database\\Factories\\": "database/factories"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "description": "Laravel Shopper e-commerce core functionality",
-            "transport-options": {
-                "relative": true
-            }
+            "support": {
+                "source": "https://github.com/shopperlabs/core/tree/v2.0.0-beta2"
+            },
+            "time": "2023-08-22T22:42:36+00:00"
         },
         {
-            "name": "shopper/shopper",
-            "version": "dev-patch-models",
+            "name": "shopper/framework",
+            "version": "v2.0.0-beta2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/shopperlabs/admin.git",
+                "reference": "c530a28c0bee1e72fc665ee067b1e69047ca30be"
+            },
             "dist": {
-                "type": "path",
-                "url": "../packages/shopper/packages/admin",
-                "reference": "c9b3edaa201232d96b822ea3998542886fecb1e4"
+                "type": "zip",
+                "url": "https://api.github.com/repos/shopperlabs/admin/zipball/c530a28c0bee1e72fc665ee067b1e69047ca30be",
+                "reference": "c530a28c0bee1e72fc665ee067b1e69047ca30be",
+                "shasum": ""
             },
             "require": {
                 "bacon/bacon-qr-code": "^2.0",
@@ -5928,35 +5942,40 @@
                     "Shopper\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "description": "A TALL Laravel e-commerce  admin panel to create and manage online shop.",
             "keywords": [
+                "Shopper",
                 "admin-panel",
                 "e-commerce",
                 "headless",
                 "laravel",
                 "livewire",
                 "shop",
-                "shopper",
                 "store"
             ],
             "support": {
                 "issues": "https://github.com/shopperlabs/framework/issues",
                 "source": "https://github.com/shopperlabs/framework"
             },
-            "transport-options": {
-                "relative": true
-            }
+            "time": "2023-08-22T22:42:42+00:00"
         },
         {
             "name": "shopper/sidebar",
-            "version": "dev-patch-models",
+            "version": "v2.0.0-beta2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/shopperlabs/sidebar.git",
+                "reference": "9ab2373d0579a51cf058a90e8756f3c39f7ee24e"
+            },
             "dist": {
-                "type": "path",
-                "url": "../packages/shopper/packages/sidebar",
-                "reference": "b1b0eb633d86af2cea3701e6f74b6e06b0818cd2"
+                "type": "zip",
+                "url": "https://api.github.com/repos/shopperlabs/sidebar/zipball/9ab2373d0579a51cf058a90e8756f3c39f7ee24e",
+                "reference": "9ab2373d0579a51cf058a90e8756f3c39f7ee24e",
+                "shasum": ""
             },
             "require": {
                 "illuminate/cache": "^9.0|^10.0",
@@ -5982,6 +6001,7 @@
                     "Shopper\\Sidebar\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -5997,9 +6017,11 @@
                 "laravel",
                 "sidebar"
             ],
-            "transport-options": {
-                "relative": true
-            }
+            "support": {
+                "issues": "https://github.com/shopperlabs/sidebar/issues",
+                "source": "https://github.com/shopperlabs/sidebar/tree/v2.0.0-beta2"
+            },
+            "time": "2023-08-22T22:42:37+00:00"
         },
         {
             "name": "spatie/image",
@@ -13050,7 +13072,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "shopper/framework": 10
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
