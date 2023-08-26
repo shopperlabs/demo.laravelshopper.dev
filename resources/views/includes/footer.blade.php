@@ -68,7 +68,7 @@
                 </div>
             </div>
         </div>
-        <div class="py-8 lg:py-10 border-y border-secondary-900">
+        <div class="py-8 lg:py-10 border-y border-secondary-800">
             <div class="flex items-center justify-between">
                 <div>
                     <h3 class="font-semibold text-lg text-white font-heading">
@@ -92,12 +92,14 @@
     </div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 py-8">
         <div class="flex flex-col items-center sm:flex-row sm:justify-between">
-            <p class="text-sm text-secondary-400">© {{ date('Y') }} Shopper Labs, Inc. All rights reserved.</p>
+            <p class="text-sm text-secondary-400">
+                © {{ date('Y') }} Shopper Labs, Inc. All rights reserved.
+            </p>
             <div class="mt-5 divide-x divide-secondary-700 sm:mt-0">
-                <a href="#" class="inline-flex px-3 text-sm leading-5 text-secondary-500 hover:text-secondary-300 hover:underline">
+                <a href="{{ route('legal', ['slug' => 'privacy-policy']) }}" class="inline-flex px-3 text-sm leading-5 text-secondary-500 hover:text-secondary-300 hover:underline">
                     {{ __('Privacy') }}
                 </a>
-                <a href="#" class="inline-flex px-3 text-sm leading-5 text-secondary-500 hover:text-secondary-300 hover:underline">
+                <a href="{{ route('legal', ['slug' => 'terms-of-use']) }}" class="inline-flex px-3 text-sm leading-5 text-secondary-500 hover:text-secondary-300 hover:underline">
                     {{ __('Terms & Conditions') }}
                 </a>
                 <a href="#" class="inline-flex px-3 text-sm leading-5 text-secondary-500 hover:text-secondary-300 hover:underline">
