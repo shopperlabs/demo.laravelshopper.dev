@@ -7,7 +7,9 @@
         </div>
         <div aria-hidden="true" class="absolute inset-0 bg-black opacity-70"></div>
         <div class="relative mx-auto flex max-w-3xl flex-col items-center px-6 py-24 text-center sm:py-40 lg:px-0">
-            <h1 class="text-4xl font-bold tracking-tight text-white lg:text-6xl font-heading">{{ __('New arrivals are here') }}</h1>
+            <h1 class="text-4xl font-bold tracking-tight text-white lg:text-6xl font-heading">
+                {{ __('New arrivals are here') }}
+            </h1>
             <p class="mt-4 mb-8 text-xl text-white">
                 {{ __('The new arrivals have, well, newly arrived. Check out the latest options from our summer small-batch release while they\'re still in stock.') }}
             </p>
@@ -21,6 +23,8 @@
         <x-category-list />
 
         <livewire:products.best-deals />
+
+        <livewire:collections.grid-cards :limit="3" />
     </div>
 
 </x-layout.shop>

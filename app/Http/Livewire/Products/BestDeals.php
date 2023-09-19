@@ -8,7 +8,7 @@ use App\Models\Product;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
-class BestDeals extends Component
+final class BestDeals extends Component
 {
     public function render(): View
     {
