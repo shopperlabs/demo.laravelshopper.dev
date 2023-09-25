@@ -1,4 +1,5 @@
 @props(['product'])
+
 <div class="group relative">
     <div class="relative h-56 w-full overflow-hidden rounded-lg bg-secondary-200 group-hover:opacity-75 lg:h-72 xl:h-80">
         <img src="{{ $product->getFirstMediaUrl(config('shopper.core.storage.collection_name')) }}" alt="{{ $product->name }}" class="h-full w-full object-cover object-center">
