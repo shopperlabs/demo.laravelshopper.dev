@@ -8,7 +8,7 @@ use App\Models\Collection;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
-class GridCards extends Component
+final class GridCards extends Component
 {
     public int $limit = 2;
 
