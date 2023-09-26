@@ -18,7 +18,7 @@ jobs:
         run: yarn
 
       - name: Compile assets
-        run: yarn run production
+        run: yarn build
 
       - name: Commit compiled files
         uses: stefanzweifel/git-auto-commit-action@v4
