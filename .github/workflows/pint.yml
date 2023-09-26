@@ -1,20 +1,41 @@
-name: Check & fix styling
+name: fix code styling
 
-on: [push]
+on:
+  workflow_call:
+    inputs:
+      php:
+        default: "8.2"
+        type: string
+      message:
+        default: Fix code styling
+        type: string
+      fix:
+        default: true
+        type: boolean
 
 jobs:
-  pint:
+  lint:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
         with:
-          ref: ${{ github.head_ref }}
-      - name: Install dependencies
-        run: composer install --no-interaction
+          php-version: ${{ inputs.php }}
+          extensions: json, dom, curl, libxml, mbstring
+          coverage: none
+
+      - name: Install Pint
+        run: composer global require laravel/pint
+
       - name: Run Pint
-        run: ./vendor/bin/pint
-      - name: Commit changes
+        run: pint
+
+      - name: Commit linted files
+        if: ${{ inputs.fix }}
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: Fix styling
+          commit_message: ${{ inputs.message }}
