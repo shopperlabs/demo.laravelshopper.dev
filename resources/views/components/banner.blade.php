@@ -16,12 +16,12 @@
                     </a>
                 </form>
             @else
-                <a href="{{ route('register') }}" class="text-sm font-medium text-secondary-700 hover:text-secondary-900">
-                    {{ __('Create an account') }}
-                </a>
-                <span class="w-px h-6 bg-secondary-300" aria-hidden="true"></span>
                 <a href="{{ route('login') }}" class="text-sm font-medium text-secondary-700 hover:text-secondary-900">
                     {{ __('Sign in') }}
+                </a>
+                <span class="w-px h-6 bg-secondary-300" aria-hidden="true"></span>
+                <a href="{{ route('register') }}" class="text-sm font-medium text-secondary-700 hover:text-secondary-900">
+                    {{ __('Create an account') }}
                 </a>
             @endauth
         </div>

@@ -9,6 +9,7 @@
     "ext-intl": "*",
     "cyrildewit/eloquent-viewable": "^7.0",
     "doctrine/dbal": "^3.6",
+    "gehrisandro/tailwind-merge-laravel": "^1.1",
     "guzzlehttp/guzzle": "^7.2",
     "laravel/framework": "^10.0",
     "laravel/sanctum": "^3.2",

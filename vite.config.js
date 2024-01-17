@@ -4,7 +4,7 @@ import { resolve } from 'path'
 import laravel from 'laravel-vite-plugin'
 import { defineConfig } from 'vite'
 
-let host = 'shopper-dev.test'
+let host = 'demo.laravelshopper.dev.test'
 
 export default defineConfig({
   plugins: [
