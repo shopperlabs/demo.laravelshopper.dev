@@ -9,9 +9,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomeController::class)->name('home');
 
-Route::get('/dashboard', fn () => view('pages.dashboard'))
+Route::get('/account', fn () => view('pages.account.index'))
     ->middleware(['auth', 'verified'])
-    ->name('dashboard');
+    ->name('account');
 
 Route::middleware('auth')->group(function (): void {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -21,7 +21,7 @@
         <div class="flex-1">
             @include('includes.header')
 
-            <main {{ $attributes->merge(['class' => 'z-0 h-full']) }}>
+            <main {{ $attributes->twMerge(['class' => 'z-0 h-full']) }}>
                 {{ $slot }}
             </main>
         </div>

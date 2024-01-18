@@ -5,20 +5,20 @@
     <!-- Secondary navigation -->
     <div class="bg-white">
         <div class="border-b border-secondary-200">
-            <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <x-container>
                 <div class="flex items-center justify-between h-16">
                     <div class="hidden lg:flex lg:flex-1">
                         <x-menu.parent-category />
                     </div>
                     <div class="hidden lg:flex lg:items-center">
-                        <a href="#">
+                        <a href="/">
                             <span class="sr-only">{{ config('app.name') }}</span>
                             <x-brand class="w-auto h-8" />
                         </a>
                     </div>
                     <div class="flex items-center justify-end flex-1">
                         <div class="flex items-center space-x-1 lg:ml-8">
-                            <a href="{{ Auth::check() ? route('dashboard') : route('login') }}" class="inline-flex items-center p-2 transition text-secondary-500 hover:text-secondary-700">
+                            <a href="{{ Auth::check() ? route('account') : route('login') }}" class="inline-flex items-center p-2 transition text-secondary-500 hover:text-secondary-700">
                                 <x-untitledui-user-02 class="w-6 h-6" stroke-width="1.5" />
                             </a>
                             <button type="button" class="inline-flex items-center p-2 transition text-secondary-500 hover:text-secondary-700">
@@ -30,7 +30,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </x-container>
         </div>
     </div>
 </header>

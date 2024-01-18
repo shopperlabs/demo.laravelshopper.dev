@@ -1,4 +1,4 @@
-<x-layout.guest :title="__('Create your account')">
+<x-layout.shop :title="__('Create your account')">
     <div class="min-h-full flex flex-col justify-center py-12">
         <div class="sm:mx-auto sm:w-full sm:max-w-md px-4">
             <div>
@@ -72,7 +72,7 @@
                                 {{ __('Already registered ?') }}
                             </a>
 
-                            <x-buttons.primary class="py-2 px-4 w-full max-w-xs sm:max-w-[200px]">
+                            <x-buttons.primary type="submit" class="py-2 px-4 w-full max-w-xs sm:max-w-[200px]">
                                 {{ __('Register') }}
                             </x-buttons.primary>
                         </div>
@@ -94,4 +94,4 @@
             </div>
         </div>
     </div>
-</x-layout.guest>
+</x-layout.shop>
