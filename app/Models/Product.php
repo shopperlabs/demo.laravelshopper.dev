@@ -6,6 +6,7 @@ namespace App\Models;
 
 use Shopper\Core\Models\Product as Model;
 
-class Product extends Model
+final class Product extends Model
 {
+    //
 }

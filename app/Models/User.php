@@ -6,7 +6,7 @@ namespace App\Models;
 
 use Shopper\Core\Models\User as Authenticatable;
 
-class User extends Authenticatable
+final class User extends Authenticatable
 {
     //
 }

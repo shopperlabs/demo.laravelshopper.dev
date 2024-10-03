@@ -17,6 +17,7 @@ final class LivewireStarterKitProvider extends ServiceProvider
 
     public function boot(): void
     {
+        //
     }
 
     private function loadViewsComposer(): void

@@ -7,7 +7,7 @@ namespace Database\Factories;
 use Shopper\Core\Models\Product;
 use Spatie\MediaLibrary\MediaCollections\Exceptions\UnreachableUrl;
 
-class ProductFactory extends \Shopper\Core\Database\Factories\ProductFactory
+final class ProductFactory extends \Shopper\Core\Database\Factories\ProductFactory
 {
     public function configure(): \Shopper\Core\Database\Factories\ProductFactory
     {
