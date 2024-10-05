@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Livewire;
+namespace App\Livewire\Pages;
 
 use App\Models\Product;
 use Illuminate\Contracts\View\View;
@@ -21,7 +21,7 @@ final class SingleProduct extends Component
 
     public function render(): View
     {
-        return view('livewire.product')
+        return view('livewire.pages.single-product')
             ->title($this->product->name);
     }
 }

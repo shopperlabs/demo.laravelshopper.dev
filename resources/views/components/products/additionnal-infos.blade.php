@@ -20,7 +20,7 @@
             <div class="border border-gray-200 bg-gray-50 p-6 text-center">
                 <dt>
                     <x-untitledui-globe-05
-                        class="mx-auto h-6 w-6 text-gray-400"
+                        class="mx-auto size-6 text-gray-400"
                         stroke-width="1.5"
                         aria-hidden="true"
                     />
@@ -32,7 +32,7 @@
             </div>
             <div class="border border-gray-200 bg-gray-50 p-6 text-center">
                 <dt>
-                    <x-untitledui-gift-02 class="mx-auto h-6 w-6 text-gray-400" stroke-width="1.5" aria-hidden="true" />
+                    <x-untitledui-gift-02 class="mx-auto size-6 text-gray-400" stroke-width="1.5" aria-hidden="true" />
                     <span class="mt-4 text-sm font-medium text-gray-900">{{ __('Récompenses de fidélité') }}</span>
                 </dt>
                 <dd class="mt-1 text-sm text-gray-500">

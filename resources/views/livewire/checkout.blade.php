@@ -6,10 +6,10 @@
     <header class="relative border-b border-gray-200 bg-white text-sm font-medium text-gray-700">
         <x-container class="py-3">
             <div class="relative flex items-center">
-                <x-wire-link :href="route('home')">
+                <x-link :href="route('home')">
                     <span class="sr-only">{{ shopper_setting('legal_name') }}</span>
                     <x-brand class="h-10 w-auto" aria-hidden="true" />
-                </x-wire-link>
+                </x-link>
                 <p class="sm:hidden">Step 2 of 4</p>
             </div>
         </x-container>
@@ -84,7 +84,7 @@
                                     <span class="mr-auto text-base">{{ __('Total') }}</span>
                                     <span class="mr-2 text-base">$361.80</span>
                                     <svg
-                                        class="h-5 w-5 text-gray-500"
+                                        class="size-5 text-gray-500"
                                         viewBox="0 0 20 20"
                                         fill="currentColor"
                                         aria-hidden="true"
@@ -154,9 +154,9 @@
             <nav aria-label="Progress" class="hidden sm:block">
                 <ol role="list" class="flex space-x-4">
                     <li class="flex items-center">
-                        <x-wire-link href="#">{{ __('Panier') }}</x-wire-link>
+                        <x-link href="#">{{ __('Panier') }}</x-link>
                         <svg
-                            class="ml-4 h-5 w-5 text-gray-300"
+                            class="ml-4 size-5 text-gray-300"
                             aria-hidden="true"
                             viewBox="0 0 20 20"
                             fill="currentColor"
@@ -171,7 +171,7 @@
                     <li class="flex items-center">
                         <a href="#" aria-current="page" class="text-primary-600">Billing Information</a>
                         <svg
-                            class="ml-4 h-5 w-5 text-gray-300"
+                            class="ml-4 size-5 text-gray-300"
                             aria-hidden="true"
                             viewBox="0 0 20 20"
                             fill="currentColor"
@@ -362,7 +362,7 @@
                             name="same-as-shipping"
                             type="checkbox"
                             checked
-                            class="h-4 w-4 rounded border-gray-300 text-primary-600 focus:ring-primary-500"
+                            class="size-4 rounded border-gray-300 text-primary-600 focus:ring-primary-500"
                         />
                         <div class="ml-2">
                             <label for="same-as-shipping" class="text-sm font-medium text-gray-900">
