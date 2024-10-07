@@ -11,15 +11,21 @@
                 @endforeach
             </div>
         </nav>
-        <div class="ml-auto flex items-center gap-x-4">
-            <div class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-4">
-                <x-link :href="route('login')" class="text-sm font-medium text-gray-700 hover:text-gray-800">
-                    {{ __('Log in') }}
-                </x-link>
-                <span class="h-6 w-px bg-gray-200" aria-hidden="true"></span>
-                <x-link :href="route('register')" class="text-sm font-medium text-gray-700 hover:text-gray-800">
-                    {{ __('Create account') }}
-                </x-link>
+        <div class="ml-auto flex items-center gap-x-6">
+            <div class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
+                @auth
+                    <x-link :href="route('dashboard')" class="text-sm font-medium text-gray-700 hover:text-gray-800">
+                        {{ __('Account') }}
+                    </x-link>
+                @else
+                    <x-link :href="route('login')" class="text-sm font-medium text-gray-700 hover:text-gray-800">
+                        {{ __('Log in') }}
+                    </x-link>
+                    <span class="h-6 w-px bg-gray-200" aria-hidden="true"></span>
+                    <x-link :href="route('register')" class="text-sm font-medium text-gray-700 hover:text-gray-800">
+                        {{ __('Create account') }}
+                    </x-link>
+                @endauth
             </div>
 
             <!-- Currency -->

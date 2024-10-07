@@ -21,7 +21,7 @@
 
         <x-container class="relative py-16 sm:pt-24 lg:py-40">
             <div class="sm:max-w-xl">
-                <h1 class="font-heading text-4xl font-extrabold tracking-tight text-black sm:text-6xl">
+                <h1 class="font-heading text-4xl font-bold tracking-tight text-black sm:text-6xl">
                     {{ __('New arrivals are here') }}
                 </h1>
                 <p class="mt-4 text-xl text-gray-500">
@@ -30,10 +30,8 @@
             </div>
             <div class="py-10">
                 <x-buttons.primary href="#" class="group px-8 py-3 text-center text-base font-medium">
-                    {{ __('Découvrez maintenant') }}
-                    <span
-                        class="ml-2 translate-x-0 transform transition duration-200 ease-in-out group-hover:translate-x-1"
-                    >
+                    {{ __('Discover now') }}
+                    <span class="ml-2 translate-x-0 transform transition duration-200 ease-in-out group-hover:translate-x-1">
                         <x-untitledui-arrow-narrow-right class="size-6" stroke-width="1.5" aria-hidden="true" />
                     </span>
                 </x-buttons.primary>

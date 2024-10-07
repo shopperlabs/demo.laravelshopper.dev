@@ -10,13 +10,13 @@
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net" />
-    <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.bunny.net/css?family=figtree:400,600,800,900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
 
     @filamentStyles
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="antialiased selection:bg-primary-300 selection:text-white">
+<body class="font-sans antialiased selection:bg-black selection:text-white">
     {{ $slot }}
 
     @livewire(\Filament\Notifications\Livewire\Notifications::class)
