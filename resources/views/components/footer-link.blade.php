@@ -1,12 +1,7 @@
-@props([
-    'link',
-])
-
-<x-wire-link
-    :href="$link"
-    {{ $attributes->twMerge(['class' => 'text-sm text-gray-400 hover:text-white group group-link-underline']) }}
+<x-link
+    {{ $attributes->twMerge(['class' => 'text-sm leading-6 text-gray-600 hover:text-gray-900 group group-link-underline']) }}
 >
-    <span class="link link-underline link-underline-white">
+    <span class="link link-underline link-underline-black">
         {{ $slot }}
     </span>
-</x-wire-link>
+</x-link>

@@ -1,7 +1,8 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Livewire\Actions\Logout;
-use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Livewire\Attributes\Layout;
@@ -15,7 +16,7 @@ new #[Layout('layouts.guest')] class extends Component
     public function sendVerification(): void
     {
         if (Auth::user()->hasVerifiedEmail()) {
-            $this->redirectIntended(default: RouteServiceProvider::HOME, navigate: true);
+            $this->redirectIntended(default: route('home'), navigate: true);
 
             return;
         }
@@ -36,7 +37,7 @@ new #[Layout('layouts.guest')] class extends Component
     }
 }; ?>
 
-<div>
+<div class="relative">
     <div class="mb-4 text-sm text-gray-600">
         {{ __('Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.') }}
     </div>
@@ -48,11 +49,14 @@ new #[Layout('layouts.guest')] class extends Component
     @endif
 
     <div class="mt-4 flex items-center justify-between">
-        <x-primary-button wire:click="sendVerification">
+        <x-buttons.primary wire:click="sendVerification" class="w-full px-4 text-base">
+            <span class="absolute left-0 pl-2" wire:loading>
+                <x-loading-dots class="bg-white" />
+            </span>
             {{ __('Resend Verification Email') }}
-        </x-primary-button>
+        </x-buttons.primary>
 
-        <button wire:click="logout" type="submit" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+        <button wire:click="logout" type="submit" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500">
             {{ __('Log Out') }}
         </button>
     </div>

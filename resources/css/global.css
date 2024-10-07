@@ -1,0 +1,25 @@
+[x-cloak] { display: none; }
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: theme('colors.gray.100');
+}
+
+::-webkit-scrollbar-thumb {
+  background: theme('colors.gray.300');
+  border-radius: 0;
+  transition: all 250ms;
+}
+
+::-webkit-scrollbar-thumb:hover, ::-webkit-scrollbar-thumb:active {
+  background: theme('colors.gray.800');
+  border-radius: 0;
+}
+
+.swiper-scrollbar-drag {
+  border-radius: 0;
+  background: #000;
+}

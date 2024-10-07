@@ -45,7 +45,7 @@
                             <div class="ml-1 flex items-center">
                                 <!-- Active: "text-yellow-400", Inactive: "text-gray-200" -->
                                 <svg
-                                    class="h-5 w-5 flex-shrink-0 text-yellow-400"
+                                    class="size-5 flex-shrink-0 text-yellow-400"
                                     viewBox="0 0 20 20"
                                     fill="currentColor"
                                     aria-hidden="true"
@@ -57,7 +57,7 @@
                                     />
                                 </svg>
                                 <svg
-                                    class="h-5 w-5 flex-shrink-0 text-yellow-400"
+                                    class="size-5 flex-shrink-0 text-yellow-400"
                                     viewBox="0 0 20 20"
                                     fill="currentColor"
                                     aria-hidden="true"
@@ -69,7 +69,7 @@
                                     />
                                 </svg>
                                 <svg
-                                    class="h-5 w-5 flex-shrink-0 text-yellow-400"
+                                    class="size-5 flex-shrink-0 text-yellow-400"
                                     viewBox="0 0 20 20"
                                     fill="currentColor"
                                     aria-hidden="true"
@@ -81,7 +81,7 @@
                                     />
                                 </svg>
                                 <svg
-                                    class="h-5 w-5 flex-shrink-0 text-yellow-400"
+                                    class="size-5 flex-shrink-0 text-yellow-400"
                                     viewBox="0 0 20 20"
                                     fill="currentColor"
                                     aria-hidden="true"
@@ -93,7 +93,7 @@
                                     />
                                 </svg>
                                 <svg
-                                    class="h-5 w-5 flex-shrink-0 text-gray-200"
+                                    class="size-5 flex-shrink-0 text-gray-200"
                                     viewBox="0 0 20 20"
                                     fill="currentColor"
                                     aria-hidden="true"

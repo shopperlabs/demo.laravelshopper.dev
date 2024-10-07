@@ -24,7 +24,7 @@
                         <span id="color-choice-0-label" class="sr-only">Black</span>
                         <span
                             aria-hidden="true"
-                            class="h-8 w-8 rounded-full border border-black border-opacity-10 bg-gray-900"
+                            class="size-8 rounded-full border border-black border-opacity-10 bg-gray-900"
                         ></span>
                     </label>
                     <!--
@@ -44,7 +44,7 @@
                         <span id="color-choice-1-label" class="sr-only">Heather Grey</span>
                         <span
                             aria-hidden="true"
-                            class="h-8 w-8 rounded-full border border-black border-opacity-10 bg-gray-400"
+                            class="size-8 rounded-full border border-black border-opacity-10 bg-gray-400"
                         ></span>
                     </label>
                 </div>

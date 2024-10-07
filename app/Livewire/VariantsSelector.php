@@ -14,6 +14,6 @@ final class VariantsSelector extends Component
 
     public function render(): View
     {
-        return view('livewire.variants-selector');
+        return view('livewire.components.variants-selector');
     }
 }

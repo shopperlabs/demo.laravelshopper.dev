@@ -1,8 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Livewire\Checkout;
-use App\Livewire\Home;
-use App\Livewire\SingleProduct;
+use App\Livewire\Pages;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,8 +17,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', Home::class)->name('home');
-Route::get('/products/{slug}', SingleProduct::class)->name('single-product');
+Route::get('/', Pages\Home::class)->name('home');
+Route::get('/products/{slug}', Pages\SingleProduct::class)->name('single-product');
 
 Route::middleware('auth')->group(function (): void {
     Route::view('dashboard', 'dashboard')->middleware(['verified'])->name('dashboard');

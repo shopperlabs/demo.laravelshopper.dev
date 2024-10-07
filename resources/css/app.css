@@ -1,3 +1,6 @@
+@import "global.css";
+@import "links.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
