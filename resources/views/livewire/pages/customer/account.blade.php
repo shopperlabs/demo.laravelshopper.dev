@@ -12,27 +12,27 @@ new #[Layout('components.layouts.templates.account')] class extends Component {
     {
         return [
             [
-                'title' => __('Mes commandes'),
-                'description' => __('Suivez vos commandes, retournez-les ou achetez-les à nouveau'),
-                'href' => route('account.orders'),
+                'title' => __('My orders'),
+                'description' => __('STrack your orders, return them or buy them again'),
+                'href' => '#',
                 'icon' => 'untitledui-shopping-bag-03'
             ],
             [
-                'title' => __('Données personnelles'),
-                'description' => __("Changement d'adresse e-mail, de nom et de numéro de téléphone"),
-                'href' => route('account.show'),
+                'title' => __('Personal information'),
+                'description' => __("Change of e-mail address, name and telephone number"),
+                'href' => route('dashboard'),
                 'icon' => 'untitledui-shield-tick'
             ],
             [
-                'title' => __('Mes adresses'),
-                'description' => __('Préférences de facturation et de livraison pour les commandes'),
-                'href' => route('account.addresses'),
+                'title' => __('My address'),
+                'description' => __('Billing and delivery preferences for orders'),
+                'href' => '#',
                 'icon' => 'untitledui-globe-05'
             ],
             [
-                'title' => __('Contactez-nous'),
-                'description' => __('Contacter notre service clientèle par téléphone ou e-mail'),
-                'href' => route('account.show'),
+                'title' => __('Contact us'),
+                'description' => __('Contact our customer service department by telephone or e-mail'),
+                'href' => route('dashboard'),
                 'icon' => 'untitledui-phone'
             ],
         ];
@@ -41,8 +41,8 @@ new #[Layout('components.layouts.templates.account')] class extends Component {
 
 <div class="space-y-10">
     <x-page-heading
-        :title="__('Aperçu')"
-        :description="__('Dans votre espace client, vous pouvez gérer vos commandes et vos retours, ainsi que vos informations personnelles.')"
+        :title="__('Overview')"
+        :description="__('In your customer area, you can manage your orders and returns, as well as your personal information.')"
     />
 
     <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:max-w-5xl lg:grid-cols-3">
