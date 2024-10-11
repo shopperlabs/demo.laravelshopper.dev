@@ -4,24 +4,44 @@ declare(strict_types=1);
 
 namespace App\Livewire\Modals\Customer;
 
-use App\Traits\WithAddressAttributes;
-use Filament\Forms\Concerns\InteractsWithForms;
-use Filament\Forms\Contracts\HasForms;
+
 use Filament\Notifications\Notification;
 use Illuminate\Contracts\View\View;
 use LivewireUI\Modal\ModalComponent;
+use Livewire\Attributes\Validate;
 
 use Shopper\Core\Models\Address;
 use Shopper\Core\Models\Country;
 use App\Actions\CountriesWithZone;
+use Shopper\Core\Enum\AddressType;
 use App\Actions\ZoneSessionManager;
 
-final class AddressForm extends ModalComponent implements HasForms
+final class AddressForm extends ModalComponent
 {
-    use InteractsWithForms;
-    use WithAddressAttributes;
 
-    public array $data = [];
+    #[Validate('required|string')]
+    public ?string $first_name = null;
+
+    #[Validate('required|string')]
+    public ?string $last_name = null;
+
+    #[Validate('required|min:3')]
+    public ?string $street_address;
+
+    public ?string $street_address_plus = null;
+
+    #[Validate('required')]
+    public AddressType $type;
+
+    public ?int $country_id = null;
+
+    #[Validate('required|string')]
+    public ?string $postal_code = null;
+
+    #[Validate('required|string')]
+    public ?string $city = null;
+
+    public ?string $phone_number;
 
     public ?Address $address = null;
 
@@ -37,8 +57,22 @@ final class AddressForm extends ModalComponent implements HasForms
             ->when(ZoneSessionManager::getSession() !== null, function ($query) {
                 $query->where('zoneId', ZoneSessionManager::getSession()->zoneId);
             }))->pluck('name', 'id');
+        $this->address->type = ($this->address->type === AddressType::Shipping) ? AddressType::Shipping : AddressType::Billing;
 
-        if($addressId && $this->address) $this->setFormDataForUpdate($this->address);
+        if ($addressId && $this->address) {
+            $this->fill([
+                'first_name' => $this->address->first_name,
+                'last_name' => $this->address->last_name,
+                'street_address' => $this->address->street_address,
+                'street_address_plus' => $this->address->street_address_plus,
+                'type' => $this->address->type,
+                'country_id' => $this->address->country_id,
+                'postal_code' => $this->address->postal_code,
+                'city' => $this->address->city,
+                'phone_number' => $this->address->phone_number,
+            ]);
+        }
+
     }
 
     public static function modalMaxWidth(): string
@@ -52,9 +86,9 @@ final class AddressForm extends ModalComponent implements HasForms
         $this->validate();
 
         if ($this->address->id) {
-            $this->address->update($this->getFormData());
+            $this->address->update(array_merge($this->validate(), ['user_id' => auth()->id()]));
         } else {
-            Address::query()->create($this->getFormData());
+            Address::query()->create(array_merge($this->validate(), ['user_id' => auth()->id()]));
         }
 
         Notification::make()
@@ -65,35 +99,6 @@ final class AddressForm extends ModalComponent implements HasForms
         $this->dispatch('addresses-updated');
 
         $this->closeModal();
-    }
-
-    private function getFormData(){
-        return [
-            'first_name' => $this->firstName,
-            'last_name' => $this->lastName,
-            'street_address' => $this->streetAddress,
-            'street_address_plus' => $this->streetAddressPlus,
-            'type' => $this->type,
-            'country_id' => $this->countryId,
-            'postal_code' => $this->postalCode,
-            'city' => $this->city,
-            'phone_number' => $this->phoneNumber,
-            'user_id' => auth()->id(),
-        ];
-    }
-
-    private function setFormDataForUpdate(Address $address){
-        return [
-            $this->firstName = $address->first_name,
-            $this->lastName = $address->last_name,
-            $this->streetAddress = $address->street_address,
-            $this->streetAddressPlus = $address->street_address_plus,
-            $this->type = $address->type,
-            $this->countryId = $address->country_id,
-            $this->postalCode = $address->postal_code,
-            $this->city = $address->city,
-            $this->phoneNumber = $address->phone_number,
-        ];
     }
     public function render(): View
     {

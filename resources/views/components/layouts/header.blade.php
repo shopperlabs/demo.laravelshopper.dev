@@ -1,5 +1,5 @@
 <x-banner />
-<header class="sticky top-0 py-3 bg-white border-b border-gray-200 z-4 bg-opacity-80 backdrop-blur-xl backdrop-filter">
+<header class="sticky top-0 z-10 py-3 bg-white border-b border-gray-200 bg-opacity-80 backdrop-blur-xl backdrop-filter">
     <x-container class="flex items-center justify-between px-4">
         <nav role="navigation" class="flex items-center">
             <x-link :href="route('home')" class="relative text-sm">

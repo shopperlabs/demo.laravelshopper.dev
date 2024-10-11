@@ -19,7 +19,7 @@ final class Addresses extends Component
         Address::query()->find($id)->delete();
 
         Notification::make()
-            ->title(__("L'adresse a été correctement supprimée de votre liste!"))
+            ->title(__("The address has been correctly removed from your list!"))
             ->success()
             ->send();
 
@@ -32,6 +32,6 @@ final class Addresses extends Component
         return view('livewire.pages.customer.addresses', [
             'addresses' => auth()->user()->addresses,
         ])
-            ->title(__('Mes adresses'));
+            ->title(__('My addresses'));
     }
 }
