@@ -22,7 +22,7 @@ final class ZoneSelector extends SlideOverComponent
     #[Computed]
     public function countries(): Collection
     {
-        return (new CountriesWithZone())->handle();
+        return (new CountriesWithZone)->handle();
     }
 
     public function selectZone(int $countryId): void

@@ -67,7 +67,7 @@ final class CurrencySelector extends Component
 
     public function placeholder(): string
     {
-        return <<<Blade
+        return <<<'Blade'
             <div class="flex items-center gap-2">
                 <x-shopper::skeleton class="w-6 h-5 rounded-none" />
                 <x-shopper::skeleton class="w-10 h-3 rounded" />

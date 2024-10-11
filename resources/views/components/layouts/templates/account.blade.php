@@ -1,8 +1,8 @@
 <x-layouts.templates.app :title="$title ?? null">
-    <x-container class="relative pt-8 lg:py-12">
+    <x-container class="relative py-8 sm:py-12 lg:py-16">
         <div class="grid grid-cols-1 lg:grid-cols-5 lg:gap-x-12">
             <div class="lg:col-span-1">
-                <h2 class="hidden text-xl font-bold leading-6 font-heading text-primary-900 lg:block">
+                <h2 class="hidden text-xl font-medium leading-6 font-heading text-gray-900 lg:block">
                     {{ __('My account') }}
                 </h2>
                 <div class="hidden mt-10 space-y-8 lg:block">
@@ -14,7 +14,7 @@
                         />
                         <x-nav.account-link
                             :href="route('dashboard')"
-                            :title="__('Personal data')"
+                            :title="__('Profile')"
                             :active="request()->routeIs('dashboard.profile')"
                         />
                         <x-nav.account-link

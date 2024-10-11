@@ -9,6 +9,9 @@
                         {{ __('Build modern, scalable online stores. It includes essential features like product management, checkout, and order handling.') }}
                     </p>
                 </div>
+
+                <!-- Zones Selector -->
+                <x-zones-selector />
             </div>
             <div class="mt-16 gap-8 space-y-6 lg:col-span-1 lg:mt-0 lg:grid lg:grid-cols-3 lg:space-y-0">
                 <div>

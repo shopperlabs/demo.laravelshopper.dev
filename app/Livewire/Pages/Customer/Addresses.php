@@ -19,7 +19,7 @@ final class Addresses extends Component
         Address::query()->find($id)->delete();
 
         Notification::make()
-            ->title(__("The address has been correctly removed from your list!"))
+            ->title(__('The address has been correctly removed from your list!'))
             ->success()
             ->send();
 

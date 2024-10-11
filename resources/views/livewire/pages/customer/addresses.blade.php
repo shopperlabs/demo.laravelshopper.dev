@@ -10,7 +10,7 @@
             wire:click="$dispatch('openModal', { component: 'modals.customer.address-form' })"
             class="w-full px-8 py-2 text-sm sm:w-auto"
         >
-            {{ __('Add an address') }}
+            {{ __('Add address') }}
         </x-buttons.default>
 
         @if($addresses->isNotEmpty())
@@ -21,7 +21,7 @@
             </div>
         @else
             <p class="text-sm text-gray-500">
-                {{ __("You have not yet added any addresses to your space.") }}
+                {{ __('You have not yet added any addresses to your space.') }}
             </p>
         @endif
     </div>

@@ -1,7 +1,7 @@
 @props(['title', 'description' => null])
 
 <div>
-    <h2 class="font-heading text-2xl font-medium text-primary-900">
+    <h2 class="font-heading text-2xl font-semibold text-gray-900">
         {{ $title }}
     </h2>
     @if($description)
