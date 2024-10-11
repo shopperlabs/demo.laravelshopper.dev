@@ -18,7 +18,7 @@
                             :active="request()->routeIs('dashboard.profile')"
                         />
                         <x-nav.account-link
-                            href="#"
+                            :href="route('dashboard.addresses')"
                             :title="__('Adresses')"
                             :active="request()->routeIs('dashboard.addresses')"
                         />

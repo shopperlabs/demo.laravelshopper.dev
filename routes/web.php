@@ -29,7 +29,8 @@ Route::middleware('auth')->group(function (): void {
 
     Route::prefix('dashboard')->as('dashboard.')->group(function (): void {
         Route::view('profile', 'profile')->name('profile');
-        Volt::route('/orders/{number}', 'pages.customer.orders.detail')->name('orders.detail');
+        Route::get('/addresses', Pages\Customer\Addresses::class)->name('addresses');
+
     });
 });
 

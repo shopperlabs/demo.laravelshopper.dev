@@ -26,7 +26,7 @@ new #[Layout('components.layouts.templates.account')] class extends Component {
             [
                 'title' => __('My address'),
                 'description' => __('Billing and delivery preferences for orders'),
-                'href' => '#',
+                'href' => route('dashboard.addresses'),
                 'icon' => 'untitledui-globe-05'
             ],
             [
