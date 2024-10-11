@@ -14,9 +14,7 @@
         <div class="flex items-center ml-auto gap-x-6">
             <div class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
                 @auth
-                    <x-link :href="route('dashboard')" class="text-sm font-medium text-gray-700 hover:text-gray-800">
-                        {{ __('Account') }}
-                    </x-link>
+                    <livewire:components.account-menu />
                 @else
                     <x-link :href="route('login')" class="text-sm font-medium text-gray-700 hover:text-gray-800">
                         {{ __('Log in') }}
@@ -27,10 +25,6 @@
                     </x-link>
                 @endauth
             </div>
-
-            <!-- Currency -->
-            <livewire:currency-selector />
-
             <!-- Search -->
             <livewire:global-search />
 
