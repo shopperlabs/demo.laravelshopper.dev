@@ -1,7 +1,9 @@
-[x-cloak] { display: none; }
+[x-cloak] {
+  display: none;
+}
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -14,7 +16,8 @@
   transition: all 250ms;
 }
 
-::-webkit-scrollbar-thumb:hover, ::-webkit-scrollbar-thumb:active {
+::-webkit-scrollbar-thumb:hover,
+::-webkit-scrollbar-thumb:active {
   background: theme('colors.gray.800');
   border-radius: 0;
 }

@@ -13,20 +13,20 @@ new #[Layout('components.layouts.templates.account')] class extends Component {
         return [
             [
                 'title' => __('My orders'),
-                'description' => __('STrack your orders, return them or buy them again'),
+                'description' => __('Track your orders, return them or buy them again'),
                 'href' => '#',
                 'icon' => 'untitledui-shopping-bag-03'
             ],
             [
                 'title' => __('Personal information'),
-                'description' => __("Change of e-mail address, name and telephone number"),
+                'description' => __('Change of e-mail address, name and telephone number'),
                 'href' => route('dashboard'),
                 'icon' => 'untitledui-shield-tick'
             ],
             [
-                'title' => __('My address'),
+                'title' => __('My addresses'),
                 'description' => __('Billing and delivery preferences for orders'),
-                'href' => '#',
+                'href' => route('dashboard.addresses'),
                 'icon' => 'untitledui-globe-05'
             ],
             [

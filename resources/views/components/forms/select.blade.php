@@ -4,7 +4,7 @@
     'value' => 'name'
 ])
 
-<select {!! $attributes->merge(['class' => 'block w-full px-3 border border-gray-300 bg-white focus:outline-none focus:border-transparent focus:ring focus:ring-brand sm:text-sm']) !!}>
+<select {!! $attributes->merge(['class' => 'block w-full px-3 rounded-lg border border-gray-200 bg-white focus:outline-none focus:border-transparent focus:ring-2 focus:ring-primary-500 sm:text-sm']) !!}>
     @if($items)
         @foreach($items as $item)
             <option value="{{ $item->{$key} }}">{{ $item->{$value} }}</option>

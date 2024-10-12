@@ -21,6 +21,7 @@
 
     @livewire(\Filament\Notifications\Livewire\Notifications::class)
     @livewire(\Laravelcm\LivewireSlideOvers\SlideOverPanel::class)
+    @livewire('wire-elements-modal')
 
     @filamentScripts
 </body>
