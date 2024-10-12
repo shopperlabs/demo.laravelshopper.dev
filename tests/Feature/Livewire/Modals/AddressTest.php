@@ -4,13 +4,19 @@ declare(strict_types=1);
 
 use App\Livewire\Modals\Customer\AddressForm;
 use App\Livewire\Pages\Customer\Addresses;
+use App\Models\Address;
+use App\Models\Country;
 use App\Models\User;
 use Livewire\Livewire;
 use Shopper\Core\Enum\AddressType;
-use Shopper\Core\Models\Address;
 
 beforeEach(function (): void {
     $this->user = User::factory()->create();
+    $this->countries = Country::factory()
+        ->count(3)
+        ->create();
+
+    $this->actingAs($this->user);
 });
 
 describe(Addresses::class, function (): void {
@@ -22,7 +28,7 @@ describe(Addresses::class, function (): void {
             ->set('street_address', 'Ndokoti')
             ->set('street_address_plus', 'Adress street plus')
             ->set('type', AddressType::Billing)
-            ->set('country_id', 1)
+            ->set('country_id', $this->countries->first()->id)
             ->set('postal_code', '33790')
             ->set('city', 'Douala')
             ->set('phone_number', '99007788')
@@ -34,15 +40,15 @@ describe(Addresses::class, function (): void {
     });
 
     it('user can update address', function (): void {
-        $address = Address::factory()->create([
-            'first_name' => 'Old first name',
+        $address = Address::factory([
+            'first_name' => 'John',
             'type' => AddressType::Billing,
-            'user_id' => $this->user->id
-        ]);
+            'user_id' => $this->user->id,
+            'country_id' => $this->countries->first()->id,
+        ])->create();
 
-        Livewire::actingAs($this->user)
-            ->test(AddressForm::class, ['addressId' => $address->id])
-            ->set('first_name', 'New First name')
+        Livewire::test(AddressForm::class, ['addressId' => $address->id])
+            ->set('first_name', 'Jane')
             ->set('last_name', $address->last_name)
             ->set('street_address', $address->street_address)
             ->set('street_address_plus', $address->street_address_plus)
@@ -55,20 +61,22 @@ describe(Addresses::class, function (): void {
             ->assertDispatched('addresses-updated');
 
         expect(Address::get())
-            ->toHaveCount(1)->first()->first_name->toEqual('New First name');
+            ->toHaveCount(1)
+            ->first()->first_name->toEqual('Jane');
     });
 
     it('user can delete address', function (): void {
-        $address = Address::factory()->create(['first_name' => 'Old first name', 'type' => AddressType::Billing, 'user_id' => $this->user->id]);
+        $address = Address::factory()->create([
+            'first_name' => 'Old first name',
+            'type' => AddressType::Billing,
+            'user_id' => $this->user->id
+        ]);
 
-        Livewire::actingAs($this->user)
-            ->test(Addresses::class)
+        Livewire::test(Addresses::class)
             ->call('removeAddress', $address->id);
 
         expect(Address::count())
             ->toBe(0);
-
     });
 })
-    ->group('Adresses')
-    ->only();
+    ->group('address');

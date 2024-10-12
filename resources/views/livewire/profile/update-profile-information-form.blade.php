@@ -1,7 +1,8 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Models\User;
-use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Validation\Rule;
@@ -9,7 +10,8 @@ use Livewire\Volt\Component;
 
 new class extends Component
 {
-    public string $name = '';
+    public string $first_name = '';
+    public string $last_name = '';
     public string $email = '';
 
     /**
@@ -17,7 +19,8 @@ new class extends Component
      */
     public function mount(): void
     {
-        $this->name = Auth::user()->last_name;
+        $this->first_name = Auth::user()->first_name;
+        $this->last_name = Auth::user()->last_name;
         $this->email = Auth::user()->email;
     }
 
@@ -29,7 +32,8 @@ new class extends Component
         $user = Auth::user();
 
         $validated = $this->validate([
-            'name' => ['required', 'string', 'max:255'],
+            'first_name' => ['required', 'string', 'max:255'],
+            'last_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', Rule::unique(User::class)->ignore($user->id)],
         ]);
 
@@ -41,7 +45,7 @@ new class extends Component
 
         $user->save();
 
-        $this->dispatch('profile-updated', name: $user->name);
+        $this->dispatch('profile-updated', name: $user->full_name);
     }
 
     /**
@@ -52,7 +56,7 @@ new class extends Component
         $user = Auth::user();
 
         if ($user->hasVerifiedEmail()) {
-            $this->redirectIntended(default: RouteServiceProvider::HOME);
+            $this->redirectIntended(default: route('dashboard'));
 
             return;
         }
@@ -76,15 +80,21 @@ new class extends Component
 
     <form wire:submit="updateProfileInformation" class="mt-6 space-y-6">
         <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input wire:model="name" id="name" name="name" type="text" class="block w-full mt-1" required autofocus autocomplete="name" />
-            <x-input-error class="mt-2" :messages="$errors->get('name')" />
+            <x-forms.label for="first_name" :value="__('First Name')" />
+            <x-forms.input wire:model="first_name" id="first_name" name="first_name" type="text" class="block w-full mt-1" required autofocus autocomplete="first-name" />
+            <x-forms.errors class="mt-2" :messages="$errors->get('first_name')" />
         </div>
 
         <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input wire:model="email" id="email" name="email" type="email" class="block w-full mt-1" required autocomplete="username" />
-            <x-input-error class="mt-2" :messages="$errors->get('email')" />
+            <x-forms.label for="last_name" :value="__('Last Name')" />
+            <x-forms.input wire:model="last_name" id="last_name" name="last_name" type="text" class="block w-full mt-1" required autofocus autocomplete="last-name" />
+            <x-forms.errors class="mt-2" :messages="$errors->get('last_name')" />
+        </div>
+
+        <div>
+            <x-forms.label for="email" :value="__('Email')" />
+            <x-forms.input wire:model="email" id="email" name="email" type="email" class="block w-full mt-1" required autocomplete="username" />
+            <x-forms.errors class="mt-2" :messages="$errors->get('email')" />
 
             @if (auth()->user() instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! auth()->user()->hasVerifiedEmail())
                 <div>
@@ -106,7 +116,7 @@ new class extends Component
         </div>
 
         <div class="flex items-center gap-4">
-            <x-primary-button>{{ __('Save') }}</x-primary-button>
+            <x-buttons.submit :title="__('Save')" />
 
             <x-action-message class="me-3" on="profile-updated">
                 {{ __('Saved.') }}

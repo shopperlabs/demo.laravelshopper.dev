@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
@@ -25,7 +27,7 @@ new #[Layout('components.layouts.templates.app')] class extends Component
     {
         $this->token = $token;
 
-        $this->email = request()->string('email');
+        $this->email = (string) request()->string('email');
     }
 
     /**
@@ -97,9 +99,7 @@ new #[Layout('components.layouts.templates.app')] class extends Component
         </div>
 
         <div class="flex items-center justify-end mt-4">
-            <x-buttons.primary>
-                {{ __('Reset Password') }}
-            </x-buttons.primary>
+            <x-buttons.submit :title="__('Reset Password')" />
         </div>
     </form>
 </div>
