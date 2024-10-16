@@ -18,6 +18,9 @@ final class AddressData
         public int $countryId,
     ) {}
 
+    /**
+     * @param array<string> $data
+     */
     public static function fromArray(array $data): self
     {
         return new self(

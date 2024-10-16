@@ -17,17 +17,20 @@ final class CountryByZoneData
         public string $currencyCode,
     ) {}
 
+    /**
+     * @param array<string, mixed> $data
+     */
     public static function fromArray(array $data): self
     {
         return new self(
-            zoneId: $data['zone_id'],
-            zoneCode: $data['zone_code'],
-            zoneName: $data['zone_name'],
-            countryId: $data['country_id'],
-            countryName: $data['country_name'],
-            countryCode: $data['country_code'],
-            countryFlag: $data['country_flag'],
-            currencyCode: $data['currency_code'],
+            zoneId: data_get($data, 'zone_id'),
+            zoneCode: data_get($data, 'zone_code'),
+            zoneName: data_get($data, 'zone_name'),
+            countryId: data_get($data, 'country_id'),
+            countryName: data_get($data, 'country_name'),
+            countryCode: data_get($data, 'country_code'),
+            countryFlag: data_get($data, 'country_flag'),
+            currencyCode: data_get($data, 'currency_code'),
         );
     }
 }

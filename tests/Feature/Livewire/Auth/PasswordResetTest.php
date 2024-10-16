@@ -75,4 +75,4 @@ describe('Auth/PasswordReset', function (): void {
         });
     })->skip();
 })
-->group('auth');
+    ->group('auth');

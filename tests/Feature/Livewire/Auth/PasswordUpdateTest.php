@@ -43,4 +43,3 @@ describe('PasswordUpdate', function (): void {
             ->assertNoRedirect();
     });
 })->group('auth');
-

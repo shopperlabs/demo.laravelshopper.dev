@@ -6,6 +6,8 @@ namespace App\Livewire\Modals\Customer;
 
 use App\Actions\CountriesWithZone;
 use App\Actions\ZoneSessionManager;
+use App\Models\Address;
+use App\Models\Country;
 use Filament\Notifications\Notification;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
@@ -13,8 +15,6 @@ use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Validate;
 use LivewireUI\Modal\ModalComponent;
 use Shopper\Core\Enum\AddressType;
-use Shopper\Core\Models\Address;
-use Shopper\Core\Models\Country;
 
 final class AddressForm extends ModalComponent
 {
@@ -58,13 +58,13 @@ final class AddressForm extends ModalComponent
         $this->countries = Country::query()
             ->whereIn(
                 column: 'id',
-                values: (new CountriesWithZone())
+                values: (new CountriesWithZone)
                     ->handle()
                     ->where('zoneId', ZoneSessionManager::getSession()?->zoneId)->pluck('countryId')
             )
             ->pluck('name', 'id');
 
-        if ($addressId && $this->address) {
+        if ($addressId && $this->address->id) {
             $this->fill(array_merge($this->address->toArray(), ['type' => $this->address->type]));
         }
     }

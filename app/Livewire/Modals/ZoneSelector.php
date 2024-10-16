@@ -12,6 +12,9 @@ use Illuminate\Support\Collection;
 use Laravelcm\LivewireSlideOvers\SlideOverComponent;
 use Livewire\Attributes\Computed;
 
+/**
+ * @property Collection $countries
+ */
 final class ZoneSelector extends SlideOverComponent
 {
     public static function panelMaxWidth(): string

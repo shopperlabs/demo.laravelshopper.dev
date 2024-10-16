@@ -69,7 +69,7 @@ describe(Addresses::class, function (): void {
         $address = Address::factory()->create([
             'first_name' => 'Old first name',
             'type' => AddressType::Billing,
-            'user_id' => $this->user->id
+            'user_id' => $this->user->id,
         ]);
 
         Livewire::test(Addresses::class)
