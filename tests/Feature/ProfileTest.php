@@ -6,7 +6,7 @@ use App\Models\User;
 use Livewire\Volt\Volt;
 
 describe('Profile', function (): void {
-    test('profile page is displayed', function () {
+    test('profile page is displayed', function (): void {
         $user = User::factory()->create();
 
         $this->actingAs($user);
@@ -20,13 +20,15 @@ describe('Profile', function (): void {
             ->assertSeeVolt('profile.delete-user-form');
     });
 
-    test('profile information can be updated', function () {
+    test('profile information can be updated', function (): void {
+        /** @var User $user */
         $user = User::factory()->create();
 
         $this->actingAs($user);
 
         $component = Volt::test('profile.update-profile-information-form')
-            ->set('name', 'Test User')
+            ->set('first_name', 'Test')
+            ->set('last_name', 'User')
             ->set('email', 'test@example.com')
             ->call('updateProfileInformation');
 
@@ -36,18 +38,18 @@ describe('Profile', function (): void {
 
         $user->refresh();
 
-        $this->assertSame('Test User', $user->name);
+        $this->assertSame('Test User', $user->full_name);
         $this->assertSame('test@example.com', $user->email);
         $this->assertNull($user->email_verified_at);
     });
 
-    test('email verification status is unchanged when the email address is unchanged', function () {
+    test('email verification status is unchanged when the email address is unchanged', function (): void {
         $user = User::factory()->create();
 
         $this->actingAs($user);
 
         $component = Volt::test('profile.update-profile-information-form')
-            ->set('name', 'Test User')
+            ->set('first_name', 'John')
             ->set('email', $user->email)
             ->call('updateProfileInformation');
 
@@ -58,7 +60,7 @@ describe('Profile', function (): void {
         $this->assertNotNull($user->refresh()->email_verified_at);
     });
 
-    test('user can delete their account', function () {
+    test('user can delete their account', function (): void {
         $user = User::factory()->create();
 
         $this->actingAs($user);
@@ -75,7 +77,7 @@ describe('Profile', function (): void {
         $this->assertNull($user->fresh());
     });
 
-    test('correct password must be provided to delete account', function () {
+    test('correct password must be provided to delete account', function (): void {
         $user = User::factory()->create();
 
         $this->actingAs($user);
@@ -91,5 +93,5 @@ describe('Profile', function (): void {
         $this->assertNotNull($user->fresh());
     });
 })
-->group('profile')
-->skip();
+    ->group('profile')
+    ->skip();

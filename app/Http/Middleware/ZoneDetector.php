@@ -18,7 +18,7 @@ final class ZoneDetector
         // @Todo: Detect the user geolocation ip to retrieve country
         $geoLocation = session()->get('ip-geolocation');
 
-        $countries = (new CountriesWithZone())->handle();
+        $countries = (new CountriesWithZone)->handle();
 
         if ($geoLocation) {
             $userZone = $countries->firstWhere('countryCode', $geoLocation->countryCode);
@@ -39,7 +39,7 @@ final class ZoneDetector
     {
         $defaultZone = $countries->firstWhere('zoneCode', config('starter-kit.default_zone'));
 
-        if (! ZoneSessionManager::checkSession()) {
+        if (! ZoneSessionManager::checkSession() && $defaultZone) {
             ZoneSessionManager::setSession($defaultZone);
         }
     }

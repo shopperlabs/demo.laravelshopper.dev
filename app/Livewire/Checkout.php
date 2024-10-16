@@ -12,11 +12,14 @@ use Illuminate\Contracts\View\View;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 
-#[Layout('components.layouts.checkout')]
+#[Layout('components.layouts.templates.app')]
 final class Checkout extends Component implements HasForms
 {
     use InteractsWithForms;
 
+    /**
+     * @var array<string, mixed>
+     */
     public array $data = [];
 
     public function form(Form $form): Form
@@ -48,7 +51,7 @@ final class Checkout extends Component implements HasForms
 
     public function createOrder(): void
     {
-        dump($this->form->getState());
+        //
     }
 
     public function render(): View
