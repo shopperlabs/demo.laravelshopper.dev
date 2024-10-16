@@ -18,7 +18,7 @@ final class Checkout extends Component implements HasForms
     use InteractsWithForms;
 
     /**
-     * @var array<mixed> $data
+     * @var array<string, mixed>
      */
     public array $data = [];
 
