@@ -34,6 +34,18 @@
         <x-stats />
     </div>
 
+    @if ($categories->isNotEmpty())
+        <div>
+            <x-container class="py-16 lg:pt-20">
+                <ul role="list" class="grid gap-y-10 sm:grid-cols-2 sm:gap-x-8 lg:grid-cols-4 lg:gap-x-12">
+                    @foreach ($categories->toTree() as $category)
+                        <x-categories.list :category="$category" />
+                    @endforeach
+                </ul>
+            </x-container>
+        </div>
+    @endif
+
     <div class="bg-gray-50">
         <x-container class="py-16 lg:py-24">
             @if ($products->isNotEmpty())
@@ -42,13 +54,13 @@
                         {{ __('Trending products') }}
                     </h2>
 
-                    <div class="grid grid-cols-1 mt-6 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-                        @foreach ($products as $product)
-                            <x-products.simple-card :product="$product" />
-                        @endforeach
-                    </div>
+                <div class="grid grid-cols-1 mt-6 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+                    @foreach ($products as $product)
+                        <x-products.simple-card :product="$product" />
+                    @endforeach
                 </div>
             @endif
+
             @if ($collections->isNotEmpty())
                 <div class="max-w-xl pt-6 pb-12 mx-auto sm:pb-16 lg:max-w-none">
                     <h2 class="text-2xl font-bold tracking-tight text-secondary-900">{{ __('Shop by Collection') }}</h2>
@@ -63,7 +75,6 @@
                     </div>
               </div>
             @endif
-
-    </x-container>
-</div>
+        </x-container>
+    </div>
 </div>
