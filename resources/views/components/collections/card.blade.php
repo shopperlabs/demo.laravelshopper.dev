@@ -1,4 +1,4 @@
-<a href="#" class="block group" id="collection-{{ $collection->id }}">
+<x-link href="#" class="block group" id="collection-{{ $collection->id }}">
     <div aria-hidden="true"
         class="overflow-hidden rounded-lg aspect-h-2 aspect-w-3 lg:aspect-h-6 lg:aspect-w-5 group-hover:opacity-75">
         <img src="{{ $collection->getFirstMediaUrl(config('shopper.core.storage.collection_name')) }}"
@@ -12,4 +12,4 @@
             {{ $collection->description }}
         </p>
     @endif
-</a>
+</x-link>

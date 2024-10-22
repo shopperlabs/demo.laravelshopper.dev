@@ -17,10 +17,11 @@ final class Home extends Component
             'products' => Product::with(['brand', 'media'])
                 ->publish()
                 ->get(),
-            'collections' => Collection::with('media')
+            'collections' => Collection::withCount('products')->with('media')
                 ->select('id', 'name', 'slug', 'description')
                 ->limit(3)
-                ->get(),
+                ->get()
+                ->sortBy(['products_count', 'desc'])
         ]);
     }
 }
