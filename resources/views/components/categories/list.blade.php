@@ -5,8 +5,7 @@
             alt="{{ $category->name }}" />
     </div>
     <div class="px-4 mt-5">
-        <h3
-            class="text-base font-medium leading-6 transition ease-in text-secondary-900 hover:text-black">
+        <h3 class="text-base font-medium leading-6 transition ease-in text-secondary-900 hover:text-black">
             <x-link href="#" class="inline-flex items-center">
                 {{ $category->name }}
                 <x-untitledui-arrow-narrow-right class="w-5 h-5 ml-2" />
@@ -15,7 +14,7 @@
         <nav role="navigation" class="flex flex-col mt-3">
             @foreach ($category->children->take(6) as $child)
                 <x-link href="#"
-                    class="inline-flex text-sm leading-5 inline-flex py-1.5 text-secondary-500 hover:text-secondary-900 transition ease-in">
+                    class="inline-flex text-sm leading-5 py-1.5 text-secondary-500 hover:text-secondary-900 transition ease-in">
                     {{ $child->name }}
                 </x-link>
             @endforeach
