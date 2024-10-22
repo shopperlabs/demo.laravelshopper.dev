@@ -21,7 +21,7 @@ final class Home extends Component
                 ->select('id', 'name', 'slug', 'description')
                 ->limit(3)
                 ->get()
-                ->sortBy(['products_count', 'desc'])
+                ->sortBy(['products_count', 'desc']),
         ]);
     }
 }
