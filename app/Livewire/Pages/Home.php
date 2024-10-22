@@ -27,7 +27,7 @@ final class Home extends Component
                 ->sortBy(['products_count', 'desc']),
             'categories' => Category::withRecursiveQueryConstraint(
                 constraint: function (Builder $query): void {
-                    $query->where(shopper_table('categories').'.is_enabled', true);
+                    $query->where(shopper_table('categories') . '.is_enabled', true);
                 },
                 query: fn () => Category::with('media')->tree()->get()
             ),
