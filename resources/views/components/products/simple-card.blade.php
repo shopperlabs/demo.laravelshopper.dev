@@ -2,10 +2,10 @@
     'product',
 ])
 
-<div class="group relative">
-    <x-products.thumbnail :product="$product" />
+<div class="relative group">
+    <x-products.thumbnail :product="$product" class='w-full aspect-h-1 aspect-w-1 lg:aspect-none lg:h-80' />
 
-    <div class="mt-4 flex justify-between">
+    <div class="flex justify-between mt-4">
         <div>
             <h3 class="text-sm font-medium text-gray-700">
                 <x-link :href="route('single-product', ['slug' => $product->slug])">
