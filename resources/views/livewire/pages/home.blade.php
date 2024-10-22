@@ -65,5 +65,5 @@
             @endif
 
     </x-container>
-</div>
+    </div>
 </div>
