@@ -31,6 +31,11 @@ final class Home extends Component
                 },
                 query: fn () => Category::with('media')->tree()->get()
             ),
+            'collections' => Collection::withCount('products')->with('media')
+                ->select('id', 'name', 'slug', 'description')
+                ->limit(3)
+                ->get()
+                ->sortBy(['products_count', 'desc']),
         ]);
     }
 }
