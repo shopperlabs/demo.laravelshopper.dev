@@ -7,6 +7,7 @@ namespace App\Livewire\Pages;
 use App\Models\Product;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
+use Shopper\Core\Models\Collection;
 
 final class Home extends Component
 {
@@ -16,6 +17,11 @@ final class Home extends Component
             'products' => Product::with(['brand', 'media'])
                 ->publish()
                 ->get(),
+            'collections' => Collection::withCount('products')->with('media')
+                ->select('id', 'name', 'slug', 'description')
+                ->limit(3)
+                ->get()
+                ->sortBy(['products_count', 'desc']),
         ]);
     }
 }
