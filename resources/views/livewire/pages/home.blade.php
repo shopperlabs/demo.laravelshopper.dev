@@ -54,11 +54,10 @@
                         {{ __('Trending products') }}
                     </h2>
 
-                    <div class="grid grid-cols-1 mt-6 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-                        @foreach ($products as $product)
-                            <x-products.simple-card :product="$product" />
-                        @endforeach
-                    </div>
+                <div class="grid grid-cols-1 mt-6 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+                    @foreach ($products as $product)
+                        <x-products.simple-card :product="$product" />
+                    @endforeach
                 </div>
             @endif
 
