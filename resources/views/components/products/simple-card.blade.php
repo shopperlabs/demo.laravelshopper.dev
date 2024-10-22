@@ -3,7 +3,7 @@
 ])
 
 <div class="relative group">
-    <x-products.thumbnail :product="$product" class='w-full aspect-h-1 aspect-w-1 lg:aspect-none lg:h-80' />
+    <x-products.thumbnail :product="$product" />
 
     <div class="flex justify-between mt-4">
         <div>

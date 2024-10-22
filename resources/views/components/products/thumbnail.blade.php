@@ -3,7 +3,7 @@
 ])
 
 <div
-    {{ $attributes->twMerge(['class' => 'overflow-hidden bg-gray-200 group-hover:opacity-75']) }}
+    {{ $attributes->twMerge(['class' => 'aspect-h-1 aspect-w-1 w-full overflow-hidden bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80']) }}
 >
     <img
         src="{{ $product->getFirstMediaUrl(config('shopper.core.storage.thumbnail_collection')) }}"
