@@ -3,9 +3,8 @@
 declare(strict_types=1);
 
 use App\Livewire\Pages\Home;
-use App\Models\Category;
-use Illuminate\Support\Arr;
 use Livewire\Livewire;
+
 use function Pest\Laravel\get;
 
 describe(Home::class, function (): void {
