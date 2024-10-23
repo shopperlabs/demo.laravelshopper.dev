@@ -1,7 +1,9 @@
-@props(['product'])
+@props([
+    'product',
+])
 
 <div class="relative group">
-    <x-products.thumbnail :product="$product" class='w-full h-56 overflow-hidden bg-gray-200 rounded-md group-hover:opacity-75 lg:h-72 xl:h-80' />
+    <x-products.thumbnail :product="$product" class='w-full h-56 lg:h-72 xl:h-80' />
 
     <h3 class="mt-4 text-sm text-gray-700">
         <x-link :href="route('single-product', ['slug' => $product->slug])">
@@ -9,10 +11,10 @@
             {{ $product->name }}
         </x-link>
     </h3>
-    @if ($product->brand_id)
+    @if ($product->brand)
         <p class="mt-1 text-sm text-gray-500">
             {{ $product->brand->name }}
         </p>
     @endif
-    <p class="mt-1 text-sm font-medium text-gray-900"> {{ $product->getPriceAmount()?->formatted }}</p>
+    <x-products.price :product="$product" class="mt-1" />
 </div>

@@ -14,13 +14,16 @@
         <x-container class="relative py-16 sm:pt-24 lg:py-40">
             <div class="sm:max-w-xl">
                 <h1 class="text-4xl font-bold tracking-tight text-black font-heading sm:text-6xl">
-                    {{ __('New arrivals are here') }}
+                    {{ __('Matanga styles are finally here') }}
                 </h1>
                 <p class="mt-4 text-xl text-gray-500">
-                    {{ __('The new arrivals have, well, newly arrived. Check out the latest options from our summer small-batch release while they\'re still in stock.') }}
+                    {{ __('This year, our new Matanga collection will shelter you from the harsh elements of a world that doesn\'t care if you live or die..') }}
                 </p>
             </div>
             <div class="py-10">
+                <!-- Decorative image grid -->
+                @include('includes._decorative_images')
+
                 <x-buttons.primary href="#" class="px-8 py-3 text-base font-medium text-center group">
                     {{ __('Discover now') }}
                     <span
@@ -39,7 +42,9 @@
             <x-container class="py-16 lg:pt-20">
                 <ul role="list" class="grid gap-y-10 sm:grid-cols-2 sm:gap-x-8 lg:grid-cols-4 lg:gap-x-12">
                     @foreach ($categories->toTree() as $category)
-                        <x-categories.list :category="$category" />
+                        <li>
+                            <x-categories.list :category="$category" />
+                        </li>
                     @endforeach
                 </ul>
             </x-container>
@@ -47,34 +52,39 @@
     @endif
 
     <div class="bg-gray-50">
-        <x-container class="py-16 lg:py-24">
-            @if ($products->isNotEmpty())
-                <div class="max-w-3xl lg:max-w-none">
-                    <h2 class="text-2xl font-semibold tracking-tight text-gray-900 font-heading">
-                        {{ __('Trending products') }}
-                    </h2>
-
-                <div class="grid grid-cols-1 mt-6 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-                    @foreach ($products as $product)
-                        <x-products.card :product="$product" />
-                    @endforeach
-                </div>
-            @endif
-
-            @if ($collections->isNotEmpty())
+        @if ($collections->isNotEmpty())
+            <x-container class="py-16 lg:py-24">
                 <div class="max-w-xl pt-6 pb-12 mx-auto sm:pb-16 lg:max-w-none">
-                    <h2 class="text-2xl font-bold tracking-tight text-secondary-900">{{ __('Shop by Collection') }}</h2>
-                    <p class="mt-4 text-base text-secondary-500">
+                    <h2 class="text-2xl font-bold tracking-tight text-gray-900 font-heading">
+                        {{ __('Shop by Collection') }}
+                    </h2>
+                    <p class="mt-4 text-base text-gray-500">
                         {{ __('Each season, we collaborate with world-class designers to create a collection inspired by the natural world.') }}
                     </p>
 
-                    <div class="mt-10 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-8 lg:space-y-0">
+                    <div class="mt-10 grid gap-8 lg:grid-cols-3 lg:gap-12">
                         @foreach ($collections as $collection)
                             <x-collections.card :collection="$collection" />
                         @endforeach
                     </div>
-              </div>
-            @endif
-        </x-container>
+                </div>
+            </x-container>
+        @endif
     </div>
+
+    @if ($products->isNotEmpty())
+        <x-container class="py-12 lg:py-20">
+            <div class="max-w-3xl lg:max-w-none">
+                <h2 class="text-2xl font-semibold tracking-tight text-gray-900 font-heading">
+                    {{ __('Trending products') }}
+                </h2>
+
+                <div class="grid grid-cols-1 mt-6 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-8">
+                    @foreach ($products as $product)
+                        <x-products.card :product="$product" />
+                    @endforeach
+                </div>
+            </div>
+        </x-container>
+    @endif
 </div>

@@ -19,14 +19,14 @@
                 <span>
                     {{ $address->street_address }}
                     @if ($address->street_address_plus)
-                        <span>, {{ $address?->street_address_plus }}</span>
+                        <span>, {{ $address->street_address_plus }}</span>
                     @endif
                 </span>
                 <span>
                     {{ $address->postal_code }}, {{ $address->city }}
                 </span>
                 <span>
-                    {{ $address->country->name }}
+                    {{ $address->country?->name }}
                 </span>
             </p>
             <div class="space-y-2">
