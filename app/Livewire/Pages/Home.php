@@ -18,6 +18,7 @@ final class Home extends Component
         return view('livewire.pages.home', [
             'products' => Product::with(['brand', 'media'])
                 ->scopes('publish')
+                ->limit(8)
                 ->get(),
             'collections' => Collection::query()->withCount('products')
                 ->with('media')

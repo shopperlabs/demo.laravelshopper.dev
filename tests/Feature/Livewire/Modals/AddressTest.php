@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 use App\Livewire\Modals\Customer\AddressForm;
 use App\Livewire\Pages\Customer\Addresses;
-use App\Models\Address;
 use App\Models\Country;
 use App\Models\User;
 use Livewire\Livewire;
 use Shopper\Core\Enum\AddressType;
+use Shopper\Core\Models\Address;
 
 beforeEach(function (): void {
     $this->user = User::factory()->create();
@@ -35,11 +35,12 @@ describe(Addresses::class, function (): void {
             ->call('save')
             ->assertDispatched('addresses-updated');
 
-        expect(Address::count())
+        expect(Address::query()->count())
             ->toBe(1);
     });
 
     it('user can update address', function (): void {
+        /** @var Address $address */
         $address = Address::factory([
             'first_name' => 'John',
             'type' => AddressType::Billing,
@@ -60,9 +61,11 @@ describe(Addresses::class, function (): void {
             ->call('save')
             ->assertDispatched('addresses-updated');
 
-        expect(Address::get())
-            ->toHaveCount(1)
-            ->first()->first_name->toEqual('Jane');
+        /** @var Address $updatedAddress */
+        $updatedAddress = Address::query()->findOrFail($address->id);
+
+        expect($updatedAddress->first_name)
+            ->toBe('Jane');
     });
 
     it('user can delete address', function (): void {
@@ -75,7 +78,7 @@ describe(Addresses::class, function (): void {
         Livewire::test(Addresses::class)
             ->call('removeAddress', $address->id);
 
-        expect(Address::count())
+        expect(Address::query()->count())
             ->toBe(0);
     });
 })
