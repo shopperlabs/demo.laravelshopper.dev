@@ -12,7 +12,8 @@
     "laravelcm/livewire-slide-overs": "^1.0",
     "livewire/livewire": "^3.4",
     "livewire/volt": "^1.0",
-    "shopper/framework": "^2.0@beta"
+    "shopper/framework": "^2.0@beta",
+    "wire-elements/modal": "^2.0"
   },
   "require-dev": {
     "barryvdh/laravel-debugbar": "^3.12",
