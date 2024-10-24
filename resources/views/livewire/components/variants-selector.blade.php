@@ -1,175 +1,34 @@
 <div>
-    <form class="space-y-8">
-        <!-- Color picker -->
-        <div>
-            <h2 class="text-sm font-medium text-gray-900">Color</h2>
 
-            <fieldset class="mt-2">
-                <legend class="sr-only">Choose a color</legend>
+    <form class="mt-6">
+        <!-- Colors -->
+        <div>
+            <h3 class="text-sm text-gray-600">Color</h3>
+
+            <fieldset aria-label="Choose a color" class="mt-2">
                 <div class="flex items-center space-x-3">
-                    <!--
-                      Active and Checked: "ring ring-offset-1"
-                      Not Active and Checked: "ring-2"
-                    -->
-                    <label
-                        class="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 ring-gray-900 focus:outline-none"
-                    >
-                        <input
-                            type="radio"
-                            name="color-choice"
-                            value="Black"
-                            class="sr-only"
-                            aria-labelledby="color-choice-0-label"
-                        />
-                        <span id="color-choice-0-label" class="sr-only">Black</span>
-                        <span
-                            aria-hidden="true"
-                            class="bg-gray-900 border border-black rounded-full size-8 border-opacity-10"
-                        ></span>
-                    </label>
-                    <!--
-                      Active and Checked: "ring ring-offset-1"
-                      Not Active and Checked: "ring-2"
-                    -->
-                    <label
-                        class="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 ring-gray-400 focus:outline-none"
-                    >
-                        <input
-                            type="radio"
-                            name="color-choice"
-                            value="Heather Grey"
-                            class="sr-only"
-                            aria-labelledby="color-choice-1-label"
-                        />
-                        <span id="color-choice-1-label" class="sr-only">Heather Grey</span>
-                        <span
-                            aria-hidden="true"
-                            class="bg-gray-400 border border-black rounded-full size-8 border-opacity-10"
-                        ></span>
-                    </label>
+                    <!-- Active and Checked: "ring ring-offset-1" -->
+                    <x-products.color :product="$product" />
                 </div>
             </fieldset>
         </div>
 
-        <!-- Size picker -->
-        <div>
-            <div class="flex items-center justify-between">
-                <h2 class="text-sm font-medium text-gray-900">Size</h2>
-                <a href="#" class="text-sm font-medium text-primary-600 hover:text-primary-500">See sizing chart</a>
-            </div>
+        <div class="flex mt-10">
+            <x-buttons.primary type="submit"
+                class="flex items-center justify-center flex-1 max-w-xs px-8 py-3 text-base font-medium text-white bg-indigo-600 border border-transparent rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full">
+                {{ __('Add to cart') }}
+            </x-buttons.primary>
 
-            <fieldset class="mt-2">
-                <legend class="sr-only">Choose a size</legend>
-                <div class="grid grid-cols-3 gap-3 sm:grid-cols-6">
-                    <!--
-                      In Stock: "cursor-pointer", Out of Stock: "opacity-25 cursor-not-allowed"
-                      Active: "ring-2 ring-primary-500 ring-offset-2"
-                      Checked: "border-transparent bg-primary-600 text-white hover:bg-primary-700", Not Checked: "border-gray-200 bg-white text-gray-900 hover:bg-gray-50"
-                    -->
-                    <label
-                        class="flex items-center justify-center px-3 py-3 text-sm font-medium uppercase border rounded-md cursor-pointer focus:outline-none sm:flex-1"
-                    >
-                        <input
-                            type="radio"
-                            name="size-choice"
-                            value="XXS"
-                            class="sr-only"
-                            aria-labelledby="size-choice-0-label"
-                        />
-                        <span id="size-choice-0-label">XXS</span>
-                    </label>
-                    <!--
-                      In Stock: "cursor-pointer", Out of Stock: "opacity-25 cursor-not-allowed"
-                      Active: "ring-2 ring-primary-500 ring-offset-2"
-                      Checked: "border-transparent bg-primary-600 text-white hover:bg-primary-700", Not Checked: "border-gray-200 bg-white text-gray-900 hover:bg-gray-50"
-                    -->
-                    <label
-                        class="flex items-center justify-center px-3 py-3 text-sm font-medium uppercase border rounded-md cursor-pointer focus:outline-none sm:flex-1"
-                    >
-                        <input
-                            type="radio"
-                            name="size-choice"
-                            value="XS"
-                            class="sr-only"
-                            aria-labelledby="size-choice-1-label"
-                        />
-                        <span id="size-choice-1-label">XS</span>
-                    </label>
-                    <!--
-                      In Stock: "cursor-pointer", Out of Stock: "opacity-25 cursor-not-allowed"
-                      Active: "ring-2 ring-primary-500 ring-offset-2"
-                      Checked: "border-transparent bg-primary-600 text-white hover:bg-primary-700", Not Checked: "border-gray-200 bg-white text-gray-900 hover:bg-gray-50"
-                    -->
-                    <label
-                        class="flex items-center justify-center px-3 py-3 text-sm font-medium uppercase border rounded-md cursor-pointer focus:outline-none sm:flex-1"
-                    >
-                        <input
-                            type="radio"
-                            name="size-choice"
-                            value="S"
-                            class="sr-only"
-                            aria-labelledby="size-choice-2-label"
-                        />
-                        <span id="size-choice-2-label">S</span>
-                    </label>
-                    <!--
-                      In Stock: "cursor-pointer", Out of Stock: "opacity-25 cursor-not-allowed"
-                      Active: "ring-2 ring-primary-500 ring-offset-2"
-                      Checked: "border-transparent bg-primary-600 text-white hover:bg-primary-700", Not Checked: "border-gray-200 bg-white text-gray-900 hover:bg-gray-50"
-                    -->
-                    <label
-                        class="flex items-center justify-center px-3 py-3 text-sm font-medium uppercase border rounded-md cursor-pointer focus:outline-none sm:flex-1"
-                    >
-                        <input
-                            type="radio"
-                            name="size-choice"
-                            value="M"
-                            class="sr-only"
-                            aria-labelledby="size-choice-3-label"
-                        />
-                        <span id="size-choice-3-label">M</span>
-                    </label>
-                    <!--
-                      In Stock: "cursor-pointer", Out of Stock: "opacity-25 cursor-not-allowed"
-                      Active: "ring-2 ring-primary-500 ring-offset-2"
-                      Checked: "border-transparent bg-primary-600 text-white hover:bg-primary-700", Not Checked: "border-gray-200 bg-white text-gray-900 hover:bg-gray-50"
-                    -->
-                    <label
-                        class="flex items-center justify-center px-3 py-3 text-sm font-medium uppercase border rounded-md cursor-pointer focus:outline-none sm:flex-1"
-                    >
-                        <input
-                            type="radio"
-                            name="size-choice"
-                            value="L"
-                            class="sr-only"
-                            aria-labelledby="size-choice-4-label"
-                        />
-                        <span id="size-choice-4-label">L</span>
-                    </label>
-                    <!--
-                      In Stock: "cursor-pointer", Out of Stock: "opacity-25 cursor-not-allowed"
-                      Active: "ring-2 ring-primary-500 ring-offset-2"
-                      Checked: "border-transparent bg-primary-600 text-white hover:bg-primary-700", Not Checked: "border-gray-200 bg-white text-gray-900 hover:bg-gray-50"
-                    -->
-                    <label
-                        class="flex items-center justify-center px-3 py-3 text-sm font-medium uppercase border rounded-md opacity-25 cursor-not-allowed sm:flex-1"
-                    >
-                        <input
-                            type="radio"
-                            name="size-choice"
-                            value="XL"
-                            disabled
-                            class="sr-only"
-                            aria-labelledby="size-choice-5-label"
-                        />
-                        <span id="size-choice-5-label">XL</span>
-                    </label>
-                </div>
-            </fieldset>
+            <x-buttons.primary type="button"
+                class="flex items-center justify-center px-3 py-3 ml-4 text-gray-400 rounded-md hover:bg-gray-100 hover:text-gray-500">
+                <svg class="flex-shrink-0 w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" aria-hidden="true" data-slot="icon">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                </svg>
+                <span class="sr-only">{{ __('Add to favorites') }}</span>
+            </x-buttons.primary>
+
         </div>
-
-        <x-buttons.primary type="submit" class="w-full px-8 py-3 text-base">
-            {{ __('Add to cart') }}
-        </x-buttons.primary>
     </form>
 </div>

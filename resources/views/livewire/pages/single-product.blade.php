@@ -1,87 +1,66 @@
 <div class="bg-white">
     <div class="pt-10 pb-16 sm:pb-24">
         <x-container class="max-w-2xl mt-8">
-            <div class="lg:grid lg:grid-cols-12 lg:gap-x-8">
-                <div class="lg:col-span-3">
-                    <aside class="space-y-10 lg:sticky lg:top-40" aria-labelledby="product-description">
-                        <div>
-                            <h2 class="text-sm font-medium text-gray-900">{{ __('Description') }}</h2>
-
-                            <div class="mt-4 prose-sm prose text-gray-500">
-                                {!! $product->description !!}
-                            </div>
+             <!-- Product -->
+            <div class="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
+                 <!-- Image gallery -->
+                <div class="flex flex-col-reverse">
+                    <div class="hidden w-full max-w-2xl mx-auto mt-6 sm:block lg:max-w-none">
+                        <div class="grid grid-cols-4 gap-6" aria-orientation="horizontal" role="tablist">
+                            @if ($product->getMedia(config('shopper.core.storage.collection_name'))->isNotEmpty())
+                                @foreach ($product->getMedia(config('shopper.core.storage.collection_name')) as $image)
+                                    <x-products.gallery-button :image="$image" :product="$product" :index="$loop->index" />
+                                @endforeach
+                            @endif
                         </div>
+                    </div>
 
-                        <x-products.additionnal-infos />
-                    </aside>
-                </div>
-
-                <!-- Product gallery -->
-                <div class="lg:col-span-6 lg:px-8">
-                    <h2 class="sr-only">{{ $product->name }} {{ __('Images') }}</h2>
-
-                    <div
-                        @class([
-                            'grid grid-cols-1 lg:grid-cols-2 lg:gap-8',
-                            'lg:grid-rows-3' => $product->getMedia(config('shopper.core.storage.collection_name'))->isNotEmpty()
-                        ])
-                    >
-                        <div class="lg:col-span-2 lg:row-span-2">
-                            <img
-                                src="{{ $product->getFirstMediaUrl(config('shopper.core.storage.thumbnail_collection')) }}"
-                                alt="{{ $product->name }} thumbnail"
-                                class="object-cover w-full h-full"
-                            />
-                        </div>
-                        @if($product->getMedia(config('shopper.core.storage.collection_name'))->isNotEmpty())
-                            <x-products.gallery
-                                :images="$product->getMedia(config('shopper.core.storage.collection_name'))"
-                            />
+                    <div class="w-full aspect-h-1 aspect-w-1">
+                        <!-- Tab panel, show/hide based on tab state. -->
+                        @if ($product->getMedia(config('shopper.core.storage.collection_name'))->isNotEmpty())
+                            <x-products.gallery :images="$product->getMedia(config('shopper.core.storage.collection_name'))" />
                         @endif
                     </div>
+
                 </div>
 
-                <div class="lg:col-span-3">
-                    <aside class="space-y-10 lg:sticky lg:top-40" aria-labelledby="product-variant">
-                        <div>
-                            <div class="space-y-1">
-                                <h1 class="text-xl font-semibold text-gray-900 font-heading lg:text-2xl">
-                                    {{ $product->name }}
-                                </h1>
-                                <x-products.price :product="$product" class="text-base font-medium text-gray-900" />
-                            </div>
+                <!-- Product info -->
+                <div class="px-4 mt-10 sm:mt-16 sm:px-0 lg:mt-0">
+                    <h1 class="text-3xl font-bold tracking-tight text-gray-900"> {{ $product->name }}</h1>
+                    <div class="mt-3">
+                        <h2 class="sr-only">Product information</h2>
+                        <x-products.price :product="$product" class="text-base font-medium text-gray-900" />
+                    </div>
+                    <!-- Reviews -->
+                    <div class="mt-3">
+                        <h3 class="sr-only">Reviews</h3>
+                        <x-products.reviews />
+                    </div>
+
+                    <div class="mt-6">
+                        <h3 class="sr-only">Description</h3>
+
+                        <div class="space-y-6 text-base text-gray-700">
+                            <p> {!! $product->description !!}</p>
                         </div>
+                    </div>
 
-                        <livewire:variants-selector :product="$product" />
+                    <livewire:variants-selector :product="$product" />
 
-                        <!-- Policies -->
-                        <section aria-labelledby="policies-heading">
-                            <h2 id="policies-heading" class="sr-only">{{ __('Our policies') }}</h2>
-
-                            <dl class="space-y-4">
-                                <div class="p-6 border border-gray-200 bg-gray-50">
-                                    <dt class="flex items-center gap-2">
-                                        <x-untitledui-globe-05 class="w-6 h-6 text-gray-400" stroke-width="1.5" aria-hidden="true" />
-                                        <span class="text-sm font-medium text-gray-900">{{ __('International delivery') }}</span>
-                                    </dt>
-                                    <dd class="mt-1 text-sm text-gray-500">
-                                        {{ __('Get your order in 2 weeks') }}
-                                    </dd>
-                                </div>
-                                <div class="p-6 border border-gray-200 bg-gray-50">
-                                    <dt class="flex items-center gap-2">
-                                        <x-untitledui-gift-02 class="w-6 h-6 text-gray-400" stroke-width="1.5" aria-hidden="true" />
-                                        <span class="text-sm font-medium text-gray-900">{{ __('Fidelity rewards') }}</span>
-                                    </dt>
-                                    <dd class="mt-1 text-sm text-gray-500">
-                                        {{ __('Get discounts and bonuses for your loyalty.') }}
-                                    </dd>
-                                </div>
-                            </dl>
-                        </section>
-                    </aside>
+                    <section aria-labelledby="details-heading" class="mt-12">
+                        <h2 id="details-heading" class="sr-only">Additional details</h2>
+                        <x-products.additionnal-infos />
+                    </section>
                 </div>
             </div>
+
+            <section aria-labelledby="related-heading" class="px-4 py-16 mt-10 border-t border-gray-200 sm:px-0">
+                <h2 id="related-heading" class="text-xl font-bold text-gray-900">Customers also bought</h2>
+
+                <div class="grid grid-cols-1 mt-8 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8">
+                    <x-products.others  :product="$product"/>
+                </div>
+              </section>
         </x-container>
     </div>
 </div>

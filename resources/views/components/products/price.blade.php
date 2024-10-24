@@ -13,7 +13,7 @@
             <span class="text-gray-400 line-through">
                 {{ $product->getOldPriceAmount()?->formatted }}
             </span>
-            <x-discount-badge
+            <x-badges.discount
                 :discount="$product->discount_percentage"
                 class="ml-2"
             />

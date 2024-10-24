@@ -1,14 +1,34 @@
-<div class="pt-8 mt-10 space-y-10 border-t border-gray-200">
+<div class="border-t divide-y divide-gray-200">
     <div>
-        <h2 class="text-sm font-medium text-gray-900">{{ __('Tissus et entretien') }}</h2>
-
-        <div class="mt-4 prose-sm prose text-gray-500">
-            <ul role="list">
-                <li>{{ __('Les meilleurs matériaux') }}</li>
-                <li>{{ __('Fabriqué de manière éthique et locale') }}</li>
-                <li>{{ __('Prélavé et pré-rétréci') }}</li>
-                <li>{{ __('Lavage à froid avec des couleurs similaires') }}</li>
-            </ul>
-        </div>
+      <h3>
+        <!-- Expand/collapse question button -->
+        <button type="button" class="relative flex items-center justify-between w-full py-6 text-left group" aria-controls="disclosure-1" aria-expanded="false">
+          <!-- Open: "text-indigo-600", Closed: "text-gray-900" -->
+          <span class="text-sm font-medium text-gray-900">Features</span>
+          <span class="flex items-center ml-6">
+            <!-- Open: "hidden", Closed: "block" -->
+            <svg class="block w-6 h-6 text-gray-400 group-hover:text-gray-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+            </svg>
+            <!-- Open: "block", Closed: "hidden" -->
+            <svg class="hidden w-6 h-6 text-indigo-400 group-hover:text-indigo-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
+            </svg>
+          </span>
+        </button>
+      </h3>
+      <div class="pb-6 prose-sm prose" id="disclosure-1">
+        <ul role="list">
+          <li>Multiple strap configurations</li>
+          <li>Spacious interior with top zip</li>
+          <li>Leather handle and tabs</li>
+          <li>Interior dividers</li>
+          <li>Stainless strap loops</li>
+          <li>Double stitched construction</li>
+          <li>Water-resistant</li>
+        </ul>
+      </div>
     </div>
-</div>
+
+    <!-- More sections... -->
+  </div>
