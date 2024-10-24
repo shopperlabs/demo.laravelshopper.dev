@@ -14,7 +14,7 @@ final class SingleProduct extends Component
 
     public function mount(string $slug): void
     {
-        $this->product = Product::with(['brand', 'media'])
+        $this->product = Product::with(['brand', 'media', 'attributes'])
             ->where('slug', $slug)
             ->firstOrFail();
     }

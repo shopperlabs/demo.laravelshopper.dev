@@ -24,7 +24,7 @@
                         <span id="color-choice-0-label" class="sr-only">Black</span>
                         <span
                             aria-hidden="true"
-                            class="size-8 rounded-full border border-black border-opacity-10 bg-gray-900"
+                            class="bg-gray-900 border border-black rounded-full size-8 border-opacity-10"
                         ></span>
                     </label>
                     <!--
@@ -44,7 +44,7 @@
                         <span id="color-choice-1-label" class="sr-only">Heather Grey</span>
                         <span
                             aria-hidden="true"
-                            class="size-8 rounded-full border border-black border-opacity-10 bg-gray-400"
+                            class="bg-gray-400 border border-black rounded-full size-8 border-opacity-10"
                         ></span>
                     </label>
                 </div>
@@ -67,7 +67,7 @@
                       Checked: "border-transparent bg-primary-600 text-white hover:bg-primary-700", Not Checked: "border-gray-200 bg-white text-gray-900 hover:bg-gray-50"
                     -->
                     <label
-                        class="flex cursor-pointer items-center justify-center rounded-md border px-3 py-3 text-sm font-medium uppercase focus:outline-none sm:flex-1"
+                        class="flex items-center justify-center px-3 py-3 text-sm font-medium uppercase border rounded-md cursor-pointer focus:outline-none sm:flex-1"
                     >
                         <input
                             type="radio"
@@ -84,7 +84,7 @@
                       Checked: "border-transparent bg-primary-600 text-white hover:bg-primary-700", Not Checked: "border-gray-200 bg-white text-gray-900 hover:bg-gray-50"
                     -->
                     <label
-                        class="flex cursor-pointer items-center justify-center rounded-md border px-3 py-3 text-sm font-medium uppercase focus:outline-none sm:flex-1"
+                        class="flex items-center justify-center px-3 py-3 text-sm font-medium uppercase border rounded-md cursor-pointer focus:outline-none sm:flex-1"
                     >
                         <input
                             type="radio"
@@ -101,7 +101,7 @@
                       Checked: "border-transparent bg-primary-600 text-white hover:bg-primary-700", Not Checked: "border-gray-200 bg-white text-gray-900 hover:bg-gray-50"
                     -->
                     <label
-                        class="flex cursor-pointer items-center justify-center rounded-md border px-3 py-3 text-sm font-medium uppercase focus:outline-none sm:flex-1"
+                        class="flex items-center justify-center px-3 py-3 text-sm font-medium uppercase border rounded-md cursor-pointer focus:outline-none sm:flex-1"
                     >
                         <input
                             type="radio"
@@ -118,7 +118,7 @@
                       Checked: "border-transparent bg-primary-600 text-white hover:bg-primary-700", Not Checked: "border-gray-200 bg-white text-gray-900 hover:bg-gray-50"
                     -->
                     <label
-                        class="flex cursor-pointer items-center justify-center rounded-md border px-3 py-3 text-sm font-medium uppercase focus:outline-none sm:flex-1"
+                        class="flex items-center justify-center px-3 py-3 text-sm font-medium uppercase border rounded-md cursor-pointer focus:outline-none sm:flex-1"
                     >
                         <input
                             type="radio"
@@ -135,7 +135,7 @@
                       Checked: "border-transparent bg-primary-600 text-white hover:bg-primary-700", Not Checked: "border-gray-200 bg-white text-gray-900 hover:bg-gray-50"
                     -->
                     <label
-                        class="flex cursor-pointer items-center justify-center rounded-md border px-3 py-3 text-sm font-medium uppercase focus:outline-none sm:flex-1"
+                        class="flex items-center justify-center px-3 py-3 text-sm font-medium uppercase border rounded-md cursor-pointer focus:outline-none sm:flex-1"
                     >
                         <input
                             type="radio"
@@ -152,7 +152,7 @@
                       Checked: "border-transparent bg-primary-600 text-white hover:bg-primary-700", Not Checked: "border-gray-200 bg-white text-gray-900 hover:bg-gray-50"
                     -->
                     <label
-                        class="flex cursor-not-allowed items-center justify-center rounded-md border px-3 py-3 text-sm font-medium uppercase opacity-25 sm:flex-1"
+                        class="flex items-center justify-center px-3 py-3 text-sm font-medium uppercase border rounded-md opacity-25 cursor-not-allowed sm:flex-1"
                     >
                         <input
                             type="radio"
@@ -169,7 +169,7 @@
         </div>
 
         <x-buttons.primary type="submit" class="w-full px-8 py-3 text-base">
-            {{ __('Ajouter au panier') }}
+            {{ __('Add to cart') }}
         </x-buttons.primary>
     </form>
 </div>
