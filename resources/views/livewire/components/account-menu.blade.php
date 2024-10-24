@@ -21,11 +21,11 @@ new class extends Component {
     <x-link :href="route('dashboard')"
         class="inline-flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-gray-700">
         <x-untitledui-user-circle class="w-5 h-5" stroke-width="1.5" aria-hidden="true" />
-        {{ __('Mon compte') }}
+        {{ __('My account') }}
     </x-link>
     <button wire:click="logout" type="submit"
         class="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-gray-700">
         <x-untitledui-log-out class="w-5 h-5" stroke-width="1.5" aria-hidden="true" />
-        {{ __('Se déconnecter') }}
+        {{ __('Logout') }}
     </button>
 </div>
