@@ -36,7 +36,7 @@ class NotchPayCallBackController extends Controller
             if ($verifyTransaction->transaction->status === TransactionStatus::Canceled()) {
                 session()->flash(
                     key: 'error',
-                    value: __('Votre paiement a été annulé veuillez relancer au niveau de votre profil.')
+                    value: __('Your payment has been cancelled, please reactivate your profile.')
                 );
             } else {
                 $transaction->order->update([
@@ -48,14 +48,14 @@ class NotchPayCallBackController extends Controller
 
                 session()->flash(
                     key: 'status',
-                    value: __('Votre paiement a été fait avec succès.')
+                    value: __('Your payment has been made successfully.')
                 );
             }
 
         } catch (\NotchPay\Exceptions\ApiException $e) {
             session()->flash(
                 key: 'error',
-                value: __('Une erreur s\'est produite lors de votre paiement. Veuillez relancer sur votre profil.')
+                value: __('An error occurred during your payment. Please relaunch your profile.')
             );
         }
 

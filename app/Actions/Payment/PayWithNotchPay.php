@@ -34,7 +34,7 @@ final class PayWithNotchPay implements ManageOrder
                 'currency' => ZoneSessionManager::getSession()->currencyCode,
                 'reference' => $user->id . '-' . $email . '-' . uniqid(),
                 'callback' => route('notchpay-callback'),
-                'description' => __('Paiement de la commande N° :number', ['number' => $order->number]),
+                'description' => __('Order payment N° :number', ['number' => $order->number]),
             ]);
 
             Transaction::query()->create([
@@ -56,7 +56,7 @@ final class PayWithNotchPay implements ManageOrder
         } catch (\NotchPay\Exceptions\ApiException $e) {
             session()->flash(
                 'error',
-                __('Impossible de procéder au paiement, veuillez recommencer plus tard. Merci')
+                __('Unable to process payment, please try again later. Thank you')
             );
 
             return redirect()->route('order-confirmed', ['number' => $order->number]);

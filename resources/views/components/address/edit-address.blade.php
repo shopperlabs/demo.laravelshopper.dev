@@ -57,7 +57,7 @@
             <x-buttons.default class="px-3 pt-2 pb-1 text-sm"
                 wire:click="$dispatch('openModal', { component: 'modals.customer.address-form', arguments: { addressId: {{ $address->id }} }})">
                 <span class="inline-flex items-center gap-2">
-                    <x-untitledui-pencil-02 class="w-5 h-5 text-primary group-hover:text-primary-700" stroke-width="1.5"
+                    <x-untitledui-pencil-02 class="w-5 h-5 text-primary-500 group-hover:text-primary-700" stroke-width="1.5"
                         aria-hidden="true" />
                     <span>{{ __('Edit') }}</span>
                 </span>
