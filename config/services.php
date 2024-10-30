@@ -33,4 +33,8 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'notchpay' => [
+        'public_key' => env('NOTCHPAY_PUBLIC_KEY'),
+    ],
+
 ];

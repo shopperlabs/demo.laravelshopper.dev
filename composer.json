@@ -12,7 +12,8 @@
     "laravel/tinker": "^2.8",
     "laravelcm/livewire-slide-overs": "^1.0",
     "livewire/livewire": "^3.4",
-    "livewire/volt": "^1.0",
+    "livewire/volt": "^1.6",
+    "notchpay/notchpay-php": "^1.6",
     "shopper/framework": "^2.0@beta",
     "wire-elements/modal": "^2.0"
   },

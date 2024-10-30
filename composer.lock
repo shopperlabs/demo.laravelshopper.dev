@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c2971f16d329dca36353d88b439a103a",
+    "content-hash": "28ba9ae14140a3bf288c062af63f2db1",
     "packages": [
         {
             "name": "akaunting/laravel-money",
@@ -4795,6 +4795,81 @@
                 "source": "https://github.com/nikic/PHP-Parser/tree/v5.3.1"
             },
             "time": "2024-10-08T18:51:32+00:00"
+        },
+        {
+            "name": "notchpay/notchpay-php",
+            "version": "1.6.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/notchpay/notchpay-php.git",
+                "reference": "78f673d2d5a8e88dbe89aa90a297ce6ecfcdc84b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/notchpay/notchpay-php/zipball/78f673d2d5a8e88dbe89aa90a297ce6ecfcdc84b",
+                "reference": "78f673d2d5a8e88dbe89aa90a297ce6ecfcdc84b",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "guzzlehttp/guzzle": "^7.2.0",
+                "php": "^7.4|^8.0|^8.1|^8.2"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.16",
+                "mockery/mockery": "^1.4",
+                "php-coveralls/php-coveralls": "^2.2",
+                "phpunit/phpunit": "^9.0",
+                "scrutinizer/ocular": "^1.7",
+                "vimeo/psalm": "^3.11"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "NotchPay\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Chapdel KAMGA",
+                    "email": "drop@chapdel.me",
+                    "homepage": "https://github.com/chapdel",
+                    "role": "Owner"
+                },
+                {
+                    "name": "Tim Oladoyinbo",
+                    "email": "hello@digikraaft.ng",
+                    "homepage": "https://digikraaft.com",
+                    "role": "Base credit"
+                }
+            ],
+            "description": "Notch Pay PHP Wrapper.",
+            "homepage": "https://github.com/notchpay/notchpay-php",
+            "keywords": [
+                "Orange Money",
+                "accept money",
+                "api",
+                "curl",
+                "customer",
+                "disable",
+                "enable",
+                "gateway",
+                "mtn momo",
+                "notchpay",
+                "payment",
+                "payment processing",
+                "transaction",
+                "verify"
+            ],
+            "support": {
+                "issues": "https://github.com/notchpay/notchpay-php/issues",
+                "source": "https://github.com/notchpay/notchpay-php/tree/1.6.1"
+            },
+            "time": "2024-04-10T07:46:14+00:00"
         },
         {
             "name": "nunomaduro/termwind",

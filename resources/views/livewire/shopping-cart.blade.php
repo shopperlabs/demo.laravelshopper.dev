@@ -60,7 +60,7 @@
                 </p>
             </div>
         </div>
-        <x-buttons.primary :link="route('checkout')" class="w-full px-8 py-3 text-base"  wire:loading.attr="disabled">
+        <x-buttons.primary :href="route('checkout')" class="w-full px-8 py-3 text-base"  wire:loading.attr="disabled">
             {{ __('Proceed to checkout') }}
         </x-buttons.primary>
     </div>
