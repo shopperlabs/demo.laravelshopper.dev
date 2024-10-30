@@ -10,7 +10,6 @@
                 </div>
             </fieldset>
         </div>
-
         <div class="flex items-center gap-2 mt-10">
             <x-buttons.primary type="submit" class="max-w-xs px-8 py-3 sm:w-full">
                 {{ __('Add to cart') }}
