@@ -14,7 +14,7 @@ new #[Layout('components.layouts.templates.account')] class extends Component {
             [
                 'title' => __('My orders'),
                 'description' => __('Track your orders, return them or buy them again'),
-                'href' => '#',
+                'href' => route('dashboard.orders'),
                 'icon' => 'untitledui-shopping-bag-03'
             ],
             [

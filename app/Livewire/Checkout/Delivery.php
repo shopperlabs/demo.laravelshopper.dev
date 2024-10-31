@@ -16,7 +16,7 @@ final class Delivery extends StepComponent
 {
     public array|Collection $options = [];
 
-    #[Validate('required', message: 'Vous devez sélectionner un moyen de livraison')]
+    #[Validate('required', message: 'You must select a delivery method')]
     public ?int $currentSelected = null;
 
     public function mount(): void
@@ -54,7 +54,7 @@ final class Delivery extends StepComponent
     public function stepInfo(): array
     {
         return [
-            'label' => __('Moyen de livraison'),
+            'label' => __('Delivery method'),
             'complete' => session()->exists('checkout')
                 && data_get(session()->get('checkout'), 'shipping_option') !== null,
         ];

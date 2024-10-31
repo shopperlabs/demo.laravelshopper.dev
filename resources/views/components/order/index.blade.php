@@ -55,7 +55,7 @@
             @endforeach
         </div>
         <div class="grid grid-cols-2 gap-x-5 lg:flex lg:flex-col lg:items-end lg:justify-end lg:space-y-2 lg:pl-4">
-            <x-buttons.primary class="w-full px-4" >
+            <x-buttons.primary class="w-full px-4" :href="route('dashboard.orders.detail', ['number' => $order->number])">
                 {{ __('Show details') }}
             </x-buttons.primary>
             <x-buttons.default class="w-full px-4">

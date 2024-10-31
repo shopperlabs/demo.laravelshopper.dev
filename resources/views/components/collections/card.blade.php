@@ -10,7 +10,7 @@
             alt="{{ $collection->seo_title }}"
         />
     </div>
-    <h3 class="mt-4 text-base font-semibold font-heading text-gray-900 lg:text-lg">
+    <h3 class="mt-4 text-base font-semibold text-gray-900 font-heading lg:text-lg">
         {{ $collection->name }}
     </h3>
     @if ($collection->description)

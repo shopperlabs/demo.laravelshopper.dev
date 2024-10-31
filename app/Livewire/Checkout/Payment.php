@@ -19,7 +19,7 @@ use Spatie\LivewireWizard\Components\StepComponent;
 
 final class Payment extends StepComponent
 {
-    #[Validate('required', message: 'Vous devez sélectionner un moyen de paiement')]
+    #[Validate('required', message: 'You must select a payment method')]
     public ?int $currentSelected = null;
 
     public array|Collection $methods = [];
@@ -61,7 +61,7 @@ final class Payment extends StepComponent
     public function stepInfo(): array
     {
         return [
-            'label' => __('Paiement'),
+            'label' => __('Payment'),
             'complete' => session()->exists('checkout')
                 && data_get(session()->get('checkout'), 'payment') !== null,
         ];
