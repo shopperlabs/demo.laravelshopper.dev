@@ -14,13 +14,13 @@ use Spatie\LivewireWizard\Components\StepComponent;
 
 final class Shipping extends StepComponent
 {
-    #[Validate('required', message: 'Vous devez sélectionner une adresse de livraison')]
+    #[Validate('required', message: 'You need to select a delivery address')]
     public ?int $shippingAddressId = null;
 
     #[Validate('boolean')]
     public bool $sameAsShipping = false;
 
-    #[Validate('required_if_declined:sameAsShipping', message: 'Vous devez choisir une adresse de facturation')]
+    #[Validate('required_if_declined:sameAsShipping', message: 'You must choose a billing address')]
     public ?int $billingAddressId = null;
 
     public function mount(): void
@@ -54,7 +54,7 @@ final class Shipping extends StepComponent
     public function stepInfo(): array
     {
         return [
-            'label' => __('Adresse'),
+            'label' => __('Address'),
             'complete' => session()->exists('checkout')
                 && data_get(session()->get('checkout'), 'shipping_address') !== null,
         ];
