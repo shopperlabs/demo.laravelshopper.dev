@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2a73f1383c015e3b14a48d5d74c606f0",
+    "content-hash": "28ba9ae14140a3bf288c062af63f2db1",
     "packages": [
         {
             "name": "akaunting/laravel-money",
@@ -735,6 +735,69 @@
                 }
             ],
             "time": "2024-05-06T09:10:03+00:00"
+        },
+        {
+            "name": "darryldecode/cart",
+            "version": "4.2.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/darryldecode/laravelshoppingcart.git",
+                "reference": "b27ddf65cc6da8954e1690c909522d4824d95fee"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/darryldecode/laravelshoppingcart/zipball/b27ddf65cc6da8954e1690c909522d4824d95fee",
+                "reference": "b27ddf65cc6da8954e1690c909522d4824d95fee",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "5.0.*|5.1.*|5.2.*|5.3.*|5.4.*|5.5.*|5.6.*|5.7.*|5.8.*|^6.0|^7.0|^8.0|^9.0|^10.0|^11.0",
+                "illuminate/translation": "5.0.*|5.1.*|5.2.*|5.3.*|5.4.*|5.5.*|5.6.*|5.7.*|5.8.*|^6.0|^7.0|^8.0|^9.0|^10.0|^11.0",
+                "illuminate/validation": "5.0.*|5.1.*|5.2.*|5.3.*|5.4.*|5.5.*|5.6.*|5.7.*|5.8.*|^6.0|^7.0|^8.0|^9.0|^10.0|^11.0",
+                "php": ">=7.3"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.4.2",
+                "phpunit/phpunit": "^9.0",
+                "symfony/var-dumper": "5.1.5.*@dev"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Darryldecode\\Cart\\CartServiceProvider"
+                    ],
+                    "aliases": {
+                        "Cart": "Darryldecode\\Cart\\Facades\\CartFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Darryldecode\\": "src/Darryldecode"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Darryl Fernandez",
+                    "email": "engrdarrylfernandez@gmail.com"
+                }
+            ],
+            "description": "Laravel 5 Shopping cart",
+            "keywords": [
+                "cart",
+                "laravel",
+                "shopping cart"
+            ],
+            "support": {
+                "issues": "https://github.com/darryldecode/laravelshoppingcart/issues",
+                "source": "https://github.com/darryldecode/laravelshoppingcart/tree/4.2.5"
+            },
+            "time": "2024-08-12T13:23:57+00:00"
         },
         {
             "name": "dasprid/enum",
@@ -4734,6 +4797,81 @@
             "time": "2024-10-08T18:51:32+00:00"
         },
         {
+            "name": "notchpay/notchpay-php",
+            "version": "1.6.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/notchpay/notchpay-php.git",
+                "reference": "78f673d2d5a8e88dbe89aa90a297ce6ecfcdc84b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/notchpay/notchpay-php/zipball/78f673d2d5a8e88dbe89aa90a297ce6ecfcdc84b",
+                "reference": "78f673d2d5a8e88dbe89aa90a297ce6ecfcdc84b",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "guzzlehttp/guzzle": "^7.2.0",
+                "php": "^7.4|^8.0|^8.1|^8.2"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.16",
+                "mockery/mockery": "^1.4",
+                "php-coveralls/php-coveralls": "^2.2",
+                "phpunit/phpunit": "^9.0",
+                "scrutinizer/ocular": "^1.7",
+                "vimeo/psalm": "^3.11"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "NotchPay\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Chapdel KAMGA",
+                    "email": "drop@chapdel.me",
+                    "homepage": "https://github.com/chapdel",
+                    "role": "Owner"
+                },
+                {
+                    "name": "Tim Oladoyinbo",
+                    "email": "hello@digikraaft.ng",
+                    "homepage": "https://digikraaft.com",
+                    "role": "Base credit"
+                }
+            ],
+            "description": "Notch Pay PHP Wrapper.",
+            "homepage": "https://github.com/notchpay/notchpay-php",
+            "keywords": [
+                "Orange Money",
+                "accept money",
+                "api",
+                "curl",
+                "customer",
+                "disable",
+                "enable",
+                "gateway",
+                "mtn momo",
+                "notchpay",
+                "payment",
+                "payment processing",
+                "transaction",
+                "verify"
+            ],
+            "support": {
+                "issues": "https://github.com/notchpay/notchpay-php/issues",
+                "source": "https://github.com/notchpay/notchpay-php/tree/1.6.1"
+            },
+            "time": "2024-04-10T07:46:14+00:00"
+        },
+        {
             "name": "nunomaduro/termwind",
             "version": "v2.2.0",
             "source": {
@@ -5952,7 +6090,7 @@
         },
         {
             "name": "shopper/core",
-            "version": "v2.0.0-beta13",
+            "version": "v2.0.0-beta14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/shopperlabs/core.git",
@@ -6000,22 +6138,22 @@
             ],
             "description": "Laravel Shopper e-commerce core functionality",
             "support": {
-                "source": "https://github.com/shopperlabs/core/tree/v2.0.0-beta13"
+                "source": "https://github.com/shopperlabs/core/tree/v2.0.0-beta14"
             },
             "time": "2024-10-16T15:53:02+00:00"
         },
         {
             "name": "shopper/framework",
-            "version": "v2.0.0-beta13",
+            "version": "v2.0.0-beta14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/shopperlabs/admin.git",
-                "reference": "e633ba90e3a4cfd43679d454352a40dcb4528c87"
+                "reference": "9efcf523019869f567e9364beb74d46099b492ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/shopperlabs/admin/zipball/e633ba90e3a4cfd43679d454352a40dcb4528c87",
-                "reference": "e633ba90e3a4cfd43679d454352a40dcb4528c87",
+                "url": "https://api.github.com/repos/shopperlabs/admin/zipball/9efcf523019869f567e9364beb74d46099b492ca",
+                "reference": "9efcf523019869f567e9364beb74d46099b492ca",
                 "shasum": ""
             },
             "require": {
@@ -6080,11 +6218,11 @@
                 "issues": "https://github.com/shopperlabs/framework/issues",
                 "source": "https://github.com/shopperlabs/framework"
             },
-            "time": "2024-10-04T07:10:09+00:00"
+            "time": "2024-10-25T06:10:31+00:00"
         },
         {
             "name": "shopper/sidebar",
-            "version": "v2.0.0-beta13",
+            "version": "v2.0.0-beta14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/shopperlabs/sidebar.git",
@@ -6138,7 +6276,7 @@
             ],
             "support": {
                 "issues": "https://github.com/shopperlabs/sidebar/issues",
-                "source": "https://github.com/shopperlabs/sidebar/tree/v2.0.0-beta13"
+                "source": "https://github.com/shopperlabs/sidebar/tree/v2.0.0-beta14"
             },
             "time": "2024-08-12T18:52:22+00:00"
         },

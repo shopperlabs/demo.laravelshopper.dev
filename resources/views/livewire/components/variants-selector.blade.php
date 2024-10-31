@@ -1,5 +1,5 @@
 <div>
-    <form class="mt-6">
+    <form class="mt-6" wire:submit="addToCart">
         <div class="hidden">
             <h3 class="text-sm text-gray-600">{{ __('Color') }}</h3>
 
@@ -10,8 +10,7 @@
                 </div>
             </fieldset>
         </div>
-
-        <div class="mt-10 flex items-center gap-2">
+        <div class="flex items-center gap-2 mt-10">
             <x-buttons.primary type="submit" class="max-w-xs px-8 py-3 sm:w-full">
                 {{ __('Add to cart') }}
             </x-buttons.primary>

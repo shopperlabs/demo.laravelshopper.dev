@@ -2,8 +2,9 @@
 
 declare(strict_types=1);
 
-use App\Livewire\Checkout;
+use App\Http\Controllers\NotchPayCallBackController;
 use App\Livewire\Pages;
+use App\Livewire\Pages\Checkout;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
@@ -20,8 +21,12 @@ Route::middleware('auth')->group(function (): void {
     Route::prefix('dashboard')->as('dashboard.')->group(function (): void {
         Route::view('profile', 'profile')->name('profile');
         Route::get('/addresses', Pages\Customer\Addresses::class)->name('addresses');
-
     });
+
+    Volt::route('/order/confirmed/{number}', 'pages.order.confirmed')
+        ->name('order-confirmed');
 });
+
+Route::get('callback-payment', NotchPayCallBackController::class)->name('notchpay-callback');
 
 require __DIR__ . '/auth.php';
