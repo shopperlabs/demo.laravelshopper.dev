@@ -24,7 +24,7 @@ title('Details of your order');
 
 <div>
     <h1 class="text-xl font-semibold text-gray-900 font-heading lg:text-2xl">
-        {{ __('Détail de la commande') }}
+        {{ __('Details of your order') }}
     </h1>
     <div class="flex flex-col mt-6 space-y-10 lg:space-y-14">
         <div class="flex items-center justify-between px-4 py-2 bg-gray-50 lg:max-w-5xl">
