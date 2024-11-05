@@ -11,6 +11,6 @@
     <span class="absolute inset-0 overflow-hidden rounded-md">
         <img src="{{ $image->getFullUrl() }}"  alt="{{ $image->file_name }} thumbnail" class="object-cover object-center w-full h-full">
     </span>
-    <span class="absolute inset-0 rounded-md pointer-events-none ring-2 ring-primary-500 ring-offset-2"
+    <span class="absolute inset-0 rounded-md pointer-events-none"
         aria-hidden="true"></span>
 </button>

@@ -8,7 +8,7 @@
 @endphp
 
 <li class="flex items-start py-6 space-x-4">
-    <x-products.thumbnail :product="$item->associatedModel" class="w-20 h-20 border aspect-none border-primary-700" />
+    <x-products.thumbnail :product="$item->associatedModel" class="w-20 h-20 border aspect-none border-primary-700" :ifCart=true/>
     <div class="flex-auto space-y-1">
         <h3>{{ $item->name }}</h3>
         <p class="text-gray-400">

@@ -50,7 +50,7 @@
                           </span>
                         </div>
                     @endif
-                    <x-products.thumbnail :product="$item->product" class="aspect-none size-24" />
+                    <x-products.thumbnail :product="$item->product" class="aspect-none size-24" :ifCart=true/>
                 </div>
             @endforeach
         </div>
