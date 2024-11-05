@@ -15,6 +15,10 @@ final class Home extends Component
 {
     public function render(): View
     {
+        dd(Product::with(['brand', 'media'])
+            ->scopes('publish')
+            ->get());
+
         return view('livewire.pages.home', [
             'products' => Product::with(['brand', 'media'])
                 ->scopes('publish')
@@ -30,7 +34,7 @@ final class Home extends Component
                 constraint: function (Builder $query): void {
                     $query->where(shopper_table('categories') . '.is_enabled', true);
                 },
-                query: fn () => Category::with('media')->tree()->get()
+                query: fn () => Category::with('media')->limit(8)->tree()->get()
             ),
         ]);
     }
