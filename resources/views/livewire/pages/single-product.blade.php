@@ -38,25 +38,28 @@
 
                     <div class="mt-6">
                         <h3 class="sr-only">{{ __('Description') }}</h3>
-                        <div class="prose prose-sm text-gray-600 lg:max-w-none">{!! $product->description !!}</div>
+                        <div class="prose-sm prose text-gray-600 lg:max-w-none">{!! $product->description !!}</div>
                     </div>
 
                     <livewire:variants-selector :product="$product" />
-
+                    {{--
                     <section aria-labelledby="details-heading" class="mt-12">
                         <h2 id="details-heading" class="sr-only">{{ __('Additional details') }}</h2>
                         <x-products.additionnal-infos />
-                    </section>
+                    </section> --}}
                 </div>
             </div>
+            @if ($product->relatedProducts->isnotEmpty())
+                <section aria-labelledby="related-heading" class="px-4 py-16 mt-10 border-t border-gray-200 sm:px-0">
+                    <h2 class="text-xl font-bold text-gray-900">{{ __('Customers also bought') }}</h2>
 
-            <section aria-labelledby="related-heading" class="px-4 py-16 mt-10 border-t border-gray-200 sm:px-0">
-                <h2 class="text-xl font-bold text-gray-900">{{ __('Customers also bought') }}</h2>
-
-                <div class="grid grid-cols-1 mt-8 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8">
-                    <x-products.others :product="$product"/>
-                </div>
-              </section>
+                    <div class="grid grid-cols-1 mt-8 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8">
+                        @foreach($product->relatedProducts as $relatedProduct)
+                            <x-products.others :product="$relatedProduct"/>
+                        @endforeach
+                    </div>
+                </section>
+            @endif
         </x-container>
     </div>
 </div>
