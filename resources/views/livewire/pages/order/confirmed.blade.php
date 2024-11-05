@@ -68,8 +68,7 @@ mount(function (string $number): void {
                     </div>
                 </dl>
                 <div class="mt-6 space-y-4 sm:flex sm:space-x-4 sm:space-y-0 md:mt-0">
-                    {{-- TODO route de redirection vers la page de detail de commande dashboard.orders.detail --}}
-                    <x-buttons.default  class="flex w-full px-4 py-2 text-sm md:w-auto">
+                    <x-buttons.default :href="route('dashboard.orders.detail', ['number' => $order->number])" class="flex w-full px-4 py-2 text-sm md:w-auto">
                         {{ __('Detail') }}
                         <span class="sr-only">{{ $order->number }}</span>
                     </x-buttons.default>
@@ -103,8 +102,7 @@ mount(function (string $number): void {
                         </div>
                     </div>
                     <p class="pl-8 mt-3 text-sm">
-                        {{-- TODO route de redirection vers la page  des commande dashboard.orders --}}
-                        <x-link class="font-medium text-gray-700 whitespace-nowrap hover:text-gray-600">
+                        <x-link :href="route('dashboard.orders')" class="font-medium text-gray-700 whitespace-nowrap hover:text-gray-600">
                             {{ __('My orders') }}
                             <span aria-hidden="true"> &rarr;</span>
                         </x-link>

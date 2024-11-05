@@ -2,7 +2,7 @@
     <x-container class="relative py-8 sm:py-12 lg:py-16">
         <div class="grid grid-cols-1 lg:grid-cols-5 lg:gap-x-12">
             <div class="lg:col-span-1">
-                <h2 class="hidden text-xl font-medium leading-6 font-heading text-gray-900 lg:block">
+                <h2 class="hidden text-xl font-medium leading-6 text-gray-900 font-heading lg:block">
                     {{ __('My account') }}
                 </h2>
                 <div class="hidden mt-10 space-y-8 lg:block">
@@ -19,11 +19,11 @@
                         />
                         <x-nav.account-link
                             :href="route('dashboard.addresses')"
-                            :title="__('Adresses')"
+                            :title="__('Addresses')"
                             :active="request()->routeIs('dashboard.addresses')"
                         />
                         <x-nav.account-link
-                            href="#"
+                            :href="route('dashboard.orders')"
                             :title="__('Orders')"
                             :active="request()->routeIs('dashboard.orders*')"
                         />
