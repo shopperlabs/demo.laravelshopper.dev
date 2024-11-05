@@ -15,10 +15,6 @@ final class Home extends Component
 {
     public function render(): View
     {
-        dd(Product::with(['brand', 'media'])
-            ->scopes('publish')
-            ->get());
-
         return view('livewire.pages.home', [
             'products' => Product::with(['brand', 'media'])
                 ->scopes('publish')
