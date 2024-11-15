@@ -13,7 +13,7 @@ final class CategoriesNavigation
     {
         $view->with(
             'categories',
-            once(fn () => Category::isRoot()->scopes(['enabled'])->limit(6)->get()
-            ));
+            once(fn () => Category::isRoot()->scopes(['enabled'])->get())
+        );
     }
 }

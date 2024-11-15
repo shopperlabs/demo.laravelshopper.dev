@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Database\Seeders;
 
+use App\Models\Category as ShopCategory;
+use App\Models\Collection as ShopCollection;
 use App\Models\Product;
 use Closure;
 use Illuminate\Database\Eloquent\Collection;
@@ -12,21 +14,18 @@ use Symfony\Component\Console\Helper\ProgressBar;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
-        // Product
         $this->command->warn(PHP_EOL . 'Creating product...');
+
         $this->withProgressBar(20, fn () => Product::factory()
             ->count(1)
-            ->hasAttached(\App\Models\Collection::factory()->count(1))
-            ->hasAttached(\App\Models\Category::factory()->count(1))
+            ->hasAttached(ShopCollection::factory()->count(1))
+            ->hasAttached(ShopCategory::factory()->count(1))
             ->create()
         );
-        $this->command->info('All products created.');
 
+        $this->command->info('All products created.');
     }
 
     protected function withProgressBar(int $total, Closure $createCollectionOfOne): Collection

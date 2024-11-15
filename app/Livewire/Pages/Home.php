@@ -30,7 +30,7 @@ final class Home extends Component
                 constraint: function (Builder $query): void {
                     $query->where(shopper_table('categories') . '.is_enabled', true);
                 },
-                query: fn () => Category::with('media')->limit(8)->tree()->get()
+                query: fn () => Category::with('media')->tree()->get()
             ),
         ]);
     }
