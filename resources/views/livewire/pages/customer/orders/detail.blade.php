@@ -18,7 +18,7 @@ mount(function (string $number): void {
         ->firstOrFail();
 });
 
-title('Details of your order');
+title(__('Details of your order'));
 
 ?>
 

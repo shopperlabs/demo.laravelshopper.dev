@@ -11,7 +11,7 @@ describe('Profile', function (): void {
 
         $this->actingAs($user);
 
-        $response = $this->get('/profile');
+        $response = $this->get('/dashboard/profile');
 
         $response
             ->assertOk()

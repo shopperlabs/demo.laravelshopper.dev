@@ -20,6 +20,7 @@ use Shopper\Core\Models\Order;
  * @property int $fees
  * @property PaymentType | null $provider
  * @property Order $order
+ * @property array $metadata
  */
 final class Transaction extends Model
 {
@@ -58,6 +59,10 @@ final class Transaction extends Model
         return $default;
     }
 
+    /**
+     * @param  array<string, mixed>  $revisions
+     * @return $this
+     */
     public function setMetadata(array $revisions, bool $save = true): self
     {
         $this->metadata = array_merge($this->metadata ?? [], $revisions);

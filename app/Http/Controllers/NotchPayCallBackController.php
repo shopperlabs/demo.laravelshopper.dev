@@ -7,6 +7,7 @@ namespace App\Http\Controllers;
 use App\Enums\TransactionStatus;
 use App\Events\PaymentInitialize;
 use App\Models\Transaction;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use NotchPay\NotchPay;
 use NotchPay\Payment;
@@ -17,7 +18,7 @@ class NotchPayCallBackController extends Controller
     /**
      * Handle the incoming request.
      */
-    public function __invoke(Request $request)
+    public function __invoke(Request $request): RedirectResponse
     {
         /** @var Transaction $transaction */
         $transaction = Transaction::with('order')
@@ -43,7 +44,6 @@ class NotchPayCallBackController extends Controller
                     'status' => OrderStatus::Paid(),
                 ]);
 
-                // @ToDO Envoie de mail de notification de remerciement pour la commande à l'utilisateur
                 event(new PaymentInitialize($transaction));
 
                 session()->flash(

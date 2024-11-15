@@ -1,7 +1,7 @@
 {
-  "name": "laravel/laravel",
+  "name": "shopperlabs/demo-store",
   "type": "project",
-  "description": "The skeleton application for the Laravel framework.",
+  "description": "The skeleton starter kit for Shopper.",
   "keywords": ["laravel", "framework"],
   "license": "MIT",
   "require": {

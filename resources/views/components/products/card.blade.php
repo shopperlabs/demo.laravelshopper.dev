@@ -3,7 +3,7 @@
 ])
 
 <div class="relative group">
-    <x-products.thumbnail :product="$product" class='w-full h-56 lg:h-72 xl:h-80' :ifCart=true/>
+    <x-products.thumbnail :product="$product" class='w-full h-56 lg:h-72 xl:h-80' />
 
     <h3 class="mt-4 text-sm text-gray-700">
         <x-link :href="route('single-product', ['slug' => $product->slug])">

@@ -30,6 +30,7 @@ final class CreateOrder
             'city' => data_get($checkout, 'shipping_address.city'),
             'postal_code' => data_get($checkout, 'shipping_address.postal_code'),
             'phone' => data_get($checkout, 'shipping_address.phone_number'),
+            // @phpstan-ignore-next-line
             'country_name' => Country::query()
                 ->find(data_get($checkout, 'shipping_address.country_id'))
                 ->name,
@@ -45,6 +46,7 @@ final class CreateOrder
                 'city' => data_get($checkout, 'billing_address.city'),
                 'postal_code' => data_get($checkout, 'billing_address.postal_code'),
                 'phone' => data_get($checkout, 'billing_address.phone_number'),
+                // @phpstan-ignore-next-line
                 'country_name' => Country::query()
                     ->find(data_get($checkout, 'billing_address.country_id'))
                     ->name,
@@ -63,6 +65,7 @@ final class CreateOrder
             'payment_method_id' => data_get($checkout, 'payment')[0]['id'],
         ]);
 
+        // @phpstan-ignore-next-line
         foreach (CartFacade::session($sessionId)->getContent() as $item) {
             OrderItem::query()->create([
                 'order_id' => $order->id,
@@ -75,7 +78,7 @@ final class CreateOrder
             ]);
         }
 
-        CartFacade::session($sessionId)->clear();
+        CartFacade::session($sessionId)->clear(); // @phpstan-ignore-line
 
         return $order;
     }

@@ -8,7 +8,7 @@
 @endphp
 
 <li class="flex py-6">
-    <x-products.thumbnail :product="$item->associatedModel" class="w-32 h-32 border border-gray-200 aspect-none"  :ifCart=true/>
+    <x-products.thumbnail :product="$item->associatedModel" class="size-32 border border-gray-200 aspect-none" />
     <div class="flex flex-col flex-1 ml-4">
         <div>
             <div class="flex justify-between text-base">

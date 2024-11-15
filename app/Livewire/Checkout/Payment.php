@@ -22,7 +22,10 @@ final class Payment extends StepComponent
     #[Validate('required', message: 'You must select a payment method')]
     public ?int $currentSelected = null;
 
-    public array|Collection $methods = [];
+    /**
+     * @var array|Collection
+     */
+    public $methods = [];
 
     public function mount(): void
     {
