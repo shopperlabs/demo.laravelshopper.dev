@@ -53,7 +53,7 @@ new #[Layout('components.layouts.templates.app')] class extends Component
             </h2>
             <div class="my-6 space-y-4">
                 <!-- Session Status -->
-                <x-auth-session-status :status="session('status')" />
+                <x-alert.success :status="session('status')" />
 
                 <form wire:submit="login" class="space-y-4">
                     <!-- Email Address -->

@@ -18,13 +18,13 @@ final class ShoppingCartButton extends Component
     public function mount(): void
     {
         $this->sessionKey = session()->getId();
-        $this->cartTotalItems = CartFacade::session($this->sessionKey)->getTotalQuantity();
+        $this->cartTotalItems = CartFacade::session($this->sessionKey)->getTotalQuantity(); // @phpstan-ignore-line
     }
 
     #[On('cartUpdated')]
     public function cartUpdated(): void
     {
-        $this->cartTotalItems = CartFacade::session($this->sessionKey)->getTotalQuantity();
+        $this->cartTotalItems = CartFacade::session($this->sessionKey)->getTotalQuantity(); // @phpstan-ignore-line
     }
 
     public function render(): View

@@ -52,7 +52,7 @@ describe(Login::class, function (): void {
 
         $this->actingAs($user);
 
-        $component = Volt::test('layout.navigation');
+        $component = Volt::test('components.account-menu');
 
         $component->call('logout');
 

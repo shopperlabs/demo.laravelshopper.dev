@@ -20,7 +20,7 @@ new #[Layout('components.layouts.templates.account')] class extends Component {
             [
                 'title' => __('Personal information'),
                 'description' => __('Change of e-mail address, name and telephone number'),
-                'href' => route('dashboard'),
+                'href' => route('dashboard.profile'),
                 'icon' => 'untitledui-shield-tick'
             ],
             [

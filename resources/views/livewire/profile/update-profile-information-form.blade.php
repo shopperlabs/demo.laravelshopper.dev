@@ -117,10 +117,6 @@ new class extends Component
 
         <div class="flex items-center gap-4">
             <x-buttons.submit :title="__('Save')" />
-
-            <x-action-message class="me-3" on="profile-updated">
-                {{ __('Saved.') }}
-            </x-action-message>
         </div>
     </form>
 </section>

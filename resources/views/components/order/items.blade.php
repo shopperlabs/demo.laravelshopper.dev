@@ -5,7 +5,7 @@
         <div class="relative flex gap-3">
             <x-products.thumbnail
                 :product="$item->product"
-                class="size-28"
+                class="size-28" :ifCart=true
             />
             <div class="flex-1 space-y-0.5">
                 <h4 class="text-sm font-medium leading-5 font-heading text-brand">
