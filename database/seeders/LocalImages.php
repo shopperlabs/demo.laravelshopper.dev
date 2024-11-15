@@ -16,7 +16,7 @@ final class LocalImages
     public static function getRandomFile(?string $size = LocalImages::SIZE_1280x720): SplFileInfo
     {
         return collect(
-            File::files(database_path('images/' . $size))
+            File::files(database_path('seeders/images/' . $size))
         )->random();
     }
 }
