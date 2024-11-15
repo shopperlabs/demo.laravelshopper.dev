@@ -18,6 +18,7 @@ final class VariantsSelector extends Component
     {
         $this->product->loadMissing('media');
 
+        // @phpstan-ignore-next-line
         CartFacade::session(session()->getId())->add([
             'id' => $this->product->id,
             'name' => $this->product->name,

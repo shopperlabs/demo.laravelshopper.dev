@@ -11,6 +11,9 @@ use Spatie\LivewireWizard\Components\WizardComponent;
 
 final class CheckoutWizard extends WizardComponent
 {
+    /**
+     * @return string[]
+     */
     public function steps(): array
     {
         return [

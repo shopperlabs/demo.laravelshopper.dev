@@ -30,22 +30,22 @@ final class ShoppingCart extends SlideOverComponent
         $sessionKey = session()->getId();
 
         $this->sessionKey = $sessionKey;
-        $this->items = CartFacade::session($sessionKey)->getContent();
-        $this->subtotal = CartFacade::session($sessionKey)->getSubTotal();
+        $this->items = CartFacade::session($sessionKey)->getContent(); // @phpstan-ignore-line
+        $this->subtotal = CartFacade::session($sessionKey)->getSubTotal(); // @phpstan-ignore-line
     }
 
     #[On('cartUpdated')]
     public function cartUpdated(): void
     {
-        $this->items = CartFacade::session($this->sessionKey)->getContent();
-        $this->subtotal = CartFacade::session($this->sessionKey)->getSubTotal();
+        $this->items = CartFacade::session($this->sessionKey)->getContent(); // @phpstan-ignore-line
+        $this->subtotal = CartFacade::session($this->sessionKey)->getSubTotal(); // @phpstan-ignore-line
     }
 
     public function removeToCart(int $id): void
     {
         /** @var Product $product */
         $product = Product::query()->find($id);
-        CartFacade::session($this->sessionKey)->remove($id);
+        CartFacade::session($this->sessionKey)->remove($id); // @phpstan-ignore-line
 
         Notification::make()
             ->title(__('Cart updated'))

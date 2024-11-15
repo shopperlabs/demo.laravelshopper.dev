@@ -38,21 +38,21 @@ final class PayWithNotchPay implements ManageOrder
             ]);
 
             Transaction::query()->create([
-                'amount' => $payload->transaction->amount,
-                'status' => $payload->transaction->status,
-                'transaction_reference' => $payload->transaction->reference,
-                'currency_code' => $payload->transaction->currency,
+                'amount' => $payload->transaction->amount, // @phpstan-ignore-line
+                'status' => $payload->transaction->status, // @phpstan-ignore-line
+                'transaction_reference' => $payload->transaction->reference, // @phpstan-ignore-line
+                'currency_code' => $payload->transaction->currency, // @phpstan-ignore-line
                 'user_id' => $user->id,
                 'order_id' => $order->id,
-                'fees' => $payload->transaction->fee,
+                'fees' => $payload->transaction->fee, // @phpstan-ignore-line
                 'type' => TransactionType::OneTime(),
                 'provider' => PaymentType::NotchPay(),
                 'metadata' => [
-                    'initiated_at' => $payload->transaction->created_at,
+                    'initiated_at' => $payload->transaction->created_at, // @phpstan-ignore-line
                 ],
             ]);
 
-            return redirect($payload->authorization_url);
+            return redirect($payload->authorization_url);  // @phpstan-ignore-line
         } catch (\NotchPay\Exceptions\ApiException $e) {
             session()->flash(
                 'error',

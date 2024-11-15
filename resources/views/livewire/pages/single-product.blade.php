@@ -4,23 +4,24 @@
              <!-- Product -->
             <div class="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
                  <!-- Image gallery -->
-                <div class="flex flex-col-reverse">
+                <div class="flex flex-col">
+                    <x-products.thumbnail :product="$product" />
+
                     @if ($product->getMedia(config('shopper.core.storage.collection_name'))->isNotEmpty())
                         <div class="hidden w-full max-w-2xl mx-auto mt-6 sm:block lg:max-w-none">
                             <div class="grid grid-cols-4 gap-6" aria-orientation="horizontal" role="tablist">
                                 @foreach ($product->getMedia(config('shopper.core.storage.collection_name')) as $image)
-                                    <x-products.gallery-button :image="$image" :product="$product" :index="$loop->index" />
+                                    <div class="relative flex items-center justify-center h-24 bg-white rounded-lg overflow-hidden">
+                                        <img
+                                            src="{{ $image->getFullUrl() }}"
+                                            alt="{{ $product->name }} image"
+                                            class="object-cover object-center size-full"
+                                        />
+                                    </div>
                                 @endforeach
                             </div>
                         </div>
-
-                        <div class="w-full aspect-h-1 aspect-w-1">
-                            <!-- Tab panel, show/hide based on tab state. -->
-                            <x-products.gallery :images="$product->getMedia(config('shopper.core.storage.collection_name'))" />
-                        </div>
                     @endif
-
-
                 </div>
 
                 <!-- Product info -->
@@ -49,13 +50,14 @@
                     </section> --}}
                 </div>
             </div>
+
             @if ($product->relatedProducts->isnotEmpty())
                 <section aria-labelledby="related-heading" class="px-4 py-16 mt-10 border-t border-gray-200 sm:px-0">
                     <h2 class="text-xl font-bold text-gray-900">{{ __('Customers also bought') }}</h2>
 
                     <div class="grid grid-cols-1 mt-8 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8">
                         @foreach($product->relatedProducts as $relatedProduct)
-                            <x-products.others :product="$relatedProduct"/>
+                            <x-products.related :product="$relatedProduct"/>
                         @endforeach
                     </div>
                 </section>

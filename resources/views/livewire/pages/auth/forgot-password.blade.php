@@ -70,7 +70,7 @@ new #[Layout('components.layouts.templates.app')] class extends Component
             </div>
             <div class="mt-6 space-y-6">
                 <!-- Session Status -->
-                <x-auth-session-status :status="session('status')" />
+                <x-alert.success :status="session('status')" />
 
                 <form wire:submit="sendPasswordResetLink">
                     <!-- Email Address -->

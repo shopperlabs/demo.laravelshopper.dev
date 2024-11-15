@@ -14,7 +14,10 @@ use Spatie\LivewireWizard\Components\StepComponent;
 
 final class Delivery extends StepComponent
 {
-    public array|Collection $options = [];
+    /**
+     * @var array|Collection
+     */
+    public $options = [];
 
     #[Validate('required', message: 'You must select a delivery method')]
     public ?int $currentSelected = null;
@@ -28,6 +31,7 @@ final class Delivery extends StepComponent
 
         $country = Country::query()->with('zones')->find($countryId);
         /** @var ?Zone $zone */
+        // @phpstan-ignore-next-line
         $zone = $country->zones()
             ->with('shippingOptions')
             ->where('is_enabled', true)
