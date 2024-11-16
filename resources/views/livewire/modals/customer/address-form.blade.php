@@ -1,7 +1,7 @@
 <x-modal
     header-classes="p-4 border-b border-gray-100 sm:px-6 sm:py-4"
     content-classes="relative p-4 flex-1 sm:max-h-[500px] sm:px-6 sm:px-5"
-    footer-classes="px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse"
+    footer-classes="px-4 py-3 border-t border-gray-100 sm:px-6 sm:flex sm:flex-row-reverse"
     form-action="save"
 >
     <x-slot name="title">

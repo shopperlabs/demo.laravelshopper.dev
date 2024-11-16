@@ -67,18 +67,18 @@ new class extends Component
     }
 }; ?>
 
-<section>
+<section class="pb-10">
     <header>
-        <h2 class="text-lg font-medium text-gray-900">
+        <h2 class="text-lg font-medium text-gray-900 lg:text-xl">
             {{ __('Profile Information') }}
         </h2>
 
-        <p class="mt-1 text-sm text-gray-600">
+        <p class="mt-2 text-sm text-gray-500">
             {{ __("Update your account's profile information and email address.") }}
         </p>
     </header>
 
-    <form wire:submit="updateProfileInformation" class="mt-6 space-y-6">
+    <form wire:submit="updateProfileInformation" class="mt-6 space-y-6 max-w-xl">
         <div>
             <x-forms.label for="first_name" :value="__('First Name')" />
             <x-forms.input wire:model="first_name" id="first_name" name="first_name" type="text" class="block w-full mt-1" required autofocus autocomplete="first-name" />
