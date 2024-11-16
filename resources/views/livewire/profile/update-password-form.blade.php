@@ -38,18 +38,18 @@ new class extends Component
     }
 }; ?>
 
-<section>
+<section class="py-10">
     <header>
-        <h2 class="text-lg font-medium text-gray-900">
+        <h2 class="text-lg font-medium text-gray-900 lg:text-xl">
             {{ __('Update Password') }}
         </h2>
 
-        <p class="mt-1 text-sm text-gray-600">
+        <p class="mt-2 text-sm text-gray-500">
             {{ __('Ensure your account is using a long, random password to stay secure.') }}
         </p>
     </header>
 
-    <form wire:submit="updatePassword" class="mt-6 space-y-6">
+    <form wire:submit="updatePassword" class="mt-8 space-y-6 max-w-xl">
         <div>
             <x-forms.label for="update_password_current_password" :value="__('Current Password')" />
             <x-forms.input wire:model="current_password" id="update_password_current_password" name="current_password" type="password" class="mt-1 block w-full" autocomplete="current-password" />
