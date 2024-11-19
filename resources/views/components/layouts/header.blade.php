@@ -7,7 +7,7 @@
             </x-link>
             <div class="flex items-center ml-10 gap-x-6">
                 @foreach ($categories as $category)
-                    <x-nav.item link="#">{{ $category->name }}</x-nav.item>
+                    <x-nav.item link="{{ route('category.products', $category->slug) }}">{{ $category->name }}</x-nav.item>
                 @endforeach
             </div>
         </nav>
