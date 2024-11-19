@@ -2,13 +2,12 @@
 
 declare(strict_types=1);
 
-use Livewire\Livewire;
-use App\Models\Product;
+use App\Livewire\Pages\Category\CategoryProducts;
 use App\Models\Category;
+use App\Models\Product;
+use Livewire\Livewire;
 
 use function Pest\Laravel\get;
-use App\Livewire\Pages\Category\CategoryProducts;
-
 
 describe(CategoryProducts::class, function (): void {
     it('can render category products page', function (): void {
@@ -27,13 +26,13 @@ describe(CategoryProducts::class, function (): void {
         $category = Category::factory()->create([
             'slug' => 'homme',
         ]);
-    
+
         $products = Product::factory()->count(3)->create();
-    
+
         foreach ($products as $product) {
             $product->categories()->attach($category->id);
         }
-    
+
         Livewire::test(CategoryProducts::class, ['slug' => $category->slug])
             ->assertSuccessful()
             ->assertSee($products[0]->name)
