@@ -11,16 +11,13 @@ use Livewire\Component;
 
 final class CategoryProducts extends Component
 {
-    public string $categorySlug;
-
     public Category $category;
 
     public Collection $products;
 
     public function mount(string $slug): void
     {
-        $this->categorySlug = $slug;
-        $this->category = Category::where('slug', $this->categorySlug)->firstOrFail();
+        $this->category = Category::where('slug', $slug)->firstOrFail();
         $this->products = $this->category->products;
     }
 
