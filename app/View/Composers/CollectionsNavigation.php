@@ -13,8 +13,7 @@ final class CollectionsNavigation
     {
         $view->with(
             'collections',
-            once(fn () => Collection::withCount('products')
-                ->having('products_count', '>', 0)
+            once(fn () => Collection::whereHas('products')
                 ->orderBy('created_at')
                 ->get()
             )

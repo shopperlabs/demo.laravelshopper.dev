@@ -7,6 +7,8 @@ use App\Models\Collection;
 use App\Models\Product;
 use Livewire\Livewire;
 
+use function Pest\Laravel\get;
+
 describe(CollectionProducts::class, function (): void {
     it('can render collection page', function (): void {
         $collection = Collection::factory()
@@ -14,6 +16,8 @@ describe(CollectionProducts::class, function (): void {
             ->create([
                 'slug' => 'nike',
             ]);
+
+        get(route('collection.products', $collection->slug))->assertOk();
 
         Livewire::test(CollectionProducts::class, ['slug' => $collection->slug])
             ->assertSuccessful()
