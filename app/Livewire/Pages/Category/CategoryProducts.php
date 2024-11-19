@@ -6,23 +6,19 @@ namespace App\Livewire\Pages\Category;
 
 use App\Models\Category;
 use Illuminate\Contracts\View\View;
-use Illuminate\Support\Collection;
 use Livewire\Component;
 
 final class CategoryProducts extends Component
 {
     public Category $category;
 
-    public Collection $products;
-
     public function mount(string $slug): void
     {
-        $this->category = Category::where('slug', $slug)->firstOrFail();
-        $this->products = $this->category->products;
+        $this->category = Category::with('products')->where('slug', $slug)->firstOrFail();
     }
 
     public function render(): View
     {
-        return view('livewire.category.category-products');
+        return view('livewire.category.category-products', ['products' => $this->category->products]);
     }
 }
