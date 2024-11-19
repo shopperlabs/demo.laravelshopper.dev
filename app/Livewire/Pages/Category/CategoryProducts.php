@@ -4,11 +4,10 @@ declare(strict_types=1);
 
 namespace App\Livewire\Pages\Category;
 
-use App\Models\Product;
-use Livewire\Component;
 use App\Models\Category;
-use Illuminate\Support\Collection;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Collection;
+use Livewire\Component;
 
 final class CategoryProducts extends Component
 {
@@ -16,7 +15,7 @@ final class CategoryProducts extends Component
 
     public Category $category;
 
-    public Collection  $products;
+    public Collection $products;
 
     public function mount(string $slug): void
     {
