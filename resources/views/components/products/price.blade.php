@@ -4,7 +4,12 @@
 ])
 
 <p {{ $attributes->twMerge(['class' => 'inline-flex items-center gap-2 text-sm text-gray-600']) }}>
+<<<<<<< HEAD
     {{ (!$currentVariant) ? $product->getPriceAmount()?->formatted : $currentVariant->getPriceAmount()?->formatted }}
+=======
+    {{ $product->getPriceAmount()?->formatted }}
+
+>>>>>>> a1104e4 (:feat:[SHO-54] add products variants in single product detail page and fix discount percent)
     @if(isset($product->discount_percentage) && $product->discount_percentage !== 0 && $product->getOldPriceAmount())
         <span>
             <span class="sr-only">

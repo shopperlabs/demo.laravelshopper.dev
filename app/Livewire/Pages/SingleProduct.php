@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace App\Livewire\Pages;
 
 use App\Models\Product;
+use Darryldecode\Cart\Facades\CartFacade;
+use Filament\Notifications\Notification;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Livewire\Component;
