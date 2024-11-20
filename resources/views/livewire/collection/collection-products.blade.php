@@ -10,7 +10,7 @@
                     @forelse($products as $product)
                         <x-products.simple-card :product="$product" />
                     @empty
-                        <p class="col-span-3 text-center text-gray-500">{{ __('Aucun produit trouvé dans cette collections.') }}</p>
+                        <p class="col-span-3 text-center text-gray-500">{{ __('No products found in this collection.') }}</p>
                     @endforelse
                 </div>
             </div>
