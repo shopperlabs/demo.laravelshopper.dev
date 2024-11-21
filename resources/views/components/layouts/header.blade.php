@@ -9,7 +9,7 @@
                 @foreach ($categories as $category)
                     <x-nav.item link="{{ route('category.products', $category->slug) }}">{{ $category->name }}</x-nav.item>
                 @endforeach
-
+                <x-nav.item link="{{ route('shop.products') }}">{{ __('Shop') }}</x-nav.item>
                 <div class="relative group">
                     <x-link class="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800">
                         {{ __('Collections') }}
@@ -17,7 +17,7 @@
                             <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                         </svg>
                     </x-link>
-        
+
                     <div class="absolute left-0 w-48 bg-white border rounded shadow-lg hidden group-hover:block z-50">
                         @foreach ($collections as $collection)
                             <x-link :href="route('collection.products', $collection->slug)" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">
