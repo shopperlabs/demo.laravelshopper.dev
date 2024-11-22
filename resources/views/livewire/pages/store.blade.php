@@ -29,7 +29,7 @@
                                                 <div class="space-y-3 pt-6">
                                                     @foreach ($attribute->values as $index => $value)
                                                         <div class="flex items-center">
-                                                            <input id="{{ $attribute->slug }}-{{ $index }}" wire:model.live="selectedAttributes"
+                                                            <input id="{{ $attribute->slug }}-{{ $index }}" wire:model.live="selectedAttributes.{{ $attribute->id }}.{{$index}}"
                                                                    name="{{ $attribute->slug }}[]" value="{{ $value->id }}" type="checkbox"
                                                                    class="size-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
                                                             <label for="{{ $attribute->slug }}-{{ $index }}" class="ml-3 text-sm text-gray-600">{{ $value->value }}</label>

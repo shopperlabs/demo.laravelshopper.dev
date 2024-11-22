@@ -5,7 +5,7 @@
             <x-link :href="route('home')" class="relative text-sm">
                 <x-brand class="w-auto h-10" />
             </x-link>
-            <div class="flex items-center lg:gap-x-4 ml-10 gap-x-6">
+            <div class="items-center lg:gap-x-4 ml-10 gap-x-6 hidden md:flex">
                 @foreach ($categories as $category)
                     <x-nav.item link="{{ route('category.products', $category->slug) }}">{{ $category->name }}</x-nav.item>
                 @endforeach
