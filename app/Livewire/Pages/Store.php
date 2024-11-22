@@ -31,15 +31,17 @@ class Store extends Component
     public function filterProducts(): void
     {
         $this->products = Product::with(['media'])->parent();
-        foreach ($this->selectedAttributes as $attributeId => $valueIds) {
-            $selectedValueIds = array_keys(array_filter(array_map(function ($value) {
-                return $value;
-            }, $valueIds))); // @phpstan-ignore-line
-            if (! empty($selectedValueIds)) {
-                $this->products = $this->products->whereHas('attributes', function ($query) use ($attributeId, $selectedValueIds) {
-                    $query->where('attribute_id', $attributeId)
-                        ->whereIn('attribute_value_id', $selectedValueIds);
-                });
+        if (! empty($this->selectedAttributes)) {
+            foreach ($this->selectedAttributes as $attributeId => $valueIds) {
+                $selectedValueIds = array_keys(array_filter(array_map(function ($value) {
+                    return $value;
+                }, $valueIds))); // @phpstan-ignore-line
+                if (! empty($selectedValueIds)) {
+                    $this->products = $this->products->whereHas('attributes', function ($query) use ($attributeId, $selectedValueIds) {
+                        $query->where('attribute_id', $attributeId)
+                            ->whereIn('attribute_value_id', $selectedValueIds);
+                    });
+                }
             }
         }
         $this->products = $this->products->paginate(12);

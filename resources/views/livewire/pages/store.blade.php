@@ -4,7 +4,7 @@
 
             <main class="mx-auto  px-4 lg:max-w-7xl lg:px-8">
                 <div class="border-b border-gray-200 pb-4 pt-8 mb-2">
-                    <h1 class="text-4xl  font-bold tracking-tight text-gray-900">{{ __('Shop') }}</h1>
+                    <h1 class="text-4xl  font-bold tracking-tight text-gray-900">{{ __('Store') }}</h1>
                     <p class="mt-4 text-base text-gray-500">{{  __('Discover a wide range of products for a new and enriching experience!') }}</p>
                 </div>
                 <div class="pb-24 pt-12 lg:grid lg:grid-cols-3 lg:gap-x-8 xl:grid-cols-4">
@@ -23,13 +23,13 @@
                             <form class="space-y-10 divide-y divide-gray-200">
                                 @foreach($atributes as $attribute)
                                     <div>
-                                        <fieldset>
+                                        <fieldset wire:key="{{ $attribute->id }}">
                                             <legend class="block text-sm font-medium text-gray-900">{{$attribute->name}}</legend>
                                             @if ($attribute->values->isNotEmpty())
                                                 <div class="space-y-3 pt-6">
                                                     @foreach ($attribute->values as $index => $value)
-                                                        <div class="flex items-center">
-                                                            <input id="{{ $attribute->slug }}-{{ $index }}" wire:model.live="selectedAttributes.{{ $attribute->id }}.{{$index}}"
+                                                        <div class="flex items-center" wire:key="{{ $attribute->id }}-{{$index}}">
+                                                            <input id="{{ $attribute->slug }}-{{ $index }}" wire:model.live="selectedAttributes.{{ $attribute->id }}.{{$value->id}}"
                                                                    name="{{ $attribute->slug }}[]" value="{{ $value->id }}" type="checkbox"
                                                                    class="size-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
                                                             <label for="{{ $attribute->slug }}-{{ $index }}" class="ml-3 text-sm text-gray-600">{{ $value->value }}</label>

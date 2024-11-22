@@ -9,7 +9,7 @@
                 @foreach ($categories as $category)
                     <x-nav.item link="{{ route('category.products', $category->slug) }}">{{ $category->name }}</x-nav.item>
                 @endforeach
-                <x-nav.item link="{{ route('shop.products') }}">{{ __('Shop') }}</x-nav.item>
+                <x-nav.item link="{{ route('store.products') }}">{{ __('Store') }}</x-nav.item>
                 <div class="relative group">
                     <x-link class="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800">
                         {{ __('Collections') }}
