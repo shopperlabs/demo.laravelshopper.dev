@@ -46,7 +46,7 @@
 
                         <x-buttons.default
                             type="button"
-                            wire:click="$dispatch('openModal', { component: 'modals.product.modal-product' })"
+                            wire:click="$dispatch('openModal', { component: 'modals.product.modal-product', arguments: { product: {{ $product->id }} }})"
                             class="mt-6 inline-flex w-full items-center justify-center rounded-md border border-gray-300 bg-white px-8 py-2 text-sm font-medium text-gray-900 hover:bg-gray-50 sm:w-auto lg:w-full"
                         >
                             {{ __('Write a review') }}

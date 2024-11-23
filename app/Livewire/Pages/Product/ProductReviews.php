@@ -28,6 +28,7 @@ class ProductReviews extends Component
             ->get();
 
         $totalReviews = $this->product->countRating();
+
         return view('livewire.pages.product.product-reviews', [
             'averageRating' => $averageRating,
             'reviewCounts' => $reviewCounts,

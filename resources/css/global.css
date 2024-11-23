@@ -26,3 +26,16 @@
   border-radius: 0;
   background: #000;
 }
+
+.checked {
+  color: orange;
+}
+
+.star-rating {
+
+  cursor: pointer;
+}
+
+.size-star {
+  font-size: 24px;
+}
