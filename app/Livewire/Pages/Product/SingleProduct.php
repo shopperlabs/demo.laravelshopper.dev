@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Livewire\Pages;
+namespace App\Livewire\Pages\Product;
 
 use App\Models\Product;
 use Illuminate\Contracts\View\View;
@@ -35,7 +35,5 @@ final class SingleProduct extends Component
                 ->where('slug', $this->variant)
                 ->select('name', 'slug', 'sku', 'id', 'price_amount', 'old_price_amount')
                 ->first(),
-        ])
-            ->title($this->product->name);
-    }
+        ]);
 }

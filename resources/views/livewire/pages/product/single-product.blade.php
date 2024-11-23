@@ -9,7 +9,7 @@
         <x-container class="max-w-2xl mt-8">
             <!-- Product -->
             <div class="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
-                 <!-- Image gallery -->
+                <!-- Image gallery -->
                 <div class="flex flex-col">
 
                     <x-products.thumbnail :product="$selectedVariant ?? $product" />
@@ -18,12 +18,10 @@
                         <div class="hidden w-full max-w-2xl mx-auto mt-6 sm:block lg:max-w-none">
                             <div class="grid grid-cols-4 gap-6" aria-orientation="horizontal" role="tablist">
                                 @foreach ($product->getMedia(config('shopper.core.storage.collection_name')) as $image)
-                                    <div class="relative flex items-center justify-center h-24 bg-white rounded-lg overflow-hidden">
-                                        <img
-                                            src="{{ $image->getFullUrl() }}"
-                                            alt="{{ $product->name }} image"
-                                            class="object-cover object-center size-full"
-                                        />
+                                    <div
+                                        class="relative flex items-center justify-center h-24 bg-white rounded-lg overflow-hidden">
+                                        <img src="{{ $image->getFullUrl() }}" alt="{{ $product->name }} image"
+                                            class="object-cover object-center size-full" />
                                     </div>
                                 @endforeach
                             </div>
@@ -69,12 +67,13 @@
                     <h2 class="text-xl font-bold text-gray-900">{{ __('Customers also bought') }}</h2>
 
                     <div class="grid grid-cols-1 mt-8 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8">
-                        @foreach($product->relatedProducts as $relatedProduct)
-                            <x-products.related :product="$relatedProduct"/>
+                        @foreach ($product->relatedProducts as $relatedProduct)
+                            <x-products.related :product="$relatedProduct" />
                         @endforeach
                     </div>
                 </section>
             @endif
+            <livewire:pages.product.product-reviews :product="$product" />
         </x-container>
     </div>
 </div>
