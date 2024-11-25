@@ -2,7 +2,7 @@
     <div class=" pb-16 sm:pb-24">
         <x-container class="max-w-2xl">
 
-            <main class="mx-auto  px-4 lg:max-w-7xl lg:px-8">
+            <main class="mx-auto">
                 <div class="border-b border-gray-200 pb-4 pt-8 mb-2">
                     <h1 class="text-4xl  font-bold tracking-tight text-gray-900">{{ __('Store') }}</h1>
                     <p class="mt-4 text-base text-gray-500">{{  __('Discover a wide range of products for a new and enriching experience!') }}</p>
