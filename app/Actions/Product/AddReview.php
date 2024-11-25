@@ -8,9 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 
 final class AddReview
 {
+    // @phpstan-ignore-next-line
     public function execute(Model $reviewrateable, array $data, Model $author): \Shopper\Core\Models\Review
     {
-//        dd($data);
+        // @phpstan-ignore-next-line
         return $reviewrateable->rating($data, $author);
     }
 }

@@ -36,4 +36,5 @@ final class SingleProduct extends Component
                 ->select('name', 'slug', 'sku', 'id', 'price_amount', 'old_price_amount')
                 ->first(),
         ]);
+    }
 }

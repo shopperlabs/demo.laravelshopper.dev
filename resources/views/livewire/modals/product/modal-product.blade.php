@@ -3,6 +3,7 @@
     content-classes="relative p-4 flex-1 sm:max-h-[500px] sm:px-6 sm:px-5"
     footer-classes="px-4 py-3 border-t border-gray-100 sm:px-6 sm:flex sm:flex-row-reverse"
     form-action="save"
+    @saved="$refresh"
 >
     <x-slot name="title">
         {{ $title }}
@@ -23,8 +24,8 @@
         </div>
 
         <div class="space-y-2">
-            <x-forms.label for="form.content" :value="__('Content')" required />
-            <x-forms.text-area wire:model="form.content" id="form.content" name="form.content" type="text"> </x-forms.text-area>
+            <x-forms.label for="form.content" :value="__('Content')" />
+            <x-forms.text-area wire:model="form.content" id="content" name="content" type="text"> </x-forms.text-area>
             <x-forms.errors :messages="$errors->get('form.content')" />
         </div>
 

@@ -10,6 +10,7 @@ use App\Models\Product;
 use Filament\Notifications\Notification;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 use LivewireUI\Modal\ModalComponent;
 
 final class ModalProduct extends ModalComponent
@@ -21,13 +22,15 @@ final class ModalProduct extends ModalComponent
         $this->form->product = $product;
     }
 
+    /**
+     * @throws ValidationException
+     */
     public function save(): void
     {
-        //        dd( $this->form->toArray());
-        $addReview = new AddReview;
-        $addReview->execute($this->form->product, [
-            $this->form->toArray(),
-        ], Auth::user());
+        $this->form->validate();
+
+        app(AddReview::class)
+            ->execute($this->form->product, $this->form->toArray(), Auth::user());
 
         Notification::make()
             ->title(__('Review added'))
@@ -35,7 +38,8 @@ final class ModalProduct extends ModalComponent
             ->success()
             ->send();
 
-        $this->dispatch('review-updated');
+        $this->dispatch('reviewCreated');
+
         $this->closeModal();
     }
 

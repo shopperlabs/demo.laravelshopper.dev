@@ -6,6 +6,7 @@ namespace App\Livewire\Pages\Product;
 
 use App\Models\Product;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Collection;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\On;
 use Livewire\Component;
@@ -15,24 +16,28 @@ class ProductReviews extends Component
 {
     public Product $product;
 
-    #[On('review-updated')]
+    public ?float $averageRating = 0;
+
+    public ?float $reviewsCount = 0;
+
+    public Collection $reviews;
+
+    public function mount(): void
+    {
+        $this->reviewBasOn();
+    }
+
+    #[On('reviewCreated')]
+    public function reviewBasOn(): void
+    {
+        // @phpstan-ignore-next-line
+        $this->averageRating = floatval($this->product->averageRating()[0]) ?? $this->averageRating;
+        $this->reviewsCount = $this->product->countRating();
+        $this->reviews = $this->product->getRecentRatings($this->product->id, 3);
+    }
+
     public function render(): View
     {
-        $averageRating = $this->product->averageRating(1, true)->first();
-
-        $reviewCounts = $this->product->ratings()
-            ->selectRaw('rating, COUNT(*) as count')
-            ->where('approved', '1')
-            ->groupBy('rating')
-            ->orderByDesc('rating')
-            ->get();
-
-        $totalReviews = $this->product->countRating();
-
-        return view('livewire.pages.product.product-reviews', [
-            'averageRating' => $averageRating,
-            'reviewCounts' => $reviewCounts,
-            'totalReviews' => $totalReviews,
-        ]);
+        return view('livewire.pages.product.product-reviews');
     }
 }

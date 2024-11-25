@@ -10,15 +10,14 @@ use Livewire\Form;
 
 final class ProductReviewsForm extends Form
 {
-    #[Validate('required|exists:products')]
-    public Product $product;
+    public ?Product $product = null;
 
     #[Validate('required|integer|min:1|max:5')]
-    public int $rating = 1;
+    public ?int $rating = 1;
 
     #[Validate('nullable|string|max:255')]
     public ?string $title = null;
 
-    #[Validate('required|string')]
+    #[Validate('nullable|string|max:255')]
     public ?string $content = null;
 }
