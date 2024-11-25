@@ -23,7 +23,7 @@ class Store extends Component
 
     public function mount(): void
     {
-        $this->atributes = Attribute::with('values')->where('is_enabled', true)->get();
+        $this->atributes = Attribute::with('values')->enabled()->get();
         $this->filterProducts();
     }
 
