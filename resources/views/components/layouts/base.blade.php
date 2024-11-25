@@ -12,7 +12,6 @@
     <link rel="preconnect" href="https://fonts.bunny.net" />
     <link href="https://fonts.bunny.net/css?family=figtree:400,600,800,900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" />
 
     @filamentStyles
     @vite(['resources/css/app.css', 'resources/js/app.js'])
