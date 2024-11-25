@@ -23,7 +23,6 @@ class ReviewStats extends Component
         $this->reviewUpdated();
     }
 
-
     #[On('reviewCreated')]
     public function reviewUpdated(): void
     {
