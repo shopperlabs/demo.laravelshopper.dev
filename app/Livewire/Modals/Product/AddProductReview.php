@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Livewire\Modals\Product;
 
-use App\Actions\Product\AddReview;
+use App\Actions\Product\AddProductReviewAction;
 use App\Livewire\Forms\ProductReviewsForm;
 use App\Models\Product;
 use Filament\Notifications\Notification;
@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 use LivewireUI\Modal\ModalComponent;
 
-final class ModalProduct extends ModalComponent
+final class AddProductReview extends ModalComponent
 {
     public ProductReviewsForm $form;
 
@@ -29,7 +29,7 @@ final class ModalProduct extends ModalComponent
     {
         $this->form->validate();
 
-        app(AddReview::class)
+        app(AddProductReviewAction::class)
             ->execute($this->form->product, $this->form->toArray(), Auth::user());
 
         Notification::make()
@@ -50,7 +50,7 @@ final class ModalProduct extends ModalComponent
 
     public function render(): View
     {
-        return view('livewire.modals.product.modal-product', [
+        return view('livewire.modals.product.add-product-review', [
             'title' => __('Add new review'),
         ]);
     }

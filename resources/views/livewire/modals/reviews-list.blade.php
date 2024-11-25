@@ -67,7 +67,7 @@
                     </div>
                     <div class="text-center">
                         <h1 class="text-2xl font-medium text-gray-900 font-heading">
-                            {{ __('😱 Oops! Your review list is empty') }}
+                            {{ __('😱 This product has not yet been reviewed.') }}
                         </h1>
                     </div>
                 </div>

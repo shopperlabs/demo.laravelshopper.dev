@@ -73,7 +73,7 @@
                     </div>
                 </section>
             @endif
-            <livewire:pages.product.product-reviews :product="$product" />
+            <livewire:components.product.reviews :product="$product" />
         </x-container>
     </div>
 </div>
