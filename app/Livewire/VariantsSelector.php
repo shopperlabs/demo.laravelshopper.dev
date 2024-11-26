@@ -14,18 +14,19 @@ final class VariantsSelector extends Component
 {
     public Product $product;
 
+    public ?Product $currentVariant;
+
     public function addToCart(): void
     {
         $this->product->loadMissing('media');
-
         // @phpstan-ignore-next-line
         CartFacade::session(session()->getId())->add([
-            'id' => $this->product->id,
-            'name' => $this->product->name,
-            'price' => $this->product->price_amount,
+            'id' => (! $this->currentVariant) ? $this->product->id : $this->currentVariant->id,
+            'name' => (! $this->currentVariant) ? $this->product->name : $this->currentVariant->name,
+            'price' => (! $this->currentVariant) ? $this->product->price_amount : $this->currentVariant->price_amount,
             'quantity' => 1,
-            'attributes' => [],
-            'associatedModel' => $this->product,
+            'attributes' => (! $this->currentVariant) ? $this->product->attributes : [],
+            'associatedModel' => (! $this->currentVariant) ? $this->product : $this->currentVariant,
         ]);
 
         $this->dispatch('cartUpdated');
