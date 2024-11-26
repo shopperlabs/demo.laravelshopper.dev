@@ -2,9 +2,9 @@
 
 
 @if($attribute->slug === "size")
-    <x-attributes.taille :attribute="$attribute"/>
+    <x-attributes.size :attribute="$attribute"/>
 @elseif($attribute->slug === "color")
-    <x-attributes.couleur :attribute="$attribute"/>
+    <x-attributes.color :attribute="$attribute"/>
 @else
     <fieldset wire:key="{{ $attribute->id }}">
         <legend class="block text-sm font-medium text-gray-900">{{ $attribute->name }}</legend>
