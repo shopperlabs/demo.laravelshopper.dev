@@ -39,9 +39,8 @@ describe(\App\Livewire\Pages\Store::class, function (): void {
 
         Livewire::test(\App\Livewire\Pages\Store::class)
             ->set('selectedAttributes', [
-                $sizeAttribute->id => [$smallAttributeValue->id => true],
+                $smallAttributeValue->id => true,
             ])
-            ->call('filterProducts')
             ->assertSee(route('single-product', ['slug' => $product1->slug]))
             ->assertDontSee(route('single-product', ['slug' => $product2->slug]));
     });
