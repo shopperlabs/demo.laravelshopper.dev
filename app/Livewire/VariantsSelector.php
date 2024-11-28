@@ -14,7 +14,7 @@ final class VariantsSelector extends Component
 {
     public Product $product;
 
-    public ?Product $currentVariant;
+    public ?Product $currentVariant = null;
 
     public function addToCart(): void
     {

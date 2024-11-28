@@ -14,7 +14,7 @@
         @if ($product->variants->isnotEmpty())
             <div>
                 <fieldset>
-                    <legend class="text-sm text-gray-600 mb-2">Variant : <span class="font-bold text-sm"> {{  $currentVariant->name }}</span></legend>
+                    <legend class="text-sm text-gray-600 mb-2">Variant : <span class="font-bold text-sm"> {{  $currentVariant?->name }}</span></legend>
                         <div class="grid grid-cols-3 gap-3 sm:grid-cols-6">
                             @foreach ($product->variants as $variant)
                                 <x-buttons.default :href="route('single-product', [ 'slug' => $product->slug , 'variant'=> $variant->slug ])"
