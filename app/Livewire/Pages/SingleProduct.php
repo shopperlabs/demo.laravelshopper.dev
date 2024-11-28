@@ -19,7 +19,7 @@ final class SingleProduct extends Component
 
     public function mount(string $slug, Request $request): void
     {
-        $search = $request->query('search');
+        $search = $request->query('variant');
         if ($search) {
             $this->currentVariant = Product::with('media')
                 ->where('slug', $search)

@@ -14,11 +14,11 @@
         @if ($product->variants->isnotEmpty())
             <div>
                 <fieldset>
+                    <legend class="text-sm text-gray-600 mb-2">Variant : <span class="font-bold text-sm"> {{  $currentVariant->name }}</span></legend>
                         <div class="grid grid-cols-3 gap-3 sm:grid-cols-6">
                             @foreach ($product->variants as $variant)
-                                    @if (isset($currentVariant)) @continue ($variant->id == $currentVariant->id) @endif
-                                <x-buttons.default :href="route('single-product', [ 'slug' => $product->slug , 'search'=> $variant->slug ])"
-                                    class="flex cursor-pointer items-center justify-center border px-3 py-3 text-sm font-medium uppercase sm:flex-1">
+                                <x-buttons.default :href="route('single-product', [ 'slug' => $product->slug , 'variant'=> $variant->slug ])"
+                                    class="flex cursor-pointer items-center justify-center {{ (isset($currentVariant) &&  $currentVariant->id === $variant->id ) ? 'border-2 border-primary-600' : '' }} px-3 py-3 text-sm font-medium uppercase sm:flex-1">
                                     <span>{{ $variant->name }}</span>
                                 </x-buttons.default>
                             @endforeach
