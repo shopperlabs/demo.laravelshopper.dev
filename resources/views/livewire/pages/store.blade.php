@@ -19,12 +19,30 @@
                             </svg>
                         </button>
 
-                        <div class="hidden lg:block">
-                            <div class="space-y-10 divide-y divide-gray-200">
+                        <div class="hidden w-72 lg:block">
+                            <div class="divide-y divide-gray-200">
                                 @foreach($attributes as $attribute)
-                                    <div>
-                                        <x-attributes-selector :attribute="$attribute"></x-attributes-selector>
-                                    </div>
+                                    @if(\Illuminate\Support\Facades\View::exists('components.attributes.'.$attribute->slug))
+                                        <x-dynamic-component :component="'attributes.'.$attribute->slug" :attribute="$attribute" />
+                                    @else
+                                        <div wire:key="{{ $attribute->id }}" class="py-6">
+                                            <p class="block text-sm font-medium text-gray-900">{{ $attribute->name }}</p>
+                                            @if ($attribute->values->isNotEmpty())
+                                                <div class="space-y-3 pt-6">
+                                                    @foreach ($attribute->values as $index => $value)
+                                                        <div class="flex items-center" wire:key="{{ $attribute->slug }}-{{ $value->key }}">
+                                                            <input id="{{ $attribute->slug }}-{{ $index }}"
+                                                                   wire:model.live.debounce.350ms="selectedAttributes"
+                                                                   value="{{ $value->id }}"
+                                                                   type="checkbox"
+                                                                   class="size-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                                            <label for="{{ $attribute->slug }}-{{ $index }}" class="ml-3 text-sm text-gray-600">{{ $value->value }}</label>
+                                                        </div>
+                                                    @endforeach
+                                                </div>
+                                            @endif
+                                        </div>
+                                    @endif
                                 @endforeach
                             </div>
                         </div>

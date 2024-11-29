@@ -1,10 +1,10 @@
-@props(['attribute' => null])
+@props(['attribute'])
 
-<fieldset wire:key="{{ $attribute->id }}" x-data="{ selectedColorAttributes: @entangle('selectedAttributes') }">
-    <legend class="block text-sm font-medium text-gray-900">{{ $attribute->name }}</legend>
+<div wire:key="{{ $attribute->id }}" x-data="{ selectedColorAttributes: @entangle('selectedAttributes') }" class="py-6">
+    <p class="block text-sm font-medium text-gray-900">{{ $attribute->name }}</p>
 
     @if ($attribute->values->isNotEmpty())
-        <div class="grid grid-cols-3 gap-3 sm:grid-cols-6 pt-6">
+        <div class="grid grid-cols-3 gap-3 sm:grid-cols-6 mt-6">
             @foreach ($attribute->values as $index => $value)
                 <div class="flex items-center space-x-4" wire:key="{{ $attribute->slug }}-{{ $value->key }}">
                     <label
@@ -29,4 +29,4 @@
             @endforeach
         </div>
     @endif
-</fieldset>
+</div>
