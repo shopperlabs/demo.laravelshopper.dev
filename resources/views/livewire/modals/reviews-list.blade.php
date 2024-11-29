@@ -30,10 +30,10 @@
                 </div>
                 <p class="ml-2 text-sm text-gray-900">Based on {{ $reviewsCount }} reviews</p>
             </div>
-            @if ($reviewsList->isNotempty())
+            @if ($reviews->isNotempty())
                 <div class="flow-root">
                     <ul role="list" class="-my-6 divide-y divide-gray-200">
-                        @foreach ($reviewsList as $review)
+                        @foreach ($reviews as $review)
                             <div class="py-12">
                                 <div class="flex items-center">
                                     <img src="{{ $review->author->profile_photo_url ?? '' }}"

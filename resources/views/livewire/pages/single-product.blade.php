@@ -47,7 +47,7 @@
                     <!-- Reviews -->
                     <div class="mt-3">
                         <h3 class="sr-only">{{ __('Reviews') }}</h3>
-                        <x-products.reviews />
+                        <x-products.reviews :rating="4" :count="0" />
                     </div>
 
                     <livewire:variants-selector
@@ -73,7 +73,8 @@
                     </div>
                 </section>
             @endif
-            <livewire:components.product.reviews :product="$product" />
+
+            <livewire:product.reviews :product="$product" />
         </x-container>
     </div>
 </div>

@@ -14,6 +14,6 @@ final class AddProductReviewAction
     public function execute(Model $reviewrateable, array $data, User $author): Review
     {
         // @phpstan-ignore-next-line
-        return $reviewrateable->rating($data, $author);
+        return $reviewrateable->rating(array_merge($data, ['approved' => true]), $author);
     }
 }
