@@ -15,20 +15,22 @@ final class VariantsSelector extends Component
 {
     public Product $product;
 
-    public string|null $search = null;
+    public ?string $search = null;
+
     public ?Product $currentVariant = null;
 
-    public function mount(Request $request):void
+    public function mount(Request $request): void
     {
         $this->search = $request->query('variant');
     }
+
     public function addToCart(): void
     {
         $this->product->loadMissing('media');
         // @phpstan-ignore-next-line
         CartFacade::session(session()->getId())->add([
             'id' => (! $this->currentVariant) ? $this->product->id : $this->currentVariant->id,
-            'name' => (! $this->currentVariant) ? $this->product->name : $this->product->name.' / '.$this->currentVariant->name,
+            'name' => (! $this->currentVariant) ? $this->product->name : $this->product->name . ' / ' . $this->currentVariant->name,
             'price' => (! $this->currentVariant) ? $this->product->price_amount : $this->currentVariant->price_amount,
             'quantity' => 1,
             'attributes' => (! $this->currentVariant) ? $this->product->attributes : [],
