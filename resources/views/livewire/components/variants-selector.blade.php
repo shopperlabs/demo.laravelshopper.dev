@@ -14,22 +14,32 @@
         @if ($product->variants->isnotEmpty())
             <div>
                 <fieldset>
-                    <legend class="text-sm text-gray-600 mb-2">Variant : <span class="font-bold text-sm"> {{  $currentVariant?->name }}</span></legend>
+                    <legend class="text-sm text-gray-600 mb-2">Variants : <span class="font-bold text-sm"> {{  $currentVariant?->name }}</span></legend>
                         <div class="grid grid-cols-3 gap-3 sm:grid-cols-6">
                             @foreach ($product->variants as $variant)
-                                <x-buttons.default :href="route('single-product', [ 'slug' => $product->slug , 'variant'=> $variant->slug ])"
-                                    class="flex cursor-pointer items-center justify-center {{ (isset($currentVariant) &&  $currentVariant->id === $variant->id ) ? 'border-2 border-primary-600' : '' }} px-3 py-3 text-sm font-medium uppercase sm:flex-1">
+                                <button type="button"
+                                    href="{{ route('single-product', [ 'slug' => $product->slug , 'variant'=> $variant->slug ]) }}"
+                                        wire:navigate
+                                    class="rounded-lg border border-gray-300 text-sm font-medium text-gray-500 focus:outline-none cursor-pointer items-center
+                                    justify-center {{ (isset($currentVariant) &&  $currentVariant->id === $variant->id ) ? 'border-2 border-primary-600' : '' }}
+                                    px-3 py-3 text-sm uppercase sm:flex-1">
                                     <span>{{ $variant->name }}</span>
-                                </x-buttons.default>
+                                </button>
                             @endforeach
                         </div>
                 </fieldset>
              </div>
         @endif
         <div class="flex items-center gap-2 mt-10">
-            <x-buttons.primary type="submit" class="max-w-xs px-8 py-3 sm:w-full">
-                {{ __('Add to cart') }}
-            </x-buttons.primary>
+            @if ($product->variants->isNotEmpty() && !$search)
+                <x-buttons.primary disabled type="submit" class="max-w-xs px-8 py-3 sm:w-full">
+                    {{ __('Choose any variant') }}
+                </x-buttons.primary>
+            @else
+                <x-buttons.primary type="submit" class="max-w-xs px-8 py-3 sm:w-full">
+                    {{ __('Add to cart') }}
+                </x-buttons.primary>
+            @endif
 
             <x-buttons.primary type="button" class="px-4">
                 <x-untitledui-heart class="size-6" aria-hidden="true" />

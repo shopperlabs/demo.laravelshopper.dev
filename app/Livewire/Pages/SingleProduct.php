@@ -32,28 +32,6 @@ final class SingleProduct extends Component
             ->firstOrFail();
     }
 
-    public function addToCart(Product $product): void
-    {
-        $product->loadMissing('media');
-        // @phpstan-ignore-next-line
-        CartFacade::session(session()->getId())->add([
-            'id' => $product->id,
-            'name' => $product->name,
-            'price' => $product->price_amount,
-            'quantity' => 1,
-            'attributes' => $product->attributes,
-            'associatedModel' => $product,
-        ]);
-
-        $this->dispatch('cartUpdated');
-
-        Notification::make()
-            ->title(__('Cart updated'))
-            ->body(__('Product has been added to cart'))
-            ->success()
-            ->send();
-    }
-
     public function render(): View
     {
         return view('livewire.pages.single-product')

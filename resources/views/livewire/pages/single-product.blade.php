@@ -27,7 +27,7 @@
 
                 <!-- Product info -->
                 <div class="px-4 mt-10 sm:mt-16 sm:px-0 lg:mt-0">
-                    <h1 class="text-3xl font-bold tracking-tight text-gray-900">{{ $product->name }}</h1>
+                    <h1 class="text-3xl font-bold tracking-tight text-gray-900">{{ $product->name}} {{ (isset($currentVariant)) ? '/ '.$currentVariant->name : ''  }} </h1>
                     <div class="mt-3">
                         <h2 class="sr-only">{{ __('Product information') }}</h2>
                         <x-products.price :product="$product" :currentVariant="$currentVariant" class="text-base font-medium text-gray-900" />
