@@ -24,7 +24,7 @@
                 <!-- Decorative image grid -->
                 @include('includes._decorative_images')
 
-                <x-buttons.primary href="#" class="px-8 py-3 text-base font-medium text-center group">
+                <x-buttons.primary :href="route('store.products')" class="px-8 py-3 text-base font-medium text-center group">
                     {{ __('Discover now') }}
                     <span
                         class="ml-2 transition duration-200 ease-in-out transform translate-x-0 group-hover:translate-x-1">
