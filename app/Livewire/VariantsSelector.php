@@ -8,40 +8,34 @@ use App\Models\Product;
 use Darryldecode\Cart\Facades\CartFacade;
 use Filament\Notifications\Notification;
 use Illuminate\Contracts\View\View;
-use Illuminate\Http\Request;
 use Livewire\Component;
 
 final class VariantsSelector extends Component
 {
     public Product $product;
 
-    public ?string $search = null;
-
-    public ?Product $currentVariant = null;
-
-    public function mount(Request $request): void
-    {
-        $this->search = $request->query('variant');
-    }
+    public ?Product $selectedVariant = null;
 
     public function addToCart(): void
     {
-        $this->product->loadMissing('media');
         // @phpstan-ignore-next-line
         CartFacade::session(session()->getId())->add([
-            'id' => (! $this->currentVariant) ? $this->product->id : $this->currentVariant->id,
-            'name' => (! $this->currentVariant) ? $this->product->name : $this->product->name . ' / ' . $this->currentVariant->name,
-            'price' => (! $this->currentVariant) ? $this->product->price_amount : $this->currentVariant->price_amount,
+            'id' => $this->selectedVariant ? $this->selectedVariant->id : $this->product->id,
+            'name' => $this->selectedVariant
+                ? $this->product->name . ' / ' . $this->selectedVariant->name
+                : $this->product->name,
+            'price' => $this->selectedVariant && $this->selectedVariant->price_amount
+                ? $this->selectedVariant->price_amount
+                : $this->product->price_amount,
             'quantity' => 1,
-            'attributes' => (! $this->currentVariant) ? $this->product->attributes : [],
-            'associatedModel' => (! $this->currentVariant) ? $this->product : $this->currentVariant,
+            'associatedModel' => $this->selectedVariant?->load('parent') ?? $this->product,
         ]);
 
         $this->dispatch('cartUpdated');
 
         Notification::make()
             ->title(__('Cart updated'))
-            ->body(__('Product has been added to cart'))
+            ->body(__('Product / variant has been added to your cart'))
             ->success()
             ->send();
     }

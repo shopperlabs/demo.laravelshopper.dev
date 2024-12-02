@@ -10,12 +10,9 @@ use Shopper\Core\Models\Product as Model;
 
 final class Product extends Model
 {
-    /**
-     * Scope a query to only include product parent.
-     */
-    public function scopeParent(Builder $query): void
+    public function isPublished(): bool
     {
-        $query->whereNull('parent_id');
+        return $this->is_visible && $this->published_at && $this->published_at <= now();
     }
 
     public function discountPercentage(): Attribute
@@ -25,5 +22,10 @@ final class Product extends Model
                 ? round((($this->old_price_amount - $this->price_amount) / $this->old_price_amount) * 100)
                 : 0
         );
+    }
+
+    public function scopeParent(Builder $query): void
+    {
+        $query->whereNull('parent_id');
     }
 }

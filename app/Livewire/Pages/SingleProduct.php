@@ -6,33 +6,36 @@ namespace App\Livewire\Pages;
 
 use App\Models\Product;
 use Illuminate\Contracts\View\View;
-use Illuminate\Http\Request;
+use Livewire\Attributes\Url;
 use Livewire\Component;
 
 final class SingleProduct extends Component
 {
-    public ?Product $product = null;
+    public Product $product;
 
-    public ?Product $currentVariant = null;
+    #[Url(except: '')]
+    public string $variant = '';
 
-    public function mount(string $slug, Request $request): void
+    public function mount(Product $product): void
     {
-        $search = $request->query('variant');
-        if ($search) {
-            $this->currentVariant = Product::with('media')
-                ->where('slug', $search)
-                ->firstOrFail();
-        }
+        abort_unless($product->isPublished(), 404);
 
-        $this->product = Product::with(['brand', 'media', 'attributes', 'relatedProducts', 'variants.media'])
-            ->scopes('publish')
-            ->where('slug', $slug)
-            ->firstOrFail();
+        $this->product = $product->load([
+            'media',
+            'relatedProducts',
+            'variants',
+            'variants.media',
+        ]);
     }
 
     public function render(): View
     {
-        return view('livewire.pages.single-product')
+        return view('livewire.pages.single-product', [
+            'selectedVariant' => Product::with('media')
+                ->where('slug', $this->variant)
+                ->select('name', 'slug', 'sku', 'id', 'price_amount', 'old_price_amount')
+                ->first(),
+        ])
             ->title($this->product->name);
     }
 }

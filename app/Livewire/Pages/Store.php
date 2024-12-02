@@ -14,12 +14,16 @@ class Store extends Component
 {
     use WithPagination;
 
-    /** @var string[] */
+    /**
+     * @var string[]
+     */
     public array $selectedAttributes = [];
 
     public function render(): View
     {
-        $query = Product::with(['media', 'attributes'])->scopes('parent');
+        $query = Product::with(['media', 'attributes'])
+            ->scopes(['parent', 'publish'])
+            ->latest();
 
         if (count($this->selectedAttributes) > 0) {
             $query = $query->whereHas('attributes', function ($query) {

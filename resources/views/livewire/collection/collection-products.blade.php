@@ -8,9 +8,11 @@
 
                 <div class="grid grid-cols-1 mt-6 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-8">
                     @forelse($products as $product)
-                        <x-products.simple-card :product="$product" />
+                        <x-products.card :product="$product" />
                     @empty
-                        <p class="col-span-3 text-center text-gray-500">{{ __('No products found in this collection.') }}</p>
+                        <p class="col-span-3 text-center text-gray-500">
+                            {{ __('No products found in this collection.') }}
+                        </p>
                     @endforelse
                 </div>
             </div>

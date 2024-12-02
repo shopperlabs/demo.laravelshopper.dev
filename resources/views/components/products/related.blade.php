@@ -11,7 +11,7 @@
             />
         </div>
         <div class="relative mt-4">
-            <x-link :href="route('single-product', ['slug' => $product->slug])">
+            <x-link :href="route('single-product', $product)">
                 <span class="absolute inset-0"></span>
                 {{ $product->name }}
             </x-link>
