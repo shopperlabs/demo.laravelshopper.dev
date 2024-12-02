@@ -2,7 +2,7 @@
     <div class="py-3 bg-white border-b border-gray-200 bg-opacity-80">
         <x-container class="flex items-center justify-between px-4">
             <nav role="navigation" class="flex items-center">
-                    <!-- -->
+                    <!-- breadcrumd here -->
             </nav>
         </x-container>
     </div>
