@@ -51,8 +51,8 @@
         </div>
     @endif
 
-    <div class="bg-gray-50">
-        @if ($collections->isNotEmpty())
+    @if ($collections->isNotEmpty())
+        <div class="bg-gray-50">
             <x-container class="py-16 lg:py-24">
                 <div class="max-w-xl pt-6 pb-12 mx-auto sm:pb-16 lg:max-w-none">
                     <h2 class="text-2xl font-bold tracking-tight text-gray-900 font-heading">
@@ -69,8 +69,8 @@
                     </div>
                 </div>
             </x-container>
-        @endif
-    </div>
+        </div>
+    @endif
 
     @if ($products->isNotEmpty())
         <x-container class="py-12 lg:py-20">

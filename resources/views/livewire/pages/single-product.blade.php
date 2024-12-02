@@ -5,7 +5,8 @@
             <div class="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
                  <!-- Image gallery -->
                 <div class="flex flex-col">
-                    <x-products.thumbnail :product="$product" />
+
+                    <x-products.thumbnail :product="$selectedVariant ?? $product" />
 
                     @if ($product->getMedia(config('shopper.core.storage.collection_name'))->isNotEmpty())
                         <div class="hidden w-full max-w-2xl mx-auto mt-6 sm:block lg:max-w-none">
@@ -26,10 +27,18 @@
 
                 <!-- Product info -->
                 <div class="px-4 mt-10 sm:mt-16 sm:px-0 lg:mt-0">
-                    <h1 class="text-3xl font-bold tracking-tight text-gray-900">{{ $product->name }}</h1>
+                    <h1 class="text-3xl font-bold tracking-tight text-gray-900">
+                        {{ $product->name}}
+                        @isset($selectedVariant)
+                            <span> / {{ $selectedVariant->name }}</span>
+                        @endisset
+                    </h1>
                     <div class="mt-3">
                         <h2 class="sr-only">{{ __('Product information') }}</h2>
-                        <x-products.price :product="$product" class="text-base font-medium text-gray-900" />
+                        <x-products.price
+                            :product="$selectedVariant ?? $product"
+                            class="text-base font-medium text-gray-900"
+                        />
                     </div>
                     <!-- Reviews -->
                     <div class="mt-3">
@@ -37,17 +46,15 @@
                         <x-products.reviews />
                     </div>
 
+                    <livewire:variants-selector
+                        :product="$product"
+                        :selectedVariant="$selectedVariant"
+                    />
+
                     <div class="mt-6">
                         <h3 class="sr-only">{{ __('Description') }}</h3>
                         <div class="prose-sm prose text-gray-600 lg:max-w-none">{!! $product->description !!}</div>
                     </div>
-
-                    <livewire:variants-selector :product="$product" />
-                    {{--
-                    <section aria-labelledby="details-heading" class="mt-12">
-                        <h2 id="details-heading" class="sr-only">{{ __('Additional details') }}</h2>
-                        <x-products.additionnal-infos />
-                    </section> --}}
                 </div>
             </div>
 

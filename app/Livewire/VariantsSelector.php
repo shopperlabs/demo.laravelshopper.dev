@@ -14,25 +14,28 @@ final class VariantsSelector extends Component
 {
     public Product $product;
 
+    public ?Product $selectedVariant = null;
+
     public function addToCart(): void
     {
-        $this->product->loadMissing('media');
-
         // @phpstan-ignore-next-line
         CartFacade::session(session()->getId())->add([
-            'id' => $this->product->id,
-            'name' => $this->product->name,
-            'price' => $this->product->price_amount,
+            'id' => $this->selectedVariant ? $this->selectedVariant->id : $this->product->id,
+            'name' => $this->selectedVariant
+                ? $this->product->name . ' / ' . $this->selectedVariant->name
+                : $this->product->name,
+            'price' => $this->selectedVariant && $this->selectedVariant->price_amount
+                ? $this->selectedVariant->price_amount
+                : $this->product->price_amount,
             'quantity' => 1,
-            'attributes' => [],
-            'associatedModel' => $this->product,
+            'associatedModel' => $this->selectedVariant?->load('parent') ?? $this->product,
         ]);
 
         $this->dispatch('cartUpdated');
 
         Notification::make()
             ->title(__('Cart updated'))
-            ->body(__('Product has been added to cart'))
+            ->body(__('Product / variant has been added to your cart'))
             ->success()
             ->send();
     }

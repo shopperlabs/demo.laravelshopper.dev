@@ -10,7 +10,9 @@
                     @forelse($products as $product)
                         <x-products.card :product="$product" />
                     @empty
-                        <p class="col-span-3 text-center text-gray-500">{{ __('This is an example of a category product. it does not contain any products.') }}</p>
+                        <p class="col-span-3 text-center text-gray-500">
+                            {{ __('This is an example of a category product. it does not contain any products.') }}
+                        </p>
                     @endforelse
                 </div>
             </div>

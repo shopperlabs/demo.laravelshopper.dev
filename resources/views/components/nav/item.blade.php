@@ -1,3 +1,7 @@
-<x-link href="{{ $link }}" class="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800">
+@props([
+    'href',
+])
+
+<x-link :href="$href" class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-900">
     {{ $slot }}
 </x-link>

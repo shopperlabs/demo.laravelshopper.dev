@@ -14,28 +14,31 @@ describe(CollectionProducts::class, function (): void {
         $collection = Collection::factory()
             ->hasProducts(3)
             ->create([
-                'slug' => 'nike',
+                'slug' => 'new-deals',
             ]);
 
-        get(route('collection.products', $collection->slug))->assertOk();
+        get(route('collection.products', $collection))->assertOk();
 
-        Livewire::test(CollectionProducts::class, ['slug' => $collection->slug])
+        Livewire::test(CollectionProducts::class, ['collection' => $collection])
             ->assertSuccessful()
             ->assertSee($collection->name);
     });
 
     it('can displays products of a collections', function (): void {
         $collection = Collection::factory()->create([
-            'slug' => 'nike',
+            'slug' => 'best-deals',
         ]);
 
-        $products = Product::factory()->count(3)->create();
+        $products = Product::factory([
+            'published_at' => now()->subDay(),
+            'is_visible' => true,
+        ])->count(3)->create();
 
         foreach ($products as $product) {
             $product->collections()->attach($collection->id);
         }
 
-        Livewire::test(CollectionProducts::class, ['slug' => $collection->slug])
+        Livewire::test(CollectionProducts::class, ['collection' => $collection])
             ->assertSuccessful()
             ->assertSee($products[0]->name)
             ->assertSee($products[1]->name)

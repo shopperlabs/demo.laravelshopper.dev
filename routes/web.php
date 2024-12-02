@@ -10,9 +10,9 @@ use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
 Route::get('/', Pages\Home::class)->name('home');
-Route::get('/products/{slug}', Pages\SingleProduct::class)->name('single-product');
-Route::get('category/{slug}', Pages\Category\CategoryProducts::class)->name('category.products');
-Route::get('/collection/{slug}', CollectionProducts::class)->name('collection.products');
+Route::get('/products/{product:slug}', Pages\SingleProduct::class)->name('single-product');
+Route::get('category/{category:slug}', Pages\Category\CategoryProducts::class)->name('category.products');
+Route::get('/collection/{collection:slug}', CollectionProducts::class)->name('collection.products');
 Route::get('/store', Pages\Store::class)->name('store.products');
 
 Route::middleware('auth')->group(function (): void {

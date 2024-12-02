@@ -6,9 +6,11 @@
                     {{ __('My cart') }}
                 </h2>
                 <div class="flex items-center ml-3 h-7">
-                    <button type="button"
+                    <button
+                        type="button"
                         class="text-gray-400 bg-white rounded-md hover:text-gray-500"
-                        wire:click="$dispatch('closePanel')">
+                        wire:click="$dispatch('closePanel')"
+                    >
                         <span class="sr-only">Close panel</span>
                         <x-untitledui-x class="size-6" stroke-width="1.5" aria-hidden="true" />
                     </button>
