@@ -10,9 +10,23 @@
                     @forelse($products as $product)
                         <x-products.card :product="$product" />
                     @empty
-                        <p class="col-span-3 text-center text-gray-500">
-                            {{ __('This is an example of a category product. it does not contain any products.') }}
-                        </p>
+                        <div class="col-span-3 ml-32 space-y-4">
+                            <p class="text-gray-500">{{ __('This is an example of a category product. it does not contain any products.') }}</p>
+                            @if($category->children->isNotEmpty())
+                                <div class="flex flex-col">
+                                    @foreach($category->children->filter(function($child) {
+                                        return $child->is_enabled;
+                                    }) as $child)
+                                        <x-link  class="flex items-center font-heading text-primary-600 text-md hover:text-primary-800" :href="route('category.products',['category'=> $child->slug])">
+                                            {{ $child->name }}
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="ml-1 size-4">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+                                            </svg>
+                                        </x-link>
+                                    @endforeach
+                                </div>
+                            @endif
+                        </div>
                     @endforelse
                 </div>
             </div>

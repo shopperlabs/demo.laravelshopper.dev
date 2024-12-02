@@ -33,7 +33,7 @@ class Store extends Component
 
         return view('livewire.pages.store', [
             'products' => $query->paginate(12),
-            'attributes' => Attribute::with('values')->enabled()->get(),
+            'attributes' => Attribute::with('values')->scopes(['enabled', 'isFilterable'])->get(),
         ]);
     }
 }
