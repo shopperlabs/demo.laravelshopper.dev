@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Models\Product;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\On;
@@ -10,7 +12,6 @@ new class extends Component
     public Product $product;
 
     #[Computed]
-    #[On('reviewCreated')]
     public function reviewsStats(): array
     {
         $reviewsStats = [];
