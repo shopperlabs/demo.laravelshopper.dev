@@ -7,11 +7,11 @@ namespace App\Livewire\Pages\Category;
 use App\Models\Product;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
-use Shopper\Core\Models\Category as ShopperCategory;
+use Shopper\Core\Models\Category;
 
 final class CategoryProducts extends Component
 {
-    public ShopperCategory $category;
+    public Category $category;
 
     public function mount(): void
     {
