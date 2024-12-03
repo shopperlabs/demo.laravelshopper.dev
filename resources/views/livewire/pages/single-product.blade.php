@@ -1,7 +1,13 @@
 <div class="bg-white">
+    <div class="py-3 bg-white border-b border-gray-200 bg-opacity-80">
+        <x-container class="flex items-center justify-between px-4">
+                {{ Breadcrumbs::render('product', $selectedVariant ?? $product) }}
+        </x-container>
+    </div>
+
     <div class="pt-10 pb-16 sm:pb-24">
         <x-container class="max-w-2xl mt-8">
-             <!-- Product -->
+            <!-- Product -->
             <div class="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
                  <!-- Image gallery -->
                 <div class="flex flex-col">

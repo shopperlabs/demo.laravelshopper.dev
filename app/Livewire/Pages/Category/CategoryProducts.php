@@ -4,11 +4,10 @@ declare(strict_types=1);
 
 namespace App\Livewire\Pages\Category;
 
-use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Contracts\View\View;
-use Illuminate\Database\Eloquent\Builder;
 use Livewire\Component;
+use Shopper\Core\Models\Category;
 
 final class CategoryProducts extends Component
 {
