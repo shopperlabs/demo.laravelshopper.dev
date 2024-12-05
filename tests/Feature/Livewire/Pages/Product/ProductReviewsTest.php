@@ -33,8 +33,8 @@ describe(AddProductReviewAction::class, function (): void {
 describe(AddProductReview::class, function (): void {
     it('saves a review with the component', function () {
         Livewire::test(AddProductReview::class, ['product' => $this->product])
-            ->set('form.rating', 5)
-            ->set('form.content', 'Excellent produit!')
+            ->set('rating', 5)
+            ->set('content', 'Excellent produit!')
             ->call('save');
 
         expect(Product::query()->count())->toBe(1)
