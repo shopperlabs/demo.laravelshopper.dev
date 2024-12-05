@@ -80,6 +80,7 @@ return [
         'review_content' => 'Content',
         'status' => 'Status',
         'rating' => 'Rating',
+        'rating_count' => ':rating out of :count stars',
 
         'modal' => [
             'title' => 'Delete Review',

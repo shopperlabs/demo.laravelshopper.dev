@@ -26,6 +26,8 @@ class DatabaseSeeder extends Seeder
         );
 
         $this->command->info('All products created.');
+
+        $this->call(ReviewSeeder::class);
     }
 
     protected function withProgressBar(int $total, Closure $createCollectionOfOne): Collection
