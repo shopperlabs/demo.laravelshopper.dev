@@ -35,6 +35,7 @@ final class SingleProduct extends Component
                 ->where('slug', $this->variant)
                 ->select('name', 'slug', 'sku', 'id', 'price_amount', 'old_price_amount')
                 ->first(),
-        ]);
+        ])
+            ->title($this->product->name);
     }
 }
