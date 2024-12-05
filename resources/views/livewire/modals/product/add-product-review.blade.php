@@ -6,7 +6,7 @@
     @saved="$refresh"
 >
     <x-slot name="title">
-        {{ $title }}
+        {{ __('Add new review') }}
     </x-slot>
     <div class="space-y-4 pb-5">
         <div class="grid grid-cols-2 gap-4">

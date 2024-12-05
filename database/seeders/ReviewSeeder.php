@@ -6,7 +6,6 @@ namespace Database\Seeders;
 
 use App\Models\Product;
 use App\Models\User;
-use Faker\Factory;
 use Illuminate\Database\Seeder;
 use Shopper\Core\Models\Review;
 
@@ -17,15 +16,13 @@ class ReviewSeeder extends Seeder
      */
     public function run(): void
     {
-        $faker = Factory::create();
-
         for ($i = 1; $i <= 100; $i++) {
             Review::query()->create([
-                'rating' => $faker->numberBetween(1, 5),
-                'content' => $faker->realText(),
+                'rating' => fake()->numberBetween(1, 5),
+                'content' => fake()->realText(),
                 'reviewrateable_id' => Product::all()->random()->id,
                 'reviewrateable_type' => 'product',
-                'approved' => $faker->boolean(),
+                'approved' => true,
                 'author_id' => User::all()->random()->id,
                 'author_type' => User::class,
             ]);

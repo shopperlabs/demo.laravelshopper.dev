@@ -1,3 +1,5 @@
+@php $reviews = $this->productReviews->reviews @endphp
+
 <div class="flex flex-col h-full divide-y divide-gray-200">
     <div class="flex-1 h-0 py-6 overflow-y-auto">
         <header class="px-4 sm:px-6">
@@ -15,7 +17,7 @@
                 </div>
             </div>
         </header>
-        @php $reviews = $this->productReviews->reviews @endphp
+
         <div class="flex-1 px-4 mt-8 sm:px-6">
             <div class="mt-3 flex items-center">
                 <div>

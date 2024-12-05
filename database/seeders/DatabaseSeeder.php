@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
         );
 
         $this->command->info('All products created.');
+
         $this->call(ReviewSeeder::class);
     }
 

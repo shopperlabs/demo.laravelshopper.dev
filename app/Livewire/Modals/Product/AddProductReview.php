@@ -50,8 +50,6 @@ final class AddProductReview extends ModalComponent
 
     public function render(): View
     {
-        return view('livewire.modals.product.add-product-review', [
-            'title' => __('Add new review'),
-        ]);
+        return view('livewire.modals.product.add-product-review');
     }
 }

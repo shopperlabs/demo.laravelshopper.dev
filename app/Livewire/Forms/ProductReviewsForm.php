@@ -10,7 +10,7 @@ use Livewire\Form;
 
 final class ProductReviewsForm extends Form
 {
-    public ?Product $product = null;
+    public Product $product;
 
     #[Validate('required|integer|min:1|max:5')]
     public int $rating = 1;
