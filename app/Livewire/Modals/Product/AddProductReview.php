@@ -5,32 +5,34 @@ declare(strict_types=1);
 namespace App\Livewire\Modals\Product;
 
 use App\Actions\Product\AddProductReviewAction;
-use App\Livewire\Forms\ProductReviewsForm;
 use App\Models\Product;
 use Filament\Notifications\Notification;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
+use Livewire\Attributes\Validate;
 use LivewireUI\Modal\ModalComponent;
 
 final class AddProductReview extends ModalComponent
 {
-    public ProductReviewsForm $form;
+    public Product $product;
 
-    public function mount(Product $product): void
-    {
-        $this->form->product = $product;
-    }
+    #[Validate('required|integer|min:1|max:5')]
+    public int $rating = 1;
+
+    #[Validate('nullable|string|max:255')]
+    public ?string $title = null;
+
+    #[Validate('nullable|string|max:255')]
+    public ?string $content = null;
 
     /**
      * @throws ValidationException
      */
     public function save(): void
     {
-        $this->form->validate();
-
         app(AddProductReviewAction::class)
-            ->execute($this->form->product, $this->form->toArray(), Auth::user());
+            ->execute($this->product, $this->validate(), Auth::user());
 
         Notification::make()
             ->title(__('Review added'))
@@ -45,7 +47,7 @@ final class AddProductReview extends ModalComponent
 
     public function update(int $rate): void
     {
-        $this->form->rating = $rate;
+        $this->rating = $rate;
     }
 
     public function render(): View
