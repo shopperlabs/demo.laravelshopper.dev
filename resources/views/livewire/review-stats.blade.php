@@ -12,6 +12,7 @@ new class extends Component
     public Product $product;
 
     #[Computed]
+    #[On('reviewCreated')]
     public function reviewsStats(): array
     {
         $reviewsStats = [];

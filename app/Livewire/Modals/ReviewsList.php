@@ -9,14 +9,12 @@ use App\Models\Product;
 use Illuminate\Contracts\View\View;
 use Laravelcm\LivewireSlideOvers\SlideOverComponent;
 use Livewire\Attributes\Computed;
-use Livewire\Attributes\On;
 
 class ReviewsList extends SlideOverComponent
 {
     public Product $product;
 
     #[Computed]
-    #[On('reviewCreated')]
     public function productReviews(): ProductReviewsData
     {
         return new ProductReviewsData(
