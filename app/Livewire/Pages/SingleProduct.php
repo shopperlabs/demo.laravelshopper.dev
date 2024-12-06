@@ -6,6 +6,7 @@ namespace App\Livewire\Pages;
 
 use App\Models\Product;
 use Illuminate\Contracts\View\View;
+use Livewire\Attributes\Computed;
 use Livewire\Attributes\Url;
 use Livewire\Component;
 
@@ -26,6 +27,12 @@ final class SingleProduct extends Component
             'variants',
             'variants.media',
         ]);
+    }
+
+    #[Computed]
+    public function getAverageRatingProperty(): float
+    {
+        return floatval($this->product->averageRating(1)->first());
     }
 
     public function render(): View

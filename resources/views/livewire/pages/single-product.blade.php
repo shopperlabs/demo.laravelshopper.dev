@@ -1,7 +1,7 @@
 <div class="bg-white">
     <div class="py-3 bg-white border-b border-gray-200 bg-opacity-80">
         <x-container class="flex items-center justify-between px-4">
-                {{ Breadcrumbs::render('product', $product , $selectedVariant ?? null) }}
+                {{ Breadcrumbs::render('product', $product ) }}
         </x-container>
     </div>
 
@@ -14,10 +14,10 @@
 
                     <x-products.thumbnail :product="$selectedVariant ?? $product" />
 
-                    @if ($product->getMedia(config('shopper.core.storage.collection_name'))->isNotEmpty())
+                    @if ($product->getMedia(config('shopper.media.storage.collection_name'))->isNotEmpty())
                         <div class="hidden w-full max-w-2xl mx-auto mt-6 sm:block lg:max-w-none">
                             <div class="grid grid-cols-4 gap-6" aria-orientation="horizontal" role="tablist">
-                                @foreach ($product->getMedia(config('shopper.core.storage.collection_name')) as $image)
+                                @foreach ($product->getMedia(config('shopper.media.storage.collection_name')) as $image)
                                     <div
                                         class="relative flex items-center justify-center h-24 bg-white rounded-lg overflow-hidden">
                                         <img src="{{ $image->getFullUrl() }}" alt="{{ $product->name }} image"
@@ -47,7 +47,7 @@
                     <!-- Reviews -->
                     <div class="mt-3">
                         <h3 class="sr-only">{{ __('Reviews') }}</h3>
-                        <x-products.reviews :rating="4" :count="0" />
+                        <x-products.reviews :rating="$this->getAverageRatingProperty" />
                     </div>
 
                     <livewire:variants-selector
