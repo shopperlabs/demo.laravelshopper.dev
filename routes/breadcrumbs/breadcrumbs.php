@@ -24,7 +24,7 @@ Breadcrumbs::for('collection', function (Generator $trail, $collection) {
     $trail->push($collection->name, route('collection.products', $collection));
 });
 
-Breadcrumbs::for('product', function (Generator $trail, $product, $variant = null) {
+Breadcrumbs::for('product', function (Generator $trail, $product) {
     $trail->parent('store');
     $trail->push($product->name, route('single-product', $product));
 });

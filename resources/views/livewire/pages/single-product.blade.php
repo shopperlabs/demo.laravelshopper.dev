@@ -1,7 +1,7 @@
 <div class="bg-white">
     <div class="py-3 bg-white border-b border-gray-200 bg-opacity-80">
         <x-container class="flex items-center justify-between px-4">
-                {{ Breadcrumbs::render('product', $product ) }}
+                {{ Breadcrumbs::render('product', $product) }}
         </x-container>
     </div>
 

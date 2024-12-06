@@ -13,7 +13,7 @@ return [
 
     'generator' => [
         'start_sequence_from' => 1,
-        'prefix' => '#SH',
+        'prefix' => 'SH',
         'pad_length' => 1,
         'pad_string' => '0',
     ],
