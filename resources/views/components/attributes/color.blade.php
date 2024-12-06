@@ -22,7 +22,7 @@
                             aria-hidden="true"
                             style="background-color: {{ $value->key }} "
                             class="h-8 w-8 rounded-full "
-                            :class="selectedColorAttributes.includes('{{ $value->id }}') ? ' border-double border-2 border-primary-600' : 'border-double border-2 border-black border-opacity-10 ' "
+                            :class="selectedColorAttributes.includes('{{ $value->id }}') ? 'ring-2 ring-primary-600 ring-offset-2' : 'border-double border-2 border-black border-opacity-10 ' "
                         ></span>
                     </label>
                 </div>

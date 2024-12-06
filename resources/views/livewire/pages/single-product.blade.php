@@ -1,7 +1,7 @@
 <div class="bg-white">
     <div class="py-3 bg-white border-b border-gray-200 bg-opacity-80">
         <x-container class="flex items-center justify-between px-4">
-                {{ Breadcrumbs::render('product', $selectedVariant ?? $product) }}
+                {{ Breadcrumbs::render('product', $product , $selectedVariant ?? null) }}
         </x-container>
     </div>
 
@@ -67,8 +67,21 @@
                     <h2 class="text-xl font-bold text-gray-900">{{ __('Customers also bought') }}</h2>
 
                     <div class="grid grid-cols-1 mt-8 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8">
-                        @foreach ($product->relatedProducts as $relatedProduct)
-                            <x-products.related :product="$relatedProduct" />
+                        @foreach ($product->relatedProducts as $product)
+                            <div class="group relative flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white">
+                                <x-products.thumbnail :product="$product"  class="aspect-[3/4] bg-gray-200 object-cover group-hover:opacity-75 sm:h-96" />
+                                <div class="flex flex-1 flex-col space-y-2 p-4">
+                                    <h3 class="text-sm font-medium text-gray-900">
+                                        <x-link :href="route('single-product', $product)">
+                                            <span class="absolute inset-0"></span>
+                                            {{ $product->name }}
+                                        </x-link>
+                                    </h3>
+                                    <div class="flex flex-1 flex-col justify-end">
+                                        <x-products.price :product="$product" class="mt-1" />
+                                    </div>
+                                </div>
+                            </div>
                         @endforeach
                     </div>
                 </section>

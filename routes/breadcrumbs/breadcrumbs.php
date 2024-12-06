@@ -11,20 +11,20 @@ Breadcrumbs::for('home', function (Generator $trail) {
 
 Breadcrumbs::for('store', function (Generator $trail) {
     $trail->parent('home');
-    $trail->push('store', route('store.products'));
+    $trail->push('Store', route('store.products'));
 });
 
 Breadcrumbs::for('category', function (Generator $trail, $category) {
     $trail->parent('home');
-    $trail->push($category->slug, route('category.products', $category));
+    $trail->push($category->name, route('category.products', $category));
 });
 
 Breadcrumbs::for('collection', function (Generator $trail, $collection) {
     $trail->parent('home');
-    $trail->push($collection->slug, route('collection.products', $collection));
+    $trail->push($collection->name, route('collection.products', $collection));
 });
 
-Breadcrumbs::for('product', function (Generator $trail, $product) {
+Breadcrumbs::for('product', function (Generator $trail, $product, $variant = null) {
     $trail->parent('store');
-    $trail->push($product->slug, route('single-product', $product));
+    $trail->push($variant?->name ? $product->name . ' / ' . $variant->name : $product->name, route('single-product', $product));
 });
