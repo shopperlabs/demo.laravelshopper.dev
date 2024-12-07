@@ -36,7 +36,7 @@
                                                                 wire:model.live.debounce.350ms="selectedAttributes"
                                                                 value="{{ $value->id }}"
                                                                 type="checkbox"
-                                                                class="size-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                                                class="size-4 rounded border-gray-300 text-primary-600 focus:ring-primary-500"
                                                             >
                                                             <label for="{{ $attribute->slug }}-{{ $index }}" class="ml-3 text-sm text-gray-600">{{ $value->value }}</label>
                                                         </div>
@@ -54,29 +54,15 @@
                         <section aria-labelledby="product-heading" class="mt-6 lg:col-span-2 lg:mt-0 xl:col-span-3">
                             <h2 id="product-heading" class="sr-only">{{ __('Products') }}</h2>
 
-                            <div class="grid grid-cols-1 gap-y-4 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-10 lg:gap-x-8 xl:grid-cols-3">
+                            <div class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 xl:gap-x-8">
                                 @foreach($products as $product)
-                                    <div class="group relative flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white">
-                                        <img
-                                            src="{{ $product->getFirstMediaUrl(config('shopper.core.storage.thumbnail_collection')) }}"
-                                            alt="{{ $product->name }} thumbnail"
-                                            class="aspect-[3/4] bg-gray-200 object-cover group-hover:opacity-75 sm:h-96"
-                                        >
-                                        <div class="flex flex-1 flex-col space-y-2 p-4">
-                                            <h3 class="text-sm font-medium text-gray-900">
-                                                <x-link :href="route('single-product', $product)">
-                                                    <span class="absolute inset-0"></span>
-                                                    {{ $product->name }}
-                                                </x-link>
-                                            </h3>
-                                            <div class="flex flex-1 flex-col justify-end">
-                                                <x-products.price :product="$product" class="mt-1" />
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <x-link :href="route('single-product', $product)" class="group">
+                                        <x-products.thumbnail :product="$product" class="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-[7/8]"/>
+                                        <h3 class="mt-4 text-sm text-gray-700">{{ $product->name }}</h3>
+                                        <x-products.price :product="$product" class="mt-1 text-lg font-medium text-gray-900"/>
+                                    </x-link>
                                 @endforeach
                             </div>
-
                             <div class="mt-2">
                                 {{ $products->links() }}
                             </div>
