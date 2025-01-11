@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Providers;
 
 use App\View\Composers\CategoriesNavigation;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -17,7 +18,7 @@ final class LivewireStarterKitProvider extends ServiceProvider
 
     public function boot(): void
     {
-        //
+        Model::preventLazyLoading();
     }
 
     private function loadViewsComposer(): void

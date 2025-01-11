@@ -35,6 +35,7 @@ final class ZoneSelector extends SlideOverComponent
 
         if ($selectedZone->countryId !== ZoneSessionManager::getSession()?->countryId) {
             ZoneSessionManager::setSession($selectedZone);
+
             session()->forget('checkout');
 
             $this->dispatch('zoneChanged');

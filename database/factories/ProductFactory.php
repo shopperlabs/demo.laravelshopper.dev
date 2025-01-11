@@ -19,7 +19,7 @@ class ProductFactory extends \Shopper\Core\Database\Factories\ProductFactory
                 $product
                     ->addMedia(LocalImages::getRandomFile())
                     ->preservingOriginal()
-                    ->toMediaCollection(config('shopper.core.storage.thumbnail_collection'));
+                    ->toMediaCollection(config('shopper.media.storage.thumbnail_collection'));
             } catch (UnreachableUrl $exception) {
                 return;
             }

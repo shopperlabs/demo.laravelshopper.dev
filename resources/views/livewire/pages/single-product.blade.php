@@ -47,7 +47,7 @@
                     <!-- Reviews -->
                     <div class="mt-3">
                         <h3 class="sr-only">{{ __('Reviews') }}</h3>
-                        <x-products.reviews :rating="$this->getAverageRatingProperty" />
+                        <x-products.reviews :rating="$this->averageRating" />
                     </div>
 
                     <livewire:variants-selector
