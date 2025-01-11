@@ -11,10 +11,14 @@
             {{ $product->name }}
         </x-link>
     </h3>
+
     @if ($product->brand)
         <p class="mt-1 text-sm text-gray-500">
             {{ $product->brand->name }}
         </p>
     @endif
-    <x-products.price :product="$product" class="mt-1" />
+
+    @if(! $product->isVariant() && $product->prices->isNotEmpty())
+        <x-products.price :product="$product" class="mt-1" />
+    @endif
 </div>

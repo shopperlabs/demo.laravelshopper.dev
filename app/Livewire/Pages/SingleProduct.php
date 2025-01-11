@@ -17,20 +17,23 @@ final class SingleProduct extends Component
     #[Url(except: '')]
     public string $variant = '';
 
-    public function mount(Product $product): void
+    public function mount(): void
     {
-        abort_unless($product->isPublished(), 404);
+        abort_unless($this->product->isPublished(), 404);
 
-        $this->product = $product->load([
+        $this->product->load([
+            'brand',
             'media',
             'relatedProducts',
-            'variants',
-            'variants.media',
+            'prices' => function ($query) {
+                $query->whereRelation('currency', 'code', current_currency());
+            },
+            'prices.currency',
         ]);
     }
 
     #[Computed]
-    public function getAverageRatingProperty(): float
+    public function averageRating(): float
     {
         return floatval($this->product->averageRating(1)->first());
     }
@@ -38,10 +41,7 @@ final class SingleProduct extends Component
     public function render(): View
     {
         return view('livewire.pages.single-product', [
-            'selectedVariant' => Product::with('media')
-                ->where('slug', $this->variant)
-                ->select('name', 'slug', 'sku', 'id', 'price_amount', 'old_price_amount')
-                ->first(),
+            'selectedVariant' => null,
         ])
             ->title($this->product->name);
     }

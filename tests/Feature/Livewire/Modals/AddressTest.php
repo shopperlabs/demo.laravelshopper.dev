@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 use App\Livewire\Modals\Customer\AddressForm;
 use App\Livewire\Pages\Customer\Addresses;
-use App\Models\Country;
 use App\Models\User;
 use Livewire\Livewire;
 use Shopper\Core\Enum\AddressType;
+use Shopper\Core\Models\Country;
 use Shopper\Core\Models\Address;
 
 beforeEach(function (): void {

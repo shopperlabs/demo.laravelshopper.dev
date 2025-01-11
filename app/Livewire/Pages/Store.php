@@ -21,8 +21,8 @@ class Store extends Component
 
     public function render(): View
     {
-        $query = Product::with(['media', 'attributes'])
-            ->scopes(['parent', 'publish'])
+        $query = Product::with(['media', 'attributes', 'prices', 'prices.currency'])
+            ->scopes(['publish'])
             ->latest();
 
         if (count($this->selectedAttributes) > 0) {

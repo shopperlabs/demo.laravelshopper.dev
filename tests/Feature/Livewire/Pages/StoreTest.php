@@ -21,6 +21,7 @@ beforeEach(function (): void {
         'slug' => 'blue-shirt',
     ])->create();
 });
+
 describe(Store::class, function (): void {
     it('can render store page', function (): void {
         get(route('store.products'))->assertOk();

@@ -16,7 +16,16 @@ final class Home extends Component
     public function render(): View
     {
         return view('livewire.pages.home', [
-            'products' => Product::with(['brand', 'media'])
+            'products' => Product::query()
+                ->select('id', 'name', 'slug', 'brand_id')
+                ->with([
+                    'brand',
+                    'media',
+                    'prices' => function ($query) {
+                        $query->whereRelation('currency', 'code', current_currency());
+                    },
+                    'prices.currency',
+                ])
                 ->scopes('publish')
                 ->limit(8)
                 ->get(),

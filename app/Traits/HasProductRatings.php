@@ -15,7 +15,7 @@ trait HasProductRatings
 
     public ?Collection $reviews = null;
 
-    public function loadProductRatings(Product $product, int $limit = 3): void
+    public function loadProductRatings(Product $product): void
     {
         // @phpstan-ignore-next-line
         $this->averageRating = floatval($product->averageRating(1)->first()) ?? $this->averageRating;

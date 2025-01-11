@@ -6,7 +6,6 @@ namespace App\Livewire\Modals\Customer;
 
 use App\Actions\CountriesWithZone;
 use App\Actions\ZoneSessionManager;
-use App\Models\Country;
 use Filament\Notifications\Notification;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
@@ -15,6 +14,7 @@ use Livewire\Attributes\Validate;
 use LivewireUI\Modal\ModalComponent;
 use Shopper\Core\Enum\AddressType;
 use Shopper\Core\Models\Address;
+use Shopper\Core\Models\Country;
 
 final class AddressForm extends ModalComponent
 {

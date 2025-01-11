@@ -547,16 +547,16 @@
         },
         {
             "name": "composer/ca-bundle",
-            "version": "1.5.4",
+            "version": "1.5.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/ca-bundle.git",
-                "reference": "bc0593537a463e55cadf45fd938d23b75095b7e1"
+                "reference": "08c50d5ec4c6ced7d0271d2862dec8c1033283e6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/bc0593537a463e55cadf45fd938d23b75095b7e1",
-                "reference": "bc0593537a463e55cadf45fd938d23b75095b7e1",
+                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/08c50d5ec4c6ced7d0271d2862dec8c1033283e6",
+                "reference": "08c50d5ec4c6ced7d0271d2862dec8c1033283e6",
                 "shasum": ""
             },
             "require": {
@@ -603,7 +603,7 @@
             "support": {
                 "irc": "irc://irc.freenode.org/composer",
                 "issues": "https://github.com/composer/ca-bundle/issues",
-                "source": "https://github.com/composer/ca-bundle/tree/1.5.4"
+                "source": "https://github.com/composer/ca-bundle/tree/1.5.5"
             },
             "funding": [
                 {
@@ -619,7 +619,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-11-27T15:35:25+00:00"
+            "time": "2025-01-08T16:17:16+00:00"
         },
         {
             "name": "composer/semver",
@@ -1786,7 +1786,7 @@
         },
         {
             "name": "filament/spatie-laravel-media-library-plugin",
-            "version": "v3.2.132",
+            "version": "v3.2.133",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/spatie-laravel-media-library-plugin.git",
@@ -3600,16 +3600,16 @@
         },
         {
             "name": "league/csv",
-            "version": "9.20.1",
+            "version": "9.21.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/csv.git",
-                "reference": "491d1e79e973a7370c7571dc0fe4a7241f4936ee"
+                "reference": "72196d11ebba22d868954cb39c0c7346207430cc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/csv/zipball/491d1e79e973a7370c7571dc0fe4a7241f4936ee",
-                "reference": "491d1e79e973a7370c7571dc0fe4a7241f4936ee",
+                "url": "https://api.github.com/repos/thephpleague/csv/zipball/72196d11ebba22d868954cb39c0c7346207430cc",
+                "reference": "72196d11ebba22d868954cb39c0c7346207430cc",
                 "shasum": ""
             },
             "require": {
@@ -3683,7 +3683,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-12-18T10:11:15+00:00"
+            "time": "2025-01-08T19:27:58+00:00"
         },
         {
             "name": "league/flysystem",
@@ -4763,12 +4763,12 @@
             "version": "3.8.4",
             "source": {
                 "type": "git",
-                "url": "https://github.com/briannesbitt/Carbon.git",
+                "url": "https://github.com/CarbonPHP/carbon.git",
                 "reference": "129700ed449b1f02d70272d2ac802357c8c30c58"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/129700ed449b1f02d70272d2ac802357c8c30c58",
+                "url": "https://api.github.com/repos/CarbonPHP/carbon/zipball/129700ed449b1f02d70272d2ac802357c8c30c58",
                 "reference": "129700ed449b1f02d70272d2ac802357c8c30c58",
                 "shasum": ""
             },
@@ -6364,16 +6364,16 @@
         },
         {
             "name": "shopper/core",
-            "version": "v2.0.0-beta18",
+            "version": "v2.0.0-beta20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/shopperlabs/core.git",
-                "reference": "ea2bf1c23521bb78330430acb0f2512ee1ff6211"
+                "reference": "52ce48a155c7e01e006a48e5451bbf28b61fc8f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/shopperlabs/core/zipball/ea2bf1c23521bb78330430acb0f2512ee1ff6211",
-                "reference": "ea2bf1c23521bb78330430acb0f2512ee1ff6211",
+                "url": "https://api.github.com/repos/shopperlabs/core/zipball/52ce48a155c7e01e006a48e5451bbf28b61fc8f8",
+                "reference": "52ce48a155c7e01e006a48e5451bbf28b61fc8f8",
                 "shasum": ""
             },
             "require": {
@@ -6411,22 +6411,22 @@
             ],
             "description": "Laravel Shopper e-commerce core functionality",
             "support": {
-                "source": "https://github.com/shopperlabs/core/tree/v2.0.0-beta18"
+                "source": "https://github.com/shopperlabs/core/tree/v2.0.0-beta20"
             },
-            "time": "2025-01-07T06:57:03+00:00"
+            "time": "2025-01-08T19:33:03+00:00"
         },
         {
             "name": "shopper/framework",
-            "version": "v2.0.0-beta18",
+            "version": "v2.0.0-beta20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/shopperlabs/admin.git",
-                "reference": "698443864f0b25e8fefdc30b1022b5c350673147"
+                "reference": "9a841101e570e04c2139db26b7cc44cbd76702ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/shopperlabs/admin/zipball/698443864f0b25e8fefdc30b1022b5c350673147",
-                "reference": "698443864f0b25e8fefdc30b1022b5c350673147",
+                "url": "https://api.github.com/repos/shopperlabs/admin/zipball/9a841101e570e04c2139db26b7cc44cbd76702ae",
+                "reference": "9a841101e570e04c2139db26b7cc44cbd76702ae",
                 "shasum": ""
             },
             "require": {
@@ -6494,11 +6494,11 @@
                 "issues": "https://github.com/shopperlabs/framework/issues",
                 "source": "https://github.com/shopperlabs/framework"
             },
-            "time": "2025-01-07T22:10:46+00:00"
+            "time": "2025-01-08T21:17:08+00:00"
         },
         {
             "name": "shopper/sidebar",
-            "version": "v2.0.0-beta18",
+            "version": "v2.0.0-beta20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/shopperlabs/sidebar.git",
@@ -6552,7 +6552,7 @@
             ],
             "support": {
                 "issues": "https://github.com/shopperlabs/sidebar/issues",
-                "source": "https://github.com/shopperlabs/sidebar/tree/v2.0.0-beta18"
+                "source": "https://github.com/shopperlabs/sidebar/tree/v2.0.0-beta20"
             },
             "time": "2024-08-12T18:52:22+00:00"
         },
