@@ -7,8 +7,8 @@ use App\Livewire\Pages\Customer\Addresses;
 use App\Models\User;
 use Livewire\Livewire;
 use Shopper\Core\Enum\AddressType;
-use Shopper\Core\Models\Country;
 use Shopper\Core\Models\Address;
+use Shopper\Core\Models\Country;
 
 beforeEach(function (): void {
     $this->user = User::factory()->create();
