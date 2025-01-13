@@ -32,18 +32,24 @@ describe(Store::class, function (): void {
 
     it('can filters products', function () {
         $colorAttribute = Attribute::query()->create(['name' => 'Color', 'slug' => 'color', 'type' => 'checkbox']);
+        $this->assertNotNull($colorAttribute->id);
+
         $redAttributeValue = AttributeValue::query()->create(['value' => 'Red', 'key' => '#1e3a8a', 'attribute_id' => $colorAttribute->id]);
         $blueAttributeValue = AttributeValue::query()->create(['value' => 'Blue', 'key' => '#ddf048', 'attribute_id' => $colorAttribute->id]);
+
         $sizeAttribute = Attribute::query()->create(['name' => 'Size', 'slug' => 'size', 'type' => 'checkbox']);
+
+        $this->assertNotNull($sizeAttribute->id);
+
         $smallAttributeValue = AttributeValue::query()->create(['value' => 'Small', 'key' => 'XL', 'attribute_id' => $sizeAttribute->id]);
         $largeAttributeValue = AttributeValue::query()->create(['value' => 'Large', 'key' => 'L', 'attribute_id' => $sizeAttribute->id]);
 
-        $this->product->attributes()->createMany([
+        $this->product->options()->attach([
             ['attribute_value_id' => $redAttributeValue->id, 'attribute_id' => $colorAttribute->id],
             ['attribute_value_id' => $smallAttributeValue->id, 'attribute_id' => $sizeAttribute->id],
         ]);
 
-        $this->secondProduct->attributes()->createMany([
+        $this->secondProduct->options()->attach([
             ['attribute_value_id' => $blueAttributeValue->id, 'attribute_id' => $colorAttribute->id],
             ['attribute_value_id' => $largeAttributeValue->id, 'attribute_id' => $sizeAttribute->id],
         ]);

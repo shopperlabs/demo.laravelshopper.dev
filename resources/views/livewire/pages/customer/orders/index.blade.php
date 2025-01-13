@@ -13,7 +13,7 @@
             <p class="max-w-3xl mx-auto text-sm text-gray-500">
                 {{ __("You haven't ordered anything from us yet. Is this the day to change that?") }}
             </p>
-            <x-buttons.primary link="/" class="px-4 text-sm">
+            <x-buttons.primary :href="route('store.products')" class="px-4 text-sm">
                 {{ __('Continue shopping') }}
             </x-buttons.primary>
         </div>

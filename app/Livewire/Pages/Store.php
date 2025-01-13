@@ -21,12 +21,12 @@ class Store extends Component
 
     public function render(): View
     {
-        $query = Product::with(['media', 'attributes', 'prices', 'prices.currency'])
+        $query = Product::with(['media', 'options', 'prices', 'prices.currency'])
             ->scopes(['publish'])
             ->latest();
 
         if (count($this->selectedAttributes) > 0) {
-            $query = $query->whereHas('attributes', function ($query) {
+            $query = $query->whereHas('options', function ($query) {
                 $query->whereIn('attribute_value_id', $this->selectedAttributes);
             });
         }

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Actions;
 
-use App\Models\Product;
 use Darryldecode\Cart\Facades\CartFacade;
 use Illuminate\Support\Facades\Auth;
 use Shopper\Core\Models\Country;
@@ -58,7 +57,7 @@ final class CreateOrder
             'number' => generate_number(),
             'customer_id' => $customer->id,
             'zone_id' => ZoneSessionManager::getSession()->zoneId,
-            'currency_code' => ZoneSessionManager::getSession()->currencyCode,
+            'currency_code' => current_currency(),
             'shipping_address_id' => $shippingAddress->id,
             'billing_address_id' => $billingAddress->id,
             'shipping_option_id' => data_get($checkout, 'shipping_option')[0]['id'],
@@ -74,7 +73,7 @@ final class CreateOrder
                 'name' => $item->name,
                 'sku' => $item->associatedModel->sku,
                 'product_id' => $item->id,
-                'product_type' => Product::class,
+                'product_type' => $item->associatedModel->getMorphClass(),
             ]);
         }
 

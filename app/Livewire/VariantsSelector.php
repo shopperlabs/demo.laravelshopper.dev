@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Livewire;
 
 use App\Models\Product;
+use App\Models\ProductVariant;
 use Darryldecode\Cart\Facades\CartFacade;
 use Filament\Notifications\Notification;
 use Illuminate\Contracts\View\View;
@@ -14,21 +15,35 @@ final class VariantsSelector extends Component
 {
     public Product $product;
 
-    public ?Product $selectedVariant = null;
+    public ?ProductVariant $selectedVariant = null;
+
+    public function mount(): void
+    {
+        $this->selectedVariant?->loadMissing([
+            'prices' => function ($query) {
+                $query->whereRelation('currency', 'code', current_currency());
+            },
+            'prices.currency',
+        ]);
+
+    }
 
     public function addToCart(): void
     {
+        $model = $this->selectedVariant ?? $this->product;
+
         // @phpstan-ignore-next-line
         CartFacade::session(session()->getId())->add([
-            'id' => $this->selectedVariant ? $this->selectedVariant->id : $this->product->id,
-            'name' => $this->selectedVariant
-                ? $this->product->name . ' / ' . $this->selectedVariant->name
-                : $this->product->name,
-            'price' => $this->selectedVariant && $this->selectedVariant->price_amount
-                ? $this->selectedVariant->price_amount
-                : $this->product->price_amount,
+            'id' => $model->id,
+            'name' => $this->product->name,
+            'price' => $model->getPrice()->amount->amount,
             'quantity' => 1,
-            'associatedModel' => $this->selectedVariant?->load('parent') ?? $this->product,
+            'attributes' => $this->selectedVariant
+                ? $this->selectedVariant->values->mapWithKeys(function ($value) {
+                    return [$value->attribute->name => $value->value];
+                })->toArray()
+                : [],
+            'associatedModel' => $model,
         ]);
 
         $this->dispatch('cartUpdated');

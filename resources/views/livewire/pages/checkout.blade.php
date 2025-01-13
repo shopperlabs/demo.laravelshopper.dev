@@ -10,7 +10,7 @@
                     <span class="sr-only">{{ shopper_setting('legal_name') }}</span>
                     <x-brand class="w-auto h-10 text-primary-700" aria-hidden="true" />
                 </x-link>
-                <x-link href="#" class="inline-flex items-center font-medium text-gray-600 hover:text-gray-900">
+                <x-link :href="route('store.products')" class="inline-flex items-center font-medium text-gray-600 hover:text-gray-900">
                     {{ __('Back to Shopping Cart') }}
                 </x-link>
             </div>
@@ -39,7 +39,7 @@
                     <div class="flex items-center justify-between">
                         <dt class="text-gray-300">{{ __('Subtotal') }}</dt>
                         <dd>
-                            {{ shopper_money_format(amount: $subtotal, currency: \App\Actions\ZoneSessionManager::getSession()?->currencyCode) }}
+                            {{ shopper_money_format(amount: $subtotal, currency: current_currency()) }}
                         </dd>
                     </div>
 
@@ -125,7 +125,7 @@
                                     <div class="flex items-center justify-between">
                                         <dt class="text-gray-400">{{ __('SubTotal') }}</dt>
                                         <dd>
-                                            {{ shopper_money_format(amount: $subtotal, currency: \App\Actions\ZoneSessionManager::getSession()?->currencyCode) }}
+                                            {{ shopper_money_format(amount: $subtotal, currency: current_currency()) }}
                                         </dd>
                                     </div>
 

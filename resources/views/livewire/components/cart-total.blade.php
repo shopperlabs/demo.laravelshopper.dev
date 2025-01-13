@@ -16,5 +16,5 @@ on(['cart-price-update' => function () {
 ?>
 
 <dd class="text-base">
-    {{ shopper_money_format(amount: $price, currency: \App\Actions\ZoneSessionManager::getSession()?->currencyCode) }}
+    {{ shopper_money_format(amount: $price, currency: current_currency()) }}
 </dd>
