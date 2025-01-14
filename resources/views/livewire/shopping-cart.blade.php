@@ -49,7 +49,7 @@
             <div class="flex items-center justify-between pb-1 mb-3 border-b border-gray-200">
                 <p>{{ __('Tax') }}</p>
                 <p class="text-base text-right text-black">
-                    {{ shopper_money_format(0, currency: \App\Actions\ZoneSessionManager::getSession()?->currencyCode) }}
+                    {{ shopper_money_format(0, currency: current_currency()) }}
                 </p>
             </div>
             <div class="flex items-center justify-between pt-1 pb-1 mb-3 border-b border-gray-200">
@@ -59,7 +59,7 @@
             <div class="flex items-center justify-between pt-1 pb-1 mb-3 border-b border-gray-200">
                 <p>{{ __('Subtotal') }}</p>
                 <p class="text-base text-right text-black">
-                    {{ shopper_money_format($subtotal, currency: \App\Actions\ZoneSessionManager::getSession()?->currencyCode) }}
+                    {{ shopper_money_format($subtotal, currency: current_currency()) }}
                 </p>
             </div>
         </div>

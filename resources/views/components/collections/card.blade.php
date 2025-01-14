@@ -13,9 +13,4 @@
     <h3 class="mt-4 text-base font-semibold text-gray-900 font-heading lg:text-lg">
         {{ $collection->name }}
     </h3>
-    @if ($collection->description)
-        <p class="mt-2 text-sm text-gray-500">
-            {{ $collection->description }}
-        </p>
-    @endif
 </x-link>

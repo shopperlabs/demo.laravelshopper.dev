@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Livewire\Pages\Collection;
 
-use App\Models\Collection;
 use App\Models\Product;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
+use Shopper\Core\Models\Collection;
 
 class CollectionProducts extends Component
 {

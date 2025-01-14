@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Livewire;
 
-use App\Models\Product;
 use Darryldecode\Cart\CartCollection;
 use Darryldecode\Cart\Facades\CartFacade;
 use Filament\Notifications\Notification;
@@ -43,13 +42,11 @@ final class ShoppingCart extends SlideOverComponent
 
     public function removeToCart(int $id): void
     {
-        /** @var Product $product */
-        $product = Product::query()->find($id);
         CartFacade::session($this->sessionKey)->remove($id); // @phpstan-ignore-line
 
         Notification::make()
             ->title(__('Cart updated'))
-            ->body(__('The product ":name" has been removed from your cart !', ['name' => $product->name]))
+            ->body(__('The product  has been removed from your cart !'))
             ->success()
             ->send();
 
