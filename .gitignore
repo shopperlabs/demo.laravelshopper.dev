@@ -7,7 +7,6 @@
 /public/**/filament
 /public/uploads
 /storage/*.key
-/storage/media-library
 /vendor
 .env
 .env.backup
