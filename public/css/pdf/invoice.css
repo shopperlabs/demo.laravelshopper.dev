@@ -1,0 +1,147 @@
+/* Global styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #e0f7fa;
+  padding: 2rem;
+}
+
+.invoice-container {
+  max-width: 36rem;
+  background-color: white;
+  margin: 0 auto;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding-inline: 1.5rem;
+}
+
+.header-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.company-slogan {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.header-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.invoice-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.invoice-date {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.address-section {
+  display: flex;
+  justify-content: space-between;
+  padding-inline: 1.5rem;
+}
+
+.office-address, .recipient-address {
+  margin-bottom: 1.5rem;
+}
+
+.section-title {
+  font-weight: bold;
+}
+
+.address-text {
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.invoice-details {
+  display: flex;
+  justify-content: space-between;
+  padding-inline: 1.5rem;
+}
+
+.invoice-number, .total-due {
+  margin-bottom: 1.5rem;
+}
+
+.invoice-id {
+  font-size: 1.125rem;
+  font-weight: bold;
+  color: #3b82f6;
+}
+
+.total-amount {
+  font-size: 1rem;
+  color: #6b7280;
+}
+
+.items-table {
+  width: 100%;
+  margin-top: 1.5rem;
+  border-collapse: collapse;
+}
+
+.table-header {
+  background-color: #bbdefb;
+  font-weight: bold;
+}
+
+.table-cell {
+  padding: 0.5rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.total-summary {
+  display: flex;
+  justify-content: flex-end;
+  padding-inline: 1.5rem;
+}
+
+.summary-left {
+  text-align: right;
+}
+
+.summary-right {
+  margin-left: 1rem;
+  text-align: right;
+}
+
+.summary-item {
+  font-weight: bold;
+}
+
+.summary-value {
+  color: #6b7280;
+}
+
+.payment-terms {
+  display: flex;
+  justify-content: space-between;
+  background-color: #bbdefb;
+  font-weight: 600;
+  padding-inline: 1.5rem;
+}
+
+
+.payment-title, .terms-title {
+  font-weight: bold;
+  color: #3b82f6;
+  font-size: 1rem;
+}

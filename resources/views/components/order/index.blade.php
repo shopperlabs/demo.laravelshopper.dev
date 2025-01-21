@@ -58,7 +58,7 @@
             <x-buttons.primary class="w-full px-4" :href="route('dashboard.orders.detail', ['number' => $order->number])">
                 {{ __('Show details') }}
             </x-buttons.primary>
-            <x-buttons.default class="w-full px-4">
+            <x-buttons.default class="w-full px-4" wire:click="showInvoice({{ $order->id }})">
                 {{ __('Invoice') }}
                 <x-filament::badge size="sm" color="gray" class="ml-2">
                     {{ __('Soon') }}
