@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Shopper\Core\Enum\GenderType;
 
 /**
  * @extends Factory<User>
@@ -31,7 +32,7 @@ final class UserFactory extends Factory
             'last_name' => fake()->lastName(),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
-            'gender' => fake()->randomElement(['male', 'female']),
+            'gender' => fake()->randomElement(GenderType::cases()),
             'password' => self::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),
         ];

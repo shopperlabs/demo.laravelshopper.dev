@@ -36,7 +36,7 @@ final class VariantsSelector extends Component
         CartFacade::session(session()->getId())->add([
             'id' => $model->id,
             'name' => $this->product->name,
-            'price' => $model->getPrice()->amount->amount,
+            'price' => $model->getFormattedPrice()->amount->amount,
             'quantity' => 1,
             'attributes' => $this->selectedVariant
                 ? $this->selectedVariant->values->mapWithKeys(function ($value) {

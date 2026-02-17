@@ -108,7 +108,7 @@
                                 x-transition:leave="transition-opacity duration-300 ease-linear"
                                 x-transition:leave-start="opacity-100"
                                 x-transition:leave-end="opacity-0"
-                                class="fixed inset-0 bg-black bg-opacity-25"
+                                class="fixed inset-0 bg-black/25"
                                 @click="open = !open"
                                 aria-hidden="true"
                                 style="display: none"
@@ -201,7 +201,7 @@
                                 id="email-address"
                                 name="email-address"
                                 autocomplete="email"
-                                class="block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
+                                class="block w-full rounded-md border-gray-300 shadow-xs focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
                             />
                         </div>
                     </div>
@@ -221,7 +221,7 @@
                                     id="name-on-card"
                                     name="name-on-card"
                                     autocomplete="cc-name"
-                                    class="block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
+                                    class="block w-full rounded-md border-gray-300 shadow-xs focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
                                 />
                             </div>
                         </div>
@@ -234,7 +234,7 @@
                                     id="card-number"
                                     name="card-number"
                                     autocomplete="cc-number"
-                                    class="block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
+                                    class="block w-full rounded-md border-gray-300 shadow-xs focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
                                 />
                             </div>
                         </div>
@@ -249,7 +249,7 @@
                                     name="expiration-date"
                                     id="expiration-date"
                                     autocomplete="cc-exp"
-                                    class="block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
+                                    class="block w-full rounded-md border-gray-300 shadow-xs focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
                                 />
                             </div>
                         </div>
@@ -262,7 +262,7 @@
                                     name="cvc"
                                     id="cvc"
                                     autocomplete="csc"
-                                    class="block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
+                                    class="block w-full rounded-md border-gray-300 shadow-xs focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
                                 />
                             </div>
                         </div>
@@ -280,7 +280,7 @@
                                     type="text"
                                     id="company"
                                     name="company"
-                                    class="block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
+                                    class="block w-full rounded-md border-gray-300 shadow-xs focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
                                 />
                             </div>
                         </div>
@@ -293,7 +293,7 @@
                                     id="address"
                                     name="address"
                                     autocomplete="street-address"
-                                    class="block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
+                                    class="block w-full rounded-md border-gray-300 shadow-xs focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
                                 />
                             </div>
                         </div>
@@ -307,7 +307,7 @@
                                     type="text"
                                     id="apartment"
                                     name="apartment"
-                                    class="block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
+                                    class="block w-full rounded-md border-gray-300 shadow-xs focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
                                 />
                             </div>
                         </div>
@@ -320,7 +320,7 @@
                                     id="city"
                                     name="city"
                                     autocomplete="address-level2"
-                                    class="block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
+                                    class="block w-full rounded-md border-gray-300 shadow-xs focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
                                 />
                             </div>
                         </div>
@@ -333,7 +333,7 @@
                                     id="region"
                                     name="region"
                                     autocomplete="address-level1"
-                                    class="block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
+                                    class="block w-full rounded-md border-gray-300 shadow-xs focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
                                 />
                             </div>
                         </div>
@@ -346,7 +346,7 @@
                                     id="postal-code"
                                     name="postal-code"
                                     autocomplete="postal-code"
-                                    class="block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
+                                    class="block w-full rounded-md border-gray-300 shadow-xs focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
                                 />
                             </div>
                         </div>

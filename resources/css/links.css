@@ -23,7 +23,7 @@ a.group-link-underline .link-underline-white {
 }
 
 a.group-link-underline .link-underline-primary {
-  background-image: linear-gradient(transparent, transparent), linear-gradient(theme('colors.primary.500'), theme('colors.primary.600'));
+  background-image: linear-gradient(transparent, transparent), linear-gradient(var(--color-primary-500), var(--color-primary-600));
 }
 
 a.group-link-underline:hover .link-underline {

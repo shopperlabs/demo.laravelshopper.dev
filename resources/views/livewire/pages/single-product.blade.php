@@ -1,5 +1,5 @@
 <div class="bg-white">
-    <div class="py-3 bg-white border-b border-gray-200 bg-opacity-80">
+    <div class="py-3 bg-white/80 border-b border-gray-200">
         <x-container class="flex items-center justify-between px-4">
             {{ Breadcrumbs::render('product', $product) }}
         </x-container>

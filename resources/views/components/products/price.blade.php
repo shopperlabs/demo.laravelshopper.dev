@@ -3,7 +3,7 @@
 ])
 
 @php
-    $price = $product->getPrice();
+    $price = $product->getFormattedPrice();
 @endphp
 
 <p {{ $attributes->twMerge(['class' => 'inline-flex items-center gap-2 text-sm']) }}>

@@ -1,0 +1,6 @@
+@import '../../vendor/shopper/framework/resources/css/shopper.css';
+@import '../../vendor/livewire/flux/dist/flux.css';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@source '../../resources/views/**/*.blade.php';

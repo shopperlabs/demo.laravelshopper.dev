@@ -10,9 +10,4 @@ use Shopper\Core\Models\Product as Model;
 final class Product extends Model
 {
     use HasProductPricing;
-
-    public function isPublished(): bool
-    {
-        return $this->is_visible && $this->published_at && $this->published_at <= now();
-    }
 }

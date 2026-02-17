@@ -102,7 +102,7 @@
                                 x-transition:leave="transition-opacity duration-300 ease-linear"
                                 x-transition:leave-start="opacity-100"
                                 x-transition:leave-end="opacity-0"
-                                class="fixed inset-0 bg-black bg-opacity-25"
+                                class="fixed inset-0 bg-black/25"
                                 @click="open = !open"
                                 aria-hidden="true"
                                 style="display: none"

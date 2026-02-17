@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
 
     @filamentStyles
+    @fluxAppearance
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="font-sans antialiased selection:bg-black selection:text-white">
@@ -23,6 +24,7 @@
     @livewire(\Laravelcm\LivewireSlideOvers\SlideOverPanel::class)
     @livewire('wire-elements-modal')
 
+    @fluxScripts
     @filamentScripts
 </body>
 </html>

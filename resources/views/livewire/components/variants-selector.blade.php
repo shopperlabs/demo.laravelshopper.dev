@@ -13,7 +13,7 @@
                             'ring-2 ring-primary-600 ring-offset-2 hover:text-gray-900' => $selectedVariant && $selectedVariant->id === $variant->id,
                             'border bg-neutral-100 px-2 py-1 relative z-10 cursor-not-allowed overflow-hidden bg-neutral-100
                              text-neutral-500 ring-1 ring-neutral-300 before:absolute before:inset-x-0 before:-z-10 before:h-px
-                             before:-rotate-45 before:bg-neutral-300 before:transition-transform' =>  $variant->stock < 1 || is_null($variant->getPrice())
+                             before:-rotate-45 before:bg-neutral-300 before:transition-transform' =>  $variant->stock < 1 || is_null($variant->getFormattedPrice())
                         ])
                     >
                         {{ $variant->name }}

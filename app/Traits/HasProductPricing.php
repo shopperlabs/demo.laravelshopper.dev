@@ -9,7 +9,7 @@ use Shopper\Core\Helpers\Price;
 
 trait HasProductPricing
 {
-    public function getPrice(): ?PriceData
+    public function getFormattedPrice(): ?PriceData
     {
         $currencyCode = current_currency();
 

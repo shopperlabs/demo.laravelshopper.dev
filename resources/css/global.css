@@ -7,18 +7,18 @@
 }
 
 ::-webkit-scrollbar-track {
-  background-color: theme('colors.gray.100');
+  background-color: var(--color-zinc-100);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: theme('colors.gray.300');
+  background: var(--color-zinc-300);
   border-radius: 0;
   transition: all 250ms;
 }
 
 ::-webkit-scrollbar-thumb:hover,
 ::-webkit-scrollbar-thumb:active {
-  background: theme('colors.gray.800');
+  background: var(--color-zinc-800);
   border-radius: 0;
 }
 

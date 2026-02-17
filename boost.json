@@ -1,0 +1,19 @@
+{
+    "agents": [
+        "claude_code",
+        "cursor",
+        "gemini"
+    ],
+    "guidelines": true,
+    "herd_mcp": false,
+    "mcp": true,
+    "packages": [
+        "shopper/framework"
+    ],
+    "sail": false,
+    "skills": [
+        "livewire-development",
+        "volt-development",
+        "tailwindcss-development"
+    ]
+}

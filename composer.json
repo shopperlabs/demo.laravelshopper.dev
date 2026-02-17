@@ -8,20 +8,23 @@
     "php": "^8.2",
     "darryldecode/cart": "^4.2",
     "diglactic/laravel-breadcrumbs": "^9.0",
+    "filament/support": "*",
     "guzzlehttp/guzzle": "^7.2",
     "laravel/framework": "^11.0",
     "laravel/tinker": "^2.8",
     "laravelcm/livewire-slide-overs": "^1.0",
+    "livewire/flux": "^2.12",
     "livewire/livewire": "^3.4",
     "livewire/volt": "^1.6",
     "notchpay/notchpay-php": "^1.6",
-    "shopper/framework": "^2.0@beta",
+    "shopper/framework": "*",
     "wire-elements/modal": "^2.0"
   },
   "require-dev": {
     "barryvdh/laravel-debugbar": "^3.12",
     "fakerphp/faker": "^1.9.1",
     "larastan/larastan": "^2.9",
+    "laravel/boost": "^2.0",
     "laravel/breeze": "^2.0",
     "laravel/pint": "^1.0",
     "mockery/mockery": "^1.4.4",
@@ -68,6 +71,17 @@
       "@test:pest"
     ]
   },
+  "repositories": [
+    {
+      "name": "flux-pro",
+      "type": "composer",
+      "url": "https://composer.fluxui.dev"
+    },
+    {
+      "type": "path",
+      "url": "../shopper/packages/*"
+    }
+  ],
   "extra": {
     "laravel": {
       "dont-discover": []
