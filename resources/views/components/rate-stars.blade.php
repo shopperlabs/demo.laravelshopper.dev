@@ -7,7 +7,7 @@
             @class([
                 'size-5 shrink-0',
                 'text-yellow-400' => $rating >= $star,
-                'text-gray-200' => $rating <= $star,
+                'text-zinc-200' => $rating <= $star,
                 'text-yellow-200' => $rating < 1
             ])
             aria-hidden="true"

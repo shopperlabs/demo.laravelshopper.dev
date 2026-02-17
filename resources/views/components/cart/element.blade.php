@@ -18,7 +18,7 @@
             </x-link>
         </h3>
 
-        <p class="mt-1 text-gray-300">
+        <p class="mt-1 text-zinc-300">
             {{ __(':qty x :price', ['qty' => $item->quantity, 'price' => shopper_money_format($item->price, current_currency())]) }}
         </p>
 
@@ -26,7 +26,7 @@
             <ul class="mt-2">
                 @foreach($item->attributes as $name => $value)
                     <li class="text-xs text-white">
-                        <span class="font-medium text-gray-400">{{ $name }}</span>:
+                        <span class="font-medium text-zinc-400">{{ $name }}</span>:
                         <span>{{ $value }}</span>
                     </li>
                 @endforeach

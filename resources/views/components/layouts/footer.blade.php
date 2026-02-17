@@ -5,7 +5,7 @@
             <div>
                 <div class="space-y-6 max-w-sm">
                     <x-brand class="h-10" />
-                    <p class="text-sm leading-6 text-gray-600">
+                    <p class="text-sm leading-6 text-zinc-600">
                         {{ __('Build modern, scalable online stores. It includes essential features like product management, checkout, and order handling.') }}
                     </p>
                 </div>
@@ -15,7 +15,7 @@
             </div>
             <div class="mt-16 gap-8 space-y-6 lg:col-span-1 lg:mt-0 lg:grid lg:grid-cols-3 lg:space-y-0">
                 <div>
-                    <h3 class="text-sm font-semibold leading-6 text-gray-900">
+                    <h3 class="text-sm font-semibold leading-6 text-zinc-900">
                         {{ __('Categories') }}
                     </h3>
                     <ul role="list" class="mt-6 space-y-4">
@@ -28,7 +28,7 @@
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-sm font-semibold leading-6 text-gray-900">
+                    <h3 class="text-sm font-semibold leading-6 text-zinc-900">
                         {{ __('Support') }}
                     </h3>
                     <ul role="list" class="mt-6 space-y-4">
@@ -47,28 +47,28 @@
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-sm font-semibold leading-6 text-gray-900">
+                    <h3 class="text-sm font-semibold leading-6 text-zinc-900">
                         Laravel Shopper
                     </h3>
                     <ul role="list" class="mt-6 space-y-4">
                         <li>
                             <a href="https://github.com/shopperlabs"
                                target="_blank"
-                               class="text-sm leading-6 text-gray-600 hover:text-gray-900">
+                               class="text-sm leading-6 text-zinc-600 hover:text-zinc-900">
                                 Github
                             </a>
                         </li>
                         <li>
                             <a href="https://docs.laravelshopper.dev"
                                target="_blank"
-                               class="text-sm leading-6 text-gray-600 hover:text-gray-900">
+                               class="text-sm leading-6 text-zinc-600 hover:text-zinc-900">
                                 Documentation
                             </a>
                         </li>
                         <li>
                             <a href="https://twitter.com/laravelshopper"
                                target="_blank"
-                               class="text-sm leading-6 text-gray-600 hover:text-gray-900">
+                               class="text-sm leading-6 text-zinc-600 hover:text-zinc-900">
                                 Twitter
                             </a>
                         </li>
@@ -76,11 +76,11 @@
                 </div>
             </div>
         </div>
-        <div class="flex items-center justify-between border-t border-gray-100 py-6 lg:py-14">
-            <p class="text-sm text-gray-500">
+        <div class="flex items-center justify-between border-t border-zinc-100 py-6 lg:py-14">
+            <p class="text-sm text-zinc-500">
                 {{ __('© :date Shopper Labs, Inc. All rights reserved.', ['date' => date('Y')]) }}
             </p>
-            <a href="https://laravelshopper.dev" class="inline-flex items-center gap-x-2 text-sm font-medium text-gray-400" target="_blank">
+            <a href="https://laravelshopper.dev" class="inline-flex items-center gap-x-2 text-sm font-medium text-zinc-400" target="_blank">
                 <span>{{ __('Powered by') }}</span>
                 <x-brand class="size-5" aria-hidden="true" />
                 <span>&</span>

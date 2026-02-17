@@ -1,7 +1,7 @@
 <div class="flex flex-col justify-between space-y-10">
     @include('components.checkout-steps')
 
-    <div class="text-sm leading-5 text-gray-500">
+    <div class="text-sm leading-5 text-zinc-500">
         <livewire:modals.customer.address-form :key="'address-form-checkout'" />
     </div>
 
@@ -28,16 +28,16 @@
                 <div class="space-y-5">
                     <div>
                         <div>
-                            <h4 class="font-medium leading-6 text-gray-900 font-heading">
+                            <h4 class="font-medium leading-6 text-zinc-900 font-heading">
                                 {{ __('Delivery addresses') }}
                             </h4>
-                            <p class="mt-1 text-sm leading-5 text-gray-500">
+                            <p class="mt-1 text-sm leading-5 text-zinc-500">
                                 {{ __('Select a delivery address.') }}
                             </p>
                         </div>
 
                         @if($addresses->has('shipping') && $addresses->get('shipping')->isNotEmpty())
-                            <fieldset aria-label="{{ __('Delivery addresses') }}" class="mt-3 divide-y divide-gray-200">
+                            <fieldset aria-label="{{ __('Delivery addresses') }}" class="mt-3 divide-y divide-zinc-200">
                                 @foreach($addresses->get('shipping') as $shippingAddress)
                                     <label
                                         for="shipping-address-{{ $shippingAddress->id }}"
@@ -49,10 +49,10 @@
                                             id="shipping-address-{{ $shippingAddress->id }}"
                                             name="shipping"
                                             value="{{ $shippingAddress->id }}"
-                                            class="mt-0.5 h-4 w-4 shrink-0 cursor-pointer border-gray-300 text-primary focus:ring-primary-600 active:ring-2 active:ring-offset-2"
+                                            class="mt-0.5 h-4 w-4 shrink-0 cursor-pointer border-zinc-300 text-primary focus:ring-primary-600 active:ring-2 active:ring-offset-2"
                                         >
-                                        <span class="flex flex-col space-y-0.5 text-sm text-gray-500">
-                                        <span class="font-medium text-gray-900">{{ $shippingAddress->full_name }}</span>
+                                        <span class="flex flex-col space-y-0.5 text-sm text-zinc-500">
+                                        <span class="font-medium text-zinc-900">{{ $shippingAddress->full_name }}</span>
                                         <span>
                                             {{ $shippingAddress->street_address }}, {{ $shippingAddress->city }} {{ $shippingAddress->postal_code }}, {{ $shippingAddress->country->name }}
                                         </span>
@@ -67,18 +67,18 @@
                     </div>
                     <div class="space-y-5">
                         <div>
-                            <h4 class="font-medium leading-6 text-gray-900 font-heading">
+                            <h4 class="font-medium leading-6 text-zinc-900 font-heading">
                                 {{ __('Billing address') }}
                             </h4>
-                            <p class="mt-1 text-sm leading-5 text-gray-500">
+                            <p class="mt-1 text-sm leading-5 text-zinc-500">
                                 {{ __('Fill in a billing address.') }}
                             </p>
                         </div>
 
                         <div>
                             <label for="same_as_shipping" class="inline-flex items-center">
-                                <input wire:model.live="sameAsShipping" id="same_as_shipping" type="checkbox" class="border-gray-300 text-brand focus:ring-brand" name="same_as_shipping">
-                                <span class="text-sm text-gray-600 ms-2">{{ __("Same to delivery address") }}</span>
+                                <input wire:model.live="sameAsShipping" id="same_as_shipping" type="checkbox" class="border-zinc-300 text-brand focus:ring-brand" name="same_as_shipping">
+                                <span class="text-sm text-zinc-600 ms-2">{{ __("Same to delivery address") }}</span>
                             </label>
                         </div>
 
@@ -101,7 +101,7 @@
 
                         @if(! $sameAsShipping)
                             @if($addresses->has('billing') && $addresses->get('billing')->isNotEmpty())
-                                <fieldset aria-label="{{ __('Billing addresses') }}" class="divide-y divide-gray-200">
+                                <fieldset aria-label="{{ __('Billing addresses') }}" class="divide-y divide-zinc-200">
                                     @foreach($addresses->get('billing') as $billingAddress)
                                         <label
                                             for="billing-address-{{ $billingAddress->id }}"
@@ -113,10 +113,10 @@
                                                 id="billing-address-{{ $billingAddress->id }}"
                                                 name="billing"
                                                 value="{{ $billingAddress->id }}"
-                                                class="mt-0.5 h-4 w-4 shrink-0 cursor-pointer border-gray-300 text-primary focus:ring-primary-600 active:ring-2 active:ring-offset-2"
+                                                class="mt-0.5 h-4 w-4 shrink-0 cursor-pointer border-zinc-300 text-primary focus:ring-primary-600 active:ring-2 active:ring-offset-2"
                                             >
-                                            <span class="flex flex-col space-y-0.5 text-sm text-gray-500">
-                                                <span class="font-medium text-gray-900">{{ $billingAddress->full_name }}</span>
+                                            <span class="flex flex-col space-y-0.5 text-sm text-zinc-500">
+                                                <span class="font-medium text-zinc-900">{{ $billingAddress->full_name }}</span>
                                                 <span>
                                                     {{ $billingAddress->street_address }}, {{ $billingAddress->city }} {{ $billingAddress->postal_code }}, {{ $billingAddress->country->name }}
                                                 </span>
@@ -132,7 +132,7 @@
                     </div>
                 </div>
 
-                <div class="pt-6 mt-10 border-t border-gray-200 sm:flex sm:items-center sm:justify-end">
+                <div class="pt-6 mt-10 border-t border-zinc-200 sm:flex sm:items-center sm:justify-end">
                     <flux:button variant="primary" type="submit" class="w-full sm:w-auto">
                         {{ __('Continue') }}
                     </flux:button>
@@ -140,7 +140,7 @@
             </div>
         </form>
     @else
-        <div class="p-4 text-sm font-medium leading-6 text-gray-700 bg-gray-50">
+        <div class="p-4 text-sm font-medium leading-6 text-zinc-700 bg-zinc-50">
             {{ __('You don\'t have a corresponding address.') }}
         </div>
     @endif

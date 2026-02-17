@@ -1,0 +1,35 @@
+[
+  {
+    "name": "Africa",
+    "slug": "africa",
+    "code": "AF",
+    "is_enabled": true,
+    "currency_code": "XAF",
+    "countries": ["CIV", "CMR", "COG", "SEN"],
+    "carriers": ["manual"],
+    "payment_methods": ["cash"],
+    "collections": ["gift-ideas"]
+  },
+  {
+    "name": "Europe",
+    "slug": "europe",
+    "code": "EU",
+    "is_enabled": true,
+    "currency_code": "EUR",
+    "countries": ["BEL", "DEU", "ESP", "FRA", "ITA", "PRT"],
+    "carriers": ["manual"],
+    "payment_methods": ["cash"],
+    "collections": []
+  },
+  {
+    "name": "America",
+    "slug": "america",
+    "code": "AM",
+    "is_enabled": true,
+    "currency_code": "USD",
+    "countries": ["BRA", "CAN", "USA"],
+    "carriers": ["manual"],
+    "payment_methods": ["cash"],
+    "collections": ["gift-ideas"]
+  }
+]

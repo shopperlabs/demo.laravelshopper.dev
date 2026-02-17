@@ -3,14 +3,14 @@
     <div class="fixed top-0 left-0 hidden w-1/2 h-full bg-white lg:block" aria-hidden="true"></div>
     <div class="fixed top-0 right-0 hidden w-1/2 h-full bg-primary-800 lg:block" aria-hidden="true"></div>
 
-    <header class="relative text-sm font-medium text-gray-700 bg-white border-b border-gray-200">
+    <header class="relative text-sm font-medium text-zinc-700 bg-white border-b border-zinc-200">
         <x-container class="py-4">
             <div class="relative flex items-center gap-10">
                 <x-link :href="route('home')">
                     <span class="sr-only">{{ shopper_setting('legal_name') }}</span>
                     <x-brand class="w-auto h-10 text-primary-700" aria-hidden="true" />
                 </x-link>
-                <x-link :href="route('store.products')" class="inline-flex items-center font-medium text-gray-600 hover:text-gray-900">
+                <x-link :href="route('store.products')" class="inline-flex items-center font-medium text-zinc-600 hover:text-zinc-900">
                     {{ __('Back to Shopping Cart') }}
                 </x-link>
             </div>
@@ -37,19 +37,19 @@
 
                 <dl class="hidden pt-6 space-y-6 text-sm font-medium text-white border-t border-white/10 lg:block">
                     <div class="flex items-center justify-between">
-                        <dt class="text-gray-300">{{ __('Subtotal') }}</dt>
+                        <dt class="text-zinc-300">{{ __('Subtotal') }}</dt>
                         <dd>
                             {{ shopper_money_format(amount: $subtotal, currency: current_currency()) }}
                         </dd>
                     </div>
 
                     <div class="flex items-center justify-between">
-                        <dt class="text-gray-300">{{ __('Delivery') }}</dt>
+                        <dt class="text-zinc-300">{{ __('Delivery') }}</dt>
                         <livewire:components.shipping-price />
                     </div>
 
                     <div class="flex items-center justify-between">
-                        <dt class="text-gray-300">{{ __('Tax') }}</dt>
+                        <dt class="text-zinc-300">{{ __('Tax') }}</dt>
                         <livewire:components.tax-price />
                     </div>
 
@@ -78,7 +78,7 @@
                                         <livewire:components.cart-total />
                                     </span>
                                     <svg
-                                        class="size-5 text-gray-500"
+                                        class="size-5 text-zinc-500"
                                         viewBox="0 0 20 20"
                                         fill="currentColor"
                                         aria-hidden="true"
@@ -123,19 +123,19 @@
                             >
                                 <dl class="max-w-lg mx-auto space-y-6">
                                     <div class="flex items-center justify-between">
-                                        <dt class="text-gray-400">{{ __('SubTotal') }}</dt>
+                                        <dt class="text-zinc-400">{{ __('SubTotal') }}</dt>
                                         <dd>
                                             {{ shopper_money_format(amount: $subtotal, currency: current_currency()) }}
                                         </dd>
                                     </div>
 
                                     <div class="flex items-center justify-between">
-                                        <dt class="text-gray-400">{{ __('Delivery') }}</dt>
+                                        <dt class="text-zinc-400">{{ __('Delivery') }}</dt>
                                         <livewire:components.shipping-price />
                                     </div>
 
                                     <div class="flex items-center justify-between">
-                                        <dt class="text-gray-400">{{ __('Tax') }}</dt>
+                                        <dt class="text-zinc-400">{{ __('Tax') }}</dt>
                                         <livewire:components.tax-price />
                                     </div>
                                 </dl>

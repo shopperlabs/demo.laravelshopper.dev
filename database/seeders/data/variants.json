@@ -1,0 +1,106 @@
+[
+  {
+    "product_slug": "apple-iphone-16-pro-max-256gb-titane-noir-reconditionne",
+    "variants": [
+      { "name": "Blue / 16 GB / 128 GB / 6.7\"", "sku": "BLUE-16-GB-128-GB-67", "attributes": { "color": "#1e3a8a", "memory": "16_gb", "storage": "128_gb", "screen-size": "6-7-inch" }, "prices": [{ "currency_code": "XAF", "amount": 579650 }, { "currency_code": "EUR", "amount": 883 }, { "currency_code": "USD", "amount": 966 }], "stock": 20 },
+      { "name": "Blue / 16 GB / 128 GB / 6.1\"", "sku": "BLUE-16-GB-128-GB-61", "attributes": { "color": "#1e3a8a", "memory": "16_gb", "storage": "128_gb", "screen-size": "6-1-inch" }, "prices": [{ "currency_code": "XAF", "amount": 579650 }, { "currency_code": "EUR", "amount": 883 }, { "currency_code": "USD", "amount": 966 }], "stock": 20 },
+      { "name": "Blue / 16 GB / 128 GB / 5.4\"", "sku": "BLUE-16-GB-128-GB-54", "attributes": { "color": "#1e3a8a", "memory": "16_gb", "storage": "128_gb", "screen-size": "5-4-inch" }, "prices": [{ "currency_code": "XAF", "amount": 579650 }, { "currency_code": "EUR", "amount": 883 }, { "currency_code": "USD", "amount": 966 }], "stock": 20 },
+      { "name": "Blue / 16 GB / 256 GB / 6.7\"", "sku": "BLUE-16-GB-256-GB-67", "attributes": { "color": "#1e3a8a", "memory": "16_gb", "storage": "256_gb", "screen-size": "6-7-inch" }, "prices": [{ "currency_code": "XAF", "amount": 645000 }, { "currency_code": "EUR", "amount": 983 }, { "currency_code": "USD", "amount": 999 }], "stock": 41 },
+      { "name": "Blue / 16 GB / 256 GB / 6.1\"", "sku": "BLUE-16-GB-256-GB-61", "attributes": { "color": "#1e3a8a", "memory": "16_gb", "storage": "256_gb", "screen-size": "6-1-inch" }, "prices": [{ "currency_code": "XAF", "amount": 645000 }, { "currency_code": "EUR", "amount": 983 }, { "currency_code": "USD", "amount": 999 }], "stock": 23 },
+      { "name": "Blue / 16 GB / 256 GB / 5.4\"", "sku": "BLUE-16-GB-256-GB-54", "attributes": { "color": "#1e3a8a", "memory": "16_gb", "storage": "256_gb", "screen-size": "5-4-inch" }, "prices": [{ "currency_code": "XAF", "amount": 645000 }, { "currency_code": "EUR", "amount": 983 }, { "currency_code": "USD", "amount": 999 }], "stock": 19 },
+      { "name": "Blue / 16 GB / 512 GB / 6.7\"", "sku": "BLUE-16-GB-512-GB-67", "attributes": { "color": "#1e3a8a", "memory": "16_gb", "storage": "512_gb", "screen-size": "6-7-inch" } },
+      { "name": "Blue / 16 GB / 512 GB / 6.1\"", "sku": "BLUE-16-GB-512-GB-61", "attributes": { "color": "#1e3a8a", "memory": "16_gb", "storage": "512_gb", "screen-size": "6-1-inch" } },
+      { "name": "Blue / 16 GB / 512 GB / 5.4\"", "sku": "BLUE-16-GB-512-GB-54", "attributes": { "color": "#1e3a8a", "memory": "16_gb", "storage": "512_gb", "screen-size": "5-4-inch" } },
+      { "name": "Blue / 64 GB / 128 GB / 6.7\"", "sku": "BLUE-64-GB-128-GB-67", "attributes": { "color": "#1e3a8a", "memory": "64_gb", "storage": "128_gb", "screen-size": "6-7-inch" } },
+      { "name": "Blue / 64 GB / 128 GB / 6.1\"", "sku": "BLUE-64-GB-128-GB-61", "attributes": { "color": "#1e3a8a", "memory": "64_gb", "storage": "128_gb", "screen-size": "6-1-inch" } },
+      { "name": "Blue / 64 GB / 128 GB / 5.4\"", "sku": "BLUE-64-GB-128-GB-54", "attributes": { "color": "#1e3a8a", "memory": "64_gb", "storage": "128_gb", "screen-size": "5-4-inch" } },
+      { "name": "Blue / 64 GB / 256 GB / 6.7\"", "sku": "BLUE-64-GB-256-GB-67", "attributes": { "color": "#1e3a8a", "memory": "64_gb", "storage": "256_gb", "screen-size": "6-7-inch" } },
+      { "name": "Blue / 64 GB / 256 GB / 6.1\"", "sku": "BLUE-64-GB-256-GB-61", "attributes": { "color": "#1e3a8a", "memory": "64_gb", "storage": "256_gb", "screen-size": "6-1-inch" } },
+      { "name": "Blue / 64 GB / 256 GB / 5.4\"", "sku": "BLUE-64-GB-256-GB-54", "attributes": { "color": "#1e3a8a", "memory": "64_gb", "storage": "256_gb", "screen-size": "5-4-inch" } },
+      { "name": "Blue / 64 GB / 512 GB / 6.7\"", "sku": "BLUE-64-GB-512-GB-67", "attributes": { "color": "#1e3a8a", "memory": "64_gb", "storage": "512_gb", "screen-size": "6-7-inch" } },
+      { "name": "Blue / 64 GB / 512 GB / 6.1\"", "sku": "BLUE-64-GB-512-GB-61", "attributes": { "color": "#1e3a8a", "memory": "64_gb", "storage": "512_gb", "screen-size": "6-1-inch" } },
+      { "name": "Blue / 64 GB / 512 GB / 5.4\"", "sku": "BLUE-64-GB-512-GB-54", "attributes": { "color": "#1e3a8a", "memory": "64_gb", "storage": "512_gb", "screen-size": "5-4-inch" } },
+      { "name": "Orange / 16 GB / 128 GB / 6.7\"", "sku": "ORANGE-16-GB-128-GB-67", "attributes": { "color": "#faa21e", "memory": "16_gb", "storage": "128_gb", "screen-size": "6-7-inch" }, "prices": [{ "currency_code": "XAF", "amount": 545000 }, { "currency_code": "EUR", "amount": 831 }, { "currency_code": "USD", "amount": 908 }], "stock": 32 },
+      { "name": "Orange / 16 GB / 128 GB / 6.1\"", "sku": "ORANGE-16-GB-128-GB-61", "attributes": { "color": "#faa21e", "memory": "16_gb", "storage": "128_gb", "screen-size": "6-1-inch" } },
+      { "name": "Orange / 16 GB / 128 GB / 5.4\"", "sku": "ORANGE-16-GB-128-GB-54", "attributes": { "color": "#faa21e", "memory": "16_gb", "storage": "128_gb", "screen-size": "5-4-inch" } },
+      { "name": "Orange / 16 GB / 256 GB / 6.7\"", "sku": "ORANGE-16-GB-256-GB-67", "attributes": { "color": "#faa21e", "memory": "16_gb", "storage": "256_gb", "screen-size": "6-7-inch" }, "prices": [{ "currency_code": "XAF", "amount": 645000 }, { "currency_code": "EUR", "amount": 983 }, { "currency_code": "USD", "amount": 999 }], "stock": 32 },
+      { "name": "Orange / 16 GB / 256 GB / 6.1\"", "sku": "ORANGE-16-GB-256-GB-61", "attributes": { "color": "#faa21e", "memory": "16_gb", "storage": "256_gb", "screen-size": "6-1-inch" } },
+      { "name": "Orange / 16 GB / 256 GB / 5.4\"", "sku": "ORANGE-16-GB-256-GB-54", "attributes": { "color": "#faa21e", "memory": "16_gb", "storage": "256_gb", "screen-size": "5-4-inch" } },
+      { "name": "Orange / 16 GB / 512 GB / 6.7\"", "sku": "ORANGE-16-GB-512-GB-67", "attributes": { "color": "#faa21e", "memory": "16_gb", "storage": "512_gb", "screen-size": "6-7-inch" } },
+      { "name": "Orange / 16 GB / 512 GB / 6.1\"", "sku": "ORANGE-16-GB-512-GB-61", "attributes": { "color": "#faa21e", "memory": "16_gb", "storage": "512_gb", "screen-size": "6-1-inch" } },
+      { "name": "Orange / 16 GB / 512 GB / 5.4\"", "sku": "ORANGE-16-GB-512-GB-54", "attributes": { "color": "#faa21e", "memory": "16_gb", "storage": "512_gb", "screen-size": "5-4-inch" } },
+      { "name": "Orange / 64 GB / 128 GB / 6.7\"", "sku": "ORANGE-64-GB-128-GB-67", "attributes": { "color": "#faa21e", "memory": "64_gb", "storage": "128_gb", "screen-size": "6-7-inch" } },
+      { "name": "Orange / 64 GB / 128 GB / 6.1\"", "sku": "ORANGE-64-GB-128-GB-61", "attributes": { "color": "#faa21e", "memory": "64_gb", "storage": "128_gb", "screen-size": "6-1-inch" } },
+      { "name": "Orange / 64 GB / 128 GB / 5.4\"", "sku": "ORANGE-64-GB-128-GB-54", "attributes": { "color": "#faa21e", "memory": "64_gb", "storage": "128_gb", "screen-size": "5-4-inch" } },
+      { "name": "Orange / 64 GB / 256 GB / 6.7\"", "sku": "ORANGE-64-GB-256-GB-67", "attributes": { "color": "#faa21e", "memory": "64_gb", "storage": "256_gb", "screen-size": "6-7-inch" } },
+      { "name": "Orange / 64 GB / 256 GB / 6.1\"", "sku": "ORANGE-64-GB-256-GB-61", "attributes": { "color": "#faa21e", "memory": "64_gb", "storage": "256_gb", "screen-size": "6-1-inch" } },
+      { "name": "Orange / 64 GB / 256 GB / 5.4\"", "sku": "ORANGE-64-GB-256-GB-54", "attributes": { "color": "#faa21e", "memory": "64_gb", "storage": "256_gb", "screen-size": "5-4-inch" } },
+      { "name": "Orange / 64 GB / 512 GB / 6.7\"", "sku": "ORANGE-64-GB-512-GB-67", "attributes": { "color": "#faa21e", "memory": "64_gb", "storage": "512_gb", "screen-size": "6-7-inch" } },
+      { "name": "Orange / 64 GB / 512 GB / 6.1\"", "sku": "ORANGE-64-GB-512-GB-61", "attributes": { "color": "#faa21e", "memory": "64_gb", "storage": "512_gb", "screen-size": "6-1-inch" } },
+      { "name": "Orange / 64 GB / 512 GB / 5.4\"", "sku": "ORANGE-64-GB-512-GB-54", "attributes": { "color": "#faa21e", "memory": "64_gb", "storage": "512_gb", "screen-size": "5-4-inch" } },
+      { "name": "Black / 16 GB / 128 GB / 6.7\"", "sku": "BLACK-16-GB-128-GB-67", "attributes": { "color": "#1c1c1c", "memory": "16_gb", "storage": "128_gb", "screen-size": "6-7-inch" } },
+      { "name": "Black / 16 GB / 128 GB / 6.1\"", "sku": "BLACK-16-GB-128-GB-61", "attributes": { "color": "#1c1c1c", "memory": "16_gb", "storage": "128_gb", "screen-size": "6-1-inch" } },
+      { "name": "Black / 16 GB / 128 GB / 5.4\"", "sku": "BLACK-16-GB-128-GB-54", "attributes": { "color": "#1c1c1c", "memory": "16_gb", "storage": "128_gb", "screen-size": "5-4-inch" } },
+      {
+        "name": "Black / 16 GB / 256 GB / 6.7\"",
+        "sku": "BLACK-16-GB-256-GB-67",
+        "attributes": { "color": "#1c1c1c", "memory": "16_gb", "storage": "256_gb", "screen-size": "6-7-inch" },
+        "prices": [{ "currency_code": "XAF", "amount": 756500 }, { "currency_code": "EUR", "amount": 999 }, { "currency_code": "USD", "amount": 999 }],
+        "stock": 34,
+        "thumbnail": "iphone-variant-black-256gb-thumb.avif",
+        "images": ["iphone-variant-black-256gb-2.avif", "iphone-variant-black-256gb-3.avif"]
+      },
+      { "name": "Black / 16 GB / 256 GB / 6.1\"", "sku": "BLACK-16-GB-256-GB-61", "attributes": { "color": "#1c1c1c", "memory": "16_gb", "storage": "256_gb", "screen-size": "6-1-inch" } },
+      { "name": "Black / 16 GB / 256 GB / 5.4\"", "sku": "BLACK-16-GB-256-GB-54", "attributes": { "color": "#1c1c1c", "memory": "16_gb", "storage": "256_gb", "screen-size": "5-4-inch" } },
+      { "name": "Black / 16 GB / 512 GB / 6.7\"", "sku": "BLACK-16-GB-512-GB-67", "attributes": { "color": "#1c1c1c", "memory": "16_gb", "storage": "512_gb", "screen-size": "6-7-inch" } },
+      { "name": "Black / 16 GB / 512 GB / 6.1\"", "sku": "BLACK-16-GB-512-GB-61", "attributes": { "color": "#1c1c1c", "memory": "16_gb", "storage": "512_gb", "screen-size": "6-1-inch" } },
+      { "name": "Black / 16 GB / 512 GB / 5.4\"", "sku": "BLACK-16-GB-512-GB-54", "attributes": { "color": "#1c1c1c", "memory": "16_gb", "storage": "512_gb", "screen-size": "5-4-inch" } },
+      { "name": "Black / 64 GB / 128 GB / 6.7\"", "sku": "BLACK-64-GB-128-GB-67", "attributes": { "color": "#1c1c1c", "memory": "64_gb", "storage": "128_gb", "screen-size": "6-7-inch" } },
+      { "name": "Black / 64 GB / 128 GB / 6.1\"", "sku": "BLACK-64-GB-128-GB-61", "attributes": { "color": "#1c1c1c", "memory": "64_gb", "storage": "128_gb", "screen-size": "6-1-inch" } },
+      { "name": "Black / 64 GB / 128 GB / 5.4\"", "sku": "BLACK-64-GB-128-GB-54", "attributes": { "color": "#1c1c1c", "memory": "64_gb", "storage": "128_gb", "screen-size": "5-4-inch" } },
+      { "name": "Black / 64 GB / 256 GB / 6.7\"", "sku": "BLACK-64-GB-256-GB-67", "attributes": { "color": "#1c1c1c", "memory": "64_gb", "storage": "256_gb", "screen-size": "6-7-inch" } },
+      { "name": "Black / 64 GB / 256 GB / 6.1\"", "sku": "BLACK-64-GB-256-GB-61", "attributes": { "color": "#1c1c1c", "memory": "64_gb", "storage": "256_gb", "screen-size": "6-1-inch" } },
+      { "name": "Black / 64 GB / 256 GB / 5.4\"", "sku": "BLACK-64-GB-256-GB-54", "attributes": { "color": "#1c1c1c", "memory": "64_gb", "storage": "256_gb", "screen-size": "5-4-inch" } },
+      { "name": "Black / 64 GB / 512 GB / 6.7\"", "sku": "BLACK-64-GB-512-GB-67", "attributes": { "color": "#1c1c1c", "memory": "64_gb", "storage": "512_gb", "screen-size": "6-7-inch" } },
+      { "name": "Black / 64 GB / 512 GB / 6.1\"", "sku": "BLACK-64-GB-512-GB-61", "attributes": { "color": "#1c1c1c", "memory": "64_gb", "storage": "512_gb", "screen-size": "6-1-inch" } },
+      { "name": "Black / 64 GB / 512 GB / 5.4\"", "sku": "BLACK-64-GB-512-GB-54", "attributes": { "color": "#1c1c1c", "memory": "64_gb", "storage": "512_gb", "screen-size": "5-4-inch" } }
+    ]
+  },
+  {
+    "product_slug": "nike-air-max-90",
+    "variants": [
+      { "name": "40", "sku": "NIKE-AM90-WHT-40", "prices": [{ "currency_code": "XAF", "amount": 98000 }, { "currency_code": "EUR", "amount": 150 }, { "currency_code": "USD", "amount": 163 }], "stock": 20 },
+      { "name": "41", "sku": "NIKE-AM90-WHT-41", "prices": [{ "currency_code": "XAF", "amount": 98000 }, { "currency_code": "EUR", "amount": 150 }, { "currency_code": "USD", "amount": 163 }], "stock": 10 },
+      { "name": "42", "sku": "NIKE-AM90-WHT-42", "prices": [{ "currency_code": "XAF", "amount": 98000 }, { "currency_code": "EUR", "amount": 150 }, { "currency_code": "USD", "amount": 163 }], "stock": 3 },
+      { "name": "43", "sku": "NIKE-AM90-WHT-43", "prices": [{ "currency_code": "XAF", "amount": 98000 }, { "currency_code": "EUR", "amount": 150 }, { "currency_code": "USD", "amount": 163 }] },
+      { "name": "44", "sku": "NIKE-AM90-WHT-44", "prices": [{ "currency_code": "XAF", "amount": 100000 }, { "currency_code": "EUR", "amount": 153 }, { "currency_code": "USD", "amount": 167 }], "stock": 10 },
+      { "name": "45", "sku": "NIKE-AM90-WHT-45", "prices": [{ "currency_code": "XAF", "amount": 110000 }, { "currency_code": "EUR", "amount": 160 }, { "currency_code": "USD", "amount": 183 }], "stock": 8 }
+    ]
+  },
+  {
+    "product_slug": "everyday-soap",
+    "variants": [
+      { "name": "Grapefruit", "sku": "GLOW-SOAP-GRAPEFRUIT", "position": 1, "prices": [{ "currency_code": "XAF", "amount": 14400, "compare_amount": 18600 }, { "currency_code": "EUR", "amount": 22, "compare_amount": 28 }, { "currency_code": "USD", "amount": 24, "compare_amount": 31 }], "stock": 25 },
+      { "name": "Mint", "sku": "GLOW-SOAP-MINT", "position": 2, "prices": [{ "currency_code": "XAF", "amount": 14400, "compare_amount": 18600 }, { "currency_code": "EUR", "amount": 22, "compare_amount": 28 }, { "currency_code": "USD", "amount": 24, "compare_amount": 31 }], "stock": 30 },
+      { "name": "Limoncello", "sku": "GLOW-SOAP-LIMONCELLO", "position": 3, "prices": [{ "currency_code": "XAF", "amount": 14400, "compare_amount": 18600 }, { "currency_code": "EUR", "amount": 22, "compare_amount": 28 }, { "currency_code": "USD", "amount": 24, "compare_amount": 31 }] },
+      { "name": "Bumbleberry", "sku": "GLOW-SOAP-BUMBLEBERRY", "position": 4, "prices": [{ "currency_code": "XAF", "amount": 14400, "compare_amount": 18600 }, { "currency_code": "EUR", "amount": 22, "compare_amount": 28 }, { "currency_code": "USD", "amount": 24, "compare_amount": 31 }], "stock": 20 }
+    ]
+  },
+  {
+    "product_slug": "wavy-twist-checkerboard",
+    "variants": [
+      { "name": "40", "sku": "WAVY-TWIST-40", "position": 1, "prices": [{ "currency_code": "XAF", "amount": 57000, "compare_amount": 81600 }, { "currency_code": "EUR", "amount": 87, "compare_amount": 124 }, { "currency_code": "USD", "amount": 95, "compare_amount": 136 }], "stock": 15 },
+      { "name": "42", "sku": "WAVY-TWIST-42", "position": 2, "prices": [{ "currency_code": "XAF", "amount": 59400, "compare_amount": 81600 }, { "currency_code": "EUR", "amount": 91, "compare_amount": 124 }, { "currency_code": "USD", "amount": 99, "compare_amount": 136 }], "stock": 10 },
+      { "name": "44", "sku": "WAVY-TWIST-44", "position": 3, "prices": [{ "currency_code": "XAF", "amount": 57000, "compare_amount": 81600 }, { "currency_code": "EUR", "amount": 87, "compare_amount": 124 }, { "currency_code": "USD", "amount": 95, "compare_amount": 136 }], "stock": 8 }
+    ]
+  },
+  {
+    "product_slug": "london-tour-tshirt-dress",
+    "variants": [
+      { "name": "Blue", "sku": "LONDON-DRESS-BLUE", "position": 1, "prices": [{ "currency_code": "XAF", "amount": 53400, "compare_amount": 60000 }, { "currency_code": "EUR", "amount": 81, "compare_amount": 91 }, { "currency_code": "USD", "amount": 89, "compare_amount": 100 }], "stock": 20 },
+      { "name": "Yellow", "sku": "LONDON-DRESS-YELLOW", "position": 2, "prices": [{ "currency_code": "XAF", "amount": 53400, "compare_amount": 60000 }, { "currency_code": "EUR", "amount": 81, "compare_amount": 91 }, { "currency_code": "USD", "amount": 89, "compare_amount": 100 }], "stock": 15 },
+      { "name": "Dark Blue", "sku": "LONDON-DRESS-DARKBLUE", "position": 3, "prices": [{ "currency_code": "XAF", "amount": 53400, "compare_amount": 60000 }, { "currency_code": "EUR", "amount": 81, "compare_amount": 91 }, { "currency_code": "USD", "amount": 89, "compare_amount": 100 }], "stock": 12 },
+      { "name": "White", "sku": "LONDON-DRESS-WHITE", "position": 4, "prices": [{ "currency_code": "XAF", "amount": 53400, "compare_amount": 60000 }, { "currency_code": "EUR", "amount": 81, "compare_amount": 91 }, { "currency_code": "USD", "amount": 89, "compare_amount": 100 }], "stock": 18 }
+    ]
+  }
+]

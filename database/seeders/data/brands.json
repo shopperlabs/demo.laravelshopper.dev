@@ -1,0 +1,164 @@
+[
+  {
+    "name": "Nike",
+    "slug": "nike",
+    "description": "Leader mondial des chaussures, vêtements et équipements de sport.",
+    "website": "https://www.nike.com",
+    "is_enabled": true,
+    "position": 1,
+    "image": "nike.png"
+  },
+  {
+    "name": "Apple",
+    "slug": "apple",
+    "description": "Concepteur de produits électroniques innovants, ordinateurs et smartphones.",
+    "website": "https://www.apple.com",
+    "is_enabled": true,
+    "position": 2,
+    "image": null
+  },
+  {
+    "name": "Samsung",
+    "slug": "samsung",
+    "description": "Fabricant mondial de produits électroniques, smartphones et appareils ménagers.",
+    "website": "https://www.samsung.com",
+    "is_enabled": true,
+    "position": 3,
+    "image": null
+  },
+  {
+    "name": "Adidas",
+    "slug": "adidas",
+    "description": "Marque internationale de vêtements et équipements sportifs.",
+    "website": "https://www.adidas.com",
+    "is_enabled": true,
+    "position": 4,
+    "image": null
+  },
+  {
+    "name": "Sony",
+    "slug": "sony",
+    "description": "Fabricant de produits électroniques, consoles de jeux et divertissement.",
+    "website": "https://www.sony.com",
+    "is_enabled": true,
+    "position": 5,
+    "image": null
+  },
+  {
+    "name": "Levi's",
+    "slug": "levis",
+    "description": "Marque emblématique de jeans et vêtements casual depuis 1853.",
+    "website": "https://www.levi.com",
+    "is_enabled": true,
+    "position": 6,
+    "image": null
+  },
+  {
+    "name": "H&M",
+    "slug": "hm",
+    "description": "Chaîne internationale de magasins de vêtements et accessoires de mode.",
+    "website": "https://www.hm.com",
+    "is_enabled": true,
+    "position": 7,
+    "image": "hm.png"
+  },
+  {
+    "name": "The North Face",
+    "slug": "the-north-face",
+    "description": "Équipements et vêtements pour les activités outdoor et la montagne.",
+    "website": "https://www.thenorthface.com",
+    "is_enabled": true,
+    "position": 8,
+    "image": null
+  },
+  {
+    "name": "Bose",
+    "slug": "bose",
+    "description": "Spécialiste des systèmes audio, casques et enceintes haute qualité.",
+    "website": "https://www.bose.com",
+    "is_enabled": true,
+    "position": 9,
+    "image": null
+  },
+  {
+    "name": "IKEA",
+    "slug": "ikea",
+    "description": "Ameublement et décoration intérieure accessibles et design.",
+    "website": "https://www.ikea.com",
+    "is_enabled": true,
+    "position": 10,
+    "image": null
+  },
+  {
+    "name": "KTC",
+    "slug": "ktc",
+    "description": "Marque de périphériques gaming et moniteurs.",
+    "website": "https://ktcplay.eu",
+    "is_enabled": true,
+    "position": 11,
+    "image": null
+  },
+  {
+    "name": "Moleskine",
+    "slug": "moleskine",
+    "description": "Carnets, agendas et accessoires d'écriture haut de gamme.",
+    "website": "https://www.moleskine.com",
+    "is_enabled": true,
+    "position": 12,
+    "image": null
+  },
+  {
+    "name": "Yeti",
+    "slug": "yeti",
+    "description": "Glacières, bouteilles et équipements outdoor premium.",
+    "website": "https://www.yeti.com",
+    "is_enabled": true,
+    "position": 13,
+    "image": null
+  },
+  {
+    "name": "Adobe",
+    "slug": "adobe",
+    "description": "Éditeur de logiciels créatifs et solutions de marketing digital.",
+    "website": "https://www.adobe.com",
+    "is_enabled": true,
+    "position": 14,
+    "image": null
+  },
+  {
+    "name": "MasterClass",
+    "slug": "masterclass",
+    "description": "Plateforme de cours en ligne dispensés par des experts mondiaux.",
+    "website": "https://www.masterclass.com",
+    "is_enabled": true,
+    "position": 15,
+    "image": null
+  },
+  {
+    "name": "Xiaomi",
+    "slug": "xiaomi",
+    "description": "Fabricant de smartphones, objets connectés et électronique grand public.",
+    "website": "https://www.mi.com",
+    "is_enabled": true,
+    "position": 16,
+    "image": null
+  },
+  {
+    "name": "Anker",
+    "slug": "anker",
+    "description": "Spécialiste des chargeurs, batteries portables et accessoires électroniques.",
+    "website": "https://www.anker.com",
+    "is_enabled": true,
+    "position": 17,
+    "image": null
+  },
+  {
+    "name": "Glowing",
+    "slug": "glowing",
+    "description": "Cosmetics and skincare brand focused on healthy ingredients for radiant, glowing skin.",
+    "website": "https://glowing-theme.myshopify.com",
+    "is_enabled": true,
+    "position": 18,
+    "image": null
+  }
+]

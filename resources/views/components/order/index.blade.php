@@ -1,21 +1,21 @@
 @props(['order'])
 
 <div class="py-6 lg:py-8 lg:max-w-4xl">
-    <div class="bg-gray-50 py-2.5 px-4 space-y-1.5 lg:grid lg:grid-cols-2 lg:gap-x-4 lg:space-y-0">
+    <div class="bg-zinc-50 py-2.5 px-4 space-y-1.5 lg:grid lg:grid-cols-2 lg:gap-x-4 lg:space-y-0">
         <div class="grid grid-cols-2 gap-x-4">
             <div class="text-sm">
-                <dt class="font-medium text-gray-900">
+                <dt class="font-medium text-zinc-900">
                     {{ __('Order number') }}
                 </dt>
-                <dd class="mt-1 text-gray-500 uppercase">
+                <dd class="mt-1 text-zinc-500 uppercase">
                     {{ $order->number }}
                 </dd>
             </div>
             <div class="text-sm">
-                <dt class="font-medium text-gray-900">
+                <dt class="font-medium text-zinc-900">
                     {{ __('Passed the') }}
                 </dt>
-                <dd class="mt-1 text-gray-500 capitalize">
+                <dd class="mt-1 text-zinc-500 capitalize">
                     <time datetime="{{ $order->created_at->format('Y-m-d') }}">
                         {{ $order->created_at->translatedFormat('j F Y') }}
                     </time>
@@ -24,16 +24,16 @@
         </div>
         <div class="grid grid-cols-2 gap-x-4">
             <div class="text-sm">
-                <dt class="font-medium text-gray-900">
+                <dt class="font-medium text-zinc-900">
                     {{ __('Total') }}
                 </dt>
-                <dd class="mt-1 text-gray-500">
+                <dd class="mt-1 text-zinc-500">
                     {{ shopper_money_format($order->total() + $order->shippingOption?->price, $order->currency_code) }}
                 </dd>
             </div>
             <div class="text-sm">
-                <dt class="font-medium text-gray-900">{{ __('Status') }}</dt>
-                <dd class="mt-1 text-gray-500">
+                <dt class="font-medium text-zinc-900">{{ __('Status') }}</dt>
+                <dd class="mt-1 text-zinc-500">
                     <x-order.status :status="$order->status" />
                 </dd>
             </div>

@@ -1,6 +1,6 @@
 @props(['address'])
 
-<div class="relative flex min-h-62.5 overflow-hidden justify-between border border-gray-200 bg-white rounded-lg px-5 py-6">
+<div class="relative flex min-h-62.5 overflow-hidden justify-between border border-zinc-200 bg-white rounded-lg px-5 py-6">
     @if ($address->type === \Shopper\Core\Enum\AddressType::Billing)
         <div class="absolute top-2 right-2">
             <span class="inline-flex items-center px-2 py-1 text-xs font-medium rounded-md gap-x-2 bg-primary-600 text-primary-100">
@@ -12,10 +12,10 @@
 
     <div class="flex flex-col justify-between flex-1">
         <div class="flex flex-col space-y-4">
-            <h4 class="text-base font-medium text-left text-gray-900 font-heading">
+            <h4 class="text-base font-medium text-left text-zinc-900 font-heading">
                 {{ $address->first_name }} {{ $address->last_name }}
             </h4>
-            <p class="flex flex-col text-sm text-left text-gray-500">
+            <p class="flex flex-col text-sm text-left text-zinc-500">
                 <span>
                     {{ $address->street_address }}
                     @if ($address->street_address_plus)
@@ -32,8 +32,8 @@
             <div class="space-y-2">
                 @if ($address->isShippingDefault())
                     <div class="flex items-center gap-2 text-sm">
-                        <x-heroicon-o-check class="text-gray-400 size-5" stroke-width="1.5" aria-hidden="true" />
-                        <span class="text-gray-600">
+                        <x-heroicon-o-check class="text-zinc-400 size-5" stroke-width="1.5" aria-hidden="true" />
+                        <span class="text-zinc-600">
                             {{ __('Default shipping address') }}
                         </span>
                     </div>
@@ -41,8 +41,8 @@
 
                 @if ($address->isBillingDefault())
                     <div class="flex items-center gap-2 text-sm">
-                        <x-heroicon-o-check class="text-gray-400 size-5" stroke-width="1.5" aria-hidden="true" />
-                        <span class="text-gray-600">
+                        <x-heroicon-o-check class="text-zinc-400 size-5" stroke-width="1.5" aria-hidden="true" />
+                        <span class="text-zinc-600">
                             {{ __('Default billing address') }}
                         </span>
                     </div>

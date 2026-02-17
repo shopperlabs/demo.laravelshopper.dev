@@ -28,7 +28,7 @@ new #[Layout('components.layouts.templates.app')] class extends Component
 
 <div class="relative">
     <svg
-        class="absolute inset-0 -z-10 h-full w-full stroke-gray-100 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
+        class="absolute inset-0 -z-10 h-full w-full stroke-zinc-100 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
         aria-hidden="true"
     >
         <defs>
@@ -46,9 +46,9 @@ new #[Layout('components.layouts.templates.app')] class extends Component
         <rect width="100%" height="100%" stroke-width="0" fill="url(#0787a7c5-978c-4f66-83c7-11c213f99cb7)" />
     </svg>
 
-    <div class="relative min-h-full flex flex-col justify-center py-12 divide-y divide-gray-200 lg:max-w-2xl lg:mx-auto">
+    <div class="relative min-h-full flex flex-col justify-center py-12 divide-y divide-zinc-200 lg:max-w-2xl lg:mx-auto">
         <div class="sm:mx-auto sm:w-full sm:max-w-md py-8">
-            <h2 class="text-xl font-semibold text-gray-900 font-heading">
+            <h2 class="text-xl font-semibold text-zinc-900 font-heading">
                 {{ __('I already have an account') }}
             </h2>
             <div class="my-6 space-y-4">
@@ -74,7 +74,7 @@ new #[Layout('components.layouts.templates.app')] class extends Component
                     <flux:checkbox wire:model="form.remember" label="{{ __('Remember me') }}" />
 
                     <div class="space-y-5">
-                        <x-link class="inline-block underline text-sm text-gray-500 hover:text-gray-900" href="{{ route('password.request') }}">
+                        <x-link class="inline-block underline text-sm text-zinc-500 hover:text-zinc-900" href="{{ route('password.request') }}">
                             {{ __('Forgot your password?') }}
                         </x-link>
 
@@ -89,10 +89,10 @@ new #[Layout('components.layouts.templates.app')] class extends Component
         </div>
         <div class="sm:mx-auto sm:w-full sm:max-w-md py-8">
             <div>
-                <h2 class="text-xl font-semibold text-gray-900 font-heading">
+                <h2 class="text-xl font-semibold text-zinc-900 font-heading">
                     {{ __('New customer') }}
                 </h2>
-                <p class="mt-3 text-sm leading-5 text-gray-500">
+                <p class="mt-3 text-sm leading-5 text-zinc-500">
                     {{ __('Create your own space for an enhanced shopping experience.') }}
                 </p>
             </div>

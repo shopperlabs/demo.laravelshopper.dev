@@ -2,7 +2,7 @@
     <div class="relative overflow-hidden isolate">
         <x-container class="py-12 lg:py-20">
             <div class="max-w-3xl lg:max-w-none">
-                <h2 class="text-3xl font-bold tracking-tight text-gray-900 font-heading">
+                <h2 class="text-3xl font-bold tracking-tight text-zinc-900 font-heading">
                     {{ $category->name }}
                 </h2>
 
@@ -11,7 +11,7 @@
                         <x-products.card :product="$product" />
                     @empty
                         <div class="col-span-3 ml-32 space-y-4">
-                            <p class="text-gray-500">{{ __('This is an example of a category product. it does not contain any products.') }}</p>
+                            <p class="text-zinc-500">{{ __('This is an example of a category product. it does not contain any products.') }}</p>
                             @if($category->children->isNotEmpty())
                                 <div class="flex flex-col">
                                     @foreach($category->children->filter(function($child) {

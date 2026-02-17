@@ -27,11 +27,11 @@ new class extends Component
 
 <section class="space-y-6 py-10">
     <header class="max-w-2xl">
-        <h2 class="text-lg font-medium text-gray-900 lg:text-xl">
+        <h2 class="text-lg font-medium text-zinc-900 lg:text-xl">
             {{ __('Delete Account') }}
         </h2>
 
-        <p class="mt-2 text-sm text-gray-500">
+        <p class="mt-2 text-sm text-zinc-500">
             {{ __('Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.') }}
         </p>
     </header>

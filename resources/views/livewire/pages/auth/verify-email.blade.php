@@ -39,7 +39,7 @@ new #[Layout('components.layouts.templates.app')] class extends Component
 
 <div class="relative">
     <svg
-        class="absolute inset-0 -z-10 h-full w-full stroke-gray-100 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
+        class="absolute inset-0 -z-10 h-full w-full stroke-zinc-100 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
         aria-hidden="true"
     >
         <defs>
@@ -57,9 +57,9 @@ new #[Layout('components.layouts.templates.app')] class extends Component
         <rect width="100%" height="100%" stroke-width="0" fill="url(#0787a7c5-978c-4f66-83c7-11c213f99cb7)" />
     </svg>
 
-    <div class="relative min-h-full flex flex-col justify-center py-12 divide-y divide-gray-200 lg:max-w-2xl lg:mx-auto">
+    <div class="relative min-h-full flex flex-col justify-center py-12 divide-y divide-zinc-200 lg:max-w-2xl lg:mx-auto">
         <div class="sm:mx-auto sm:w-full sm:max-w-md py-8">
-            <div class="mb-4 text-sm text-gray-600">
+            <div class="mb-4 text-sm text-zinc-600">
                 {{ __('Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.') }}
             </div>
 

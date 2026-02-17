@@ -15,7 +15,7 @@
                     <div class="{{ $headerClasses }}">
                         @if (isset($title))
                             <h3
-                                class="flex items-center text-lg font-semibold leading-6 text-gray-900 font-heading lg:text-xl"
+                                class="flex items-center text-lg font-semibold leading-6 text-zinc-900 font-heading lg:text-xl"
                             >
                                 {{ $title }}
                             </h3>
@@ -23,7 +23,7 @@
 
                         @if (isset($subtitle))
                             <div class="mt-2">
-                                <p class="text-sm leading-5 text-gray-500">
+                                <p class="text-sm leading-5 text-zinc-500">
                                     {{ $subtitle }}
                                 </p>
                             </div>

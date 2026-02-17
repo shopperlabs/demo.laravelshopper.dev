@@ -28,7 +28,7 @@
                             @class([
                                 'group relative flex items-center justify-between cursor-pointer border p-4 focus:outline-none',
                                 'data-[checked]:z-10 data-[checked]:border-success-200 data-[checked]:bg-success-50 z-10 border-primary-200 bg-primary-50' => $currentSelected === $method->id,
-                                'border-gray-200' => $currentSelected !== $method->id,
+                                'border-zinc-200' => $currentSelected !== $method->id,
                             ])
                         >
                             <span class="flex flex-1">
@@ -37,14 +37,14 @@
                                     wire:model.live.debounce="currentSelected"
                                     name="shipping"
                                     value="{{ $method->id }}"
-                                    class="mt-0.5 h-4 w-4 shrink-0 cursor-pointer border-gray-300 text-brand focus:ring-brand-600 active:ring-2 active:ring-offset-2"
+                                    class="mt-0.5 h-4 w-4 shrink-0 cursor-pointer border-zinc-300 text-brand focus:ring-brand-600 active:ring-2 active:ring-offset-2"
                                 >
                                 <span class="flex flex-col ml-3">
                                     <span
                                         @class([
                                             'block text-sm font-heading',
                                             'text-primary-950 font-medium' => $currentSelected === $method->id,
-                                            'text-gray-600' => $currentSelected !== $method->id,
+                                            'text-zinc-600' => $currentSelected !== $method->id,
                                         ])
                                     >{{ $method->title }}</span>
                                 </span>
@@ -56,12 +56,12 @@
             </fieldset>
 
             <div class="mt-8 space-y-8">
-                <p class="text-sm leading-5 text-gray-500">
+                <p class="text-sm leading-5 text-zinc-500">
                     {{ __(" By clicking on the 'Place my order' button, you confirm that you have read,
                      understood and accepted our terms of use, our terms of sale and our returns policy,
                       and you acknowledge that you have read our privacy policy.") }}
                 </p>
-                <div class="pt-6 border-t border-gray-200 sm:flex sm:items-center sm:justify-end">
+                <div class="pt-6 border-t border-zinc-200 sm:flex sm:items-center sm:justify-end">
                     <flux:button variant="primary" type="submit" class="w-full sm:w-auto">
                         {{ __('Place my order') }}
                     </flux:button>

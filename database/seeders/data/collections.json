@@ -1,0 +1,134 @@
+[
+  {
+    "name": "New Arrivals",
+    "slug": "new-arrivals",
+    "description": "<p>Products created in the last 30 days</p>",
+    "type": "auto",
+    "match_conditions": "any",
+    "image": "new-arrivals.jpg",
+    "rules": [
+      {
+        "rule": "product_created_at",
+        "operator": "less_than",
+        "value": "2026-02-28"
+      }
+    ]
+  },
+  {
+    "name": "Sales & Promotions",
+    "slug": "sales-promotions",
+    "description": "<p>Products with a compare price (old price > current price)</p>",
+    "type": "auto",
+    "match_conditions": null,
+    "image": "sales-promotions.jpg",
+    "rules": []
+  },
+  {
+    "name": "Best Sellers",
+    "slug": "best-sellers",
+    "description": "<p>Products with more than X orders</p>",
+    "type": "auto",
+    "match_conditions": "any",
+    "image": "best-sellers.jpg",
+    "rules": [
+      {
+        "rule": "product_sales_count",
+        "operator": "greater_than",
+        "value": "10"
+      }
+    ]
+  },
+  {
+    "name": "In Stock",
+    "slug": "in-stock",
+    "description": "<p>Products with stock greater than 0</p>",
+    "type": "auto",
+    "match_conditions": "any",
+    "image": null,
+    "rules": [
+      {
+        "rule": "inventory_stock",
+        "operator": "greater_than",
+        "value": "5"
+      }
+    ]
+  },
+  {
+    "name": "Featured Products",
+    "slug": "featured-products",
+    "description": "<p>Featured products</p>",
+    "type": "auto",
+    "match_conditions": "any",
+    "image": null,
+    "rules": [
+      {
+        "rule": "product_featured",
+        "operator": "equals_to",
+        "value": "0"
+      }
+    ]
+  },
+  {
+    "name": "Summer & Winter Collection",
+    "slug": "summer-winter-collection",
+    "description": null,
+    "type": "auto",
+    "match_conditions": null,
+    "image": "summer-winter-collection.jpg",
+    "rules": []
+  },
+  {
+    "name": "Gift Ideas",
+    "slug": "gift-ideas",
+    "description": null,
+    "type": "auto",
+    "match_conditions": null,
+    "image": "gift-ideas.jpg",
+    "rules": []
+  },
+  {
+    "name": "Budget Friendly",
+    "slug": "budget-friendly",
+    "description": "<p>Products priced under 20€</p>",
+    "type": "auto",
+    "match_conditions": "any",
+    "image": null,
+    "rules": [
+      {
+        "rule": "product_price",
+        "operator": "less_than",
+        "value": "2000000"
+      }
+    ]
+  },
+  {
+    "name": "Premium",
+    "slug": "premium",
+    "description": null,
+    "type": "auto",
+    "match_conditions": "any",
+    "image": null,
+    "rules": [
+      {
+        "rule": "product_price",
+        "operator": "greater_than",
+        "value": "2000000"
+      }
+    ]
+  },
+  {
+    "name": "Top Rated",
+    "slug": "top-rated",
+    "description": "<p>Products rated 4 stars or above</p>",
+    "type": "auto",
+    "match_conditions": "any",
+    "image": null,
+    "rules": [
+      {
+        "rule": "product_rating",
+        "operator": "greater_than",
+        "value": "3"
+      }
+    ]
+  }
+]

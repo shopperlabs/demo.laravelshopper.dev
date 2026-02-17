@@ -12,7 +12,7 @@
 @endphp
 
 <li class="flex py-6">
-    <x-products.thumbnail :product="$item->associatedModel" class="size-32 border border-gray-200 rounded-lg aspect-none" />
+    <x-products.thumbnail :product="$item->associatedModel" class="size-32 border border-zinc-200 rounded-lg aspect-none" />
     <div class="flex flex-col flex-1 ml-4">
         <div class="flex justify-between text-base">
             <div>
@@ -26,20 +26,20 @@
                     <ul>
                         @foreach($item->attributes as $name => $value)
                             <li class="text-sm">
-                                <span class="text-gray-700 font-medium">{{ $name }}</span>:
-                                <span class="text-gray-500">{{ $value }}</span>
+                                <span class="text-zinc-700 font-medium">{{ $name }}</span>:
+                                <span class="text-zinc-500">{{ $value }}</span>
                             </li>
                         @endforeach
                     </ul>
                 @endif
             </div>
 
-            <p class="ml-4 text-gray-700">
+            <p class="ml-4 text-zinc-700">
                 {{ $price }}
             </p>
         </div>
         <div class="flex items-end justify-between flex-1 text-sm">
-            <p class="text-gray-500">
+            <p class="text-zinc-500">
                 {{ __('Quantity: :qty', ['qty' => $item->quantity]) }}
             </p>
 

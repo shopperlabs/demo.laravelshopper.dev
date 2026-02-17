@@ -2,7 +2,7 @@
     <div class="relative overflow-hidden isolate">
         <x-container class="py-12 lg:py-20">
             <div class="max-w-3xl lg:max-w-none">
-                <h2 class="text-3xl font-bold tracking-tight text-gray-900 font-heading">
+                <h2 class="text-3xl font-bold tracking-tight text-zinc-900 font-heading">
                     {{ $collection->name }}
                 </h2>
 
@@ -10,7 +10,7 @@
                     @forelse($products as $product)
                         <x-products.card :product="$product" />
                     @empty
-                        <p class="col-span-3 text-center text-gray-500">
+                        <p class="col-span-3 text-center text-zinc-500">
                             {{ __('No products found in this collection.') }}
                         </p>
                     @endforelse

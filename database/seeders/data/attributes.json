@@ -1,0 +1,173 @@
+[
+  {
+    "name": "Shoe Size",
+    "slug": "shoe-size",
+    "description": null,
+    "type": "checkbox",
+    "icon": "phosphor-sneaker-duotone",
+    "is_enabled": true,
+    "is_searchable": false,
+    "is_filterable": true,
+    "values": [
+      { "key": "36", "value": "36", "position": 1 },
+      { "key": "37", "value": "37", "position": 2 },
+      { "key": "38", "value": "38", "position": 3 },
+      { "key": "39", "value": "39", "position": 4 },
+      { "key": "40", "value": "40", "position": 5 },
+      { "key": "41", "value": "41", "position": 6 },
+      { "key": "42", "value": "42", "position": 7 },
+      { "key": "43", "value": "43", "position": 8 },
+      { "key": "44", "value": "44", "position": 9 },
+      { "key": "45", "value": "45", "position": 10 }
+    ]
+  },
+  {
+    "name": "Color",
+    "slug": "color",
+    "description": null,
+    "type": "colorpicker",
+    "icon": "phosphor-palette-duotone",
+    "is_enabled": true,
+    "is_searchable": false,
+    "is_filterable": true,
+    "values": [
+      { "key": "#1e3a8a", "value": "Blue", "position": 1 },
+      { "key": "#faa21e", "value": "Orange", "position": 2 },
+      { "key": "#b0b0b0", "value": "Silver", "position": 3 },
+      { "key": "#1c1c1c", "value": "Black", "position": 4 },
+      { "key": "#1b910c", "value": "Green", "position": 5 }
+    ]
+  },
+  {
+    "name": "Material",
+    "slug": "material",
+    "description": null,
+    "type": "select",
+    "icon": "phosphor-factory-duotone",
+    "is_enabled": true,
+    "is_searchable": false,
+    "is_filterable": true,
+    "values": [
+      { "key": "cotton", "value": "Cotton", "position": 1 },
+      { "key": "polyester", "value": "Polyester", "position": 2 },
+      { "key": "silk", "value": "Silk", "position": 3 },
+      { "key": "satin", "value": "Satin", "position": 4 }
+    ]
+  },
+  {
+    "name": "Additional Infos",
+    "slug": "additional-infos",
+    "description": null,
+    "type": "richtext",
+    "icon": "phosphor-pencil-line-duotone",
+    "is_enabled": true,
+    "is_searchable": false,
+    "is_filterable": false,
+    "values": []
+  },
+  {
+    "name": "Weight",
+    "slug": "weight",
+    "description": null,
+    "type": "select",
+    "icon": "phosphor-barbell-duotone",
+    "is_enabled": true,
+    "is_searchable": false,
+    "is_filterable": true,
+    "values": [
+      { "key": "50g", "value": "50 g", "position": 1 },
+      { "key": "100g", "value": "100 g", "position": 2 },
+      { "key": "150g", "value": "150 g", "position": 3 },
+      { "key": "250g", "value": "250 g", "position": 4 },
+      { "key": "500g", "value": "500 g", "position": 5 },
+      { "key": "750g", "value": "750 g", "position": 6 },
+      { "key": "1kg", "value": "1 kg", "position": 7 },
+      { "key": "1-5kg", "value": "1.5 kg", "position": 8 },
+      { "key": "2kg", "value": "2 kg", "position": 9 },
+      { "key": "2-5kg", "value": "2.5 kg", "position": 10 },
+      { "key": "3kg", "value": "3 kg", "position": 11 },
+      { "key": "5kg", "value": "5 kg", "position": 12 },
+      { "key": "8kg", "value": "8 kg", "position": 13 },
+      { "key": "10kg", "value": "10 kg", "position": 14 },
+      { "key": "15kg", "value": "15 kg", "position": 15 },
+      { "key": "20kg", "value": "20 kg", "position": 16 },
+      { "key": "25kg", "value": "25 kg", "position": 17 },
+      { "key": "30kg", "value": "30 kg", "position": 18 }
+    ]
+  },
+  {
+    "name": "Memory",
+    "slug": "memory",
+    "description": null,
+    "type": "checkbox",
+    "icon": "phosphor-memory-duotone",
+    "is_enabled": true,
+    "is_searchable": false,
+    "is_filterable": true,
+    "values": [
+      { "key": "4_gb", "value": "4 GB", "position": 1 },
+      { "key": "8_gb", "value": "8 GB", "position": 2 },
+      { "key": "16_gb", "value": "16 GB", "position": 3 },
+      { "key": "64_gb", "value": "64 GB", "position": 4 }
+    ]
+  },
+  {
+    "name": "Storage",
+    "slug": "storage",
+    "description": null,
+    "type": "checkbox",
+    "icon": "phosphor-database-duotone",
+    "is_enabled": true,
+    "is_searchable": false,
+    "is_filterable": true,
+    "values": [
+      { "key": "64_gb", "value": "64 GB", "position": 1 },
+      { "key": "128_gb", "value": "128 GB", "position": 2 },
+      { "key": "256_gb", "value": "256 GB", "position": 3 },
+      { "key": "512_gb", "value": "512 GB", "position": 4 },
+      { "key": "1_tb", "value": "1 TB", "position": 5 }
+    ]
+  },
+  {
+    "name": "Screen Size",
+    "slug": "screen-size",
+    "description": null,
+    "type": "checkbox",
+    "icon": "phosphor-monitor-duotone",
+    "is_enabled": true,
+    "is_searchable": false,
+    "is_filterable": true,
+    "values": [
+      { "key": "5-4-inch", "value": "5.4\"", "position": 1 },
+      { "key": "6-1-inch", "value": "6.1\"", "position": 2 },
+      { "key": "6-7-inch", "value": "6.7\"", "position": 3 },
+      { "key": "13-inch", "value": "13\"", "position": 4 },
+      { "key": "14-inch", "value": "14\"", "position": 5 },
+      { "key": "15-6-inch", "value": "15.6\"", "position": 6 },
+      { "key": "16-inch", "value": "16\"", "position": 7 },
+      { "key": "24-inch", "value": "24\"", "position": 8 },
+      { "key": "27-inch", "value": "27\"", "position": 9 },
+      { "key": "32-inch", "value": "32\"", "position": 10 },
+      { "key": "55-inch", "value": "55\"", "position": 11 },
+      { "key": "65-inch", "value": "65\"", "position": 12 }
+    ]
+  },
+  {
+    "name": "Clothing Size",
+    "slug": "clothing-size",
+    "description": null,
+    "type": "checkbox",
+    "icon": "phosphor-shirt-folded-duotone",
+    "is_enabled": true,
+    "is_searchable": false,
+    "is_filterable": true,
+    "values": [
+      { "key": "xs", "value": "XS", "position": 1 },
+      { "key": "s", "value": "S", "position": 2 },
+      { "key": "m", "value": "M", "position": 3 },
+      { "key": "l", "value": "L", "position": 4 },
+      { "key": "xl", "value": "XL", "position": 5 },
+      { "key": "xxl", "value": "XXL", "position": 6 }
+    ]
+  }
+]

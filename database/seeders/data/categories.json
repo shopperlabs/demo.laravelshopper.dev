@@ -1,0 +1,315 @@
+[
+  {
+    "name": "Electronics",
+    "slug": "electronics",
+    "description": "Computers, phones, TVs and other electronic devices.",
+    "is_enabled": true,
+    "position": 1,
+    "image": "electronics.jpg",
+    "children": [
+      {
+        "name": "Smartphones",
+        "slug": "electronics-smartphones",
+        "description": "Mobile phones and accessories from top brands.",
+        "is_enabled": true,
+        "position": 1,
+        "image": "smartphones.avif"
+      },
+      {
+        "name": "Laptops & Computers",
+        "slug": "electronics-laptops-computers",
+        "description": "Notebooks, desktops and computing accessories.",
+        "is_enabled": true,
+        "position": 2,
+        "image": "laptops-computers.jpg"
+      },
+      {
+        "name": "Audio",
+        "slug": "electronics-audio",
+        "description": null,
+        "is_enabled": true,
+        "position": 3,
+        "image": "audio.jpg"
+      }
+    ]
+  },
+  {
+    "name": "Clothing",
+    "slug": "clothing",
+    "description": "Apparel and fashion for all styles and occasions.",
+    "is_enabled": true,
+    "position": 2,
+    "image": "clothing.jpg",
+    "children": [
+      {
+        "name": "Men's Wear",
+        "slug": "clothing-mens-wear",
+        "description": "Shirts, pants, jackets and casual wear for men.",
+        "is_enabled": true,
+        "position": 1,
+        "image": "mens-wear.jpeg"
+      },
+      {
+        "name": "Women's Wear",
+        "slug": "clothing-womens-wear",
+        "description": "Dresses, tops, skirts and fashion for women.",
+        "is_enabled": true,
+        "position": 2,
+        "image": "womens-wear.jpeg"
+      }
+    ]
+  },
+  {
+    "name": "Sports & Outdoors",
+    "slug": "sports-outdoors",
+    "description": "Equipment and gear for sports and outdoor activities.",
+    "is_enabled": true,
+    "position": 3,
+    "image": "sports-outdoors.jpg",
+    "children": [
+      {
+        "name": "Fitness Equipment",
+        "slug": "sports-outdoors-fitness-equipment",
+        "description": "Weights, machines and accessories for training.",
+        "is_enabled": true,
+        "position": 1,
+        "image": "fitness-equipment.jpg"
+      },
+      {
+        "name": "Outdoor Gear",
+        "slug": "outdoor-gear",
+        "description": "Camping, hiking and adventure equipment.",
+        "is_enabled": true,
+        "position": 2,
+        "image": "outdoor-gear.jpg"
+      }
+    ]
+  },
+  {
+    "name": "Home & Kitchen",
+    "slug": "home-kitchen",
+    "description": "Furniture, decor and kitchen essentials for your home.",
+    "is_enabled": true,
+    "position": 4,
+    "image": "home-kitchen.jpg",
+    "children": [
+      {
+        "name": "Furniture",
+        "slug": "furniture",
+        "description": "Sofas, tables, chairs and bedroom essentials.",
+        "is_enabled": true,
+        "position": 1,
+        "image": "furniture.jpg"
+      },
+      {
+        "name": "Kitchen Appliances",
+        "slug": "kitchen-appliances",
+        "description": "Blenders, coffee makers and cooking tools.",
+        "is_enabled": true,
+        "position": 2,
+        "image": "kitchen-appliances.jpg"
+      }
+    ]
+  },
+  {
+    "name": "Beauty & Personal Care",
+    "slug": "beauty-personal-care",
+    "description": "Skincare, makeup and personal care products.",
+    "is_enabled": true,
+    "position": 5,
+    "image": "beauty-personal-care.jpg",
+    "children": [
+      {
+        "name": "Skincare",
+        "slug": "beauty-personal-care-skincare",
+        "description": "Cleansers, moisturizers and treatments for healthy skin.",
+        "is_enabled": true,
+        "position": 1,
+        "image": "skincare.jpg"
+      },
+      {
+        "name": "Haircare",
+        "slug": "haircare",
+        "description": "Shampoos, conditioners and styling products.",
+        "is_enabled": true,
+        "position": 2,
+        "image": "haircare.jpg"
+      }
+    ]
+  },
+  {
+    "name": "Books & Media",
+    "slug": "books-media",
+    "description": "Books, music, movies and digital media.",
+    "is_enabled": true,
+    "position": 6,
+    "image": "books-media.jpg",
+    "children": [
+      {
+        "name": "Fiction",
+        "slug": "fiction",
+        "description": "Novels, short stories and literary fiction.",
+        "is_enabled": true,
+        "position": 1,
+        "image": "fiction.jpg"
+      },
+      {
+        "name": "Non-Fiction",
+        "slug": "non-fiction",
+        "description": "Biographies, self-help and educational books.",
+        "is_enabled": true,
+        "position": 2,
+        "image": null
+      }
+    ]
+  },
+  {
+    "name": "Toys & Games",
+    "slug": "toys-games",
+    "description": "Toys, board games and entertainment for all ages.",
+    "is_enabled": true,
+    "position": 7,
+    "image": "toys-games.jpg",
+    "children": [
+      {
+        "name": "Board Games",
+        "slug": "board-games",
+        "description": "Strategy, family and party board games.",
+        "is_enabled": true,
+        "position": 1,
+        "image": "board-games.jpg"
+      },
+      {
+        "name": "Action Figures",
+        "slug": "action-figures",
+        "description": "Collectible figures and playsets for all ages.",
+        "is_enabled": true,
+        "position": 2,
+        "image": null
+      }
+    ]
+  },
+  {
+    "name": "Footwear",
+    "slug": "footwear",
+    "description": "Shoes, sneakers and boots for every occasion.",
+    "is_enabled": true,
+    "position": 8,
+    "image": "footwear.jpg",
+    "children": [
+      {
+        "name": "Sneakers",
+        "slug": "sneakers",
+        "description": "Athletic and casual sneakers from top brands.",
+        "is_enabled": true,
+        "position": 1,
+        "image": "sneakers.jpg"
+      },
+      {
+        "name": "Boots",
+        "slug": "boots",
+        "description": "Ankle boots, hiking boots and winter footwear.",
+        "is_enabled": true,
+        "position": 2,
+        "image": null
+      }
+    ]
+  },
+  {
+    "name": "Accessories",
+    "slug": "accessories",
+    "description": "Watches, bags, jewelry and fashion accessories.",
+    "is_enabled": true,
+    "position": 9,
+    "image": "accessories.jpg",
+    "children": [
+      {
+        "name": "Watches",
+        "slug": "watches",
+        "description": "Analog, digital and smartwatches for every style.",
+        "is_enabled": true,
+        "position": 1,
+        "image": null
+      },
+      {
+        "name": "Bags & Luggage",
+        "slug": "bags-luggage",
+        "description": "Backpacks, handbags, suitcases and travel bags.",
+        "is_enabled": true,
+        "position": 2,
+        "image": null
+      }
+    ]
+  },
+  {
+    "name": "Food & Beverages",
+    "slug": "food-beverages",
+    "description": "Snacks, drinks and gourmet food products.",
+    "is_enabled": true,
+    "position": 10,
+    "image": "food-beverages.jpg",
+    "children": [
+      {
+        "name": "Snacks",
+        "slug": "snacks",
+        "description": "Chips, nuts, dried fruits and healthy snacks.",
+        "is_enabled": true,
+        "position": 1,
+        "image": null
+      },
+      {
+        "name": "Beverages",
+        "slug": "beverages",
+        "description": "Coffee, tea, juices and soft drinks.",
+        "is_enabled": true,
+        "position": 2,
+        "image": null
+      }
+    ]
+  },
+  {
+    "name": "Office & Stationery",
+    "slug": "office-stationery",
+    "description": null,
+    "is_enabled": true,
+    "position": 11,
+    "image": "office-stationery.jpg",
+    "children": []
+  },
+  {
+    "name": "Online Courses",
+    "slug": "online-courses",
+    "description": null,
+    "is_enabled": true,
+    "position": 13,
+    "image": "online-courses.jpg",
+    "children": []
+  },
+  {
+    "name": "Shoes",
+    "slug": "shoes",
+    "description": null,
+    "is_enabled": true,
+    "position": 15,
+    "image": "shoes.jpg",
+    "children": []
+  },
+  {
+    "name": "Software & Licenses",
+    "slug": "software-licenses",
+    "description": null,
+    "is_enabled": true,
+    "position": 0,
+    "image": "software-licenses.jpg",
+    "children": []
+  },
+  {
+    "name": "Mobility",
+    "slug": "mobility",
+    "description": "Electric scooters, e-bikes and personal transportation devices.",
+    "is_enabled": true,
+    "position": 16,
+    "image": "mobility.jpg",
+    "children": []
+  }
+]

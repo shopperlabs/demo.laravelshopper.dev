@@ -38,7 +38,7 @@ new class extends Component
             @foreach ($this->reviewsStats as $rating => $stat)
                 <div class="flex items-center text-sm">
                     <dt class="flex flex-1 items-center">
-                        <p class="w-3 font-medium text-gray-900">{{ $rating }}<span class="sr-only"> star reviews</span>
+                        <p class="w-3 font-medium text-zinc-900">{{ $rating }}<span class="sr-only"> star reviews</span>
                         </p>
                         <div aria-hidden="true" class="ml-1 flex flex-1 items-center">
                             <svg class="size-5 shrink-0 text-yellow-400" viewBox="0 0 20 20" fill="currentColor"
@@ -49,13 +49,13 @@ new class extends Component
                             </svg>
 
                             <div class="relative ml-3 flex-1">
-                                <div class="h-3 rounded-full border border-gray-200 bg-gray-100"></div>
+                                <div class="h-3 rounded-full border border-zinc-200 bg-zinc-100"></div>
                                 <div style="width: {{ $stat['percentage'] }}%"
                                      class="absolute inset-y-0 rounded-full border border-yellow-400 bg-yellow-400"></div>
                             </div>
                         </div>
                     </dt>
-                    <dd class="ml-3 w-10 text-right text-sm tabular-nums text-gray-900">{{ $stat['percentage'] }}%</dd>
+                    <dd class="ml-3 w-10 text-right text-sm tabular-nums text-zinc-900">{{ $stat['percentage'] }}%</dd>
                 </div>
             @endforeach
         </dl>

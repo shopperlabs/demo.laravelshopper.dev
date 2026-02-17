@@ -13,7 +13,7 @@
                 @class([
                     "relative flex h-6 w-6 items-center justify-center rounded-full text-xs leading-5",
                     "bg-primary-600" => $step->complete,
-                    "border border-gray-300 bg-white text-gray-500" => ! $step->complete,
+                    "border border-zinc-300 bg-white text-zinc-500" => ! $step->complete,
                 ])
             >
                 @if ($step->complete)
@@ -25,9 +25,9 @@
             <span
                 @class([
                     "ml-2 text-sm leading-6",
-                    "text-gray-900" => $step->complete,
-                    "font-medium text-gray-900" => $step->isCurrent(),
-                    "text-gray-500" => ! (
+                    "text-zinc-900" => $step->complete,
+                    "font-medium text-zinc-900" => $step->isCurrent(),
+                    "text-zinc-500" => ! (
                         $step->isCurrent() || $step->complete
                     ),
                 ])
@@ -37,7 +37,7 @@
             @if (! $loop->last)
                 <div class="ml-5">
                     <x-untitledui-chevron-right
-                        class="size-5 text-gray-400 dark:text-gray-300"
+                        class="size-5 text-zinc-400 dark:text-zinc-300"
                         stroke-width="1.5"
                         aria-hidden="true"
                     />

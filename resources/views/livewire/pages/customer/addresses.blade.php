@@ -14,7 +14,7 @@
                 @endforeach
             </div>
         @else
-            <p class="text-sm text-gray-500">
+            <p class="text-sm text-zinc-500">
                 {{ __('You have not yet added any addresses to your space.') }}
             </p>
         @endif

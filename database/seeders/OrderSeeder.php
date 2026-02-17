@@ -8,18 +8,18 @@ use App\Models\Channel;
 use App\Models\Product;
 use App\Models\ProductVariant;
 use App\Models\User;
-use Closure;
-use Illuminate\Database\Eloquent\Collection;
+use Database\Seeders\Concerns\WithProgressBar;
 use Illuminate\Database\Seeder;
 use Shopper\Core\Enum\OrderStatus;
 use Shopper\Core\Models\Order;
 use Shopper\Core\Models\OrderAddress;
 use Shopper\Core\Models\OrderItem;
 use Shopper\Core\Models\PaymentMethod;
-use Symfony\Component\Console\Helper\ProgressBar;
 
 class OrderSeeder extends Seeder
 {
+    use WithProgressBar;
+
     public function run(): void
     {
         $customers = User::query()
@@ -32,7 +32,7 @@ class OrderSeeder extends Seeder
             return;
         }
 
-        $products = Product::query()->whereNotNull('sku')->get();
+        $products = Product::query()->whereHas('prices')->with('prices')->get();
         $variants = ProductVariant::query()
             ->withWhereHas('prices')
             ->get();
@@ -178,27 +178,5 @@ class OrderSeeder extends Seeder
         $nextNumber = $lastOrder ? $lastOrder->id + 1 : config('shopper.orders.generator.start_sequence_from', 1);
 
         return '#' . $prefix . str_pad((string) $nextNumber, $padLength, $padString, STR_PAD_LEFT);
-    }
-
-    protected function withProgressBar(int $total, Closure $createCollectionOfOne): Collection
-    {
-        $progressBar = new ProgressBar($this->command->getOutput(), $total);
-
-        $progressBar->start();
-
-        $items = new Collection;
-
-        foreach (range(1, $total) as $i) {
-            $items = $items->merge(
-                $createCollectionOfOne()
-            );
-            $progressBar->advance();
-        }
-
-        $progressBar->finish();
-
-        $this->command->getOutput()->writeln('');
-
-        return $items;
     }
 }

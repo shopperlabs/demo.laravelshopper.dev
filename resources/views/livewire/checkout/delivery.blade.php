@@ -2,9 +2,9 @@
     @include('components.checkout-steps')
 
     @if(count($options) === 0)
-        <div class="flex items-center p-4 space-x-4 border border-gray-200">
+        <div class="flex items-center p-4 space-x-4 border border-zinc-200">
             <x-untitledui-shopping-bag class="size-5 text-primary-800" stroke-width="1.5" aria-hidden="true" />
-            <p class="text-sm text-gray-500">
+            <p class="text-sm text-zinc-500">
                 {{ __('No delivery option available for your address.') }}
             </p>
         </div>
@@ -37,7 +37,7 @@
                                 @class([
                                     'group relative flex items-start justify-between cursor-pointer border p-4 focus:outline-none',
                                     'data-[checked]:z-10 data-[checked]:border-success-200 data-[checked]:bg-success-50 z-10 border-primary-200 bg-primary-50' => $currentSelected === $option->id,
-                                    'border-gray-200' => $currentSelected !== $option->id,
+                                    'border-zinc-200' => $currentSelected !== $option->id,
                                 ])
                             >
                                 <span class="flex flex-1">
@@ -46,21 +46,21 @@
                                         wire:model.live.debounce="currentSelected"
                                         name="shipping"
                                         value="{{ $option->id }}"
-                                        class="mt-0.5 h-4 w-4 shrink-0 cursor-pointer border-gray-300 text-primary focus:ring-primary-600 active:ring-2 active:ring-offset-2"
+                                        class="mt-0.5 h-4 w-4 shrink-0 cursor-pointer border-zinc-300 text-primary focus:ring-primary-600 active:ring-2 active:ring-offset-2"
                                     >
                                     <span class="flex flex-col ml-3">
                                         <span
                                             @class([
                                                 'block text-sm font-heading',
                                                 'text-primary-950 font-medium' => $currentSelected === $option->id,
-                                                'text-gray-600' => $currentSelected !== $option->id,
+                                                'text-zinc-600' => $currentSelected !== $option->id,
                                             ])
                                         >{{ $option->name }}</span>
                                         <span
                                             @class([
                                                 'block text-sm',
                                                 'text-primary-700' => $currentSelected === $option->id,
-                                                'text-gray-500' => $currentSelected !== $option->id,
+                                                'text-zinc-500' => $currentSelected !== $option->id,
                                             ])
                                         >{{ $option->description }}</span>
                                     </span>
@@ -73,7 +73,7 @@
                     </div>
                 </fieldset>
 
-                <div class="pt-6 mt-10 border-t border-gray-200 sm:flex sm:items-center sm:justify-end">
+                <div class="pt-6 mt-10 border-t border-zinc-200 sm:flex sm:items-center sm:justify-end">
                     <flux:button variant="primary" type="submit" class="w-full sm:w-auto">
                         {{ __('Go to checkout') }}
                     </flux:button>

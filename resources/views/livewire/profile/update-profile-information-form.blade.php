@@ -69,11 +69,11 @@ new class extends Component
 
 <section class="pb-10">
     <header>
-        <h2 class="text-lg font-medium text-gray-900 lg:text-xl">
+        <h2 class="text-lg font-medium text-zinc-900 lg:text-xl">
             {{ __('Profile Information') }}
         </h2>
 
-        <p class="mt-2 text-sm text-gray-500">
+        <p class="mt-2 text-sm text-zinc-500">
             {{ __("Update your account's profile information and email address.") }}
         </p>
     </header>
@@ -100,10 +100,10 @@ new class extends Component
 
             @if (auth()->user() instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! auth()->user()->hasVerifiedEmail())
                 <div>
-                    <p class="mt-2 text-sm text-gray-800">
+                    <p class="mt-2 text-sm text-zinc-800">
                         {{ __('Your email address is unverified.') }}
 
-                        <button wire:click.prevent="sendVerification" class="text-sm text-gray-600 underline rounded-md hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        <button wire:click.prevent="sendVerification" class="text-sm text-zinc-600 underline rounded-md hover:text-zinc-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                             {{ __('Click here to re-send the verification email.') }}
                         </button>
                     </p>

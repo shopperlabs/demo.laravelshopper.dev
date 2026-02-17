@@ -16,16 +16,29 @@ class ReviewSeeder extends Seeder
      */
     public function run(): void
     {
+        $products = Product::query()->pluck('id');
+        $customers = User::query()->scopes('customers')->pluck('id');
+
+        if ($products->isEmpty() || $customers->isEmpty()) {
+            $this->command->warn('No products or customers found. Skipping reviews.');
+
+            return;
+        }
+
+        $this->command->warn(PHP_EOL . 'Creating reviews...');
+
         for ($i = 1; $i <= 100; $i++) {
             Review::query()->create([
                 'rating' => fake()->numberBetween(1, 5),
                 'content' => fake()->realText(),
-                'reviewrateable_id' => Product::all()->random()->id,
+                'reviewrateable_id' => $products->random(),
                 'reviewrateable_type' => 'product',
-                'approved' => true,
-                'author_id' => User::all()->random()->id,
+                'approved' => fake()->boolean(80),
+                'author_id' => $customers->random(),
                 'author_type' => User::class,
             ]);
         }
+
+        $this->command->info('Reviews created successfully.');
     }
 }

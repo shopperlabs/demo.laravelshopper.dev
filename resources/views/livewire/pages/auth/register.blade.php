@@ -42,7 +42,7 @@ new #[Layout('components.layouts.templates.app')] class extends Component
 
 <div class="relative">
     <svg
-        class="absolute inset-0 -z-10 h-full w-full stroke-gray-100 mask-[radial-gradient(100%_100%_at_top_right,white,transparent)]"
+        class="absolute inset-0 -z-10 h-full w-full stroke-zinc-100 mask-[radial-gradient(100%_100%_at_top_right,white,transparent)]"
         aria-hidden="true"
     >
         <defs>
@@ -60,9 +60,9 @@ new #[Layout('components.layouts.templates.app')] class extends Component
         <rect width="100%" height="100%" stroke-width="0" fill="url(#0787a7c5-978c-4f66-83c7-11c213f99cb7)" />
     </svg>
 
-    <div class="relative min-h-full flex flex-col justify-center py-12 divide-y divide-gray-200 lg:max-w-2xl lg:mx-auto">
+    <div class="relative min-h-full flex flex-col justify-center py-12 divide-y divide-zinc-200 lg:max-w-2xl lg:mx-auto">
         <div class="sm:mx-auto sm:w-full sm:max-w-md py-8">
-            <h2 class="text-xl font-semibold text-gray-900 font-heading">
+            <h2 class="text-xl font-semibold text-zinc-900 font-heading">
                 {{ __('Create account') }}
             </h2>
             <div class="mt-6 space-y-6">
@@ -103,7 +103,7 @@ new #[Layout('components.layouts.templates.app')] class extends Component
                     </flux:field>
 
                     <div class="space-y-3">
-                        <x-link class="inline-block underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
+                        <x-link class="inline-block underline text-sm text-zinc-600 hover:text-zinc-900" href="{{ route('login') }}">
                             {{ __('Already registered?') }}
                         </x-link>
 
@@ -115,7 +115,7 @@ new #[Layout('components.layouts.templates.app')] class extends Component
 
                 <x-auth-oauth />
 
-                <p class="text-sm text-center leading-6 text-gray-500">
+                <p class="text-sm text-center leading-6 text-zinc-500">
                     {{ __('By registering to create an account, you agree to our') }}
                     <x-link href="#" class="font-medium text-black group group-link-underline">
                         <span class="link link-underline link-underline-black">{{ __('terms & conditions') }}</span>

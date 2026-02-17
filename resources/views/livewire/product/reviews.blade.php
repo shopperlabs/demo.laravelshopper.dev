@@ -28,11 +28,11 @@ new class extends Component {
         <div
             class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:grid lg:max-w-7xl lg:grid-cols-12 lg:gap-x-8 lg:px-8 lg:py-32">
             <div class="lg:col-span-4">
-                <h2 class="text-2xl font-bold tracking-tight text-gray-900"> {{ __('Customer Reviews') }} </h2>
+                <h2 class="text-2xl font-bold tracking-tight text-zinc-900"> {{ __('Customer Reviews') }} </h2>
 
                 <div class="mt-3 flex items-center">
                     <x-products.reviews :rating="$this->productReviews->averageRating" />
-                    <p class="ml-2 text-sm text-gray-900">Based on {{ $this->productReviews->reviews->count() }}
+                    <p class="ml-2 text-sm text-zinc-900">Based on {{ $this->productReviews->reviews->count() }}
                         reviews</p>
                 </div>
 
@@ -40,8 +40,8 @@ new class extends Component {
 
                 @auth
                     <div class="mt-10">
-                        <h3 class="text-lg font-medium text-gray-900"> {{ __('Share your thoughts')  }} </h3>
-                        <p class="mt-1 text-sm text-gray-600">
+                        <h3 class="text-lg font-medium text-zinc-900"> {{ __('Share your thoughts')  }} </h3>
+                        <p class="mt-1 text-sm text-zinc-600">
                             {{ __('If you’ve used this product, share your thoughts with other customers') }}
                         </p>
 
@@ -63,7 +63,7 @@ new class extends Component {
                     <h3 class="sr-only"> {{ __('Recent reviews')  }} </h3>
 
                     <div class="flow-root">
-                        <div class="-my-12 divide-y divide-gray-200">
+                        <div class="-my-12 divide-y divide-zinc-200">
                             @foreach ($reviews->take(3) as $review)
                                 <div class="py-12">
                                     <div class="flex items-center">
@@ -71,7 +71,7 @@ new class extends Component {
                                              alt="{{ $review->author->fullName }}"
                                              class="size-12 rounded-full">
                                         <div class="ml-4">
-                                            <h4 class="text-sm font-bold text-gray-900">{{ $review->author->fullName }}</h4>
+                                            <h4 class="text-sm font-bold text-zinc-900">{{ $review->author->fullName }}</h4>
                                             <div class="mt-1 flex items-center">
                                                 <x-rate-stars :rating="$review->rating" />
                                             </div>
@@ -79,7 +79,7 @@ new class extends Component {
                                         </div>
                                     </div>
 
-                                    <div class="mt-2 space-y-6 text-base italic text-gray-600">
+                                    <div class="mt-2 space-y-6 text-base italic text-zinc-600">
                                         <p>{{ $review->content }}</p>
                                     </div>
                                 </div>

@@ -7,7 +7,6 @@ namespace App\Livewire\Pages;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Contracts\View\View;
-use Illuminate\Database\Eloquent\Builder;
 use Livewire\Component;
 use Shopper\Core\Models\Collection;
 
@@ -21,11 +20,12 @@ final class Home extends Component
                 ->with([
                     'brand',
                     'media',
-                    'prices' => function ($query) {
+                    'prices' => function ($query): void {
                         $query->whereRelation('currency', 'code', current_currency());
                     },
                     'prices.currency',
                 ])
+                ->where('featured', true)
                 ->scopes('publish')
                 ->limit(8)
                 ->get(),
@@ -35,12 +35,15 @@ final class Home extends Component
                 ->limit(3)
                 ->get()
                 ->sortBy(['products_count', 'desc']),
-            'categories' => Category::withRecursiveQueryConstraint(
-                constraint: function (Builder $query): void {
-                    $query->where(shopper_table('categories') . '.is_enabled', true);
-                },
-                query: fn () => Category::with('media')->tree()->get()
-            ),
+            'categories' => Category::query()
+                ->whereNull('parent_id')
+                ->where('is_enabled', true)
+                ->has('products')
+                ->withCount(['products' => fn ($query) => $query->whereNull('sh_products.deleted_at')])
+                ->orderByDesc('products_count')
+                ->with(['media', 'children'])
+                ->limit(4)
+                ->get(),
         ]);
     }
 }

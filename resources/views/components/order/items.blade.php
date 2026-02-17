@@ -11,11 +11,11 @@
                 <h4 class="text-sm font-medium leading-5 font-heading text-brand">
                     {{ $item->name }}
                 </h4>
-                <p class="text-sm text-gray-700">
-                    <span class="text-gray-500">{{ __('Unit price') }}</span> : {{ shopper_money_format($item->unit_price_amount, $currency_code) }}
+                <p class="text-sm text-zinc-700">
+                    <span class="text-zinc-500">{{ __('Unit price') }}</span> : {{ shopper_money_format($item->unit_price_amount, $currency_code) }}
                 </p>
-                <p class="text-sm text-gray-700">
-                    <span class="text-gray-500">{{ __('Quantity') }}</span> : {{ $item->quantity }}
+                <p class="text-sm text-zinc-700">
+                    <span class="text-zinc-500">{{ __('Quantity') }}</span> : {{ $item->quantity }}
                 </p>
             </div>
         </div>

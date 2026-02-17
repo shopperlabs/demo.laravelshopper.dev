@@ -12,7 +12,7 @@ title(__('Profile'));
 <div class="space-y-10">
     <x-page-heading :title="__('Profile')" />
 
-    <div class="space-y-6 divide-y divide-gray-200">
+    <div class="space-y-6 divide-y divide-zinc-200">
         <livewire:profile.update-profile-information-form />
         <livewire:profile.update-password-form />
         <livewire:profile.delete-user-form />

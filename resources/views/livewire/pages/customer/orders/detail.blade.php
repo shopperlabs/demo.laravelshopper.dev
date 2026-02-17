@@ -23,40 +23,40 @@ title(__('Details of your order'));
 ?>
 
 <div>
-    <h1 class="text-xl font-semibold text-gray-900 font-heading lg:text-2xl">
+    <h1 class="text-xl font-semibold text-zinc-900 font-heading lg:text-2xl">
         {{ __('Details of your order') }}
     </h1>
     <div class="flex flex-col mt-6 space-y-10 lg:space-y-14">
-        <div class="flex items-center justify-between px-4 py-2 bg-gray-50 lg:max-w-5xl">
+        <div class="flex items-center justify-between px-4 py-2 bg-zinc-50 lg:max-w-5xl">
             <div class="text-sm">
-                <dt class="font-medium tracking-tighter text-gray-700">
+                <dt class="font-medium tracking-tighter text-zinc-700">
                     {{ __('Order N° ') }}
                 </dt>
-                <dd class="ml-1.5 font-medium uppercase text-gray-500">
+                <dd class="ml-1.5 font-medium uppercase text-zinc-500">
                     {{ __('#:number', ['number' => $order->number]) }}
                 </dd>
             </div>
             <div class="text-sm">
-                <dt class="font-medium tracking-tighter text-gray-900">
+                <dt class="font-medium tracking-tighter text-zinc-900">
                     {{ __('Passed the') }}
                 </dt>
-                <dd class="mt-1 text-gray-500 capitalize">
+                <dd class="mt-1 text-zinc-500 capitalize">
                     <time datetime="{{ $order->created_at->format('Y-m-d') }}">
                         {{ $order->created_at->translatedFormat('j F Y') }}
                     </time>
                 </dd>
             </div>
             <div class="text-sm">
-                <dt class="font-medium tracking-tighter text-gray-900">
+                <dt class="font-medium tracking-tighter text-zinc-900">
                     {{ __('Total') }}
                 </dt>
-                <dd class="mt-1 text-gray-500">
+                <dd class="mt-1 text-zinc-500">
                     {{ shopper_money_format($order->total() + $order->shippingOption->price, $order->currency_code) }}
                 </dd>
             </div>
             <div class="text-sm">
-                <dt class="font-medium tracking-tighter text-gray-900">{{ __('status') }}</dt>
-                <dd class="mt-1 text-gray-500">
+                <dt class="font-medium tracking-tighter text-zinc-900">{{ __('status') }}</dt>
+                <dd class="mt-1 text-zinc-500">
                     <x-order.status :status="$order->status" />
                 </dd>
             </div>
@@ -74,7 +74,7 @@ title(__('Details of your order'));
         </div>
     </div>
     <div class="max-w-md mt-10 lg:mt-20">
-        <p class="mt-5 text-sm leading-5 text-gray-500">
+        <p class="mt-5 text-sm leading-5 text-zinc-500">
             {{ __('Do you have a problem with your order? Our customer service is here to help') }}
         </p>
         <div class="mt-4">
