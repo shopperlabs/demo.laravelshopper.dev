@@ -42,7 +42,7 @@ new #[Layout('components.layouts.templates.app')] class extends Component
 
 <div class="relative">
     <svg
-        class="absolute inset-0 -z-10 h-full w-full stroke-gray-100 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
+        class="absolute inset-0 -z-10 h-full w-full stroke-gray-100 mask-[radial-gradient(100%_100%_at_top_right,white,transparent)]"
         aria-hidden="true"
     >
         <defs>
@@ -68,60 +68,48 @@ new #[Layout('components.layouts.templates.app')] class extends Component
             <div class="mt-6 space-y-6">
                 <form wire:submit="register" class="space-y-4">
                     <!-- Last Name -->
-                    <div>
-                        <x-forms.label for="name" :value="__('Lastname')" />
-                        <x-forms.input wire:model="last_name" id="last_name" class="block mt-1 w-full" type="text" name="last_name" required autofocus autocomplete="last_name" />
-                        <x-forms.errors :messages="$errors->get('last_name')" class="mt-2" />
-                    </div>
+                    <flux:field>
+                        <flux:label>{{ __('Lastname') }}</flux:label>
+                        <flux:input wire:model="last_name" type="text" required autofocus autocomplete="last_name" />
+                        <flux:error name="last_name" />
+                    </flux:field>
 
                     <!-- First Name -->
-                    <div>
-                        <x-forms.label for="name" :value="__('Firstname')" />
-                        <x-forms.input wire:model="first_name" id="first_name" class="block mt-1 w-full" type="text" name="first_name" required autocomplete="first_name" />
-                        <x-forms.errors :messages="$errors->get('first_name')" class="mt-2" />
-                    </div>
+                    <flux:field>
+                        <flux:label>{{ __('Firstname') }}</flux:label>
+                        <flux:input wire:model="first_name" type="text" required autocomplete="first_name" />
+                        <flux:error name="first_name" />
+                    </flux:field>
 
                     <!-- Email Address -->
-                    <div>
-                        <x-forms.label for="email" :value="__('E-mail')" />
-                        <x-forms.input wire:model="email" id="email" class="block mt-1 w-full" type="email" name="email" required autocomplete="username" />
-                        <x-forms.errors :messages="$errors->get('email')" class="mt-2" />
-                    </div>
+                    <flux:field>
+                        <flux:label>{{ __('E-mail') }}</flux:label>
+                        <flux:input wire:model="email" type="email" required autocomplete="username" />
+                        <flux:error name="email" />
+                    </flux:field>
 
                     <!-- Password -->
-                    <div>
-                        <x-forms.label for="password" :value="__('Password')" />
-
-                        <x-forms.input wire:model="password" id="password" class="block mt-1 w-full"
-                                       type="password"
-                                       name="password"
-                                       required autocomplete="new-password" />
-
-                        <x-forms.errors :messages="$errors->get('password')" class="mt-2" />
-                    </div>
+                    <flux:field>
+                        <flux:label>{{ __('Password') }}</flux:label>
+                        <flux:input wire:model="password" type="password" required autocomplete="new-password" />
+                        <flux:error name="password" />
+                    </flux:field>
 
                     <!-- Confirm Password -->
-                    <div>
-                        <x-forms.label for="password_confirmation" :value="__('Confirm Password')" />
+                    <flux:field>
+                        <flux:label>{{ __('Confirm Password') }}</flux:label>
+                        <flux:input wire:model="password_confirmation" type="password" required autocomplete="new-password" />
+                        <flux:error name="password_confirmation" />
+                    </flux:field>
 
-                        <x-forms.input wire:model="password_confirmation" id="password_confirmation" class="block mt-1 w-full"
-                                       type="password"
-                                       name="password_confirmation" required autocomplete="new-password" />
-
-                        <x-forms.errors :messages="$errors->get('password_confirmation')" class="mt-2" />
-                    </div>
-
-                    <div class="space-y-2">
-                        <x-link class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
+                    <div class="space-y-3">
+                        <x-link class="inline-block underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
                             {{ __('Already registered?') }}
                         </x-link>
 
-                        <x-buttons.primary type="submit" class="w-full px-4 text-base">
-                            <span class="absolute left-0 pl-2" wire:loading>
-                                <x-loading-dots class="bg-white" />
-                            </span>
+                        <flux:button variant="primary" type="submit" class="w-full">
                             {{ __('Register') }}
-                        </x-buttons.primary>
+                        </flux:button>
                     </div>
                 </form>
 
@@ -134,7 +122,7 @@ new #[Layout('components.layouts.templates.app')] class extends Component
                     </x-link>.
                     {{ __('Please read our') }}
                     <x-link href="#" class="font-medium text-black group group-link-underline">
-                        <span class="link link-underline link-underline-brand">{{ __('privacy policy') }}</span>
+                        <span class="link link-underline link-underline-black">{{ __('privacy policy') }}</span>
                     </x-link>.
                 </p>
             </div>

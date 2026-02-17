@@ -63,20 +63,16 @@ new #[Layout('components.layouts.templates.app')] class extends Component
 
             <form wire:submit="confirmPassword" class="mt-6">
                 <!-- Password -->
-                <div>
-                    <x-forms.label for="password" :value="__('Password')" />
-                    <x-forms.input wire:model="password"
-                                   id="password"
-                                   class="block mt-1 w-full"
-                                   type="password"
-                                   name="password"
-                                   required autocomplete="current-password" />
-
-                    <x-forms.errors :messages="$errors->get('password')" class="mt-2" />
-                </div>
+                <flux:field>
+                    <flux:label>{{ __('Password') }}</flux:label>
+                    <flux:input wire:model="password" type="password" required autocomplete="current-password" />
+                    <flux:error name="password" />
+                </flux:field>
 
                 <div class="flex justify-end mt-4">
-                    <x-buttons.submit :title="__('Confirm')" />
+                    <flux:button variant="primary" type="submit">
+                        {{ __('Confirm') }}
+                    </flux:button>
                 </div>
             </form>
         </div>

@@ -33,6 +33,7 @@ describe(Addresses::class, function (): void {
             ->set('city', 'Douala')
             ->set('phone_number', '99007788')
             ->call('save')
+            ->assertSet('showModal', false)
             ->assertDispatched('addresses-updated');
 
         expect(Address::query()->count())
@@ -59,6 +60,7 @@ describe(Addresses::class, function (): void {
             ->set('city', $address->city)
             ->set('phone_number', $address->phone_number)
             ->call('save')
+            ->assertSet('showModal', false)
             ->assertDispatched('addresses-updated');
 
         /** @var Address $updatedAddress */

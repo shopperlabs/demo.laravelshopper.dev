@@ -45,13 +45,13 @@ new class extends Component {
                             {{ __('If you’ve used this product, share your thoughts with other customers') }}
                         </p>
 
-                        <x-buttons.default
+                        <flux:button
                             type="button"
                             wire:click="$dispatch('openModal', { component: 'modals.product.add-product-review', arguments: { product: {{ $product->id }} }})"
-                            class="mt-6 inline-flex w-full items-center justify-center rounded-md border border-gray-300 bg-white px-8 py-2 text-sm font-medium text-gray-900 hover:bg-gray-50 sm:w-auto lg:w-full"
+                            class="mt-6 w-full sm:w-auto lg:w-full"
                         >
                             {{ __('Write a review') }}
-                        </x-buttons.default>
+                        </flux:button>
                     </div>
                 @endauth
             </div>
@@ -89,13 +89,13 @@ new class extends Component {
 
                     @if($reviews->count() > 3)
                         <div class="flex justify-center pt-6">
-                            <x-buttons.default
+                            <flux:button
                                 type="button"
                                 wire:click="$dispatch('openPanel', { component: 'modals.reviews-list', arguments: { product: {{ $this->product->id }} }})"
-                                class="mt-6 inline-flex w-full items-center justify-center rounded-md border border-gray-300 bg-white px-8 py-2 text-sm font-medium text-gray-900 hover:bg-gray-50 sm:w-auto"
+                                class="mt-6 w-full sm:w-auto"
                             >
                                 {{ __('Load more') }}
-                            </x-buttons.default>
+                            </flux:button>
                         </div>
                     @endif
                 </div>

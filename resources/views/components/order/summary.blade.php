@@ -64,7 +64,7 @@
             {{ __('Payment method') }}
         </dt>
         <dd class="flex items-center gap-2 text-sm text-gray-500">
-            <x-dynamic-component class="w-5 h-5" :component="'icons.payments.' . $order->paymentMethod->slug" />
+            <x-dynamic-component class="size-5" :component="'icons.payments.' . $order->paymentMethod->slug" />
             <span class="text-base font-medium leading-6">{{ $order->paymentMethod->title }}</span>
         </dd>
     </dl>

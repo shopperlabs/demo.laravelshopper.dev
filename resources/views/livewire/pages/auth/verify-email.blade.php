@@ -70,16 +70,13 @@ new #[Layout('components.layouts.templates.app')] class extends Component
             @endif
 
             <div class="mt-4 flex items-center justify-between">
-                <x-buttons.primary wire:click="sendVerification" class="w-full px-4 text-base">
-                    <span class="absolute left-0 pl-2" wire:loading>
-                        <x-loading-dots class="bg-white" />
-                    </span>
+                <flux:button variant="primary" wire:click="sendVerification" class="w-full">
                     {{ __('Resend Verification Email') }}
-                </x-buttons.primary>
+                </flux:button>
 
-                <x-buttons.default wire:click="logout" type="submit">
+                <flux:button wire:click="logout" type="submit">
                     {{ __('Log Out') }}
-                </x-buttons.default>
+                </flux:button>
             </div>
         </div>
     </div>

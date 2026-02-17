@@ -375,9 +375,9 @@
                 {{ $this->form }}
 
                 <div class="mt-10 border-t border-gray-200 pt-6 sm:flex sm:items-center sm:justify-end">
-                    <x-buttons.primary type="submit" class="w-full px-4 py-2 text-sm sm:w-auto">
+                    <flux:button variant="primary" type="submit" class="w-full sm:w-auto">
                         {{ __('Continuer') }}
-                    </x-buttons.primary>
+                    </flux:button>
                 </div>
             </div>
         </form>

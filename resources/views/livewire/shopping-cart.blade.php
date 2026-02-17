@@ -63,8 +63,8 @@
                 </p>
             </div>
         </div>
-        <x-buttons.primary :href="route('checkout')" class="w-full px-8 py-3 text-base"  wire:loading.attr="disabled">
+        <flux:button variant="primary" :href="route('checkout')" class="w-full">
             {{ __('Proceed to checkout') }}
-        </x-buttons.primary>
+        </flux:button>
     </div>
 </div>

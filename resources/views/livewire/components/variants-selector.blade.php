@@ -24,18 +24,19 @@
     @endif
 
     <div class="flex items-center gap-2 mt-10">
-        <x-buttons.primary
+        <flux:button
+            variant="primary"
             type="submit"
-            class="max-w-xs px-8 py-3 sm:w-full"
+            class="max-w-xs sm:w-full"
             :disabled="$product->isVariant() && ! $selectedVariant || $product->isVariant() && $this->selectedVariant && $this->selectedVariant->stock < 1 ||
             ! $product->isVariant() && $product->stock < 1"
         >
             {{ $product->isVariant() && ! $selectedVariant ? __('Choose any variant') : __('Add to cart') }}
-        </x-buttons.primary>
+        </flux:button>
 
-        <x-buttons.primary type="button" class="px-4">
+        <flux:button variant="primary" type="button">
             <x-untitledui-heart class="size-6" aria-hidden="true" />
             <span class="sr-only">{{ __('Add to favorites') }}</span>
-        </x-buttons.primary>
+        </flux:button>
     </div>
 </form>

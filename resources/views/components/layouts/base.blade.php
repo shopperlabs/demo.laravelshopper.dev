@@ -13,7 +13,6 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,600,800,900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
 
-    @filamentStyles
     @fluxAppearance
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -25,6 +24,5 @@
     @livewire('wire-elements-modal')
 
     @fluxScripts
-    @filamentScripts
 </body>
 </html>

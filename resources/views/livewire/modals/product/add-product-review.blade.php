@@ -11,7 +11,7 @@
     <div class="space-y-4 pb-5">
         <div class="grid grid-cols-2 gap-4">
             <div class="space-y-2">
-                <x-forms.input wire:model="rating" id="rate" name="rate" value="1" type="hidden"/>
+                <input wire:model="rating" type="hidden" />
                 <div class="mt-1 flex items-center hover:cursor-pointer">
                     @for ($i = 1; $i <= 5; $i++)
                         <svg wire:click="update('{{$i}}')"
@@ -26,30 +26,26 @@
                     @endfor
                 </div>
             </div>
-
         </div>
 
-        <div class="space-y-2">
-            <x-forms.label for="content" :value="__('Content')" />
-            <x-forms.text-area wire:model="content" id="content" name="content" type="text"> </x-forms.text-area>
-            <x-forms.errors :messages="$errors->get('content')" />
-        </div>
-
+        <flux:field>
+            <flux:label>{{ __('Content') }}</flux:label>
+            <flux:textarea wire:model="content" />
+            <flux:error name="content" />
+        </flux:field>
     </div>
 
     <x-slot name="buttons">
-        <x-buttons.submit
-            :title="__('shopper::forms.actions.save')"
-            wire:loading.attr="data-loading"
-            class="w-full sm:ml-3 sm:w-auto"
-        />
-        <x-buttons.default
+        <flux:button variant="primary" type="submit" class="w-full sm:ml-3 sm:w-auto">
+            {{ __('shopper::forms.actions.save') }}
+        </flux:button>
+        <flux:button
             type="button"
             wire:click="$dispatch('closeModal')"
-            class="w-full px-4 py-2 mt-3 text-sm sm:mt-0 sm:w-auto"
+            class="w-full mt-3 sm:mt-0 sm:w-auto"
         >
             {{ __('shopper::forms.actions.cancel') }}
-        </x-buttons.default>
+        </flux:button>
     </x-slot>
 
 </x-modal>

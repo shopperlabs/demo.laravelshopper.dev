@@ -17,7 +17,7 @@
                 ])
             >
                 @if ($step->complete)
-                    <x-untitledui-check-circle class="w-5 h-5 text-white" stroke-width="1.5" aria-hidden="true" />
+                    <x-untitledui-check-circle class="size-5 text-white" stroke-width="1.5" aria-hidden="true" />
                 @else
                     {{ $loop->index + 1 }}
                 @endif
@@ -37,7 +37,7 @@
             @if (! $loop->last)
                 <div class="ml-5">
                     <x-untitledui-chevron-right
-                        class="w-5 h-5 text-gray-400 dark:text-gray-300"
+                        class="size-5 text-gray-400 dark:text-gray-300"
                         stroke-width="1.5"
                         aria-hidden="true"
                     />

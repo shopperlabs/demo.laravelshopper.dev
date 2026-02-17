@@ -74,19 +74,16 @@ new #[Layout('components.layouts.templates.app')] class extends Component
 
                 <form wire:submit="sendPasswordResetLink">
                     <!-- Email Address -->
-                    <div>
-                        <x-forms.label for="email" :value="__('Email')" />
-                        <x-forms.input wire:model="email" id="email" class="block mt-1 w-full" type="email" name="email" required autofocus />
-                        <x-forms.errors :messages="$errors->get('email')" class="mt-2" />
-                    </div>
+                    <flux:field>
+                        <flux:label>{{ __('Email') }}</flux:label>
+                        <flux:input wire:model="email" type="email" required autofocus />
+                        <flux:error name="email" />
+                    </flux:field>
 
                     <div class="flex items-center justify-end mt-4">
-                        <x-buttons.primary type="submit" class="w-full px-4 text-base">
-                            <span class="absolute left-0 pl-2" wire:loading>
-                                <x-loading-dots class="bg-white" />
-                            </span>
+                        <flux:button variant="primary" type="submit" class="w-full">
                             {{ __('Email Password Reset Link') }}
-                        </x-buttons.primary>
+                        </flux:button>
                     </div>
                 </form>
             </div>

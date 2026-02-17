@@ -11,13 +11,15 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Validate;
-use LivewireUI\Modal\ModalComponent;
+use Livewire\Component;
 use Shopper\Core\Enum\AddressType;
 use Shopper\Core\Models\Address;
 use Shopper\Core\Models\Country;
 
-final class AddressForm extends ModalComponent
+final class AddressForm extends Component
 {
+    public bool $showModal = false;
+
     #[Validate('required|string')]
     public ?string $first_name = null;
 
@@ -69,19 +71,22 @@ final class AddressForm extends ModalComponent
         }
     }
 
-    public static function modalMaxWidth(): string
+    public function openModal(): void
     {
-        return '2xl';
+        $this->showModal = true;
     }
 
     public function save(): void
     {
-        $this->validate();
+        $validated = $this->validate();
 
-        if ($this->address->id) {
-            $this->address->update(array_merge($this->validate(), ['user_id' => Auth::id()]));
+        if ($this->address->exists) {
+            $this->address->update(array_merge($validated, ['user_id' => Auth::id()]));
         } else {
-            Address::query()->create(array_merge($this->validate(), ['user_id' => Auth::id()]));
+            Address::query()->create(array_merge($validated, ['user_id' => Auth::id()]));
+
+            $this->reset('first_name', 'last_name', 'street_address', 'street_address_plus', 'country_id', 'postal_code', 'city', 'phone_number');
+            $this->type = AddressType::Billing;
         }
 
         Notification::make()
@@ -89,9 +94,9 @@ final class AddressForm extends ModalComponent
             ->success()
             ->send();
 
-        $this->dispatch('addresses-updated');
+        $this->showModal = false;
 
-        $this->closeModal();
+        $this->dispatch('addresses-updated');
     }
 
     public function render(): View

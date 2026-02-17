@@ -6,16 +6,16 @@
     @if($orders->isEmpty())
         <div class="flex flex-col items-center py-6 space-y-5">
             <x-untitledui-shopping-bag
-                class="w-12 h-12 text-gray-400"
+                class="size-12 text-gray-400"
                 stroke-width="1"
                 aria-hidden="true"
             />
             <p class="max-w-3xl mx-auto text-sm text-gray-500">
                 {{ __("You haven't ordered anything from us yet. Is this the day to change that?") }}
             </p>
-            <x-buttons.primary :href="route('store.products')" class="px-4 text-sm">
+            <flux:button variant="primary" :href="route('store.products')">
                 {{ __('Continue shopping') }}
-            </x-buttons.primary>
+            </flux:button>
         </div>
     @else
         <div class="divide-y divide-gray-200">

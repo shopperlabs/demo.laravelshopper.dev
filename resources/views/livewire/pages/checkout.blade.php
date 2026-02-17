@@ -78,7 +78,7 @@
                                         <livewire:components.cart-total />
                                     </span>
                                     <svg
-                                        class="w-5 h-5 text-gray-500"
+                                        class="size-5 text-gray-500"
                                         viewBox="0 0 20 20"
                                         fill="currentColor"
                                         aria-hidden="true"

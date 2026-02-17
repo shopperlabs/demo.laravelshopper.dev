@@ -5,18 +5,12 @@
     />
 
     <div class="space-y-8">
-        <x-buttons.default
-            type="button"
-            wire:click="$dispatch('openModal', { component: 'modals.customer.address-form' })"
-            class="w-full px-8 py-2 text-sm sm:w-auto"
-        >
-            {{ __('Add address') }}
-        </x-buttons.default>
+        <livewire:modals.customer.address-form :key="'address-form-create'" />
 
-        @if($addresses->isNotEmpty())
+        @if ($addresses->isNotEmpty())
             <div class="sm:grid sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
-                @foreach($addresses as $address)
-                    <x-address.edit-address :address="$address" />
+                @foreach ($addresses as $address)
+                    <x-address.edit-address :$address />
                 @endforeach
             </div>
         @else

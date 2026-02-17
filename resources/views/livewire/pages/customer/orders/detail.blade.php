@@ -78,9 +78,9 @@ title(__('Details of your order'));
             {{ __('Do you have a problem with your order? Our customer service is here to help') }}
         </p>
         <div class="mt-4">
-            <x-buttons.default link="/" class="px-4">
+            <flux:button href="/">
                 {{ __('Contact us') }}
-            </x-buttons.default>
+            </flux:button>
         </div>
     </div>
 </div>

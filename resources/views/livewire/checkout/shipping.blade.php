@@ -2,13 +2,7 @@
     @include('components.checkout-steps')
 
     <div class="text-sm leading-5 text-gray-500">
-        <x-buttons.default
-            type="button"
-            wire:click="$dispatch('openModal', { component: 'modals.customer.address-form' })"
-            class="w-full px-8 py-2 text-sm sm:w-auto"
-        >
-            {{ __('Add an address') }}
-        </x-buttons.default>
+        <livewire:modals.customer.address-form :key="'address-form-checkout'" />
     </div>
 
     @if($addresses->isNotEmpty())
@@ -17,7 +11,7 @@
                 <div class="p-4 border-l-4 border-danger-400 bg-danger-50">
                     <div class="flex">
                         <div class="shrink-0">
-                            <svg class="w-5 h-5 text-danger-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                            <svg class="size-5 text-danger-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                 <path fill-rule="evenodd" d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 5a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 5zm0 9a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
                             </svg>
                         </div>
@@ -92,7 +86,7 @@
                             <div class="p-4 border-l-4 border-danger-400 bg-danger-50">
                                 <div class="flex">
                                     <div class="shrink-0">
-                                        <svg class="w-5 h-5 text-danger-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <svg class="size-5 text-danger-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                             <path fill-rule="evenodd" d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 5a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 5zm0 9a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
                                         </svg>
                                     </div>
@@ -139,13 +133,9 @@
                 </div>
 
                 <div class="pt-6 mt-10 border-t border-gray-200 sm:flex sm:items-center sm:justify-end">
-                    <x-buttons.primary type="submit" class="w-full px-8 py-2 text-sm sm:w-auto">
-                        <span class="absolute left-0 pl-2" wire:loading>
-                            <x-loading-dots class="bg-white" />
-                        </span>
-
+                    <flux:button variant="primary" type="submit" class="w-full sm:w-auto">
                         {{ __('Continue') }}
-                    </x-buttons.primary>
+                    </flux:button>
                 </div>
             </div>
         </form>

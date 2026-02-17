@@ -8,9 +8,7 @@
 @source '../../resources/views/**/*.blade.php';
 @source "../../storage/framework/views/*.php";
 @source "../../vendor/filament/**/*.blade.php";
-@source "../../vendor/shopper/**/*.blade.php";
 @source "../../vendor/laravelcm/livewire-slide-overs/resources/views/*.blade.php";
-@source "../../vendor/wire-elements/modal/resources/views/*.blade.php";
 @source "../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php";
 
 @theme {
@@ -18,6 +16,10 @@
   --font-heading: 'Figtree', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
 
   --container-8xl: 90rem;
+
+  --color-accent: var(--color-blue-500);
+  --color-accent-content: var(--color-blue-600);
+  --color-accent-foreground: var(--color-white);
 
   --color-primary-50: var(--color-blue-50);
   --color-primary-100: var(--color-blue-100);
@@ -54,4 +56,12 @@
   --color-success-800: var(--color-green-800);
   --color-success-900: var(--color-green-900);
   --color-success-950: var(--color-green-950);
+}
+
+@layer theme {
+  .dark {
+    --color-accent: var(--color-blue-500);
+    --color-accent-content: var(--color-blue-400);
+    --color-accent-foreground: var(--color-white);
+  }
 }

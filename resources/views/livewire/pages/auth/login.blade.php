@@ -57,45 +57,34 @@ new #[Layout('components.layouts.templates.app')] class extends Component
 
                 <form wire:submit="login" class="space-y-4">
                     <!-- Email Address -->
-                    <div>
-                        <x-forms.label for="email" :value="__('E-mail')" />
-                        <x-forms.input wire:model="form.email" id="email" class="block mt-1 w-full" type="email" name="email" required autofocus autocomplete="email" />
-                        <x-forms.errors :messages="$errors->get('form.email')" class="mt-2" />
-                    </div>
+                    <flux:field>
+                        <flux:label>{{ __('E-mail') }}</flux:label>
+                        <flux:input wire:model="form.email" type="email" required autofocus autocomplete="email" />
+                        <flux:error name="form.email" />
+                    </flux:field>
 
                     <!-- Password -->
-                    <div>
-                        <x-forms.label for="password" :value="__('Password')" />
-                        <x-forms.input wire:model="form.password" id="password" class="block mt-1 w-full"
-                                       type="password"
-                                       name="password"
-                                       required autocomplete="current-password" />
-
-                        <x-forms.errors :messages="$errors->get('form.password')" class="mt-2" />
-                    </div>
+                    <flux:field>
+                        <flux:label>{{ __('Password') }}</flux:label>
+                        <flux:input wire:model="form.password" type="password" required autocomplete="current-password" />
+                        <flux:error name="form.password" />
+                    </flux:field>
 
                     <!-- Remember Me -->
-                    <div class="block">
-                        <label for="remember" class="inline-flex items-center">
-                            <input wire:model="form.remember" id="remember" type="checkbox" class="rounded border-gray-300 text-primary-500 focus:ring-primary-500" name="remember">
-                            <span class="ms-2 text-sm text-gray-500">{{ __('Remember me') }}</span>
-                        </label>
-                    </div>
+                    <flux:checkbox wire:model="form.remember" label="{{ __('Remember me') }}" />
 
                     <div class="space-y-5">
-                        <x-link class="underline text-sm text-gray-500 hover:text-gray-900" href="{{ route('password.request') }}">
+                        <x-link class="inline-block underline text-sm text-gray-500 hover:text-gray-900" href="{{ route('password.request') }}">
                             {{ __('Forgot your password?') }}
                         </x-link>
 
-                        <x-buttons.primary type="submit" class="w-full px-4 text-sm">
-                            <span class="absolute left-0 pl-2" wire:loading>
-                                <x-loading-dots class="bg-white" />
-                            </span>
+                        <flux:button variant="primary" type="submit" class="w-full">
                             {{ __('Log in') }}
-                        </x-buttons.primary>
+                        </flux:button>
                     </div>
                 </form>
             </div>
+
             <x-auth-oauth />
         </div>
         <div class="sm:mx-auto sm:w-full sm:max-w-md py-8">
@@ -108,9 +97,9 @@ new #[Layout('components.layouts.templates.app')] class extends Component
                 </p>
             </div>
             <div class="mt-6">
-                <x-buttons.default :href="route('register')" class="w-full px-4 text-sm">
+                <flux:button :href="route('register')" class="w-full">
                     {{ __('Create account') }}
-                </x-buttons.default>
+                </flux:button>
             </div>
         </div>
     </div>

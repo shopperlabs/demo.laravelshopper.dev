@@ -59,7 +59,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="https://laravelshopper.dev/docs"
+                            <a href="https://docs.laravelshopper.dev"
                                target="_blank"
                                class="text-sm leading-6 text-gray-600 hover:text-gray-900">
                                 Documentation

@@ -36,7 +36,7 @@ new class extends Component
         </p>
     </header>
 
-    <x-buttons.danger class="px-4 py-3 text-sm" type="button">
+    <flux:button variant="danger" type="button">
         {{ __('Delete Account') }}
-    </x-buttons.danger>
+    </flux:button>
 </section>

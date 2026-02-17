@@ -50,26 +50,28 @@ new class extends Component
     </header>
 
     <form wire:submit="updatePassword" class="mt-8 space-y-6 max-w-xl">
-        <div>
-            <x-forms.label for="update_password_current_password" :value="__('Current Password')" />
-            <x-forms.input wire:model="current_password" id="update_password_current_password" name="current_password" type="password" class="mt-1 block w-full" autocomplete="current-password" />
-            <x-forms.errors :messages="$errors->get('current_password')" class="mt-2" />
-        </div>
+        <flux:field>
+            <flux:label>{{ __('Current Password') }}</flux:label>
+            <flux:input wire:model="current_password" type="password" autocomplete="current-password" />
+            <flux:error name="current_password" />
+        </flux:field>
 
-        <div>
-            <x-forms.label for="update_password_password" :value="__('New Password')" />
-            <x-forms.input wire:model="password" id="update_password_password" name="password" type="password" class="mt-1 block w-full" autocomplete="new-password" />
-            <x-forms.errors :messages="$errors->get('password')" class="mt-2" />
-        </div>
+        <flux:field>
+            <flux:label>{{ __('New Password') }}</flux:label>
+            <flux:input wire:model="password" type="password" autocomplete="new-password" />
+            <flux:error name="password" />
+        </flux:field>
 
-        <div>
-            <x-forms.label for="update_password_password_confirmation" :value="__('Confirm Password')" />
-            <x-forms.input wire:model="password_confirmation" id="update_password_password_confirmation" name="password_confirmation" type="password" class="mt-1 block w-full" autocomplete="new-password" />
-            <x-forms.errors :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
+        <flux:field>
+            <flux:label>{{ __('Confirm Password') }}</flux:label>
+            <flux:input wire:model="password_confirmation" type="password" autocomplete="new-password" />
+            <flux:error name="password_confirmation" />
+        </flux:field>
 
         <div class="flex items-center gap-4">
-            <x-buttons.submit :title="__('Save')" />
+            <flux:button variant="primary" type="submit">
+                {{ __('Save') }}
+            </flux:button>
         </div>
     </form>
 </section>

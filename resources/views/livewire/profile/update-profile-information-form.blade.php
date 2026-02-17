@@ -40,7 +40,7 @@ new class extends Component
         $user->fill($validated);
 
         if ($user->isDirty('email')) {
-            $user->email_verified_at = null;
+            $user->fill(['email_verified_at' => null]);
         }
 
         $user->save();
@@ -79,22 +79,24 @@ new class extends Component
     </header>
 
     <form wire:submit="updateProfileInformation" class="mt-6 space-y-6 max-w-xl">
-        <div>
-            <x-forms.label for="first_name" :value="__('First Name')" />
-            <x-forms.input wire:model="first_name" id="first_name" name="first_name" type="text" class="block w-full mt-1" required autofocus autocomplete="first-name" />
-            <x-forms.errors class="mt-2" :messages="$errors->get('first_name')" />
-        </div>
+        <flux:field>
+            <flux:label>{{ __('First Name') }}</flux:label>
+            <flux:input wire:model="first_name" type="text" required autofocus autocomplete="first-name" />
+            <flux:error name="first_name" />
+        </flux:field>
+
+        <flux:field>
+            <flux:label>{{ __('Last Name') }}</flux:label>
+            <flux:input wire:model="last_name" type="text" required autocomplete="last-name" />
+            <flux:error name="last_name" />
+        </flux:field>
 
         <div>
-            <x-forms.label for="last_name" :value="__('Last Name')" />
-            <x-forms.input wire:model="last_name" id="last_name" name="last_name" type="text" class="block w-full mt-1" required autofocus autocomplete="last-name" />
-            <x-forms.errors class="mt-2" :messages="$errors->get('last_name')" />
-        </div>
-
-        <div>
-            <x-forms.label for="email" :value="__('Email')" />
-            <x-forms.input wire:model="email" id="email" name="email" type="email" class="block w-full mt-1" required autocomplete="username" />
-            <x-forms.errors class="mt-2" :messages="$errors->get('email')" />
+            <flux:field>
+                <flux:label>{{ __('Email') }}</flux:label>
+                <flux:input wire:model="email" type="email" required autocomplete="username" />
+                <flux:error name="email" />
+            </flux:field>
 
             @if (auth()->user() instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! auth()->user()->hasVerifiedEmail())
                 <div>
@@ -116,7 +118,9 @@ new class extends Component
         </div>
 
         <div class="flex items-center gap-4">
-            <x-buttons.submit :title="__('Save')" />
+            <flux:button variant="primary" type="submit">
+                {{ __('Save') }}
+            </flux:button>
         </div>
     </form>
 </section>

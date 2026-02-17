@@ -24,13 +24,13 @@
                 <!-- Decorative image grid -->
                 @include('includes._decorative_images')
 
-                <x-buttons.primary :href="route('store.products')" class="px-8 py-3 text-base font-medium text-center group">
+                <flux:button variant="primary" :href="route('store.products')" class="group">
                     {{ __('Discover now') }}
                     <span
                         class="ml-2 transition duration-200 ease-in-out transform translate-x-0 group-hover:translate-x-1">
                         <x-untitledui-arrow-narrow-right class="size-6" stroke-width="1.5" aria-hidden="true" />
                     </span>
-                </x-buttons.primary>
+                </flux:button>
             </div>
         </x-container>
 

@@ -3,8 +3,7 @@ name: Quality
 on:
   push:
     branches:
-      - main
-      - develop
+      - livewire
   pull_request:
 
 concurrency:
@@ -12,38 +11,16 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  pint:
-    runs-on: ubuntu-22.04
+  quality:
+    runs-on: ubuntu-latest
     steps:
       - name: 👀 Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
       - name: 🪄 Setup
         uses: ./.github/actions/setup
       - name: 🔮 Install Composer Dependencies
         run: composer install --no-progress --no-interaction --prefer-dist --optimize-autoloader
       - name: 🕵️‍♂️ Run Laravel Pint
-        run: composer lint -- --test
-
-  phpstan:
-    runs-on: ubuntu-22.04
-    steps:
-      - name: 👀 Checkout
-        uses: actions/checkout@v3
-      - name: 🪄 Setup
-        uses: ./.github/actions/setup
-      - name: 🔮 Install Composer Dependencies
-        run: composer install --no-progress --no-interaction --prefer-dist --optimize-autoloader
-      - name: 🕵️‍♂️ Run PHPStan
-        run: composer test:phpstan -- --ansi --no-interaction --no-progress --error-format=github
-
-  composer:
-    runs-on: ubuntu-22.04
-    steps:
-      - name: 👀 Checkout
-        uses: actions/checkout@v3
-      - name: 🪄 Setup
-        uses: ./.github/actions/setup
-      - name: 🕵️‍♂️ Run Composer Validate
-        run: composer validate
-      - name: 🕵️‍♂️ Run Composer Audit
-        run: composer audit
+        run: composer test:lint
+      - name: 🕵️‍♂️ Run Types
+        run: composer test:types
