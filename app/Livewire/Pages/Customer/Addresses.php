@@ -5,14 +5,40 @@ declare(strict_types=1);
 namespace App\Livewire\Pages\Customer;
 
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\On;
 use Livewire\Component;
+use Shopper\Core\Enum\AddressType;
 use Shopper\Core\Models\Address;
 
 #[Layout('components.layouts.templates.account')]
 final class Addresses extends Component
 {
+    public function setDefaultShipping(int $id): void
+    {
+        Address::query()
+            ->where('user_id', Auth::id())
+            ->where('shipping_default', true)
+            ->update(['shipping_default' => false]);
+
+        Address::query()->find($id)->update(['shipping_default' => true]);
+
+        $this->dispatch('notify', type: 'success', title: __('Default shipping address updated.'));
+    }
+
+    public function setDefaultBilling(int $id): void
+    {
+        Address::query()
+            ->where('user_id', Auth::id())
+            ->where('billing_default', true)
+            ->update(['billing_default' => false]);
+
+        Address::query()->find($id)->update(['billing_default' => true]);
+
+        $this->dispatch('notify', type: 'success', title: __('Default billing address updated.'));
+    }
+
     public function removeAddress(int $id): void
     {
         Address::query()->find($id)->delete();

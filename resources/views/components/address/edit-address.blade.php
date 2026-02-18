@@ -50,6 +50,24 @@
                 <span class="sr-only">{{ __('Delete') }}</span>
             </flux:button>
             <livewire:modals.customer.address-form :address-id="$address->id" :key="'address-form-'.$address->id" />
+
+            <flux:dropdown>
+                <flux:button size="sm" icon="ellipsis-horizontal" />
+
+                <flux:menu>
+                    @unless ($address->isShippingDefault())
+                        <flux:menu.item wire:click="setDefaultShipping({{ $address->id }})" icon="truck">
+                            {{ __('Set as default shipping') }}
+                        </flux:menu.item>
+                    @endunless
+
+                    @unless ($address->isBillingDefault())
+                        <flux:menu.item wire:click="setDefaultBilling({{ $address->id }})" icon="credit-card">
+                            {{ __('Set as default billing') }}
+                        </flux:menu.item>
+                    @endunless
+                </flux:menu>
+            </flux:dropdown>
         </div>
     </div>
 </div>
