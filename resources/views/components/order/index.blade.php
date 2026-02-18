@@ -1,56 +1,21 @@
-@props(['order'])
+@props([
+    'order',
+])
 
 <div class="py-6 lg:py-8 lg:max-w-4xl">
-    <div class="bg-zinc-50 py-2.5 px-4 space-y-1.5 lg:grid lg:grid-cols-2 lg:gap-x-4 lg:space-y-0">
-        <div class="grid grid-cols-2 gap-x-4">
-            <div class="text-sm">
-                <dt class="font-medium text-zinc-900">
-                    {{ __('Order number') }}
-                </dt>
-                <dd class="mt-1 text-zinc-500 uppercase">
-                    {{ $order->number }}
-                </dd>
-            </div>
-            <div class="text-sm">
-                <dt class="font-medium text-zinc-900">
-                    {{ __('Passed the') }}
-                </dt>
-                <dd class="mt-1 text-zinc-500 capitalize">
-                    <time datetime="{{ $order->created_at->format('Y-m-d') }}">
-                        {{ $order->created_at->translatedFormat('j F Y') }}
-                    </time>
-                </dd>
-            </div>
-        </div>
-        <div class="grid grid-cols-2 gap-x-4">
-            <div class="text-sm">
-                <dt class="font-medium text-zinc-900">
-                    {{ __('Total') }}
-                </dt>
-                <dd class="mt-1 text-zinc-500">
-                    {{ shopper_money_format($order->total() + $order->shippingOption?->price, $order->currency_code) }}
-                </dd>
-            </div>
-            <div class="text-sm">
-                <dt class="font-medium text-zinc-900">{{ __('Status') }}</dt>
-                <dd class="mt-1 text-zinc-500">
-                    <x-order.status :status="$order->status" />
-                </dd>
-            </div>
-        </div>
-    </div>
-    <div class="grid grid-cols-1 mt-6 gap-y-5 lg:grid-cols-4 lg:gap-x-12">
+    <x-order.header :$order class="py-2.5 space-y-1.5 lg:space-y-0" />
+    <div class="mt-6 grid grid-cols-1 gap-y-5 lg:grid-cols-4 lg:gap-x-12">
         <div class="flex items-center space-x-2 lg:col-span-3">
-            @foreach($order->items->take(5) as $item)
+            @foreach ($order->items->take(5) as $item)
                 <div class="relative overflow-hidden">
-                    @if($order->items->count() > 5 && $loop->index === 4)
+                    @if ($order->items->count() > 5 && $loop->index === 4)
                         <div class="absolute inset-0 z-50 flex items-center justify-center bg-black/70">
                           <span class="text-lg font-medium text-white">
                             + {{  $order->items->count() - 5 }}
                           </span>
                         </div>
                     @endif
-                    <x-products.thumbnail :product="$item->product" class="aspect-none size-24" :ifCart=true/>
+                    <x-products.thumbnail :product="$item->product" class="aspect-none size-24" />
                 </div>
             @endforeach
         </div>
