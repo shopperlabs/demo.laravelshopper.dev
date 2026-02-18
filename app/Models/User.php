@@ -14,6 +14,7 @@ final class User extends Authenticatable implements InteractWithShopperUser
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
+
     use ShopperUser;
 
     protected $guarded = [];

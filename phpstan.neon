@@ -1,21 +1,27 @@
 includes:
     - vendor/larastan/larastan/extension.neon
+    - vendor/nesbot/carbon/extension.neon
+    - phar://phpstan.phar/conf/bleedingEdge.neon
 
 parameters:
 
     paths:
         - app/
+        - bootstrap/app.php
+        - config
+        - database
+        - public
+        - routes
 
-    # Level 9 is the highest level
     level: 7
+    tmpDir: /tmp/phpstan
 
     ignoreErrors:
         -
             identifier: missingType.generics
-#
+
     excludePaths:
         - app/Livewire/Checkout/*
-#
-#    checkMissingIterableValueType: false
+        - database/seeders/*
 
     universalObjectCratesClasses:

@@ -5,7 +5,9 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-@source '../../resources/views/**/*.blade.php';
+@plugin '@tailwindcss/typography';
+
+@source "../../resources/views/**/*.blade.php";
 @source "../../storage/framework/views/*.php";
 @source "../../vendor/filament/**/*.blade.php";
 @source "../../vendor/laravelcm/livewire-slide-overs/resources/views/*.blade.php";
