@@ -16,7 +16,7 @@
     @fluxAppearance
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="font-sans antialiased selection:bg-black selection:text-white">
+<body class="font-sans antialiased selection:bg-primary-50 selection:text-primary-600">
     {{ $slot }}
 
     <x-notification />

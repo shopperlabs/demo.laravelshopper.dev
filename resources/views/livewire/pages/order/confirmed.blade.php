@@ -43,7 +43,7 @@ mount(function (string $number): void {
                 </time>
             </h3>
             <div class="px-4 py-6 rounded-lg bg-zinc-50/50 ring-1 ring-zinc-100 sm:p-6 md:flex md:items-center md:justify-between md:space-x-6 lg:space-x-8">
-                <dl class="flex-auto space-y-4 text-sm text-zinc-500 divide-y divide-zinc-200 md:grid md:grid-cols-3 md:gap-x-6 md:space-y-0 md:divide-y-0 lg:w-1/2 lg:flex-none lg:gap-x-8">
+                <dl class="flex-auto space-y-4 text-sm text-zinc-500 divide-y divide-zinc-200 md:grid md:grid-cols-3 md:gap-x-6 md:space-y-0 md:divide-y-0 lg:w-2/3 lg:flex-none lg:gap-x-8">
                     <div class="flex justify-between md:block">
                         <dt class="font-medium text-zinc-900">
                             {{ __('Order number') }}
@@ -90,7 +90,7 @@ mount(function (string $number): void {
                         @endforeach
                     </div>
                 </div>
-                <div class="p-4 rounded-lg rounded bg-zinc-50">
+                <div class="p-4 rounded-lg bg-zinc-50">
                     <div class="flex">
                         <div class="shrink-0">
                             <x-untitledui-info-circle class="size-5 text-zinc-400" stroke-width="1.5" aria-hidden="true" />
@@ -111,11 +111,11 @@ mount(function (string $number): void {
             </div>
             <div>
                 <div class="flex items-end justify-end">
-                    <h6 class="bg-primary-500 inline-flex w-auto px-2.5 py-1 text-sm leading-6 text-white">
+                    <h6 class="bg-primary-500 inline-flex w-auto rounded-t-lg px-2.5 py-1 text-sm leading-6 text-white">
                         {{ __('Order summary') }}
                     </h6>
                 </div>
-                <x-order.summary :$order />
+                <x-order.summary :$order class="rounded-tr-none" />
             </div>
         </div>
     </div>

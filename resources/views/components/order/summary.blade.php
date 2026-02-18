@@ -2,7 +2,7 @@
     'order',
 ])
 
-<div class="py-4 rounded-xl border border-zinc-200 divide-y divide-zinc-200 divide-dashed">
+<div {{ $attributes->twMerge(['class' => 'py-4 rounded-xl border border-zinc-200 divide-y divide-zinc-200 divide-dashed']) }}>
     <dl class="px-4 pb-4 space-y-4">
         <div class="flex items-center justify-between text-sm">
             <dt class="text-zinc-700">{{ __('Subtotal') }}</dt>
