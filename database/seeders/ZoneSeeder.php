@@ -7,6 +7,7 @@ namespace Database\Seeders;
 use App\Models\Collection;
 use Illuminate\Support\Facades\DB;
 use Shopper\Core\Models\Carrier;
+use Shopper\Core\Models\CarrierOption;
 use Shopper\Core\Models\Country;
 use Shopper\Core\Models\Currency;
 use Shopper\Core\Models\PaymentMethod;
@@ -51,6 +52,21 @@ class ZoneSeeder extends AbstractSeeder
                     ->whereIn('slug', $zone->collections)
                     ->pluck('id');
                 $zoneModel->collections()->attach($collectionIds);
+
+                if (isset($zone->shipping_options) && filled($zone->shipping_options)) {
+                    foreach ($zone->shipping_options as $option) {
+                        $carrier = Carrier::query()->where('slug', $option->carrier)->first();
+
+                        CarrierOption::query()->create([
+                            'carrier_id' => $carrier->id,
+                            'zone_id' => $zoneModel->id,
+                            'name' => $option->name,
+                            'description' => $option->description,
+                            'price' => $option->price,
+                            'is_enabled' => $option->is_enabled,
+                        ]);
+                    }
+                }
             }
         });
 

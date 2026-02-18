@@ -15,8 +15,8 @@
     "brand_slug": "apple",
     "categories": ["electronics", "electronics-smartphones"],
     "collections": ["featured-products", "top-rated", "best-sellers"],
-    "thumbnail": "iphone-16-pro-max-thumb.avif",
-    "images": ["iphone-16-pro-max-2.avif", "iphone-16-pro-max-3.avif"],
+    "thumbnail": "iphone-16-pro-max-thumb.jpg",
+    "images": ["iphone-16-pro-max-2.jpg", "iphone-16-pro-max-3.jpg"],
     "prices": [],
     "stock": 50,
     "attributes": {
@@ -68,7 +68,7 @@
     "brand_slug": "sony",
     "categories": ["electronics-audio"],
     "collections": [],
-    "thumbnail": "sony-wh1000xm5-thumb.avif",
+    "thumbnail": "sony-wh1000xm5-thumb.jpg",
     "images": [],
     "prices": [
       { "currency_code": "XAF", "amount": 249900, "compare_amount": 299000, "cost_amount": 150000 },

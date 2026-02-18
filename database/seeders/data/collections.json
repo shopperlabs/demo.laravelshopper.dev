@@ -107,7 +107,7 @@
     "description": null,
     "type": "auto",
     "match_conditions": "any",
-    "image": null,
+    "image": "premium.jpg",
     "rules": [
       {
         "rule": "product_price",

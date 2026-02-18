@@ -79,23 +79,21 @@
     @endif
 
     @if ($collections->isNotEmpty())
-        <div class="bg-zinc-50">
-            <x-container class="py-16 lg:py-24">
-                <div class="max-w-xl pt-6 pb-12 mx-auto sm:pb-16 lg:max-w-none">
-                    <h2 class="text-2xl font-bold tracking-tight text-zinc-900 font-heading">
-                        {{ __('Shop by Collection') }}
-                    </h2>
-                    <p class="mt-4 text-base text-zinc-500">
-                        {{ __('Each season, we collaborate with world-class designers to create a collection inspired by the natural world.') }}
-                    </p>
+        <x-container class="py-16 lg:py-24">
+            <div class="max-w-xl pt-6 pb-12 mx-auto sm:pb-16 lg:max-w-none">
+                <h2 class="text-2xl font-bold tracking-tight text-zinc-900 font-heading">
+                    {{ __('Shop by Collection') }}
+                </h2>
+                <p class="mt-4 text-base text-zinc-500">
+                    {{ __('Each season, we collaborate with world-class designers to create a collection inspired by the natural world.') }}
+                </p>
 
-                    <div class="mt-10 grid gap-8 lg:grid-cols-3 lg:gap-12">
-                        @foreach ($collections as $collection)
-                            <x-collections.card :$collection />
-                        @endforeach
-                    </div>
+                <div class="mt-10 grid gap-8 lg:grid-cols-3 lg:gap-12">
+                    @foreach ($collections as $collection)
+                        <x-collections.card :$collection />
+                    @endforeach
                 </div>
-            </x-container>
-        </div>
+            </div>
+        </x-container>
     @endif
 </div>

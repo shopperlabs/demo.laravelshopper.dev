@@ -294,8 +294,8 @@
           { "currency_code": "USD", "amount": 999 }
         ],
         "stock": 34,
-        "thumbnail": "iphone-variant-black-256gb-thumb.avif",
-        "images": ["iphone-variant-black-256gb-2.avif", "iphone-variant-black-256gb-3.avif"]
+        "thumbnail": "iphone-variant-black-256gb-thumb.jpg",
+        "images": ["iphone-variant-black-256gb-2.jpg", "iphone-variant-black-256gb-3.jpg"]
       },
       {
         "name": "Black / 16 GB / 256 GB / 6.1\"",

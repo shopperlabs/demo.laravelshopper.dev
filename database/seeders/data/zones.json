@@ -7,6 +7,22 @@
     "currency_code": "XAF",
     "countries": ["CIV", "CMR", "COG", "SEN"],
     "carriers": ["manual"],
+    "shipping_options": [
+      {
+        "carrier": "manual",
+        "name": "Standard",
+        "description": "Delivery within 7-10 business days to your doorstep.",
+        "price": 2000,
+        "is_enabled": true
+      },
+      {
+        "carrier": "manual",
+        "name": "Premium",
+        "description": "Express delivery within 2-3 business days.",
+        "price": 5000,
+        "is_enabled": true
+      }
+    ],
     "payment_methods": ["cash"],
     "collections": ["gift-ideas"]
   },
@@ -18,6 +34,7 @@
     "currency_code": "EUR",
     "countries": ["BEL", "DEU", "ESP", "FRA", "ITA", "PRT"],
     "carriers": ["manual"],
+    "shipping_options": [],
     "payment_methods": ["cash"],
     "collections": []
   },
@@ -29,6 +46,7 @@
     "currency_code": "USD",
     "countries": ["BRA", "CAN", "USA"],
     "carriers": ["manual"],
+    "shipping_options": [],
     "payment_methods": ["cash"],
     "collections": ["gift-ideas"]
   }
