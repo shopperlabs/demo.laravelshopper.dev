@@ -22,9 +22,9 @@
                     </x-link>
                 </h3>
 
-                @if($item->attributes->isNotEmpty())
+                @if ($item->attributes->isNotEmpty())
                     <ul>
-                        @foreach($item->attributes as $name => $value)
+                        @foreach ($item->attributes as $name => $value)
                             <li class="text-sm">
                                 <span class="text-zinc-700 font-medium">{{ $name }}</span>:
                                 <span class="text-zinc-500">{{ $value }}</span>
@@ -44,14 +44,15 @@
             </p>
 
             <div class="flex">
-                <button
+                <flux:button
                     type="button"
+                    variant="danger"
+                    icon="trash"
+                    size="xs"
                     wire:click="removeToCart({{ $item->id }})"
-                    class="inline-flex items-center px-2 py-1.5 bg-red-50 rounded-md text-xs gap-2 font-medium text-red-700 hover:bg-red-100"
                 >
-                    <x-untitledui-trash-03 class="size-4" aria-hidden="true" />
                     {{ __('Remove') }}
-                </button>
+                </flux:button>
             </div>
         </div>
     </div>

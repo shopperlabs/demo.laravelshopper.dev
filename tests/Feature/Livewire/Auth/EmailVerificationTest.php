@@ -36,7 +36,7 @@ test('email can be verified', function (): void {
 
     expect($user->fresh()->hasVerifiedEmail())->toBeTrue();
 
-    $response->assertRedirect('/dashboard' . '?verified=1');
+    $response->assertRedirect('/dashboard?verified=1');
 });
 
 test('email is not verified with invalid hash', function (): void {

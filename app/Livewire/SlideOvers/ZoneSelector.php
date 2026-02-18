@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Livewire\Modals;
+namespace App\Livewire\SlideOvers;
 
 use App\Actions\CountriesWithZone;
 use App\Actions\ZoneSessionManager;
@@ -56,6 +56,6 @@ final class ZoneSelector extends SlideOverComponent
 
     public function render(): View
     {
-        return view('livewire.modals.zone-selector');
+        return view('livewire.slideovers.zone-selector');
     }
 }

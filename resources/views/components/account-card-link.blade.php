@@ -1,4 +1,9 @@
-@props(['href', 'icon', 'title', 'description'])
+@props([
+    'href',
+    'icon',
+    'title',
+    'description',
+])
 
 <div class="relative p-4 rounded-lg border border-zinc-200 hover:bg-zinc-50">
     <div class="flex items-start gap-4">

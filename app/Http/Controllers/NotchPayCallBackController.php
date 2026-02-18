@@ -59,6 +59,6 @@ class NotchPayCallBackController extends Controller
             );
         }
 
-        return redirect()->route('order-confirmed', ['number' => $transaction->order->number]);
+        return to_route('order-confirmed', ['number' => $transaction->order->number]);
     }
 }

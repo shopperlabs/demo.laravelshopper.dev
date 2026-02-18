@@ -46,7 +46,7 @@ new #[Layout('components.layouts.templates.app')] class extends Component
         // database. Otherwise we will parse the error and return the response.
         $status = Password::reset(
             $this->only('email', 'password', 'password_confirmation', 'token'),
-            function ($user) {
+            function ($user): void {
                 $user->forceFill([
                     'password' => Hash::make($this->password),
                     'remember_token' => Str::random(60),
@@ -73,7 +73,7 @@ new #[Layout('components.layouts.templates.app')] class extends Component
 
 <div class="relative">
     <svg
-        class="absolute inset-0 -z-10 h-full w-full stroke-zinc-100 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
+        class="absolute inset-0 -z-10 size-full stroke-zinc-100 mask-[radial-gradient(100%_100%_at_top_right,white,transparent)]"
         aria-hidden="true"
     >
         <defs>

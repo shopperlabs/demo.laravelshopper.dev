@@ -24,13 +24,13 @@ beforeEach(function (): void {
 
 describe(Store::class, function (): void {
     it('can render store page', function (): void {
-        get(route('store.products'))->assertOk();
+        get(route('store'))->assertOk();
 
         Livewire::test(Store::class)
             ->assertSuccessful();
     });
 
-    it('can filters products', function () {
+    it('can filters products', function (): void {
         $colorAttribute = Attribute::query()->create(['name' => 'Color', 'slug' => 'color', 'type' => 'checkbox']);
         $this->assertNotNull($colorAttribute->id);
 

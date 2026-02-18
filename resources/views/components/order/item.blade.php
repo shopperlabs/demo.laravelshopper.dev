@@ -1,4 +1,7 @@
-@props(['item', 'currency_code'])
+@props([
+    'item',
+    'currency_code',
+])
 
 <div class="flex py-6 sm:py-8">
     <div class="flex-1 min-w-0">
@@ -21,7 +24,7 @@
     </div>
     <div class="ml-4 shrink-0 sm:order-first sm:m-0 sm:mr-6">
         <div class="col-start-2 col-end-3 sm:col-start-1 sm:row-span-2 sm:row-start-1">
-            <x-products.thumbnail :product="$item->product" class="size-20" :ifCart=true/>
+            <x-products.thumbnail :product="$item->product" class="size-20" />
         </div>
     </div>
 </div>

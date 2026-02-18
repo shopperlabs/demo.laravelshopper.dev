@@ -22,9 +22,9 @@
             {{ __(':qty x :price', ['qty' => $item->quantity, 'price' => shopper_money_format($item->price, current_currency())]) }}
         </p>
 
-        @if($item->attributes->isNotEmpty())
+        @if ($item->attributes->isNotEmpty())
             <ul class="mt-2">
-                @foreach($item->attributes as $name => $value)
+                @foreach ($item->attributes as $name => $value)
                     <li class="text-xs text-white">
                         <span class="font-medium text-zinc-400">{{ $name }}</span>:
                         <span>{{ $value }}</span>

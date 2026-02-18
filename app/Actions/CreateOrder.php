@@ -35,8 +35,9 @@ final class CreateOrder
                 ->name,
         ]);
         /** @var OrderAddress $billingAddress */
-        $billingAddress = ! data_get($checkout, 'same_as_shipping')
-            ? OrderAddress::query()->create([
+        $billingAddress = data_get($checkout, 'same_as_shipping')
+            ? $shippingAddress
+            : OrderAddress::query()->create([
                 'customer_id' => data_get($checkout, 'billing_address.user_id'),
                 'last_name' => data_get($checkout, 'billing_address.last_name'),
                 'first_name' => data_get($checkout, 'billing_address.first_name'),
@@ -49,8 +50,7 @@ final class CreateOrder
                 'country_name' => Country::query()
                     ->find(data_get($checkout, 'billing_address.country_id'))
                     ->name,
-            ])
-            : $shippingAddress;
+            ]);
 
         /** @var Order $order */
         $order = Order::query()->create([

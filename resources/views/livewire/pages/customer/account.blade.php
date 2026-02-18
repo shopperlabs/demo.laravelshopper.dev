@@ -46,7 +46,7 @@ new #[Layout('components.layouts.templates.account')] class extends Component {
     />
 
     <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:max-w-5xl lg:grid-cols-3">
-        @foreach($this->links as $link)
+        @foreach ($this->links as $link)
             <x-account-card-link
                 :href="$link['href']"
                 :title="$link['title']"

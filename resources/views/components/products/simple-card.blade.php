@@ -3,7 +3,7 @@
 ])
 
 <div class="relative group">
-    <x-products.thumbnail :product="$product" />
+    <x-products.thumbnail :$product />
 
     <div class="flex justify-between mt-4">
         <div>
@@ -19,6 +19,6 @@
                 </p>
             @endif
         </div>
-        <x-products.price :product="$product" />
+        <x-products.price :$product />
     </div>
 </div>

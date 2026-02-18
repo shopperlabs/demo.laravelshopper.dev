@@ -1,29 +1,31 @@
-@props(['order'])
+@props([
+    'order',
+])
 
-<div class="py-4 border border-zinc-200 divide-y divide-zinc-200 divide-dashed">
+<div class="py-4 rounded-xl border border-zinc-200 divide-y divide-zinc-200 divide-dashed">
     <dl class="px-4 pb-4 space-y-4">
-        <div class="flex items-center justify-between">
-            <dt class="text-sm">{{ __('Subtotal') }}</dt>
-            <dd class="text-sm font-medium text-zinc-900">
+        <div class="flex items-center justify-between text-sm">
+            <dt class="text-zinc-700">{{ __('Subtotal') }}</dt>
+            <dd class="font-medium text-zinc-900">
                 {{ shopper_money_format($order->total(), $order->currency_code) }}
             </dd>
         </div>
-        <div class="flex items-center justify-between">
-            <dt class="text-sm">{{ __('Delivery') }}</dt>
-            <dd class="text-sm font-medium text-zinc-900">
-                {{ shopper_money_format($order->shippingOption->price, $order->currency_code) }}
+        <div class="flex items-center text-sm justify-between">
+            <dt class="text-zinc-700">{{ __('Delivery') }}</dt>
+            <dd class="font-medium text-zinc-900">
+                {{ shopper_money_format($order->shippingOption?->price ?? 0, $order->currency_code) }}
             </dd>
         </div>
-        <div class="flex items-center justify-between">
-            <dt class="text-sm">{{ __('Tax') }}</dt>
-            <dd class="text-sm font-medium text-zinc-900">
+        <div class="flex items-center justify-between text-sm">
+            <dt class="text-zinc-700">{{ __('Tax') }}</dt>
+            <dd class="font-medium text-zinc-900">
                 {{ shopper_money_format(0, $order->currency_code) }}
             </dd>
         </div>
         <div class="flex items-center justify-between pt-4 border-t border-zinc-200">
-            <dt class="font-medium font-heading text-primary-950">{{ __('Total') }}</dt>
+            <dt class="font-medium font-heading text-primary-700">{{ __('Total') }}</dt>
             <dd class="text-base font-bold text-zinc-900">
-                {{ shopper_money_format($order->total() + $order->shippingOption->price, $order->currency_code) }}
+                {{ shopper_money_format($order->total() + ($order->shippingOption?->price ?? 0), $order->currency_code) }}
             </dd>
         </div>
     </dl>

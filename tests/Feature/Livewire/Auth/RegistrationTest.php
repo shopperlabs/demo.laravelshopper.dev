@@ -15,7 +15,7 @@ describe('Registration', function (): void {
             ->assertSeeVolt('pages.auth.register');
     });
 
-    test('new users can register', function () {
+    test('new users can register', function (): void {
         $component = Volt::test('pages.auth.register')
             ->set('last_name', 'Test')
             ->set('first_name', 'User')

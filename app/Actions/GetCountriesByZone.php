@@ -17,20 +17,16 @@ final class GetCountriesByZone
             ->scopes('enabled')
             ->get();
 
-        $countriesByZone = $zones->map(function (Zone $zone) {
-            return $zone->countries->map(function (Country $country) use ($zone) {
-                return CountryByZoneData::fromArray([
-                    'zone_id' => $zone->id,
-                    'zone_name' => $zone->name,
-                    'zone_code' => $zone->code,
-                    'country_id' => $country->id,
-                    'country_name' => $country->name,
-                    'country_code' => $country->cca2,
-                    'country_flag' => $country->svg_flag,
-                    'currency_code' => $zone->currency->code,
-                ]);
-            });
-        });
+        $countriesByZone = $zones->map(fn (Zone $zone) => $zone->countries->map(fn (Country $country): CountryByZoneData => CountryByZoneData::fromArray([
+            'zone_id' => $zone->id,
+            'zone_name' => $zone->name,
+            'zone_code' => $zone->code,
+            'country_id' => $country->id,
+            'country_name' => $country->name,
+            'country_code' => $country->cca2,
+            'country_flag' => $country->svg_flag,
+            'currency_code' => $zone->currency->code,
+        ])));
 
         return $countriesByZone->flatten(1);
     }

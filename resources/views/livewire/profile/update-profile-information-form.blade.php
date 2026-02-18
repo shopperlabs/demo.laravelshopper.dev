@@ -7,12 +7,14 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Validation\Rule;
 use Livewire\Volt\Component;
+use Shopper\Core\Enum\GenderType;
 
 new class extends Component
 {
     public string $first_name = '';
     public string $last_name = '';
     public string $email = '';
+    public string $gender = '';
 
     /**
      * Mount the component.
@@ -22,6 +24,7 @@ new class extends Component
         $this->first_name = Auth::user()->first_name;
         $this->last_name = Auth::user()->last_name;
         $this->email = Auth::user()->email;
+        $this->gender = Auth::user()->gender->value;
     }
 
     /**
@@ -34,6 +37,7 @@ new class extends Component
         $validated = $this->validate([
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
+            'gender' => ['required', 'string', Rule::in(GenderType::cases())],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', Rule::unique(User::class)->ignore($user->id)],
         ]);
 
@@ -45,7 +49,7 @@ new class extends Component
 
         $user->save();
 
-        $this->dispatch('profile-updated', name: $user->full_name);
+        $this->dispatch('notify', title: $user->full_name. ' profile updated');
     }
 
     /**
@@ -80,20 +84,26 @@ new class extends Component
 
     <form wire:submit="updateProfileInformation" class="mt-6 space-y-6 max-w-xl">
         <flux:field>
-            <flux:label>{{ __('First Name') }}</flux:label>
+            <flux:label badge="required">{{ __('First Name') }}</flux:label>
             <flux:input wire:model="first_name" type="text" required autofocus autocomplete="first-name" />
             <flux:error name="first_name" />
         </flux:field>
 
         <flux:field>
-            <flux:label>{{ __('Last Name') }}</flux:label>
+            <flux:label badge="required">{{ __('Last Name') }}</flux:label>
             <flux:input wire:model="last_name" type="text" required autocomplete="last-name" />
             <flux:error name="last_name" />
         </flux:field>
 
+        <flux:select wire:model="gender" placeholder="Select gender..." :label="__('Gender')">
+            @foreach (GenderType::options() as $value => $label)
+                <flux:select.option :value="$value">{{ $label }}</flux:select.option>
+            @endforeach
+        </flux:select>
+
         <div>
             <flux:field>
-                <flux:label>{{ __('Email') }}</flux:label>
+                <flux:label badge="required">{{ __('Email') }}</flux:label>
                 <flux:input wire:model="email" type="email" required autocomplete="username" />
                 <flux:error name="email" />
             </flux:field>

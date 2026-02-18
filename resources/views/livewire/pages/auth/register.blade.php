@@ -9,9 +9,10 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Livewire\Attributes\Layout;
 use Livewire\Volt\Component;
+use Shopper\Core\Enum\GenderType;
 
-new #[Layout('components.layouts.templates.app')] class extends Component
-{
+new #[Layout('components.layouts.templates.app')]
+class extends Component {
     public string $first_name = '';
     public string $last_name = '';
     public string $email = '';
@@ -26,11 +27,12 @@ new #[Layout('components.layouts.templates.app')] class extends Component
         $validated = $this->validate([
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'string', 'confirmed', Rules\Password::defaults()],
         ]);
 
         $validated['password'] = Hash::make($validated['password']);
+        $validated['gender'] = GenderType::Male;
 
         event(new Registered($user = User::query()->create($validated)));
 
@@ -42,7 +44,7 @@ new #[Layout('components.layouts.templates.app')] class extends Component
 
 <div class="relative">
     <svg
-        class="absolute inset-0 -z-10 h-full w-full stroke-zinc-100 mask-[radial-gradient(100%_100%_at_top_right,white,transparent)]"
+        class="absolute inset-0 -z-10 size-full stroke-zinc-100 mask-[radial-gradient(100%_100%_at_top_right,white,transparent)]"
         aria-hidden="true"
     >
         <defs>
@@ -60,7 +62,8 @@ new #[Layout('components.layouts.templates.app')] class extends Component
         <rect width="100%" height="100%" stroke-width="0" fill="url(#0787a7c5-978c-4f66-83c7-11c213f99cb7)" />
     </svg>
 
-    <div class="relative min-h-full flex flex-col justify-center py-12 divide-y divide-zinc-200 lg:max-w-2xl lg:mx-auto">
+    <div
+        class="relative min-h-full flex flex-col justify-center py-12 divide-y divide-zinc-200 lg:max-w-2xl lg:mx-auto">
         <div class="sm:mx-auto sm:w-full sm:max-w-md py-8">
             <h2 class="text-xl font-semibold text-zinc-900 font-heading">
                 {{ __('Create account') }}
@@ -98,12 +101,14 @@ new #[Layout('components.layouts.templates.app')] class extends Component
                     <!-- Confirm Password -->
                     <flux:field>
                         <flux:label>{{ __('Confirm Password') }}</flux:label>
-                        <flux:input wire:model="password_confirmation" type="password" required autocomplete="new-password" />
+                        <flux:input wire:model="password_confirmation" type="password" required
+                                    autocomplete="new-password" />
                         <flux:error name="password_confirmation" />
                     </flux:field>
 
                     <div class="space-y-3">
-                        <x-link class="inline-block underline text-sm text-zinc-600 hover:text-zinc-900" href="{{ route('login') }}">
+                        <x-link class="inline-block underline text-sm text-zinc-600 hover:text-zinc-900"
+                                href="{{ route('login') }}">
                             {{ __('Already registered?') }}
                         </x-link>
 
@@ -119,11 +124,13 @@ new #[Layout('components.layouts.templates.app')] class extends Component
                     {{ __('By registering to create an account, you agree to our') }}
                     <x-link href="#" class="font-medium text-black group group-link-underline">
                         <span class="link link-underline link-underline-black">{{ __('terms & conditions') }}</span>
-                    </x-link>.
+                    </x-link>
+                    .
                     {{ __('Please read our') }}
                     <x-link href="#" class="font-medium text-black group group-link-underline">
                         <span class="link link-underline link-underline-black">{{ __('privacy policy') }}</span>
-                    </x-link>.
+                    </x-link>
+                    .
                 </p>
             </div>
         </div>

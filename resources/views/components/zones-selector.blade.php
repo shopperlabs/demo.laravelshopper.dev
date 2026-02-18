@@ -2,7 +2,7 @@
     <p class="text-zinc-700 text-sm leading-5">
         {{ __('Shipping to') }} :
     </p>
-    <button onclick="Livewire.dispatch('openPanel', { component: 'modals.zone-selector' })" type="button" class="group font-medium ml-4 flex items-center hover:text-zinc-950">
+    <button onclick="Livewire.dispatch('openPanel', { component: 'slide-overs.zone-selector' })" type="button" class="group font-medium ml-4 flex items-center hover:text-zinc-950">
         <img
             src="{{ \App\Actions\ZoneSessionManager::getSession()?->countryFlag }}"
             alt="country flag"

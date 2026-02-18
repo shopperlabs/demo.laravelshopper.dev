@@ -29,12 +29,13 @@ final class Home extends Component
                 ->scopes('publish')
                 ->limit(8)
                 ->get(),
-            'collections' => Collection::query()->withCount('products')
+            'collections' => Collection::query()
+                ->has('products')
+                ->withCount('products')
                 ->with('media')
-                ->select('id', 'name', 'slug', 'description')
+                ->orderByDesc('products_count')
                 ->limit(3)
-                ->get()
-                ->sortBy(['products_count', 'desc']),
+                ->get(),
             'categories' => Category::query()
                 ->whereNull('parent_id')
                 ->where('is_enabled', true)

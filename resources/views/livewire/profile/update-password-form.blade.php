@@ -34,7 +34,7 @@ new class extends Component
 
         $this->reset('current_password', 'password', 'password_confirmation');
 
-        $this->dispatch('password-updated');
+        $this->dispatch('notify', title: 'Password update');
     }
 }; ?>
 
@@ -51,20 +51,20 @@ new class extends Component
 
     <form wire:submit="updatePassword" class="mt-8 space-y-6 max-w-xl">
         <flux:field>
-            <flux:label>{{ __('Current Password') }}</flux:label>
-            <flux:input wire:model="current_password" type="password" autocomplete="current-password" />
+            <flux:label badge="required">{{ __('Current Password') }}</flux:label>
+            <flux:input wire:model="current_password" type="password" autocomplete="current-password" required />
             <flux:error name="current_password" />
         </flux:field>
 
         <flux:field>
-            <flux:label>{{ __('New Password') }}</flux:label>
-            <flux:input wire:model="password" type="password" autocomplete="new-password" />
+            <flux:label badge="required">{{ __('New Password') }}</flux:label>
+            <flux:input wire:model="password" type="password" autocomplete="new-password" required />
             <flux:error name="password" />
         </flux:field>
 
         <flux:field>
-            <flux:label>{{ __('Confirm Password') }}</flux:label>
-            <flux:input wire:model="password_confirmation" type="password" autocomplete="new-password" />
+            <flux:label badge="required">{{ __('Confirm Password') }}</flux:label>
+            <flux:input wire:model="password_confirmation" type="password" autocomplete="new-password" required />
             <flux:error name="password_confirmation" />
         </flux:field>
 

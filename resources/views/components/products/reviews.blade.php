@@ -3,6 +3,6 @@
     'count' => 0
 ])
 <div class="flex items-center">
-    <x-rate-stars :rating="$rating" />
+    <x-rate-stars :$rating />
     <p class="sr-only">{{ __('shopper::pages.products.reviews.rating_count', ['rating' => $rating, 'count' => $count]) }}</p>
 </div>

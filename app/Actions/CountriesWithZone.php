@@ -4,14 +4,16 @@ declare(strict_types=1);
 
 namespace App\Actions;
 
+use Exception;
 use Illuminate\Support\Collection;
 
 final class CountriesWithZone
 {
+    /**
+     * @throws Exception
+     */
     public function handle(): Collection
     {
-        return once(function () {
-            return resolve(GetCountriesByZone::class)->handle();
-        });
+        return resolve(GetCountriesByZone::class)->handle();
     }
 }

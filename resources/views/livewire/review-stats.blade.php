@@ -15,12 +15,20 @@ new class extends Component
     #[On('reviewCreated')]
     public function reviewsStats(): array
     {
+        $approvedRatings = $this->product->ratings()->where('approved', true);
+        $total = $approvedRatings->count();
+
         $reviewsStats = [];
 
         foreach (range(1, 5) as $rating) {
+            $count = $this->product->ratings()
+                ->where('approved', true)
+                ->where('rating', $rating)
+                ->count();
+
             $reviewsStats[$rating] = [
-                'count' => $this->product->ratings()->where('rating', $rating)->count(),
-                'percentage' => round($this->product->ratingPercent($rating), 2),
+                'count' => $count,
+                'percentage' => $total > 0 ? round(($count / $total) * 100, 2) : 0,
             ];
         }
 
@@ -50,8 +58,10 @@ new class extends Component
 
                             <div class="relative ml-3 flex-1">
                                 <div class="h-3 rounded-full border border-zinc-200 bg-zinc-100"></div>
-                                <div style="width: {{ $stat['percentage'] }}%"
-                                     class="absolute inset-y-0 rounded-full border border-yellow-400 bg-yellow-400"></div>
+                                @if ($stat['percentage'] > 0)
+                                    <div style="width: {{ $stat['percentage'] }}%"
+                                         class="absolute inset-y-0 rounded-full border border-yellow-400 bg-yellow-400"></div>
+                                @endif
                             </div>
                         </div>
                     </dt>

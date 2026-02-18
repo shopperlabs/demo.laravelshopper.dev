@@ -12,7 +12,7 @@
         </x-link>
     </h3>
 
-    @if ($product->brand)
+    @if ($product->brand_id)
         <p class="mt-1 text-sm text-zinc-500">
             {{ $product->brand->name }}
         </p>

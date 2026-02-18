@@ -93,5 +93,4 @@ describe('Profile', function (): void {
         $this->assertNotNull($user->fresh());
     });
 })
-    ->group('profile')
-    ->skip();
+    ->group('profile');

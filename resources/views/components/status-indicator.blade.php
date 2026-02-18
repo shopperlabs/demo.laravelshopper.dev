@@ -1,4 +1,7 @@
-@props(['title', 'variant'])
+@props([
+    'title',
+    'variant',
+])
 
 @php
     $dotClass = match ($variant) {
@@ -15,7 +18,7 @@
 
 <div {{ $attributes->twMerge(['class' => 'inline-flex items-center gap-2 bg-white rounded-full px-2 py-1 text-xs font-medium text-zinc-600 ring-1 ring-inset ring-zinc-200']) }}>
     <div @class([
-        'h-1.5 w-1.5 self-center rounded-full',
+        'size-1.5 self-center rounded-full',
         $dotClass
     ])></div>
     <span>{{ $title }}</span>

@@ -1,4 +1,4 @@
-<footer aria-labelledby="footer-heading" class="bg-white">
+<footer aria-labelledby="footer-heading" class="bg-linear-to-b from-zinc-50 to-white border-t border-zinc-200">
     <h2 id="footer-heading" class="sr-only">{{ __('Footer') }}</h2>
     <x-container>
         <div class="py-10 sm:py-20 lg:grid lg:grid-cols-2 lg:gap-10 lg:py-24">
@@ -82,9 +82,9 @@
             </p>
             <a href="https://laravelshopper.dev" class="inline-flex items-center gap-x-2 text-sm font-medium text-zinc-400" target="_blank">
                 <span>{{ __('Powered by') }}</span>
-                <x-brand class="size-5" aria-hidden="true" />
+                <x-brand class="size-5 opacity-45" aria-hidden="true" />
                 <span>&</span>
-                <x-brand.starter-kit class="size-5" aria-hidden="true" />
+                <x-brand.starter-kit class="size-5 opacity-45" aria-hidden="true" />
             </a>
         </div>
     </x-container>

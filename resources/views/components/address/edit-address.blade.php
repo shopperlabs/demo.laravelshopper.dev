@@ -4,13 +4,13 @@
     @if ($address->type === \Shopper\Core\Enum\AddressType::Billing)
         <div class="absolute top-2 right-2">
             <span class="inline-flex items-center px-2 py-1 text-xs font-medium rounded-md gap-x-2 bg-primary-600 text-primary-100">
-                <x-untitledui-tag class="size-4" stroke-width="1.5" aria-hidden="true" />
+                <x-untitledui-credit-card class="size-4" stroke-width="1.5" aria-hidden="true" />
                 {{ __('Billing') }}
             </span>
         </div>
     @endif
 
-    <div class="flex flex-col justify-between flex-1">
+    <div class="flex flex-col justify-between  gap-4 flex-1">
         <div class="flex flex-col space-y-4">
             <h4 class="text-base font-medium text-left text-zinc-900 font-heading">
                 {{ $address->first_name }} {{ $address->last_name }}
@@ -31,25 +31,19 @@
             </p>
             <div class="space-y-2">
                 @if ($address->isShippingDefault())
-                    <div class="flex items-center gap-2 text-sm">
-                        <x-heroicon-o-check class="text-zinc-400 size-5" stroke-width="1.5" aria-hidden="true" />
-                        <span class="text-zinc-600">
-                            {{ __('Default shipping address') }}
-                        </span>
-                    </div>
+                    <flux:badge size="sm" icon="check">
+                        {{ __('Default shipping address') }}
+                    </flux:badge>
                 @endif
 
                 @if ($address->isBillingDefault())
-                    <div class="flex items-center gap-2 text-sm">
-                        <x-heroicon-o-check class="text-zinc-400 size-5" stroke-width="1.5" aria-hidden="true" />
-                        <span class="text-zinc-600">
-                            {{ __('Default billing address') }}
-                        </span>
-                    </div>
+                    <flux:badge size="sm" icon="check">
+                        {{ __('Default billing address') }}
+                    </flux:badge>
                 @endif
             </div>
         </div>
-        <div class="flex items-center gap-4">
+        <div class="flex items-center gap-2">
             <flux:button size="sm" variant="danger" wire:click="removeAddress({{ $address->id }})"
                 wire:confirm="{{ __('Do you really want to delete this address ?') }}">
                 <x-untitledui-trash-03 class="size-5" stroke-width="1.5" aria-hidden="true" />

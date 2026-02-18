@@ -24,7 +24,7 @@
                 <!-- Decorative image grid -->
                 @include('includes._decorative_images')
 
-                <flux:button variant="primary" :href="route('store.products')" class="group">
+                <flux:button variant="primary" :href="route('store')" class="group">
                     {{ __('Discover now') }}
                     <span
                         class="ml-2 transition duration-200 ease-in-out transform translate-x-0 group-hover:translate-x-1">
@@ -44,7 +44,7 @@
                     <h2 class="text-2xl font-semibold tracking-tight text-zinc-900 font-heading">
                         {{ __('Trending products') }}
                     </h2>
-                    <x-link href="#" class="hidden text-sm font-semibold text-primary-600 hover:text-primary-500 sm:block">
+                    <x-link :href="route('store')" class="hidden text-sm font-semibold text-primary-600 hover:text-primary-500 sm:block">
                         See everything
                         <span aria-hidden="true"> →</span>
                     </x-link>
@@ -91,7 +91,7 @@
 
                     <div class="mt-10 grid gap-8 lg:grid-cols-3 lg:gap-12">
                         @foreach ($collections as $collection)
-                            <x-collections.card :collection="$collection" />
+                            <x-collections.card :$collection />
                         @endforeach
                     </div>
                 </div>

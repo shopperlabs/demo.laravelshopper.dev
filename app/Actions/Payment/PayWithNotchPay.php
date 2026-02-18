@@ -32,7 +32,7 @@ final class PayWithNotchPay implements ManageOrder
                 'amount' => $amount,
                 'email' => $email = $user->email,
                 'currency' => ZoneSessionManager::getSession()->currencyCode,
-                'reference' => $user->id . '-' . $email . '-' . uniqid(),
+                'reference' => $user->id.'-'.$email.'-'.uniqid(),
                 'callback' => route('notchpay-callback'),
                 'description' => __('Order payment N° :number', ['number' => $order->number]),
             ]);
@@ -59,7 +59,7 @@ final class PayWithNotchPay implements ManageOrder
                 __('Unable to process payment, please try again later. Thank you')
             );
 
-            return redirect()->route('order-confirmed', ['number' => $order->number]);
+            return to_route('order-confirmed', ['number' => $order->number]);
         }
     }
 }

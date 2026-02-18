@@ -31,7 +31,7 @@ describe(Login::class, function (): void {
         $this->assertAuthenticated();
     });
 
-    test('users can not authenticate with invalid password', function () {
+    test('users can not authenticate with invalid password', function (): void {
         $user = User::factory()->create();
 
         $component = Volt::test('pages.auth.login')

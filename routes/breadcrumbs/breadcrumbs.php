@@ -5,26 +5,41 @@ declare(strict_types=1);
 use Diglactic\Breadcrumbs\Breadcrumbs;
 use Diglactic\Breadcrumbs\Generator;
 
-Breadcrumbs::for('home', function (Generator $trail) {
-    $trail->push('Home', route('home'));
+Breadcrumbs::for('home', function (Generator $trail): void {
+    $trail->push(__('Home'), route('home'));
 });
 
-Breadcrumbs::for('store', function (Generator $trail) {
+Breadcrumbs::for('store', function (Generator $trail): void {
     $trail->parent('home');
-    $trail->push('Store', route('store.products'));
+    $trail->push(__('Store'), route('store'));
 });
 
-Breadcrumbs::for('category', function (Generator $trail, $category) {
+Breadcrumbs::for('category', function (Generator $trail, $category): void {
     $trail->parent('home');
-    $trail->push($category->name, route('category.products', $category));
+
+    $ancestors = $category->ancestorsAndSelf()
+        ->orderBy('depth')
+        ->get();
+
+    foreach ($ancestors as $ancestor) {
+        $trail->push($ancestor->name, route('category.products', $ancestor));
+    }
 });
 
-Breadcrumbs::for('collection', function (Generator $trail, $collection) {
+Breadcrumbs::for('collection', function (Generator $trail, $collection): void {
     $trail->parent('home');
     $trail->push($collection->name, route('collection.products', $collection));
 });
 
-Breadcrumbs::for('product', function (Generator $trail, $product) {
-    $trail->parent('store');
-    $trail->push($product->name, route('single-product', $product));
+Breadcrumbs::for('product', function (Generator $trail, $product): void {
+    $category = $product->categories()->whereNotNull('parent_id')->first()
+        ?? $product->categories()->first();
+
+    if ($category) {
+        $trail->parent('category', $category);
+    } else {
+        $trail->parent('store');
+    }
+
+    $trail->push($product->name);
 });

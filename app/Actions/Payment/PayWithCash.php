@@ -13,6 +13,6 @@ final class PayWithCash implements ManageOrder
     {
         session()->forget('checkout');
 
-        return redirect()->route('order-confirmed', ['number' => $order->number]);
+        return to_route('order-confirmed', ['number' => $order->number]);
     }
 }

@@ -1,11 +1,14 @@
-@props(['items', 'currency_code'])
+@props([
+    'items',
+    'currency_code',
+])
 
 <div class="gap-6 sm:grid sm:grid-cols-2 sm:gap-x-8 lg:grid-cols-3">
-    @foreach($items as $item)
+    @foreach ($items as $item)
         <div class="relative flex gap-3">
             <x-products.thumbnail
                 :product="$item->product"
-                class="size-28" :ifCart=true
+                class="size-28"
             />
             <div class="flex-1 space-y-0.5">
                 <h4 class="text-sm font-medium leading-5 font-heading text-brand">

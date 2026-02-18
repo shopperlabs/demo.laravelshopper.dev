@@ -1,20 +1,11 @@
 <div class="flex flex-col h-full">
-    <div class="flex-1 h-0 p-8 overflow-y-auto lg:pt-12">
+    <div class="flex-1 h-0 p-4 overflow-y-auto">
         <div class="space-y-6">
             <div class="flex items-start justify-between gap-2">
                 <h2 class="text-2xl font-semibold text-zinc-900 font-heading">
                     {{ __('Please select your Country / Zone') }}
                 </h2>
-                <div class="flex items-center ml-3 h-7">
-                    <button
-                        type="button"
-                        class="text-zinc-400 bg-white rounded-full hover:text-zinc-500 focus:outline-none"
-                        wire:click="$dispatch('closePanel')"
-                    >
-                        <span class="sr-only">{{ __('Close panel') }}</span>
-                        <x-untitledui-x class="size-8" stroke-width="1.5" aria-hidden="true" />
-                    </button>
-                </div>
+                <x-livewire-slide-over::close-icon />
             </div>
             @if(\App\Actions\ZoneSessionManager::getSession())
                 <p class="text-zinc-600">

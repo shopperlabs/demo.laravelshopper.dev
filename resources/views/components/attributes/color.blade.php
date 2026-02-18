@@ -4,7 +4,7 @@
     <p class="block text-sm font-medium text-zinc-900">{{ $attribute->name }}</p>
 
     @if ($attribute->values->isNotEmpty())
-        <div class="grid grid-cols-3 gap-3 sm:grid-cols-6 mt-6">
+        <div class="flex items-center flex-wrap gap-3 mt-6">
             @foreach ($attribute->values as $index => $value)
                 <div class="flex items-center space-x-4" wire:key="{{ $attribute->slug }}-{{ $value->key }}">
                     <label
@@ -21,7 +21,7 @@
                         <span
                             aria-hidden="true"
                             style="background-color: {{ $value->key }} "
-                            class="size-8 rounded-full "
+                            class="size-6 rounded-full "
                             :class="selectedColorAttributes.includes('{{ $value->id }}') ? 'ring-2 ring-primary-600 ring-offset-2' : 'border-double border-2 border-black/10' "
                         ></span>
                     </label>

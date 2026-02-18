@@ -13,7 +13,7 @@ Route::get('/', Pages\Home::class)->name('home');
 Route::get('/products/{product:slug}', Pages\SingleProduct::class)->name('single-product');
 Route::get('category/{category:slug}', Pages\Category\CategoryProducts::class)->name('category.products');
 Route::get('/collection/{collection:slug}', CollectionProducts::class)->name('collection.products');
-Route::get('/store', Pages\Store::class)->name('store.products');
+Route::get('/store', Pages\Store::class)->name('store');
 
 Route::middleware('auth')->group(function (): void {
     Route::get('/checkout', Checkout::class)->name('checkout');
@@ -32,4 +32,4 @@ Route::middleware('auth')->group(function (): void {
 
 Route::get('callback-payment', NotchPayCallBackController::class)->name('notchpay-callback');
 
-require __DIR__ . '/auth.php';
+require __DIR__.'/auth.php';

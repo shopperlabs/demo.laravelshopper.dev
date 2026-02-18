@@ -6,6 +6,8 @@ namespace App\Models;
 
 use App\Enums\PaymentType;
 use App\Enums\TransactionStatus;
+use Database\Factories\TransactionFactory;
+use Illuminate\Database\Eloquent\Attributes\Scope;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -15,19 +17,19 @@ use Shopper\Core\Models\Order;
 
 /**
  * @property-read string $id
- * @property TransactionStatus $status
- * @property int $amount
- * @property int $fees
- * @property PaymentType | null $provider
- * @property Order $order
- * @property array $metadata
+ * @property-read TransactionStatus $status
+ * @property-read int $amount
+ * @property-read int $fees
+ * @property-read ?PaymentType $provider
+ * @property-read Order $order
+ * @property-read array<string, mixed> $metadata
  */
 final class Transaction extends Model
 {
+    /** @use HasFactory<TransactionFactory> */
     use HasFactory;
-    use HasUlids;
 
-    protected $guarded = [];
+    use HasUlids;
 
     public $casts = [
         'metadata' => 'array',
@@ -35,19 +37,22 @@ final class Transaction extends Model
         'provider' => PaymentType::class,
     ];
 
+    protected $guarded = [];
+
+    /**
+     * @return BelongsTo<User, $this>
+     */
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
+    /**
+     * @return BelongsTo<Order, $this>
+     */
     public function order(): BelongsTo
     {
         return $this->belongsTo(Order::class, 'order_id');
-    }
-
-    public function scopeComplete(Builder $query): Builder
-    {
-        return $query->where('status', TransactionStatus::Complete());
     }
 
     public function getMetadata(string $name, string $default = ''): mixed
@@ -65,12 +70,19 @@ final class Transaction extends Model
      */
     public function setMetadata(array $revisions, bool $save = true): self
     {
-        $this->metadata = array_merge($this->metadata ?? [], $revisions);
+        $this->fill(['metadata' => array_merge($this->metadata ?? [], $revisions)]);
 
         if ($save) {
             $this->save();
         }
 
         return $this;
+    }
+
+    /** @param  Builder<Transaction>  $query */
+    #[Scope]
+    protected function complete(Builder $query): Builder
+    {
+        return $query->where('status', TransactionStatus::Complete());
     }
 }

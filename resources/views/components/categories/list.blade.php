@@ -21,7 +21,8 @@
                     {{ $child->name }}
                 </x-link>
             @endforeach
-            @if ($category->children->count() > 6)
+
+            @if ($category->children->count() > 4)
                 <x-link :href="route('category.products', $category->slug)" class="mt-4 text-sm font-medium text-zinc-700 hover:text-zinc-900 group group-link-underline">
                     <span class="inline-flex items-center gap-2 link link-underline link-underline-black">
                         <x-untitledui-plus class="size-4" aria-hidden="true" />

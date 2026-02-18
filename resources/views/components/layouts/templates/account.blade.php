@@ -10,22 +10,19 @@
                         <x-nav.account-link
                             :href="route('dashboard')"
                             :title="__('Overview')"
-                            :active="request()->routeIs('dashboard')"
+                            :exact="true"
                         />
                         <x-nav.account-link
                             :href="route('dashboard.profile')"
                             :title="__('Profile')"
-                            :active="request()->routeIs('dashboard.profile')"
                         />
                         <x-nav.account-link
                             :href="route('dashboard.addresses')"
                             :title="__('Addresses')"
-                            :active="request()->routeIs('dashboard.addresses')"
                         />
                         <x-nav.account-link
                             :href="route('dashboard.orders')"
                             :title="__('Orders')"
-                            :active="request()->routeIs('dashboard.orders*')"
                         />
                     </nav>
                 </div>

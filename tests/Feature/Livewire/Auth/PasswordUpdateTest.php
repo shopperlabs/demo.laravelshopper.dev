@@ -27,7 +27,7 @@ describe('PasswordUpdate', function (): void {
         $this->assertTrue(Hash::check('new-password', $user->refresh()->password));
     });
 
-    test('correct password must be provided to update password', function () {
+    test('correct password must be provided to update password', function (): void {
         $user = User::factory()->create();
 
         $this->actingAs($user);

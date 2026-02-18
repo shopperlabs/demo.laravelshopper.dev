@@ -21,7 +21,7 @@ final class Orders extends Component
                 ->orders()
                 ->with(['items', 'items.product', 'shippingOption', 'shippingAddress', 'billingAddress'])
                 ->latest()
-                ->simplePaginate(3),
+                ->simplePaginate(7),
         ])
             ->title(__('My orders'));
     }
