@@ -19,12 +19,11 @@
                         {{ __('Categories') }}
                     </h3>
                     <ul role="list" class="mt-6 space-y-4">
-                        <li>
-                            <x-footer-link href="#">{{ __('Furniture') }}</x-footer-link>
-                        </li>
-                        <li>
-                            <x-footer-link href="#">{{ __('Electronic') }}</x-footer-link>
-                        </li>
+                        @foreach ($footerCategories as $category)
+                            <li>
+                                <x-footer-link :href="route('category.products', $category->slug)">{{ $category->name }}</x-footer-link>
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
                 <div>
@@ -42,7 +41,7 @@
                             <x-footer-link href="#">{{ __('Returns & Refunds') }}</x-footer-link>
                         </li>
                         <li>
-                            <x-footer-link href="#">{{ __('Collections') }}</x-footer-link>
+                            <x-footer-link :href="route('collections')">{{ __('Collections') }}</x-footer-link>
                         </li>
                     </ul>
                 </div>

@@ -5,7 +5,7 @@
             <x-nav.item :href="route('store')" @class(['font-medium text-zinc-900' => request()->routeIs('store')])>
                 {{ __('Shop') }}
             </x-nav.item>
-            <x-nav.item href="#">
+            <x-nav.item :href="route('collections')" @class(['font-medium text-zinc-900' => request()->routeIs('collections')])>
                 {{ __('Collections') }}
             </x-nav.item>
             <x-nav.item href="#">

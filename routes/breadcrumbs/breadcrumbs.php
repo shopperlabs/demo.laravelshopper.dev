@@ -26,8 +26,13 @@ Breadcrumbs::for('category', function (Generator $trail, $category): void {
     }
 });
 
-Breadcrumbs::for('collection', function (Generator $trail, $collection): void {
+Breadcrumbs::for('collections', function (Generator $trail): void {
     $trail->parent('home');
+    $trail->push(__('Collections'), route('collections'));
+});
+
+Breadcrumbs::for('collection', function (Generator $trail, $collection): void {
+    $trail->parent('collections');
     $trail->push($collection->name, route('collection.products', $collection));
 });
 
