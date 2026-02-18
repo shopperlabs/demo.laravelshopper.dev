@@ -6,23 +6,22 @@ namespace App\Livewire;
 
 use Darryldecode\Cart\CartCollection;
 use Darryldecode\Cart\Facades\CartFacade;
-use Filament\Notifications\Notification;
 use Illuminate\Contracts\View\View;
 use Laravelcm\LivewireSlideOvers\SlideOverComponent;
 use Livewire\Attributes\On;
 
 final class ShoppingCart extends SlideOverComponent
 {
-    public static function panelMaxWidth(): string
-    {
-        return 'lg';
-    }
-
     public float $subtotal = 0;
 
     public CartCollection $items;
 
     public ?string $sessionKey = null;
+
+    public static function panelMaxWidth(): string
+    {
+        return 'lg';
+    }
 
     public function mount(): void
     {
@@ -44,14 +43,9 @@ final class ShoppingCart extends SlideOverComponent
     {
         CartFacade::session($this->sessionKey)->remove($id); // @phpstan-ignore-line
 
-        Notification::make()
-            ->title(__('Cart updated'))
-            ->body(__('The product  has been removed from your cart !'))
-            ->success()
-            ->send();
+        $this->dispatch('notify', type: 'success', title: __('Cart updated'), message: __('The product has been removed from your cart!'));
 
         $this->dispatch('cartUpdated');
-        $this->dispatch('closePanel');
     }
 
     public function render(): View

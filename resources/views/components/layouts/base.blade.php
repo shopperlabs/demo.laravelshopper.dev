@@ -19,9 +19,9 @@
 <body class="font-sans antialiased selection:bg-black selection:text-white">
     {{ $slot }}
 
-    @livewire(\Filament\Notifications\Livewire\Notifications::class)
+    <x-notification />
+
     @livewire(\Laravelcm\LivewireSlideOvers\SlideOverPanel::class)
-    @livewire('wire-elements-modal')
 
     @fluxScripts
 </body>

@@ -5,16 +5,7 @@
                 <h2 class="text-lg font-medium text-zinc-900">
                     {{ __('My cart') }}
                 </h2>
-                <div class="flex items-center ml-3 h-7">
-                    <button
-                        type="button"
-                        class="text-zinc-400 bg-white rounded-md hover:text-zinc-500"
-                        wire:click="$dispatch('closePanel')"
-                    >
-                        <span class="sr-only">Close panel</span>
-                        <x-untitledui-x class="size-6" stroke-width="1.5" aria-hidden="true" />
-                    </button>
-                </div>
+                <x-livewire-slide-over::close-icon />
             </div>
         </header>
 
@@ -23,7 +14,7 @@
                 <div class="flow-root">
                     <ul role="list" class="-my-6 divide-y divide-zinc-200">
                         @foreach ($items as $item)
-                            <x-cart.item wire:key="{{ $item->id }}" :item="$item" />
+                            <x-cart.item wire:key="{{ $item->id }}" :$item />
                         @endforeach
                     </ul>
                 </div>

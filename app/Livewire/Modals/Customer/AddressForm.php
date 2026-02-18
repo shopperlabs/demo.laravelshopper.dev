@@ -6,7 +6,6 @@ namespace App\Livewire\Modals\Customer;
 
 use App\Actions\CountriesWithZone;
 use App\Actions\ZoneSessionManager;
-use Filament\Notifications\Notification;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
@@ -66,6 +65,8 @@ final class AddressForm extends Component
             )
             ->pluck('name', 'id');
 
+        $this->country_id = ZoneSessionManager::getSession()?->countryId;
+
         if ($addressId && $this->address->id) {
             $this->fill(array_merge($this->address->toArray(), ['type' => $this->address->type]));
         }
@@ -89,10 +90,7 @@ final class AddressForm extends Component
             $this->type = AddressType::Billing;
         }
 
-        Notification::make()
-            ->title(__('The address has been successfully saved'))
-            ->success()
-            ->send();
+        $this->dispatch('notify', type: 'success', title: __('The address has been successfully saved'));
 
         $this->showModal = false;
 

@@ -6,43 +6,44 @@ namespace App\Livewire\Modals\Product;
 
 use App\Actions\Product\AddProductReviewAction;
 use App\Models\Product;
-use Filament\Notifications\Notification;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 use Livewire\Attributes\Validate;
-use LivewireUI\Modal\ModalComponent;
+use Livewire\Component;
 
-final class AddProductReview extends ModalComponent
+final class AddProductReview extends Component
 {
     public Product $product;
+
+    public bool $showModal = false;
 
     #[Validate('required|integer|min:1|max:5')]
     public int $rating = 1;
 
     #[Validate('nullable|string|max:255')]
-    public ?string $title = null;
-
-    #[Validate('nullable|string|max:255')]
     public ?string $content = null;
+
+    public function openModal(): void
+    {
+        $this->showModal = true;
+    }
 
     /**
      * @throws ValidationException
      */
     public function save(): void
     {
-        app(AddProductReviewAction::class)
+        resolve(AddProductReviewAction::class)
             ->execute($this->product, $this->validate(), Auth::user());
 
-        Notification::make()
-            ->title(__('Review added'))
-            ->body(__('The review has been added.'))
-            ->success()
-            ->send();
+        $this->dispatch('notify', type: 'success', title: __('Review added'), message: __('The review has been added.'));
 
         $this->dispatch('reviewCreated');
 
-        $this->closeModal();
+        $this->showModal = false;
+
+        $this->reset('rating', 'content');
     }
 
     public function update(int $rate): void
