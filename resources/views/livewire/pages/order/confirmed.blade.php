@@ -10,7 +10,7 @@ use function Livewire\Volt\state;
 state(['order' => null]);
 
 mount(function (string $number): void {
-        $this->order = Order::with(['items', 'shippingOption', 'shippingAddress', 'paymentMethod'])
+        $this->order = Order::with(['items.product', 'shippingOption', 'shippingAddress', 'paymentMethod'])
             ->where('number', $number)
             ->firstOrFail();
 });
@@ -26,10 +26,10 @@ mount(function (string $number): void {
         <p class="text-2xl font-medium tracking-tight text-zinc-900">
             {{ __('Thank you!') }}
         </p>
-        <h1 class="text-3xl font-bold tracking-tight text-zinc-900">
+        <h1 class="text-3xl font-bold font-heading tracking-tight text-zinc-900">
             {{ __('Your order has been placed successfully') }}
         </h1>
-        <p class="mt-2 text-zinc-500 text">
+        <p class="mt-2 text-zinc-500">
             {{ __('The details of your order have been sent to you by email.') }}
         </p>
     </div>
@@ -42,7 +42,7 @@ mount(function (string $number): void {
                     {{ $order->created_at->translatedFormat('j F Y') }}
                 </time>
             </h3>
-            <div class="px-4 py-6 bg-zinc-50/50 ring-1 ring-zinc-100 sm:p-6 md:flex md:items-center md:justify-between md:space-x-6 lg:space-x-8">
+            <div class="px-4 py-6 rounded-lg bg-zinc-50/50 ring-1 ring-zinc-100 sm:p-6 md:flex md:items-center md:justify-between md:space-x-6 lg:space-x-8">
                 <dl class="flex-auto space-y-4 text-sm text-zinc-500 divide-y divide-zinc-200 md:grid md:grid-cols-3 md:gap-x-6 md:space-y-0 md:divide-y-0 lg:w-1/2 lg:flex-none lg:gap-x-8">
                     <div class="flex justify-between md:block">
                         <dt class="font-medium text-zinc-900">
@@ -85,12 +85,12 @@ mount(function (string $number): void {
             <div class="space-y-10 ">
                 <div class="flow-root px-4 sm:px-0">
                     <div class="-my-6 divide-y divide-zinc-200 sm:-my-10">
-                        @foreach($order->items as $item)
-                            <x-order.item :item="$item" :currency_code="$order->currency_code" />
+                        @foreach ($order->items as $item)
+                            <x-order.item :$item :currency_code="$order->currency_code" />
                         @endforeach
                     </div>
                 </div>
-                <div class="p-4 rounded bg-zinc-50">
+                <div class="p-4 rounded-lg rounded bg-zinc-50">
                     <div class="flex">
                         <div class="shrink-0">
                             <x-untitledui-info-circle class="size-5 text-zinc-400" stroke-width="1.5" aria-hidden="true" />
@@ -111,11 +111,11 @@ mount(function (string $number): void {
             </div>
             <div>
                 <div class="flex items-end justify-end">
-                    <h6 class="bg-brand inline-flex w-auto px-2.5 py-1 text-sm leading-6 text-white">
+                    <h6 class="bg-primary-500 inline-flex w-auto px-2.5 py-1 text-sm leading-6 text-white">
                         {{ __('Order summary') }}
                     </h6>
                 </div>
-                <x-order.summary :order="$order" />
+                <x-order.summary :$order />
             </div>
         </div>
     </div>
