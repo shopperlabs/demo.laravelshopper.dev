@@ -65,6 +65,7 @@ final class Shipping extends StepComponent
     {
         $countryId = ZoneSessionManager::getSession()?->countryId;
         $addresses = Auth::user()->addresses()
+            ->with('country')
             ->where('country_id', $countryId)
             ->get()
             ->groupBy('type');

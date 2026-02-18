@@ -10,7 +10,8 @@
                     <span class="sr-only">{{ shopper_setting('legal_name') }}</span>
                     <x-brand class="w-auto h-10 text-primary-700" aria-hidden="true" />
                 </x-link>
-                <x-link :href="route('store.products')" class="inline-flex items-center font-medium text-zinc-600 hover:text-zinc-900">
+                <x-link :href="route('store')" class="inline-flex items-center gap-2 font-medium text-zinc-600 hover:text-zinc-900">
+                    <x-untitledui-arrow-narrow-left class="size-6 text-zinc-400" aria-hidden="true" stroke-width="1.5" />
                     {{ __('Back to Shopping Cart') }}
                 </x-link>
             </div>
@@ -30,8 +31,8 @@
                 </h2>
 
                 <ul role="list" class="text-sm font-medium text-white divide-y divide-white/10">
-                    @foreach($items as $item)
-                        <x-cart.element :item="$item" />
+                    @foreach ($items as $item)
+                        <x-cart.element :$item />
                     @endforeach
                 </ul>
 

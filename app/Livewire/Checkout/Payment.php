@@ -12,7 +12,6 @@ use App\Enums\PaymentType;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Collection;
 use Livewire\Attributes\Validate;
-use Shopper\Core\Models\Country;
 use Shopper\Core\Models\PaymentMethod;
 use Shopper\Core\Models\Zone;
 use Spatie\LivewireWizard\Components\StepComponent;
@@ -34,14 +33,13 @@ final class Payment extends StepComponent
             ? data_get(session()->get('checkout'), 'payment')[0]['id']
             : null;
 
-        $country = Country::query()->with('zones')->find($countryId);
-        /** @var ?Zone $zone */
-        $zone = $country->zones()
-            ->with('paymentMethods')
+        $zone = Zone::query()
+            ->whereHas('countries', fn ($q) => $q->where('id', $countryId))
             ->where('is_enabled', true)
+            ->with('paymentMethods')
             ->first();
 
-        $this->methods = $zone ? $zone->paymentMethods : [];
+        $this->methods = $zone?->paymentMethods ?? collect();
     }
 
     public function save(): void

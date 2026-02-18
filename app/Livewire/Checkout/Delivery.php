@@ -8,7 +8,6 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Collection;
 use Livewire\Attributes\Validate;
 use Shopper\Core\Models\CarrierOption;
-use Shopper\Core\Models\Country;
 use Shopper\Core\Models\Zone;
 use Spatie\LivewireWizard\Components\StepComponent;
 
@@ -29,11 +28,8 @@ final class Delivery extends StepComponent
             ? data_get(session()->get('checkout'), 'shipping_option')[0]['id']
             : null;
 
-        $country = Country::query()->with('zones')->find($countryId);
-        /** @var ?Zone $zone */
-        // @phpstan-ignore-next-line
-        $zone = $country->zones()
-            ->with('shippingOptions')
+        $zone = Zone::query()
+            ->whereHas('countries', fn ($q) => $q->where('id', $countryId))
             ->where('is_enabled', true)
             ->first();
 
