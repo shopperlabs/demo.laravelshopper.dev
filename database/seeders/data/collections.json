@@ -44,7 +44,7 @@
     "description": "<p>Products with stock greater than 0</p>",
     "type": "auto",
     "match_conditions": "any",
-    "image": null,
+    "image": "in-stock.jpg",
     "rules": [
       {
         "rule": "inventory_stock",
@@ -59,7 +59,7 @@
     "description": "<p>Featured products</p>",
     "type": "auto",
     "match_conditions": "any",
-    "image": null,
+    "image": "featured-products.jpg",
     "rules": [
       {
         "rule": "product_featured",
@@ -92,7 +92,7 @@
     "description": "<p>Products priced under 20€</p>",
     "type": "auto",
     "match_conditions": "any",
-    "image": null,
+    "image": "budget-friendly.jpg",
     "rules": [
       {
         "rule": "product_price",
@@ -122,7 +122,7 @@
     "description": "<p>Products rated 4 stars or above</p>",
     "type": "auto",
     "match_conditions": "any",
-    "image": null,
+    "image": "top-rated.jpg",
     "rules": [
       {
         "rule": "product_rating",

@@ -16,7 +16,7 @@ class CollectionSeeder extends AbstractSeeder
 
         $thumbnailCollection = config('shopper.media.storage.thumbnail_collection', 'thumbnail');
 
-        $this->command->warn(PHP_EOL . 'Creating collections...');
+        $this->command->warn(PHP_EOL.'Creating collections...');
 
         DB::transaction(function () use ($collections, $thumbnailCollection): void {
             foreach ($collections as $collection) {

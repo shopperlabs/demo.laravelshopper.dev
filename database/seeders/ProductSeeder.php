@@ -32,7 +32,7 @@ class ProductSeeder extends AbstractSeeder
 
         $adminId = User::query()->role(config('shopper.core.roles.admin'))->value('id');
 
-        $this->command->warn(PHP_EOL . 'Creating products...');
+        $this->command->warn(PHP_EOL.'Creating products...');
 
         DB::transaction(function () use ($products, $variantsData, $thumbnailCollection, $uploadsCollection, $defaultInventory, $defaultChannel, $adminId): void {
             foreach ($products as $product) {
@@ -50,7 +50,7 @@ class ProductSeeder extends AbstractSeeder
                     ]);
                 }
 
-                if (! empty($product->tags)) {
+                if (isset($product->tags) && filled($product->tags)) {
                     $this->attachTags($productModel, $product->tags);
                 }
 
@@ -102,28 +102,28 @@ class ProductSeeder extends AbstractSeeder
 
     private function attachRelations(Product $productModel, object $product, ?Channel $defaultChannel): void
     {
-        if (! empty($product->categories)) {
+        if (filled($product->categories)) {
             $categoryIds = Category::query()
                 ->whereIn('slug', $product->categories)
                 ->pluck('id');
             $productModel->categories()->attach($categoryIds);
         }
 
-        if (! empty($product->collections)) {
+        if (filled($product->collections)) {
             $collectionIds = Collection::query()
                 ->whereIn('slug', $product->collections)
                 ->pluck('id');
             $productModel->collections()->attach($collectionIds);
         }
 
-        if ($defaultChannel) {
+        if ($defaultChannel instanceof Channel) {
             $productModel->channels()->attach($defaultChannel->id);
         }
     }
 
     private function addMedia(Product|ProductVariant $model, object $data, string $thumbnailCollection, string $uploadsCollection): void
     {
-        if (! empty($data->thumbnail)) {
+        if (filled($data->thumbnail)) {
             $model->addMedia($this->imagePath('products', $data->thumbnail))
                 ->preservingOriginal()
                 ->toMediaCollection($thumbnailCollection);
@@ -174,10 +174,6 @@ class ProductSeeder extends AbstractSeeder
         $productModel->tags()->attach($tagIds);
     }
 
-    /**
-     * @param  Product  $productModel
-     * @param  object  $attributes
-     */
     private function attachProductAttributes(Product $productModel, object $attributes): void
     {
         foreach ($attributes as $attributeSlug => $valueKeys) {
@@ -231,7 +227,7 @@ class ProductSeeder extends AbstractSeeder
 
             $this->createPrices($variantModel, $variant->prices ?? []);
 
-            if (isset($variant->stock) && $variant->stock && $defaultInventory) {
+            if (isset($variant->stock) && $variant->stock && $defaultInventory instanceof Inventory) {
                 $variantModel->mutateStock($defaultInventory->id, $variant->stock, [
                     'event' => 'Initial inventory',
                     'old_quantity' => $variant->stock,
@@ -239,7 +235,7 @@ class ProductSeeder extends AbstractSeeder
                 ]);
             }
 
-            if (! empty($variant->thumbnail) || ! empty($variant->images)) {
+            if ((isset($variant->thumbnail) && filled($variant->thumbnail)) || (isset($variant->images) && filled($variant->images))) {
                 $this->addMedia($variantModel, $variant, $thumbnailCollection, $uploadsCollection);
             }
         }

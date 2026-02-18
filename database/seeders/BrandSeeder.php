@@ -15,7 +15,7 @@ class BrandSeeder extends AbstractSeeder
 
         $thumbnailCollection = config('shopper.media.storage.thumbnail_collection', 'thumbnail');
 
-        $this->command->warn(PHP_EOL . 'Creating brands...');
+        $this->command->warn(PHP_EOL.'Creating brands...');
 
         DB::transaction(function () use ($brands, $thumbnailCollection): void {
             foreach ($brands as $brand) {

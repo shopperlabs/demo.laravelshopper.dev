@@ -14,7 +14,7 @@ class AttributeSeeder extends AbstractSeeder
     {
         $attributes = $this->getSeedData('attributes');
 
-        $this->command->warn(PHP_EOL . 'Creating attributes...');
+        $this->command->warn(PHP_EOL.'Creating attributes...');
 
         DB::transaction(function () use ($attributes): void {
             foreach ($attributes as $attribute) {

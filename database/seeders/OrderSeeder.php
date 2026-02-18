@@ -15,6 +15,7 @@ use Shopper\Core\Models\Order;
 use Shopper\Core\Models\OrderAddress;
 use Shopper\Core\Models\OrderItem;
 use Shopper\Core\Models\PaymentMethod;
+use Shopper\Core\Models\Zone;
 
 class OrderSeeder extends Seeder
 {
@@ -27,7 +28,7 @@ class OrderSeeder extends Seeder
             ->get();
 
         if ($customers->isEmpty()) {
-            $this->command->warn('No customers found. Please run DatabaseSeeder first.');
+            $this->command->warn('No customers found. Please run CustomerSeeder first.');
 
             return;
         }
@@ -35,6 +36,7 @@ class OrderSeeder extends Seeder
         $products = Product::query()->whereHas('prices')->with('prices')->get();
         $variants = ProductVariant::query()
             ->withWhereHas('prices')
+            ->with('product')
             ->get();
 
         if ($products->isEmpty() && $variants->isEmpty()) {
@@ -43,25 +45,34 @@ class OrderSeeder extends Seeder
             return;
         }
 
+        $zoneCountryNames = Zone::query()
+            ->where('is_enabled', true)
+            ->with('countries')
+            ->get()
+            ->flatMap(fn (Zone $zone) => $zone->countries->pluck('name'))
+            ->unique()
+            ->values();
+
         $channel = Channel::query()->first();
         $paymentMethod = PaymentMethod::query()->first();
         $currencyCode = shopper_currency();
 
-        $this->command->warn(PHP_EOL . 'Creating orders...');
+        $this->command->warn(PHP_EOL.'Creating orders...');
 
-        $this->withProgressBar(50, function () use ($customers, $products, $variants, $channel, $paymentMethod, $currencyCode) {
+        $this->withProgressBar(50, function () use ($customers, $products, $variants, $channel, $paymentMethod, $currencyCode, $zoneCountryNames) {
             /** @var User $customer */
             $customer = $customers->random();
+            $countryName = $zoneCountryNames->random();
 
             $shippingAddress = OrderAddress::query()->create([
                 'customer_id' => $customer->id,
                 'last_name' => $customer->last_name,
                 'first_name' => $customer->first_name,
                 'street_address' => fake()->streetAddress(),
-                'street_address_plus' => fake()->optional(0.3)->secondaryAddress(),
+                'street_address_plus' => fake()->address(),
                 'postal_code' => fake()->postcode(),
                 'city' => fake()->city(),
-                'country_name' => fake()->country(),
+                'country_name' => $countryName,
                 'phone' => fake()->optional(0.7)->phoneNumber(),
             ]);
 
@@ -76,7 +87,7 @@ class OrderSeeder extends Seeder
                     'street_address' => fake()->streetAddress(),
                     'postal_code' => fake()->postcode(),
                     'city' => fake()->city(),
-                    'country_name' => fake()->country(),
+                    'country_name' => $countryName,
                     'phone' => fake()->optional(0.5)->phoneNumber(),
                 ]);
 
@@ -84,10 +95,9 @@ class OrderSeeder extends Seeder
             $createdAt = fake()->dateTimeBetween('-1 year');
 
             $order = Order::query()->create([
-                'number' => $this->generateOrderNumber(),
+                'number' => generate_number(),
                 'status' => $status,
                 'currency_code' => $currencyCode,
-                'notes' => fake()->optional(0.3)->sentence(),
                 'customer_id' => $customer->id,
                 'channel_id' => $channel?->id,
                 'payment_method_id' => $paymentMethod?->id,
@@ -104,13 +114,13 @@ class OrderSeeder extends Seeder
 
             if ($variants->isNotEmpty()) {
                 $availableItems = $availableItems->merge(
-                    $variants->map(fn ($v) => ['type' => 'variant', 'item' => $v])
+                    $variants->map(fn ($v): array => ['type' => 'variant', 'item' => $v])
                 );
             }
 
             if ($products->isNotEmpty()) {
                 $availableItems = $availableItems->merge(
-                    $products->map(fn ($p) => ['type' => 'product', 'item' => $p])
+                    $products->map(fn ($p): array => ['type' => 'product', 'item' => $p])
                 );
             }
 
@@ -128,7 +138,7 @@ class OrderSeeder extends Seeder
 
                     OrderItem::query()->create([
                         'order_id' => $order->id,
-                        'name' => $variant->product->name . ' - ' . $variant->name,
+                        'name' => $variant->product->name.' - '.$variant->name,
                         'sku' => $variant->sku ?? $variant->product->sku ?? fake()->unique()->numerify('SKU-######'),
                         'product_type' => config('shopper.models.variant'),
                         'product_id' => $variant->id,
@@ -162,21 +172,5 @@ class OrderSeeder extends Seeder
         });
 
         $this->command->info('Orders created successfully.');
-    }
-
-    protected function generateOrderNumber(): string
-    {
-        $prefix = config('shopper.orders.generator.prefix', 'SH');
-        $padLength = config('shopper.orders.generator.pad_length', 6);
-        $padString = config('shopper.orders.generator.pad_string', '0');
-
-        $lastOrder = Order::query()
-            ->withTrashed()
-            ->orderByDesc('id')
-            ->first();
-
-        $nextNumber = $lastOrder ? $lastOrder->id + 1 : config('shopper.orders.generator.start_sequence_from', 1);
-
-        return '#' . $prefix . str_pad((string) $nextNumber, $padLength, $padString, STR_PAD_LEFT);
     }
 }

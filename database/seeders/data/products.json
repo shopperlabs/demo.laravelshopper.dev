@@ -252,7 +252,13 @@
     "categories": ["shoes", "outdoor-gear", "sneakers"],
     "collections": [],
     "thumbnail": "nike-air-max-90-thumb.jpg",
-    "images": ["nike-air-max-90-2.jpg", "nike-air-max-90-3.jpg", "nike-air-max-90-4.jpg", "nike-air-max-90-5.jpg", "nike-air-max-90-6.jpg"],
+    "images": [
+      "nike-air-max-90-2.jpg",
+      "nike-air-max-90-3.jpg",
+      "nike-air-max-90-4.jpg",
+      "nike-air-max-90-5.jpg",
+      "nike-air-max-90-6.jpg"
+    ],
     "prices": [
       { "currency_code": "XAF", "amount": 79900, "compare_amount": 89900, "cost_amount": 33000 },
       { "currency_code": "EUR", "amount": 122, "compare_amount": 137, "cost_amount": 50 },

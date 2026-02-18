@@ -35,7 +35,10 @@
       { "key": "#faa21e", "value": "Orange", "position": 2 },
       { "key": "#b0b0b0", "value": "Silver", "position": 3 },
       { "key": "#1c1c1c", "value": "Black", "position": 4 },
-      { "key": "#1b910c", "value": "Green", "position": 5 }
+      { "key": "#1b910c", "value": "Green", "position": 5 },
+      { "key": "#f59e0b", "value": "Yellow", "position": 6 },
+      { "key": "#1e3a5f", "value": "Dark Blue", "position": 7 },
+      { "key": "#ffffff", "value": "White", "position": 8 }
     ]
   },
   {
@@ -168,6 +171,22 @@
       { "key": "l", "value": "L", "position": 4 },
       { "key": "xl", "value": "XL", "position": 5 },
       { "key": "xxl", "value": "XXL", "position": 6 }
+    ]
+  },
+  {
+    "name": "Scent",
+    "slug": "scent",
+    "description": null,
+    "type": "checkbox",
+    "icon": "phosphor-flower-duotone",
+    "is_enabled": true,
+    "is_searchable": false,
+    "is_filterable": true,
+    "values": [
+      { "key": "grapefruit", "value": "Grapefruit", "position": 1 },
+      { "key": "mint", "value": "Mint", "position": 2 },
+      { "key": "limoncello", "value": "Limoncello", "position": 3 },
+      { "key": "bumbleberry", "value": "Bumbleberry", "position": 4 }
     ]
   }
 ]

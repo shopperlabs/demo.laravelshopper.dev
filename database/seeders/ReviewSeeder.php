@@ -25,7 +25,7 @@ class ReviewSeeder extends Seeder
             return;
         }
 
-        $this->command->warn(PHP_EOL . 'Creating reviews...');
+        $this->command->warn(PHP_EOL.'Creating reviews...');
 
         for ($i = 1; $i <= 100; $i++) {
             Review::query()->create([

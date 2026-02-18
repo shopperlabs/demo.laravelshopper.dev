@@ -14,7 +14,7 @@ class StoreConfigSeeder extends Seeder
 {
     public function run(): void
     {
-        $this->command->warn(PHP_EOL . 'Creating admin user...');
+        $this->command->warn(PHP_EOL.'Creating admin user...');
 
         /** @var User $admin */
         $admin = User::factory()->create([
@@ -30,7 +30,7 @@ class StoreConfigSeeder extends Seeder
 
         $this->command->info('Admin user created.');
 
-        $this->command->warn(PHP_EOL . 'Configuring store settings...');
+        $this->command->warn(PHP_EOL.'Configuring store settings...');
 
         $settings = [
             'name' => 'ShopStation',

@@ -18,7 +18,7 @@ class ZoneSeeder extends AbstractSeeder
     {
         $zones = $this->getSeedData('zones');
 
-        $this->command->warn(PHP_EOL . 'Creating zones...');
+        $this->command->warn(PHP_EOL.'Creating zones...');
 
         DB::transaction(function () use ($zones): void {
             foreach ($zones as $zone) {
