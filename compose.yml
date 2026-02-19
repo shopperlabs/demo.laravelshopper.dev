@@ -91,7 +91,7 @@ services:
     schedule:
         image: ghcr.io/shopperlabs/demo.laravelshopper.dev:livewire
         restart: always
-        command: ["artisan", "schedule:run"]
+        command: ["artisan", "schedule:work"]
         stop_signal: SIGTERM
         healthcheck:
             test: ["CMD", "healthcheck-schedule"]
@@ -110,9 +110,9 @@ services:
         restart: always
         command:
             - "artisan"
-            - "queue:listen"
-            - "database"
-            - "--sleep=10"
+            - "queue:work"
+            - "--sleep=3"
+            - "--tries=3"
             - "--quiet"
             - "--force"
             - "--queue=default,media"
