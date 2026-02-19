@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\On;
 use Livewire\Component;
-use Shopper\Core\Enum\AddressType;
 use Shopper\Core\Models\Address;
 
 #[Layout('components.layouts.templates.account')]

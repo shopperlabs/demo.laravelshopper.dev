@@ -15,6 +15,8 @@ Route::get('category/{category:slug}', Pages\Category\CategoryProducts::class)->
 Route::get('/collection/{collection:slug}', CollectionProducts::class)->name('collection.products');
 Route::get('/store', Pages\Store::class)->name('store');
 Volt::route('/collections', 'pages.collections')->name('collections');
+Route::get('/blog', Pages\Blog\Index::class)->name('blog.index');
+Route::get('/blog/{post:slug}', Pages\Blog\Show::class)->name('blog.show');
 
 Route::middleware('auth')->group(function (): void {
     Route::get('/checkout', Checkout::class)->name('checkout');

@@ -36,6 +36,16 @@ Breadcrumbs::for('collection', function (Generator $trail, $collection): void {
     $trail->push($collection->name, route('collection.products', $collection));
 });
 
+Breadcrumbs::for('blog', function (Generator $trail): void {
+    $trail->parent('home');
+    $trail->push(__('Blog'), route('blog.index'));
+});
+
+Breadcrumbs::for('blog.show', function (Generator $trail, $post): void {
+    $trail->parent('blog');
+    $trail->push($post->title);
+});
+
 Breadcrumbs::for('product', function (Generator $trail, $product): void {
     $category = $product->categories()->whereNotNull('parent_id')->first()
         ?? $product->categories()->first();

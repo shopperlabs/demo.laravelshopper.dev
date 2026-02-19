@@ -1,0 +1,68 @@
+[
+  {
+    "category": "Style & Fashion",
+    "category_slug": "style-fashion",
+    "category_description": "Tips and trends for modern fashion enthusiasts",
+    "posts": [
+      {
+        "title": "10 Essential Wardrobe Staples Every Man Needs",
+        "slug": "10-essential-wardrobe-staples-every-man-needs",
+        "image": "wardrobe-staples.jpg",
+        "excerpt": "Building a versatile wardrobe starts with the basics. Discover the ten timeless pieces that form the foundation of effortless style.",
+        "content": "<p>A well-curated wardrobe doesn't need to be overflowing with clothes. In fact, the most stylish men often rely on a carefully selected set of essentials that mix and match effortlessly.</p><h2>1. A Crisp White T-Shirt</h2><p>The white tee is the ultimate foundation piece. Look for one made from premium cotton with a slightly structured fit — not too tight, not too loose.</p><h2>2. Dark Wash Jeans</h2><p>A pair of well-fitting dark jeans bridges the gap between casual and smart. They work with sneakers on the weekend or with loafers for a dinner out.</p><h2>3. A Tailored Blazer</h2><p>Nothing elevates an outfit like a well-cut blazer. Choose navy or charcoal for maximum versatility.</p><h2>4. Quality Sneakers</h2><p>Minimalist white leather sneakers are the modern gentleman's go-to footwear. They pair with everything from chinos to shorts.</p><h2>5. An Oxford Shirt</h2><p>The Oxford button-down is the workhorse of any wardrobe. It looks just as good under a suit as it does rolled up with jeans.</p><h2>6. Chinos</h2><p>In khaki, olive, or navy, chinos offer a polished alternative to jeans without the formality of dress trousers.</p><h2>7. A Lightweight Jacket</h2><p>Whether it's a bomber, harrington, or denim jacket, a versatile outerwear piece completes any look.</p><h2>8. A Classic Watch</h2><p>Time may be on your phone, but a quality timepiece adds sophistication that technology never will.</p><h2>9. Leather Belt</h2><p>A simple, well-made leather belt in brown or black ties your outfit together — literally and figuratively.</p><h2>10. Quality Underwear</h2><p>The foundation of every outfit starts with what's closest to your skin. Invest in comfort.</p>",
+        "is_published": true,
+        "published_at": "2025-12-15 09:00:00"
+      },
+      {
+        "title": "How to Dress for a Summer Wedding",
+        "slug": "how-to-dress-for-a-summer-wedding",
+        "image": "summer-wedding.jpg",
+        "excerpt": "Navigating wedding dress codes in warm weather can be tricky. Here's your complete guide to looking sharp without overheating.",
+        "content": "<p>Summer weddings are joyous occasions, but they come with a unique sartorial challenge: looking polished while staying cool under the sun.</p><h2>Understanding the Dress Code</h2><p><strong>Black Tie:</strong> Even in summer, a dark suit or tuxedo is expected. Opt for lightweight wool or a tropical blend.</p><p><strong>Cocktail:</strong> A linen or cotton-blend suit in lighter tones — stone, light blue, or pale grey — works beautifully.</p><p><strong>Smart Casual:</strong> Chinos paired with a linen shirt and loafers strike the perfect balance.</p><h2>Fabric is Everything</h2><p>The key to summer dressing is fabric choice. Linen, cotton, and seersucker are your best friends. They breathe, they drape naturally, and they look effortlessly elegant.</p><h2>Color Palette</h2><p>Summer is the time to embrace lighter shades. Think pastels, earth tones, and muted blues. Save the dark navy for evening ceremonies.</p><h2>Accessories</h2><p>A pocket square adds personality. Sunglasses are practical and stylish. And please — wear appropriate shoes. No one wants to see trainers at a wedding.</p>",
+        "is_published": true,
+        "published_at": "2026-01-08 10:30:00"
+      }
+    ]
+  },
+  {
+    "category": "Product Guides",
+    "category_slug": "product-guides",
+    "category_description": "In-depth reviews and buying guides for our products",
+    "posts": [
+      {
+        "title": "The Complete Guide to Choosing the Right Sneakers",
+        "slug": "complete-guide-choosing-right-sneakers",
+        "image": "sneaker-guide.jpg",
+        "excerpt": "From running to casual wear, finding the perfect sneakers requires understanding your needs. Let us help you make the right choice.",
+        "content": "<p>Sneakers have evolved from athletic footwear to cultural icons. But with countless options available, choosing the right pair can feel overwhelming.</p><h2>Know Your Purpose</h2><p><strong>Running:</strong> Look for cushioning, stability, and breathability. Brands invest heavily in sole technology for a reason.</p><p><strong>Training:</strong> Cross-trainers need lateral support and a flat sole for stability during varied movements.</p><p><strong>Casual:</strong> Prioritize style and comfort. Leather or canvas uppers with a clean silhouette work best.</p><h2>Fit Matters Most</h2><p>The best-looking sneaker is worthless if it doesn't fit properly. Always try shoes on in the afternoon when your feet are at their largest. Leave about a thumb's width of space at the toe.</p><h2>Materials</h2><p>Leather sneakers age beautifully and clean easily. Canvas is lightweight and breathable but less durable. Knit uppers offer sock-like comfort but require more care.</p><h2>Investment vs. Budget</h2><p>You don't need to spend a fortune, but quality sneakers last significantly longer. A well-made pair at a moderate price often outperforms cheap alternatives many times over.</p>",
+        "is_published": true,
+        "published_at": "2026-01-22 14:00:00"
+      },
+      {
+        "title": "Caring for Your Leather Goods: A Maintenance Guide",
+        "slug": "caring-for-leather-goods-maintenance-guide",
+        "image": "leather-care.jpg",
+        "excerpt": "Leather products are an investment. Learn how to properly maintain them so they last a lifetime and develop a beautiful patina.",
+        "content": "<p>Quality leather goods — bags, belts, shoes, wallets — are investments that reward proper care with decades of service and increasingly beautiful character.</p><h2>Regular Cleaning</h2><p>Wipe down leather items with a soft, damp cloth weekly. For deeper cleaning, use a leather-specific cleaner applied with circular motions.</p><h2>Conditioning</h2><p>Leather is skin, and like skin, it needs moisture. Apply a quality leather conditioner every 3-6 months to prevent cracking and maintain suppleness.</p><h2>Storage</h2><p>Store leather goods in breathable cotton bags — never plastic. Stuff bags and shoes with acid-free tissue paper to maintain their shape.</p><h2>Water Protection</h2><p>Apply a waterproofing spray before first use and reapply seasonally. If leather gets wet, let it dry naturally — never use direct heat.</p><h2>Patina</h2><p>Don't fight the patina. That gradual darkening and character development is what makes leather products uniquely yours. It's not damage; it's personality.</p>",
+        "is_published": true,
+        "published_at": "2026-02-05 11:00:00"
+      }
+    ]
+  },
+  {
+    "category": "Sustainability",
+    "category_slug": "sustainability",
+    "category_description": "Our commitment to ethical and sustainable practices",
+    "posts": [
+      {
+        "title": "Our Journey Toward Sustainable Fashion",
+        "slug": "our-journey-toward-sustainable-fashion",
+        "image": "sustainable-fashion.jpg",
+        "excerpt": "Sustainability isn't a destination — it's a continuous journey. Here's how we're working to reduce our environmental impact.",
+        "content": "<p>The fashion industry accounts for roughly 10% of global carbon emissions. As a brand, we believe it's our responsibility to be part of the solution, not the problem.</p><h2>Ethical Sourcing</h2><p>We work exclusively with suppliers who meet our strict environmental and labor standards. Every factory we partner with undergoes regular audits.</p><h2>Sustainable Materials</h2><p>Organic cotton, recycled polyester, and responsibly sourced leather form the backbone of our material choices. We're constantly exploring new sustainable alternatives.</p><h2>Reducing Waste</h2><p>Our made-to-order model for premium items means we produce only what's needed. For our core collection, we use data-driven forecasting to minimize overproduction.</p><h2>Packaging</h2><p>All our packaging is made from recycled materials and is fully recyclable. We've eliminated single-use plastic from our entire supply chain.</p><h2>What's Next</h2><p>We're investing in circular fashion initiatives, exploring take-back programs, and working toward carbon neutrality by 2027. The journey continues.</p>",
+        "is_published": true,
+        "published_at": "2026-02-12 08:00:00"
+      }
+    ]
+  }
+]

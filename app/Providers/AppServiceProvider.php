@@ -7,10 +7,12 @@ namespace App\Providers;
 use App\Models\Category;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Shopper\Enum\RenderHook;
 use Shopper\Facades\Shopper;
+use Shopper\Sidebar\SidebarBuilder;
 
 final class AppServiceProvider extends ServiceProvider
 {
@@ -26,6 +28,8 @@ final class AppServiceProvider extends ServiceProvider
         Shopper::registerViteTheme('resources/css/shopper.css')
             ->renderHook(RenderHook::HeadEnd, fn (): string => Blade::render('@fluxAppearance'))
             ->renderHook(RenderHook::BodyEnd, fn (): string => Blade::render('@fluxScripts'));
+
+        Event::listen(SidebarBuilder::class, \App\Sidebar\BlogSidebar::class);
 
         View::composer('components.layouts.footer', function ($view): void {
             $view->with(

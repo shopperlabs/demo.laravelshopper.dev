@@ -1,15 +1,15 @@
 <x-banner />
 <header class="sticky top-0 z-10 py-3 bg-white/80 border-b border-zinc-200 backdrop-blur-xl">
     <x-container class="flex items-center justify-between px-4">
-        <nav role="navigation" class="group/popover-group hidden lg:flex gap-4 lg:flex-1 lg:self-stretch">
+        <nav role="navigation" class="hidden lg:flex gap-4 lg:flex-1 lg:self-stretch">
             <x-nav.item :href="route('store')" @class(['font-medium text-zinc-900' => request()->routeIs('store')])>
                 {{ __('Shop') }}
             </x-nav.item>
             <x-nav.item :href="route('collections')" @class(['font-medium text-zinc-900' => request()->routeIs('collections')])>
                 {{ __('Collections') }}
             </x-nav.item>
-            <x-nav.item href="#">
-                {{ __('About') }}
+            <x-nav.item :href="route('blog.index')" @class(['font-medium text-zinc-900' => request()->routeIs('blog.*')])>
+                {{ __('Blog') }}
             </x-nav.item>
         </nav>
         <x-link :href="route('home')" class="relative flex items-center gap-2 text-sm">
