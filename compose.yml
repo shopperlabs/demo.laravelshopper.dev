@@ -1,6 +1,6 @@
 services:
     app:
-        image: ghcr.io/shopperlabs/demo.laravelshopper.dev:main
+        image: ghcr.io/shopperlabs/demo.laravelshopper.dev:livewire
         pull_policy: always
         restart: always
         extra_hosts:
@@ -85,7 +85,7 @@ services:
             - dokploy-network
 
     schedule:
-        image: ghcr.io/shopperlabs/demo.laravelshopper.dev:main
+        image: ghcr.io/shopperlabs/demo.laravelshopper.dev:livewire
         restart: always
         command: ["artisan", "schedule:run"]
         stop_signal: SIGTERM
@@ -130,7 +130,7 @@ services:
             - app
 
     queue:
-        image: ghcr.io/shopperlabs/demo.laravelshopper.dev:main
+        image: ghcr.io/shopperlabs/demo.laravelshopper.dev:livewire
         restart: always
         command:
             - "artisan"
