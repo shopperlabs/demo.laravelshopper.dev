@@ -72,6 +72,14 @@
       "composer bump",
       "npx npm-check-updates -u"
     ],
+    "setup": [
+      "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
+      "@php artisan key:generate --ansi",
+      "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
+      "@php artisan migrate --ansi",
+      "@php artisan db:seed --ansi",
+      "@php artisan storage:link --ansi"
+    ],
     "lint": [
       "rector",
       "pint --parallel"
