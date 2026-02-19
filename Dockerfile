@@ -80,4 +80,7 @@ COPY --from=frontend --chown=www-data:www-data /app/public/build ./public/build
 
 COPY --chown=www-data:www-data . /var/www/html
 
+# Create storage and Shopper symlinks
+RUN php artisan shopper:link --force -n
+
 RUN php artisan octane:install --server=frankenphp -n
