@@ -44,7 +44,7 @@ FROM node:${NODE_VERSION}-slim AS frontend
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY package*.json vite.config.js ./
 
 RUN --mount=type=cache,target=/root/.npm \
     npm ci --prefer-offline --no-audit
