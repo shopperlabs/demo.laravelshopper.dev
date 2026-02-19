@@ -3,8 +3,6 @@
 @import './global.css';
 @import './links.css';
 
-@custom-variant dark (&:where(.dark, .dark *));
-
 @plugin '@tailwindcss/typography';
 
 @source "../../resources/views/**/*.blade.php";
@@ -60,10 +58,3 @@
   --color-success-950: var(--color-green-950);
 }
 
-@layer theme {
-  .dark {
-    --color-accent: var(--color-blue-500);
-    --color-accent-content: var(--color-blue-400);
-    --color-accent-foreground: var(--color-white);
-  }
-}
