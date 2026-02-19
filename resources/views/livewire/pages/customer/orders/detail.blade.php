@@ -37,7 +37,7 @@ title(__('Details of your order'));
                     {{ __('order summary') }}
                 </h6>
             </div>
-            <x-order.summary :order="$order" />
+            <x-order.summary :$order />
         </div>
     </div>
     <div class="max-w-md mt-10 lg:mt-20">
@@ -45,7 +45,7 @@ title(__('Details of your order'));
             {{ __('Do you have a problem with your order? Our customer service is here to help') }}
         </p>
         <div class="mt-4">
-            <flux:button href="/">
+            <flux:button href="https://laravelshopper.dev">
                 {{ __('Contact us') }}
             </flux:button>
         </div>

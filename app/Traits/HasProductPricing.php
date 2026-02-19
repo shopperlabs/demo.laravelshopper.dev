@@ -13,11 +13,11 @@ trait HasProductPricing
     {
         $currencyCode = current_currency();
 
-        $this->loadMissing('prices.currency');
+        if (! $this->relationLoaded('prices')) {
+            $this->load(['prices' => fn ($q) => $q->whereRelation('currency', 'code', $currencyCode)]);
+        }
 
-        $price = $this->prices
-            ->reject(fn ($price): bool => $price->currency->code !== $currencyCode)
-            ->first();
+        $price = $this->prices->first();
 
         return $price
             ? new PriceData(

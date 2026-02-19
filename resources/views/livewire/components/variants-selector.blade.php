@@ -16,7 +16,7 @@
                         @endif
                     </legend>
 
-                    @if ($attribute['type'] === 'colorpicker')
+                    @if ($attribute['type'] === \Shopper\Core\Enum\FieldType::ColorPicker())
                         <!-- Color swatches -->
                         <div class="mt-3 flex flex-wrap gap-3">
                             @foreach ($attribute['values'] as $value)

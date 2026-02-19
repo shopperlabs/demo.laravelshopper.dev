@@ -484,7 +484,7 @@
     "barcode": null,
     "description": "A curated design magazine exploring architecture, interiors, and contemporary art around the world. Digital edition delivered instantly after purchase.",
     "summary": "Design magazine on architecture and contemporary art.",
-    "security_stock": 0,
+    "security_stock": 2,
     "featured": true,
     "is_visible": true,
     "type": "virtual",
@@ -500,7 +500,7 @@
       { "currency_code": "EUR", "amount": 35 },
       { "currency_code": "USD", "amount": 38 }
     ],
-    "stock": null,
+    "stock": 10,
     "tags": ["magazine", "design", "digital"]
   },
   {

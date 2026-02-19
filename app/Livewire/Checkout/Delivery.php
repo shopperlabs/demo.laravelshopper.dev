@@ -7,6 +7,7 @@ namespace App\Livewire\Checkout;
 use App\CheckoutSession;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Facades\Cache;
 use Livewire\Attributes\Validate;
 use Shopper\Core\Models\CarrierOption;
 use Shopper\Core\Models\Zone;
@@ -14,6 +15,8 @@ use Spatie\LivewireWizard\Components\StepComponent;
 
 final class Delivery extends StepComponent
 {
+    public const int CACHE_TTL = 7200;
+
     /**
      * @var array|Collection
      */
@@ -28,13 +31,17 @@ final class Delivery extends StepComponent
         $shippingOption = session()->get(CheckoutSession::SHIPPING_OPTION);
         $this->currentSelected = $shippingOption ? $shippingOption[0]['id'] : null;
 
-        $zone = Zone::query()
-            ->whereHas('countries', fn ($q) => $q->where('id', $countryId))
-            ->where('is_enabled', true)
-            ->first();
+        $this->options = $countryId
+            ? Cache::remember("shipping_options_country_{$countryId}", self::CACHE_TTL, function () use ($countryId): Collection {
+                $zone = Zone::query()
+                    ->whereHas('countries', fn ($q) => $q->where('id', $countryId))
+                    ->where('is_enabled', true)
+                    ->first();
 
-        $this->options = $zone
-            ? $zone->shippingOptions()->where('is_enabled', true)->get()
+                return $zone
+                    ? $zone->shippingOptions()->where('is_enabled', true)->get()
+                    : new Collection;
+            })
             : [];
     }
 

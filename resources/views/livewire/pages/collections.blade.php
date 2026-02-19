@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Illuminate\Support\Facades\Cache;
 use Shopper\Core\Models\Collection;
 
 use function Livewire\Volt\computed;
@@ -9,10 +10,10 @@ use function Livewire\Volt\title;
 
 title(__('Collections'));
 
-$collections = computed(fn () => Collection::query()
+$collections = computed(fn () => Cache::remember('published_collections', 7200, fn () => Collection::query()
     ->whereNotNull('published_at')
     ->orderBy('name')
-    ->get());
+    ->get()));
 
 ?>
 

@@ -37,8 +37,6 @@ final class SingleProduct extends Component
             'brand',
             'media',
             'categories',
-            'ratings' => fn ($q) => $q->where('approved', true)->latest()->limit(10),
-            'ratings.author',
             'variants.media',
             'variants.values.attribute',
             'variants.prices' => $priceConstraint,
@@ -70,7 +68,6 @@ final class SingleProduct extends Component
             $this->selectedVariant = ProductVariant::with([
                 'media',
                 'prices' => fn ($q) => $q->whereRelation('currency', 'code', $currencyCode),
-                'prices.currency',
             ])->find($variantId);
 
             if ($this->selectedVariant) {
@@ -110,7 +107,6 @@ final class SingleProduct extends Component
         if ($this->selectedVariant instanceof ProductVariant) {
             $this->selectedVariant->loadMissing([
                 'prices' => $priceConstraint,
-                'prices.currency',
             ]);
         }
     }

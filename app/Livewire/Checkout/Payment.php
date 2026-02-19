@@ -12,6 +12,8 @@ use App\CheckoutSession;
 use App\Enums\PaymentType;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Collection as SupportCollection;
+use Illuminate\Support\Facades\Cache;
 use Livewire\Attributes\Validate;
 use Shopper\Core\Models\PaymentMethod;
 use Shopper\Core\Models\Zone;
@@ -19,6 +21,8 @@ use Spatie\LivewireWizard\Components\StepComponent;
 
 final class Payment extends StepComponent
 {
+    public const int CACHE_TTL = 3600;
+
     #[Validate('required', message: 'You must select a payment method')]
     public ?int $currentSelected = null;
 
@@ -33,13 +37,17 @@ final class Payment extends StepComponent
         $payment = session()->get(CheckoutSession::PAYMENT);
         $this->currentSelected = $payment ? $payment[0]['id'] : null;
 
-        $zone = Zone::query()
-            ->whereHas('countries', fn ($q) => $q->where('id', $countryId))
-            ->where('is_enabled', true)
-            ->with('paymentMethods')
-            ->first();
+        $this->methods = $countryId
+            ? Cache::remember("payment_methods_country_{$countryId}", self::CACHE_TTL, function () use ($countryId): Collection|SupportCollection {
+                $zone = Zone::query()
+                    ->whereHas('countries', fn ($q) => $q->where('id', $countryId))
+                    ->where('is_enabled', true)
+                    ->with('paymentMethods')
+                    ->first();
 
-        $this->methods = $zone?->paymentMethods ?? collect();
+                return $zone?->paymentMethods ?? collect();
+            })
+            : [];
     }
 
     public function save(): void

@@ -27,7 +27,6 @@ final class Product extends Model
     {
         return $query->with([
             'prices' => fn ($q) => $q->whereRelation('currency', 'code', current_currency()),
-            'prices.currency',
         ]);
     }
 }

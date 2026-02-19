@@ -15,24 +15,23 @@ new class extends Component
     #[On('reviewCreated')]
     public function reviewsStats(): array
     {
-        $approvedRatings = $this->product->ratings()->where('approved', true);
-        $total = $approvedRatings->count();
+        $counts = $this->product->ratings()
+            ->where('approved', true)
+            ->selectRaw('rating, count(*) as count')
+            ->groupBy('rating')
+            ->pluck('count', 'rating');
+
+        $total = $counts->sum();
 
         $reviewsStats = [];
 
-        foreach (range(1, 5) as $rating) {
-            $count = $this->product->ratings()
-                ->where('approved', true)
-                ->where('rating', $rating)
-                ->count();
-
+        foreach (range(5, 1) as $rating) {
+            $count = $counts->get($rating, 0);
             $reviewsStats[$rating] = [
                 'count' => $count,
                 'percentage' => $total > 0 ? round(($count / $total) * 100, 2) : 0,
             ];
         }
-
-        krsort($reviewsStats);
 
         return $reviewsStats;
     }

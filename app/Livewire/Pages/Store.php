@@ -6,6 +6,7 @@ namespace App\Livewire\Pages;
 
 use App\Models\Product;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\View\View;
 use Livewire\Attributes\Computed;
 use Livewire\Component;
@@ -16,9 +17,11 @@ class Store extends Component
 {
     use WithPagination;
 
-    /**
-     * @var string[]
-     */
+    public const string FILTERABLE_ATTRIBUTES_CACHE_KEY = 'filterable_attributes';
+
+    public const int FILTERABLE_ATTRIBUTES_CACHE_TTL = 7200;
+
+    /** @var string[] */
     public array $selectedAttributes = [];
 
     /**
@@ -27,7 +30,13 @@ class Store extends Component
     #[Computed]
     public function options(): Collection
     {
-        return Attribute::with('values')->scopes(['enabled', 'isFilterable'])->get();
+        return Cache::remember(
+            key: self::FILTERABLE_ATTRIBUTES_CACHE_KEY,
+            ttl: self::FILTERABLE_ATTRIBUTES_CACHE_TTL,
+            callback: fn (): Collection => Attribute::with('values')
+                ->scopes(['enabled', 'isFilterable'])
+                ->get()
+        );
     }
 
     public function render(): View

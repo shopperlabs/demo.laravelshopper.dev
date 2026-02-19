@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Actions;
 
 use App\CheckoutSession;
+use App\Models\Channel;
 use Darryldecode\Cart\Facades\CartFacade;
 use Illuminate\Support\Facades\Auth;
 use Shopper\Core\Models\Country;
@@ -67,6 +68,7 @@ final class CreateOrder
         $order = Order::query()->create([
             'number' => generate_number(),
             'customer_id' => $customer->id,
+            'channel_id' => Channel::query()->where('is_default', true)->value('id'),
             'zone_id' => ZoneSessionManager::getSession()->zoneId,
             'currency_code' => current_currency(),
             'shipping_address_id' => $shippingAddress->id,
