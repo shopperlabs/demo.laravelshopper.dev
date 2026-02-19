@@ -30,12 +30,12 @@ RUN --mount=type=cache,target=/tmp/.composer-cache \
     composer config cache-dir /tmp/.composer-cache
 
 RUN --mount=type=cache,target=/tmp/.composer-cache \
-    composer install --no-dev --no-interaction --no-scripts --prefer-dist --no-autoloader
+    composer install --no-interaction --no-scripts --prefer-dist --no-autoloader
 
 COPY --chown=www-data:www-data . .
 
 RUN --mount=type=cache,target=/tmp/.composer-cache \
-    composer dump-autoload --classmap-authoritative --no-dev --optimize
+    composer dump-autoload --classmap-authoritative --optimize
 
 #---------------------------------
 # Assets Build
