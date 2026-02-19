@@ -1,0 +1,190 @@
+services:
+    app:
+        image: ghcr.io/shopperlabs/demo.laravelshopper.dev:main
+        pull_policy: always
+        restart: always
+        extra_hosts:
+            - "host.docker.internal:host-gateway"
+        healthcheck:
+            test: ["CMD", "curl", "-f", "http://localhost:${APP_PORT:-8080}/up"]
+            timeout: 30s
+        environment:
+            APP_NAME: ${APP_NAME}
+            APP_ENV: ${APP_ENV}
+            APP_KEY: ${APP_KEY}
+            APP_DEBUG: ${APP_DEBUG}
+            APP_URL: ${APP_URL}
+            APP_TIMEZONE: ${APP_TIMEZONE}
+            APP_LOCALE: ${APP_LOCALE}
+            APP_FALLBACK_LOCALE: ${APP_FALLBACK_LOCALE}
+            APP_MAINTENANCE_DRIVER: ${APP_MAINTENANCE_DRIVER}
+            BCRYPT_ROUNDS: ${BCRYPT_ROUNDS}
+            DB_CONNECTION: ${DB_CONNECTION}
+            DB_HOST: ${DB_HOST}
+            DB_PORT: ${DB_PORT}
+            DB_DATABASE: ${DB_DATABASE}
+            DB_USERNAME: ${DB_USERNAME}
+            DB_PASSWORD: ${DB_PASSWORD}
+            LOG_CHANNEL: ${LOG_CHANNEL}
+            LOG_STACK: ${LOG_STACK}
+            LOG_DEPRECATIONS_CHANNEL: ${LOG_DEPRECATIONS_CHANNEL}
+            LOG_LEVEL: ${LOG_LEVEL}
+            SESSION_DRIVER: ${SESSION_DRIVER}
+            SESSION_LIFETIME: ${SESSION_LIFETIME}
+            SESSION_ENCRYPT: ${SESSION_ENCRYPT}
+            SESSION_PATH: ${SESSION_PATH}
+            SESSION_DOMAIN: ${SESSION_DOMAIN}
+            BROADCAST_CONNECTION: ${BROADCAST_CONNECTION}
+            FILESYSTEM_DISK: ${FILESYSTEM_DISK}
+            QUEUE_CONNECTION: ${QUEUE_CONNECTION}
+            CACHE_STORE: ${CACHE_STORE}
+            CACHE_PREFIX: ${CACHE_PREFIX}
+            REDIS_CLIENT: "phpredis"
+            REDIS_HOST: ${REDIS_HOST}
+            REDIS_PASSWORD: ${REDIS_PASSWORD}
+            REDIS_PORT: ${REDIS_PORT}
+            MAIL_MAILER: ${MAIL_MAILER}
+            MAIL_HOST: ${MAIL_HOST}
+            MAIL_PORT: ${MAIL_PORT}
+            MAIL_USERNAME: ${MAIL_USERNAME}
+            MAIL_PASSWORD: ${MAIL_PASSWORD}
+            MAIL_ENCRYPTION: ${MAIL_ENCRYPTION}
+            MAIL_FROM_ADDRESS: ${MAIL_FROM_ADDRESS}
+            MAIL_FROM_NAME: ${MAIL_FROM_NAME}
+            AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+            AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+            AWS_DEFAULT_REGION: ${AWS_DEFAULT_REGION}
+            AWS_BUCKET: ${AWS_BUCKET}
+            AWS_ENDPOINT: ${AWS_ENDPOINT}
+            AWS_URL: ${AWS_URL}
+            AWS_USE_PATH_STYLE_ENDPOINT: ${AWS_USE_PATH_STYLE_ENDPOINT}
+            STRIPE_SECRET_KEY: ${STRIPE_SECRET_KEY}
+            NOTCHPAY_PUBLIC_KEY: ${NOTCHPAY_PUBLIC_KEY}
+            NOTCHPAY_SECRET_KEY: ${NOTCHPAY_SECRET_KEY}
+            SHOPPER_FREE_SHIPPING: ${SHOPPER_FREE_SHIPPING}
+            SHOPPER_DEFAULT_ZONE: ${SHOPPER_DEFAULT_ZONE}
+            VITE_APP_NAME: ${VITE_APP_NAME}
+            OCTANE_SERVER: "frankenphp"
+            CADDY_GLOBAL_OPTIONS: |
+                servers {
+                    trusted_proxies static private_ranges
+                }
+            CADDY_SERVER_EXTRA_DIRECTIVES: |
+                @static {
+                    file
+                    path *.ico *.css *.js *.gif *.webp *.avif *.jpg *.jpeg *.png *.svg *.woff *.woff2
+                }
+                header @static Cache-Control "public, max-age=31536000, s-maxage=31536000"
+            FRANKENPHP_CONFIG: |
+                worker {
+                    file ./public/frankenphp-worker.php
+                }
+        volumes:
+            - storage:/var/www/html/storage
+        networks:
+            - dokploy-network
+
+    schedule:
+        image: ghcr.io/shopperlabs/demo.laravelshopper.dev:main
+        restart: always
+        command: ["artisan", "schedule:run"]
+        stop_signal: SIGTERM
+        healthcheck:
+            test: ["CMD", "healthcheck-schedule"]
+            start_period: 10s
+        environment:
+            APP_NAME: ${APP_NAME}
+            APP_ENV: ${APP_ENV}
+            APP_KEY: ${APP_KEY}
+            APP_DEBUG: ${APP_DEBUG}
+            APP_URL: ${APP_URL}
+            APP_TIMEZONE: ${APP_TIMEZONE}
+            DB_CONNECTION: ${DB_CONNECTION}
+            DB_HOST: ${DB_HOST}
+            DB_PORT: ${DB_PORT}
+            DB_DATABASE: ${DB_DATABASE}
+            DB_USERNAME: ${DB_USERNAME}
+            DB_PASSWORD: ${DB_PASSWORD}
+            LOG_CHANNEL: ${LOG_CHANNEL}
+            LOG_LEVEL: ${LOG_LEVEL}
+            SESSION_DRIVER: ${SESSION_DRIVER}
+            QUEUE_CONNECTION: ${QUEUE_CONNECTION}
+            CACHE_STORE: ${CACHE_STORE}
+            REDIS_HOST: ${REDIS_HOST}
+            REDIS_PASSWORD: ${REDIS_PASSWORD}
+            REDIS_PORT: ${REDIS_PORT}
+            MAIL_MAILER: ${MAIL_MAILER}
+            MAIL_HOST: ${MAIL_HOST}
+            MAIL_PORT: ${MAIL_PORT}
+            MAIL_USERNAME: ${MAIL_USERNAME}
+            MAIL_PASSWORD: ${MAIL_PASSWORD}
+            MAIL_ENCRYPTION: ${MAIL_ENCRYPTION}
+            MAIL_FROM_ADDRESS: ${MAIL_FROM_ADDRESS}
+            MAIL_FROM_NAME: ${MAIL_FROM_NAME}
+            OCTANE_SERVER: "frankenphp"
+        volumes:
+            - storage:/var/www/html/storage
+        networks:
+            - dokploy-network
+        depends_on:
+            - app
+
+    queue:
+        image: ghcr.io/shopperlabs/demo.laravelshopper.dev:main
+        restart: always
+        command:
+            - "artisan"
+            - "queue:listen"
+            - "database"
+            - "--sleep=10"
+            - "--quiet"
+            - "--force"
+            - "--queue=default,media"
+        stop_signal: SIGTERM
+        healthcheck:
+            test: ["CMD", "healthcheck-queue"]
+            start_period: 10s
+        environment:
+            APP_NAME: ${APP_NAME}
+            APP_ENV: ${APP_ENV}
+            APP_KEY: ${APP_KEY}
+            APP_DEBUG: ${APP_DEBUG}
+            APP_URL: ${APP_URL}
+            APP_TIMEZONE: ${APP_TIMEZONE}
+            DB_CONNECTION: ${DB_CONNECTION}
+            DB_HOST: ${DB_HOST}
+            DB_PORT: ${DB_PORT}
+            DB_DATABASE: ${DB_DATABASE}
+            DB_USERNAME: ${DB_USERNAME}
+            DB_PASSWORD: ${DB_PASSWORD}
+            LOG_CHANNEL: ${LOG_CHANNEL}
+            LOG_LEVEL: ${LOG_LEVEL}
+            SESSION_DRIVER: ${SESSION_DRIVER}
+            QUEUE_CONNECTION: ${QUEUE_CONNECTION}
+            CACHE_STORE: ${CACHE_STORE}
+            REDIS_HOST: ${REDIS_HOST}
+            REDIS_PASSWORD: ${REDIS_PASSWORD}
+            REDIS_PORT: ${REDIS_PORT}
+            MAIL_MAILER: ${MAIL_MAILER}
+            MAIL_HOST: ${MAIL_HOST}
+            MAIL_PORT: ${MAIL_PORT}
+            MAIL_USERNAME: ${MAIL_USERNAME}
+            MAIL_PASSWORD: ${MAIL_PASSWORD}
+            MAIL_ENCRYPTION: ${MAIL_ENCRYPTION}
+            MAIL_FROM_ADDRESS: ${MAIL_FROM_ADDRESS}
+            MAIL_FROM_NAME: ${MAIL_FROM_NAME}
+            OCTANE_SERVER: "frankenphp"
+        volumes:
+            - storage:/var/www/html/storage
+        networks:
+            - dokploy-network
+        depends_on:
+            - app
+
+networks:
+    dokploy-network:
+        external: true
+
+volumes:
+    storage:
+        driver: local

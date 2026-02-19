@@ -1,0 +1,49 @@
+# Node modules
+node_modules
+npm-debug.log*
+
+# Laravel
+.mcp.json
+boost.json
+.env
+.env.*
+!.env.example
+phpstan.neon
+phpunit.*.xml
+rector.php
+pint.json
+tests
+.phpunit.cache
+storage/logs/*
+storage/framework/cache/*
+storage/framework/sessions/*
+storage/framework/views/*
+
+# Build artifacts
+public/hot
+public/storage
+public/build
+
+# IDE
+.editorconfig
+.prettierignore
+.prettierrc
+.idea
+.vscode
+.junie
+.claude
+.gemini
+
+# Git
+.git
+.gitignore
+.gitattributes
+.github
+
+# Docker
+Dockerfile*
+compose.yml
+.dockerignore
+
+# Documentation
+*.md
