@@ -1,0 +1,94 @@
+[
+  {
+    "product_slug": "apple-iphone-16-pro-max-256gb-titane-noir-reconditionne",
+    "related_slugs": ["sony-wh-1000xm5", "anker-powercore-26800mah-portable-charger", "ktc-ecran-pc-24-pouces-qhd-2k-100hz-ips-moniteur"]
+  },
+  {
+    "product_slug": "ktc-ecran-pc-24-pouces-qhd-2k-100hz-ips-moniteur",
+    "related_slugs": ["apple-iphone-16-pro-max-256gb-titane-noir-reconditionne", "sony-wh-1000xm5", "anker-powercore-26800mah-portable-charger"]
+  },
+  {
+    "product_slug": "sony-wh-1000xm5",
+    "related_slugs": ["apple-iphone-16-pro-max-256gb-titane-noir-reconditionne", "ktc-ecran-pc-24-pouces-qhd-2k-100hz-ips-moniteur", "anker-powercore-26800mah-portable-charger"]
+  },
+  {
+    "product_slug": "moleskine-classic-notebook-large",
+    "related_slugs": ["monuments-magazine", "yeti-rambler-26-oz-bottle"]
+  },
+  {
+    "product_slug": "yeti-rambler-26-oz-bottle",
+    "related_slugs": ["moleskine-classic-notebook-large", "city-backpack-black"]
+  },
+  {
+    "product_slug": "adobe-creative-cloud-all-apps-1-year",
+    "related_slugs": ["masterclass-annual-membership", "monuments-magazine"]
+  },
+  {
+    "product_slug": "masterclass-annual-membership",
+    "related_slugs": ["adobe-creative-cloud-all-apps-1-year", "monuments-magazine"]
+  },
+  {
+    "product_slug": "xiaomi-electric-scooter-4-pro-2nd-gen",
+    "related_slugs": ["nike-air-max-90", "anker-powercore-26800mah-portable-charger", "city-backpack-black"]
+  },
+  {
+    "product_slug": "anker-powercore-26800mah-portable-charger",
+    "related_slugs": ["apple-iphone-16-pro-max-256gb-titane-noir-reconditionne", "sony-wh-1000xm5", "xiaomi-electric-scooter-4-pro-2nd-gen"]
+  },
+  {
+    "product_slug": "nike-air-max-90",
+    "related_slugs": ["wavy-twist-checkerboard", "city-backpack-black", "xiaomi-electric-scooter-4-pro-2nd-gen"]
+  },
+  {
+    "product_slug": "everyday-soap",
+    "related_slugs": ["chocolate-cookies", "wool-rabbit-toy"]
+  },
+  {
+    "product_slug": "city-backpack-black",
+    "related_slugs": ["leather-handbag-with-handle", "nike-air-max-90", "wavy-twist-checkerboard"]
+  },
+  {
+    "product_slug": "girls-sport-top",
+    "related_slugs": ["london-tour-tshirt-dress", "cheeky-fitted-raglan-tee", "trippie-redd-lifes-a-trip-tee"]
+  },
+  {
+    "product_slug": "wavy-twist-checkerboard",
+    "related_slugs": ["nike-air-max-90", "city-backpack-black"]
+  },
+  {
+    "product_slug": "london-tour-tshirt-dress",
+    "related_slugs": ["girls-sport-top", "cheeky-fitted-raglan-tee", "trippie-redd-lifes-a-trip-tee"]
+  },
+  {
+    "product_slug": "mortars-kit-bowl-pestle",
+    "related_slugs": ["chocolate-cookies", "ferm-living-shay-quilt-cushion"]
+  },
+  {
+    "product_slug": "chocolate-cookies",
+    "related_slugs": ["mortars-kit-bowl-pestle", "wool-rabbit-toy"]
+  },
+  {
+    "product_slug": "wool-rabbit-toy",
+    "related_slugs": ["chocolate-cookies", "ferm-living-shay-quilt-cushion"]
+  },
+  {
+    "product_slug": "monuments-magazine",
+    "related_slugs": ["moleskine-classic-notebook-large", "masterclass-annual-membership", "adobe-creative-cloud-all-apps-1-year"]
+  },
+  {
+    "product_slug": "leather-handbag-with-handle",
+    "related_slugs": ["city-backpack-black", "ferm-living-shay-quilt-cushion"]
+  },
+  {
+    "product_slug": "ferm-living-shay-quilt-cushion",
+    "related_slugs": ["wool-rabbit-toy", "leather-handbag-with-handle", "mortars-kit-bowl-pestle"]
+  },
+  {
+    "product_slug": "trippie-redd-lifes-a-trip-tee",
+    "related_slugs": ["girls-sport-top", "cheeky-fitted-raglan-tee", "london-tour-tshirt-dress"]
+  },
+  {
+    "product_slug": "cheeky-fitted-raglan-tee",
+    "related_slugs": ["girls-sport-top", "london-tour-tshirt-dress", "trippie-redd-lifes-a-trip-tee"]
+  }
+]

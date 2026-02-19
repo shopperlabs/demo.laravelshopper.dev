@@ -568,7 +568,8 @@
           { "currency_code": "EUR", "amount": 81, "compare_amount": 91 },
           { "currency_code": "USD", "amount": 89, "compare_amount": 100 }
         ],
-        "stock": 20
+        "stock": 20,
+        "thumbnail": "london-tour-variant-blue-thumb.jpg"
       },
       {
         "name": "Yellow",
@@ -580,7 +581,8 @@
           { "currency_code": "EUR", "amount": 81, "compare_amount": 91 },
           { "currency_code": "USD", "amount": 89, "compare_amount": 100 }
         ],
-        "stock": 15
+        "stock": 15,
+        "thumbnail": "london-tour-variant-yellow-thumb.jpg"
       },
       {
         "name": "Dark Blue",
@@ -592,7 +594,8 @@
           { "currency_code": "EUR", "amount": 81, "compare_amount": 91 },
           { "currency_code": "USD", "amount": 89, "compare_amount": 100 }
         ],
-        "stock": 12
+        "stock": 12,
+        "thumbnail": "london-tour-variant-dark-blue-thumb.jpg"
       },
       {
         "name": "White",
@@ -604,7 +607,8 @@
           { "currency_code": "EUR", "amount": 81, "compare_amount": 91 },
           { "currency_code": "USD", "amount": 89, "compare_amount": 100 }
         ],
-        "stock": 18
+        "stock": 18,
+        "thumbnail": "london-tour-variant-white-thumb.jpg"
       }
     ]
   }

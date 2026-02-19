@@ -74,6 +74,8 @@ class ProductSeeder extends AbstractSeeder
         });
 
         $this->command->info('Products created successfully.');
+
+        $this->attachRelatedProducts();
     }
 
     private function createProduct(object $product): Product
@@ -239,6 +241,29 @@ class ProductSeeder extends AbstractSeeder
                 $this->addMedia($variantModel, $variant, $thumbnailCollection, $uploadsCollection);
             }
         }
+    }
+
+    private function attachRelatedProducts(): void
+    {
+        $relatedData = $this->getSeedData('related-products');
+
+        $this->command->warn(PHP_EOL.'Attaching related products...');
+
+        foreach ($relatedData as $entry) {
+            $product = Product::query()->where('slug', $entry->product_slug)->first();
+
+            if (! $product) {
+                continue;
+            }
+
+            $relatedIds = Product::query()
+                ->whereIn('slug', $entry->related_slugs)
+                ->pluck('id');
+
+            $product->relatedProducts()->sync($relatedIds);
+        }
+
+        $this->command->info('Related products attached successfully.');
     }
 
     private function attachVariantAttributes(ProductVariant $variantModel, object $attributes): void
