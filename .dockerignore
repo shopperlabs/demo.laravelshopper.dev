@@ -23,6 +23,10 @@ storage/framework/views/*
 public/hot
 public/storage
 public/build
+public/css
+public/js
+public/fonts
+!public/build/.gitkeep
 
 # IDE
 .editorconfig

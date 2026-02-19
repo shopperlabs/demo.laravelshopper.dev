@@ -74,8 +74,13 @@ RUN install-php-extensions soap
 
 USER www-data
 
+# Copy only necessary files from composer stage
+COPY --from=composer --chown=www-data:www-data /var/www/html/public/css ./public/css
+COPY --from=composer --chown=www-data:www-data /var/www/html/public/js ./public/js
+COPY --from=composer --chown=www-data:www-data /var/www/html/public/fonts ./public/fonts
 COPY --from=composer --chown=www-data:www-data /var/www/html/vendor ./vendor
 
+# Copy built assets from frontend stage
 COPY --from=frontend --chown=www-data:www-data /app/public/build ./public/build
 
 COPY --chown=www-data:www-data . /var/www/html
