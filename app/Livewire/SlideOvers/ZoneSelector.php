@@ -10,6 +10,7 @@ use App\CheckoutSession;
 use App\DTO\CountryByZoneData;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Cache;
 use Laravelcm\LivewireSlideOvers\SlideOverComponent;
 use Livewire\Attributes\Computed;
 
@@ -35,9 +36,14 @@ final class ZoneSelector extends SlideOverComponent
         $selectedZone = $this->countries->firstWhere('countryId', $countryId);
 
         if ($selectedZone->countryId !== ZoneSessionManager::getSession()?->countryId) {
+            $oldCurrency = current_currency();
+
             ZoneSessionManager::setSession($selectedZone);
 
             session()->forget(CheckoutSession::KEY);
+
+            Cache::forget("home_featured_products_{$oldCurrency}");
+            Cache::forget("home_featured_products_{$selectedZone->currencyCode}");
 
             $this->dispatch('zoneChanged');
         }

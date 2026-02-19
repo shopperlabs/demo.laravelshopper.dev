@@ -133,6 +133,8 @@
     @endif
 
     @php
+        $currentModel = $selectedVariant ?? $product;
+        $hasNoPrice = is_null($currentModel->getFormattedPrice());
         $isOutOfStock = ($product->isVariant() && $selectedVariant && $selectedVariant->stock < 1 && ! $selectedVariant->allow_backorder)
             || (! $product->isVariant() && $product->stock < 1);
         $needsVariant = $product->isVariant() && ! $selectedVariant;
@@ -143,10 +145,12 @@
             variant="primary"
             type="submit"
             class="max-w-xs sm:w-full"
-            :disabled="$isOutOfStock || $needsVariant"
+            :disabled="$hasNoPrice || $isOutOfStock || $needsVariant"
         >
             @if ($needsVariant)
                 {{ __('Choose any variant') }}
+            @elseif ($hasNoPrice)
+                {{ __('Unavailable') }}
             @elseif ($isOutOfStock)
                 {{ __('Out of stock') }}
             @else
