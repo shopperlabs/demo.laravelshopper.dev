@@ -1,4 +1,10 @@
-# Shopper Demo
+<p align="center">
+    <a href="https://demo.laravelshopper.dev" title="Shopper demo store">
+        <img src="https://docs.laravelshopper.dev/images/demo-store.jpg">
+    </a>
+</p>
+
+# Shopper Demo store
 
 A full-featured demo e-commerce app built with [Laravel Shopper](https://laravelshopper.dev). It covers a realistic storefront with product catalog, multi-step checkout, customer accounts, a blog, and a complete admin panel, so you can see how Shopper handles real-world use cases.
 
