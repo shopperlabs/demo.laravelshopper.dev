@@ -16,31 +16,33 @@ final class Addresses extends Component
 {
     public function setDefaultShipping(int $id): void
     {
-        Address::query()
-            ->where('user_id', Auth::id())
+        $address = Auth::user()->addresses()->findOrFail($id);
+
+        Auth::user()->addresses()
             ->where('shipping_default', true)
             ->update(['shipping_default' => false]);
 
-        Address::query()->find($id)->update(['shipping_default' => true]);
+        $address->update(['shipping_default' => true]);
 
         $this->dispatch('notify', type: 'success', title: __('Default shipping address updated.'));
     }
 
     public function setDefaultBilling(int $id): void
     {
-        Address::query()
-            ->where('user_id', Auth::id())
+        $address = Auth::user()->addresses()->findOrFail($id);
+
+        Auth::user()->addresses()
             ->where('billing_default', true)
             ->update(['billing_default' => false]);
 
-        Address::query()->find($id)->update(['billing_default' => true]);
+        $address->update(['billing_default' => true]);
 
         $this->dispatch('notify', type: 'success', title: __('Default billing address updated.'));
     }
 
     public function removeAddress(int $id): void
     {
-        Address::query()->find($id)->delete();
+        Auth::user()->addresses()->findOrFail($id)->delete();
 
         $this->dispatch('notify', type: 'success', title: __('The address has been correctly removed from your list!'));
 

@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
+use App\CheckoutSession;
 use function Livewire\Volt\{on, state};
 
 state(['price' => 0]);
 
 on(['cart-price-update' => function () {
-    $this->price = data_get(session()->get('checkout'), 'shipping_option')
-        ? data_get(session()->get('checkout'), 'shipping_option')[0]['price']
-        : 0;
+    $shippingOption = session()->get(CheckoutSession::SHIPPING_OPTION);
+    $this->price = $shippingOption ? $shippingOption[0]['price'] : 0;
 }]);
 
 ?>

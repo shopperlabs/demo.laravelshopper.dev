@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Actions;
 
+use App\CheckoutSession;
 use Darryldecode\Cart\Facades\CartFacade;
 use Illuminate\Support\Facades\Auth;
 use Shopper\Core\Models\Country;
@@ -15,13 +16,23 @@ final class CreateOrder
 {
     public function handle(): Order
     {
-        $checkout = session()->get('checkout');
+        $checkout = session()->get(CheckoutSession::KEY);
+
+        abort_unless(
+            $checkout
+            && data_get($checkout, 'shipping_address')
+            && data_get($checkout, 'shipping_option')
+            && data_get($checkout, 'payment'),
+            422,
+            __('Checkout session is incomplete or expired.'),
+        );
+
         $sessionId = session()->getId();
         $customer = Auth::user();
 
         /** @var OrderAddress $shippingAddress */
         $shippingAddress = OrderAddress::query()->create([
-            'customer_id' => data_get($checkout, 'shipping_address.user_id'),
+            'customer_id' => $customer->id,
             'last_name' => data_get($checkout, 'shipping_address.last_name'),
             'first_name' => data_get($checkout, 'shipping_address.first_name'),
             'street_address' => data_get($checkout, 'shipping_address.street_address'),
@@ -38,7 +49,7 @@ final class CreateOrder
         $billingAddress = data_get($checkout, 'same_as_shipping')
             ? $shippingAddress
             : OrderAddress::query()->create([
-                'customer_id' => data_get($checkout, 'billing_address.user_id'),
+                'customer_id' => $customer->id,
                 'last_name' => data_get($checkout, 'billing_address.last_name'),
                 'first_name' => data_get($checkout, 'billing_address.first_name'),
                 'street_address' => data_get($checkout, 'billing_address.street_address'),

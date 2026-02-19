@@ -8,6 +8,7 @@ use App\Actions\CreateOrder;
 use App\Actions\Payment\PayWithCash;
 use App\Actions\Payment\PayWithNotchPay;
 use App\Actions\Payment\PayWithStripe;
+use App\CheckoutSession;
 use App\Enums\PaymentType;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Collection;
@@ -28,10 +29,9 @@ final class Payment extends StepComponent
 
     public function mount(): void
     {
-        $countryId = data_get(session()->get('checkout'), 'shipping_address.country_id');
-        $this->currentSelected = data_get(session()->get('checkout'), 'payment')
-            ? data_get(session()->get('checkout'), 'payment')[0]['id']
-            : null;
+        $countryId = data_get(session()->get(CheckoutSession::SHIPPING_ADDRESS), 'country_id');
+        $payment = session()->get(CheckoutSession::PAYMENT);
+        $this->currentSelected = $payment ? $payment[0]['id'] : null;
 
         $zone = Zone::query()
             ->whereHas('countries', fn ($q) => $q->where('id', $countryId))
@@ -46,13 +46,13 @@ final class Payment extends StepComponent
     {
         $this->validate();
 
-        session()->forget('checkout.payment');
+        session()->forget(CheckoutSession::PAYMENT);
 
-        session()->push('checkout.payment', PaymentMethod::query()->find($this->currentSelected)->toArray());
+        session()->push(CheckoutSession::PAYMENT, PaymentMethod::query()->find($this->currentSelected)->toArray());
 
         $order = (new CreateOrder)->handle();
 
-        match (data_get(session()->get('checkout'), 'payment')[0]['slug']) {
+        match (session()->get(CheckoutSession::PAYMENT)[0]['slug']) {
             PaymentType::Cash() => (new PayWithCash)->handle($order),
             PaymentType::NotchPay() => (new PayWithNotchPay)->handle($order),
             PaymentType::Stripe() => (new PayWithStripe)->handle($order),
@@ -63,8 +63,8 @@ final class Payment extends StepComponent
     {
         return [
             'label' => __('Payment'),
-            'complete' => session()->exists('checkout')
-                && data_get(session()->get('checkout'), 'payment') !== null,
+            'complete' => session()->exists(CheckoutSession::KEY)
+                && session()->get(CheckoutSession::PAYMENT) !== null,
         ];
     }
 

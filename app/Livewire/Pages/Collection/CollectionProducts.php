@@ -20,12 +20,8 @@ class CollectionProducts extends Component
     {
         return view('livewire.collection.collection-products', [
             'products' => Product::query()
-                ->with([
-                    'media',
-                    'brand',
-                    'prices' => fn ($q) => $q->whereRelation('currency', 'code', current_currency()),
-                    'prices.currency',
-                ])
+                ->with(['media', 'brand'])
+                ->withCurrentPrices()
                 ->scopes('publish')
                 ->whereHas('collections', function ($query): void {
                     $query->where('id', $this->collection->id);

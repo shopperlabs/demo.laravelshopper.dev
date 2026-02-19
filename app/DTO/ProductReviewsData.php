@@ -11,5 +11,6 @@ class ProductReviewsData
     public function __construct(
         public Collection $reviews,
         public float $averageRating = 0,
+        public int $totalCount = 0,
     ) {}
 }

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Livewire\Checkout;
 
+use App\CheckoutSession;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Collection;
 use Livewire\Attributes\Validate;
@@ -23,10 +24,9 @@ final class Delivery extends StepComponent
 
     public function mount(): void
     {
-        $countryId = data_get(session()->get('checkout'), 'shipping_address.country_id');
-        $this->currentSelected = data_get(session()->get('checkout'), 'shipping_option')
-            ? data_get(session()->get('checkout'), 'shipping_option')[0]['id']
-            : null;
+        $countryId = data_get(session()->get(CheckoutSession::SHIPPING_ADDRESS), 'country_id');
+        $shippingOption = session()->get(CheckoutSession::SHIPPING_OPTION);
+        $this->currentSelected = $shippingOption ? $shippingOption[0]['id'] : null;
 
         $zone = Zone::query()
             ->whereHas('countries', fn ($q) => $q->where('id', $countryId))
@@ -42,9 +42,9 @@ final class Delivery extends StepComponent
     {
         $this->validate();
 
-        session()->forget('checkout.shipping_option');
+        session()->forget(CheckoutSession::SHIPPING_OPTION);
 
-        session()->push('checkout.shipping_option', CarrierOption::query()->find($this->currentSelected)->toArray());
+        session()->push(CheckoutSession::SHIPPING_OPTION, CarrierOption::query()->find($this->currentSelected)->toArray());
 
         $this->dispatch('cart-price-update');
 
@@ -55,8 +55,8 @@ final class Delivery extends StepComponent
     {
         return [
             'label' => __('Delivery method'),
-            'complete' => session()->exists('checkout')
-                && data_get(session()->get('checkout'), 'shipping_option') !== null,
+            'complete' => session()->exists(CheckoutSession::KEY)
+                && session()->get(CheckoutSession::SHIPPING_OPTION) !== null,
         ];
     }
 

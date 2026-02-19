@@ -46,7 +46,7 @@
             @endif
 
             <div class="prose prose-zinc mt-10 max-w-none prose-headings:font-heading prose-a:text-primary-600 prose-img:rounded-xl">
-                {!! $post->content !!}
+                {!! clean($post->content) !!}
             </div>
         </div>
     </x-container>

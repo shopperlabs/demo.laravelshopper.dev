@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Actions\Payment;
 
 use App\Actions\ZoneSessionManager;
+use App\CheckoutSession;
 use App\Contracts\ManageOrder;
 use App\Enums\PaymentType;
 use App\Enums\TransactionType;
@@ -18,7 +19,7 @@ final class PayWithNotchPay implements ManageOrder
 {
     public function handle(Order $order): mixed
     {
-        session()->forget('checkout');
+        session()->forget(CheckoutSession::KEY);
 
         NotchPay::setApiKey(
             apiKey: config('services.notchpay.public_key')

@@ -11,14 +11,21 @@ use Livewire\Volt\Component;
 new class extends Component {
     public Product $product;
 
+    private const int REVIEWS_LIMIT = 6;
+
     #[Computed]
     #[On('reviewCreated')]
     public function productReviews(): ProductReviewsData
     {
-        $reviews = $this->product->ratings()
+        $query = $this->product->ratings()
+            ->where('approved', true);
+
+        $totalCount = $query->count();
+
+        $reviews = $query
             ->with('author')
-            ->where('approved', true)
             ->latest()
+            ->limit(self::REVIEWS_LIMIT)
             ->get();
 
         return new ProductReviewsData(
@@ -26,6 +33,7 @@ new class extends Component {
             averageRating: $reviews->isNotEmpty()
                 ? round($reviews->avg('rating'), 1)
                 : 0,
+            totalCount: $totalCount,
         );
     }
 }
@@ -90,7 +98,7 @@ new class extends Component {
                 </div>
             </div>
 
-            @if ($reviews->count() > 5)
+            @if ($this->productReviews->totalCount > $reviews->count())
                 <div class="flex justify-center pt-6">
                     <flux:button
                         type="button"

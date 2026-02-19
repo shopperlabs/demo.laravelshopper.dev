@@ -17,14 +17,8 @@ final class Home extends Component
         return view('livewire.pages.home', [
             'products' => Product::query()
                 ->select('id', 'name', 'slug', 'brand_id')
-                ->with([
-                    'brand',
-                    'media',
-                    'prices' => function ($query): void {
-                        $query->whereRelation('currency', 'code', current_currency());
-                    },
-                    'prices.currency',
-                ])
+                ->with(['brand', 'media'])
+                ->withCurrentPrices()
                 ->where('featured', true)
                 ->scopes('publish')
                 ->limit(8)

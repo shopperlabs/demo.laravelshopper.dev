@@ -2,14 +2,16 @@
 
 declare(strict_types=1);
 
+use App\CheckoutSession;
 use Darryldecode\Cart\Facades\CartFacade;
 use function Livewire\Volt\{on, state};
 
 state(['price' => CartFacade::session(session()->getId())->getTotal()]);
 
 on(['cart-price-update' => function () {
-    $this->price = data_get(session()->get('checkout'), 'shipping_option')
-        ? (int) data_get(session()->get('checkout'), 'shipping_option')[0]['price'] + CartFacade::session(session()->getId())->getTotal()
+    $shippingOption = session()->get(CheckoutSession::SHIPPING_OPTION);
+    $this->price = $shippingOption
+        ? (int) $shippingOption[0]['price'] + CartFacade::session(session()->getId())->getTotal()
         : 0;
 }]);
 

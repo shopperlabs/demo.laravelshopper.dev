@@ -10,7 +10,6 @@
         <div class="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
             <!-- Image gallery -->
             <div class="flex flex-col">
-
                 <x-products.thumbnail :product="$selectedVariant ?? $product" />
 
                 @php
@@ -46,6 +45,16 @@
                     <p class="mt-2 text-sm/4 text-zinc-500">{{ $product->summary }}</p>
                 @endif
 
+                @if ($product->brand_id)
+                    <x-link href="#" class="mt-4 inline-flex font-medium text-primary-500 group group-link-underline">
+                        <span class="link link-underline link-underline-primary">
+                        {{ $product->brand->name }}</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="ml-1 size-3" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+                        </svg>
+                    </x-link>
+                @endif
+
                 <div class="mt-4 flex items-center gap-3">
                     <h2 class="sr-only">{{ __('Product information') }}</h2>
                     <x-products.price
@@ -70,7 +79,7 @@
                 <div class="mt-6">
                     <h3 class="sr-only">{{ __('Description') }}</h3>
                     <div class="prose prose-sm text-zinc-500">
-                        {!! $product->description !!}
+                        {!! clean($product->description) !!}
                     </div>
                 </div>
             </div>

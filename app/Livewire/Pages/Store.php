@@ -33,13 +33,8 @@ class Store extends Component
     public function render(): View
     {
         $query = Product::query()->publish()
-            ->with([
-                'media',
-                'brand',
-                'options.values',
-                'prices' => fn ($q) => $q->whereRelation('currency', 'code', current_currency()),
-                'prices.currency',
-            ])
+            ->with(['media', 'brand', 'options.values'])
+            ->withCurrentPrices()
             ->withAvg('ratings', 'rating')
             ->withCount('ratings')
             ->latest();

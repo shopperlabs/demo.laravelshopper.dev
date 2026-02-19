@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Livewire\Checkout;
 
 use App\Actions\ZoneSessionManager;
+use App\CheckoutSession;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\On;
@@ -25,28 +26,24 @@ final class Shipping extends StepComponent
 
     public function mount(): void
     {
-        $checkout = session()->get('checkout');
-
-        $this->shippingAddressId = data_get($checkout, 'shipping_address.id');
-        $this->billingAddressId = data_get($checkout, 'billing_address.id');
-        $this->sameAsShipping = (bool) data_get($checkout, 'same_as_shipping');
+        $this->shippingAddressId = data_get(session()->get(CheckoutSession::SHIPPING_ADDRESS), 'id');
+        $this->billingAddressId = data_get(session()->get(CheckoutSession::BILLING_ADDRESS), 'id');
+        $this->sameAsShipping = (bool) session()->get(CheckoutSession::SAME_AS_SHIPPING);
     }
 
     public function save(): void
     {
         $this->validate();
 
-        if (session()->exists('checkout')) {
-            session()->forget('checkout');
-        }
+        session()->forget(CheckoutSession::KEY);
 
-        session()->put('checkout', [
-            'shipping_address' => $shippingAddress = Address::query()->find($this->shippingAddressId)->toArray(),
-            'same_as_shipping' => $this->sameAsShipping,
-            'billing_address' => $this->sameAsShipping
-                ? $shippingAddress
-                : Address::query()->find($this->billingAddressId)->toArray(),
-        ]);
+        $shippingAddress = Address::query()->find($this->shippingAddressId)->toArray();
+
+        session()->put(CheckoutSession::SHIPPING_ADDRESS, $shippingAddress);
+        session()->put(CheckoutSession::SAME_AS_SHIPPING, $this->sameAsShipping);
+        session()->put(CheckoutSession::BILLING_ADDRESS, $this->sameAsShipping
+            ? $shippingAddress
+            : Address::query()->find($this->billingAddressId)->toArray());
 
         $this->nextStep();
     }
@@ -55,8 +52,8 @@ final class Shipping extends StepComponent
     {
         return [
             'label' => __('Address'),
-            'complete' => session()->exists('checkout')
-                && data_get(session()->get('checkout'), 'shipping_address') !== null,
+            'complete' => session()->exists(CheckoutSession::KEY)
+                && session()->get(CheckoutSession::SHIPPING_ADDRESS) !== null,
         ];
     }
 

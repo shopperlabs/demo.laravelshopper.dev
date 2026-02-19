@@ -1,3 +1,13 @@
+@php
+    $formatAddress = function ($address) {
+        $desc = $address->street_address . ', ' . $address->city . ' ' . $address->postal_code . ', ' . $address->country->name;
+        if ($address->phone_number) {
+            $desc .= ' — ' . __('Phone number') . ' : ' . $address->phone_number;
+        }
+        return $desc;
+    };
+@endphp
+
 <div class="flex flex-col justify-between space-y-10">
     @include('components.checkout-steps')
 
@@ -5,7 +15,7 @@
         <livewire:modals.customer.address-form :key="'address-form-checkout'" />
     </div>
 
-    @if($addresses->isNotEmpty())
+    @if ($addresses->isNotEmpty())
         <form wire:submit="save" class="flex-1 space-y-3">
             <flux:error name="shippingAddressId" />
 
@@ -18,16 +28,10 @@
                         @if ($addresses->has('shipping') && $addresses->get('shipping')->isNotEmpty())
                             <flux:radio.group wire:model="shippingAddressId" class="mt-5">
                                 @foreach ($addresses->get('shipping') as $shippingAddress)
-                                    @php
-                                        $description = $shippingAddress->street_address . ', ' . $shippingAddress->city . ' ' . $shippingAddress->postal_code . ', ' . $shippingAddress->country->name;
-                                        if ($shippingAddress->phone_number) {
-                                            $description .= ' — ' . __('Phone number') . ' : ' . $shippingAddress->phone_number;
-                                        }
-                                    @endphp
                                     <flux:radio
                                         value="{{ $shippingAddress->id }}"
                                         :label="$shippingAddress->full_name"
-                                        :description="$description"
+                                        :description="$formatAddress($shippingAddress)"
                                     />
                                 @endforeach
                             </flux:radio.group>
@@ -48,16 +52,10 @@
                             @if ($addresses->has('billing') && $addresses->get('billing')->isNotEmpty())
                                 <flux:radio.group wire:model="billingAddressId">
                                     @foreach ($addresses->get('billing') as $billingAddress)
-                                        @php
-                                            $description = $billingAddress->street_address . ', ' . $billingAddress->city . ' ' . $billingAddress->postal_code . ', ' . $billingAddress->country->name;
-                                            if ($billingAddress->phone_number) {
-                                                $description .= ' — ' . __('Phone number') . ' : ' . $billingAddress->phone_number;
-                                            }
-                                        @endphp
                                         <flux:radio
                                             value="{{ $billingAddress->id }}"
                                             :label="$billingAddress->full_name"
-                                            :description="$description"
+                                            :description="$formatAddress($billingAddress)"
                                         />
                                     @endforeach
                                 </flux:radio.group>

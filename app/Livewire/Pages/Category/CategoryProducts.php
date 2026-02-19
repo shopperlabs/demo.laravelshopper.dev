@@ -27,12 +27,8 @@ final class CategoryProducts extends Component
     {
         return view('livewire.category.category-products', [
             'products' => Product::query()
-                ->with([
-                    'media',
-                    'brand',
-                    'prices' => fn ($q) => $q->whereRelation('currency', 'code', current_currency()),
-                    'prices.currency',
-                ])
+                ->with(['media', 'brand'])
+                ->withCurrentPrices()
                 ->scopes('publish')
                 ->whereHas('categories', function ($query): void {
                     $query->where('id', $this->category->id);

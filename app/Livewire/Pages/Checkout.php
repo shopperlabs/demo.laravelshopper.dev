@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Livewire\Pages;
 
+use App\CheckoutSession;
 use Darryldecode\Cart\Facades\CartFacade;
 use Illuminate\Contracts\View\View;
 use Livewire\Attributes\Layout;
@@ -20,8 +21,8 @@ final class Checkout extends Component
 
         // @phpstan-ignore-next-line
         if (CartFacade::session($this->sessionKey)->isEmpty()) {
-            if (session()->exists('checkout')) {
-                session()->forget('checkout');
+            if (session()->exists(CheckoutSession::KEY)) {
+                session()->forget(CheckoutSession::KEY);
             }
 
             $this->redirect(route('home'), true);

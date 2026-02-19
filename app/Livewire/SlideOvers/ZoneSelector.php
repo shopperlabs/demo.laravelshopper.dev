@@ -6,6 +6,7 @@ namespace App\Livewire\SlideOvers;
 
 use App\Actions\CountriesWithZone;
 use App\Actions\ZoneSessionManager;
+use App\CheckoutSession;
 use App\DTO\CountryByZoneData;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
@@ -36,7 +37,7 @@ final class ZoneSelector extends SlideOverComponent
         if ($selectedZone->countryId !== ZoneSessionManager::getSession()?->countryId) {
             ZoneSessionManager::setSession($selectedZone);
 
-            session()->forget('checkout');
+            session()->forget(CheckoutSession::KEY);
 
             $this->dispatch('zoneChanged');
         }

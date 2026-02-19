@@ -37,6 +37,7 @@ final class SingleProduct extends Component
             'brand',
             'media',
             'categories',
+            'ratings' => fn ($q) => $q->where('approved', true)->latest()->limit(10),
             'ratings.author',
             'variants.media',
             'variants.values.attribute',

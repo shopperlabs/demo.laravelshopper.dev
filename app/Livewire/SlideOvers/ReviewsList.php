@@ -33,6 +33,7 @@ class ReviewsList extends SlideOverComponent
             averageRating: $reviews->isNotEmpty()
                 ? round($reviews->avg('rating'), 1)
                 : 0,
+            totalCount: $reviews->count(),
         );
     }
 
