@@ -3,7 +3,7 @@ name: Build and Push Docker Image
 on:
   push:
     branches:
-      - main
+      - livewire
   release:
     types:
       - created
@@ -88,11 +88,11 @@ jobs:
         if: steps.build.outputs.digest
         run: echo "Image pushed with digest ${{ steps.build.outputs.digest }}"
 
-  deploy-production:
+  deploy-development:
     runs-on: ubuntu-latest
     needs: build-and-push
-    if: github.event_name == 'release'
-    environment: production
+    if: github.ref == 'refs/heads/livewire'
+    environment: development
 
     steps:
       - name: Deploy to Dokploy

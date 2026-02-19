@@ -8,19 +8,19 @@
   ],
   "license": "MIT",
   "require": {
-    "php": "^8.2",
+    "php": "^8.4",
     "darryldecode/cart": "^4.2.6",
     "diglactic/laravel-breadcrumbs": "^10.0",
-    "filament/support": ">=4.7.1",
     "guzzlehttp/guzzle": "^7.10",
     "laravel/framework": "^12.52.0",
+    "laravel/octane": "^2.13.5",
     "laravel/tinker": "^2.11.1",
     "laravelcm/livewire-slide-overs": "^1.1.1",
     "livewire/flux": "^2.12.1",
     "livewire/livewire": "^3.7.10",
     "livewire/volt": "^1.10.2",
-    "notchpay/notchpay-php": "^1.6.1",
-    "shopper/framework": ">=2"
+    "notchpay/notchpay-php": "^2.0",
+    "shopper/framework": "^2.4.3"
   },
   "require-dev": {
     "barryvdh/laravel-debugbar": "^4.0.9",
@@ -97,12 +97,6 @@
       "@test:pest"
     ]
   },
-  "repositories": [
-    {
-      "type": "path",
-      "url": "../shopper/packages/*"
-    }
-  ],
   "extra": {
     "laravel": {
       "dont-discover": []

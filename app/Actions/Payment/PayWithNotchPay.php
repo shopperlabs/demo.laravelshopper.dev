@@ -45,8 +45,8 @@ final class PayWithNotchPay implements ManageOrder
                 'user_id' => $user->id,
                 'order_id' => $order->id,
                 'fees' => $payload->transaction->fee, // @phpstan-ignore-line
-                'type' => TransactionType::OneTime(),
-                'provider' => PaymentType::NotchPay(),
+                'type' => TransactionType::OneTime,
+                'provider' => PaymentType::NotchPay,
                 'metadata' => [
                     'initiated_at' => $payload->transaction->created_at, // @phpstan-ignore-line
                 ],

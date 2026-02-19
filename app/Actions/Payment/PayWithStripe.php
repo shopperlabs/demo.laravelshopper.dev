@@ -13,6 +13,8 @@ final class PayWithStripe implements ManageOrder
     {
         session()->forget('checkout');
 
+        // Stripe checkout
+
         return to_route('order-confirmed', ['number' => $order->number]);
     }
 }

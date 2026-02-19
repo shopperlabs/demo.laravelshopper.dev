@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bad7e50ee90bd171d80684af0cbf9bf6",
+    "content-hash": "a6a9d059fdb743472770c3b2a35e764f",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -3244,6 +3244,94 @@
             "time": "2025-12-17T00:37:48+00:00"
         },
         {
+            "name": "laminas/laminas-diactoros",
+            "version": "3.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laminas/laminas-diactoros.git",
+                "reference": "60c182916b2749480895601649563970f3f12ec4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laminas/laminas-diactoros/zipball/60c182916b2749480895601649563970f3f12ec4",
+                "reference": "60c182916b2749480895601649563970f3f12ec4",
+                "shasum": ""
+            },
+            "require": {
+                "php": "~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0",
+                "psr/http-factory": "^1.1",
+                "psr/http-message": "^1.1 || ^2.0"
+            },
+            "conflict": {
+                "amphp/amp": "<2.6.4"
+            },
+            "provide": {
+                "psr/http-factory-implementation": "^1.0",
+                "psr/http-message-implementation": "^1.1 || ^2.0"
+            },
+            "require-dev": {
+                "ext-curl": "*",
+                "ext-dom": "*",
+                "ext-gd": "*",
+                "ext-libxml": "*",
+                "http-interop/http-factory-tests": "^2.2.0",
+                "laminas/laminas-coding-standard": "~3.1.0",
+                "php-http/psr7-integration-tests": "^1.4.0",
+                "phpunit/phpunit": "^10.5.36",
+                "psalm/plugin-phpunit": "^0.19.5",
+                "vimeo/psalm": "^6.13"
+            },
+            "type": "library",
+            "extra": {
+                "laminas": {
+                    "module": "Laminas\\Diactoros",
+                    "config-provider": "Laminas\\Diactoros\\ConfigProvider"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/functions/create_uploaded_file.php",
+                    "src/functions/marshal_headers_from_sapi.php",
+                    "src/functions/marshal_method_from_sapi.php",
+                    "src/functions/marshal_protocol_version_from_sapi.php",
+                    "src/functions/normalize_server.php",
+                    "src/functions/normalize_uploaded_files.php",
+                    "src/functions/parse_cookie_header.php"
+                ],
+                "psr-4": {
+                    "Laminas\\Diactoros\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "PSR HTTP Message implementations",
+            "homepage": "https://laminas.dev",
+            "keywords": [
+                "http",
+                "laminas",
+                "psr",
+                "psr-17",
+                "psr-7"
+            ],
+            "support": {
+                "chat": "https://laminas.dev/chat",
+                "docs": "https://docs.laminas.dev/laminas-diactoros/",
+                "forum": "https://discourse.laminas.dev",
+                "issues": "https://github.com/laminas/laminas-diactoros/issues",
+                "rss": "https://github.com/laminas/laminas-diactoros/releases.atom",
+                "source": "https://github.com/laminas/laminas-diactoros"
+            },
+            "funding": [
+                {
+                    "url": "https://funding.communitybridge.org/projects/laminas-project",
+                    "type": "community_bridge"
+                }
+            ],
+            "time": "2025-10-12T15:31:36+00:00"
+        },
+        {
             "name": "laravel/framework",
             "version": "v12.52.0",
             "source": {
@@ -3464,6 +3552,96 @@
                 "source": "https://github.com/laravel/framework"
             },
             "time": "2026-02-17T17:07:04+00:00"
+        },
+        {
+            "name": "laravel/octane",
+            "version": "v2.13.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/octane.git",
+                "reference": "c343716659c280a7613a0c10d3241215512355ee"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/octane/zipball/c343716659c280a7613a0c10d3241215512355ee",
+                "reference": "c343716659c280a7613a0c10d3241215512355ee",
+                "shasum": ""
+            },
+            "require": {
+                "laminas/laminas-diactoros": "^3.0",
+                "laravel/framework": "^10.10.1|^11.0|^12.0",
+                "laravel/prompts": "^0.1.24|^0.2.0|^0.3.0",
+                "laravel/serializable-closure": "^1.3|^2.0",
+                "nesbot/carbon": "^2.66.0|^3.0",
+                "php": "^8.1.0",
+                "symfony/console": "^6.0|^7.0",
+                "symfony/psr-http-message-bridge": "^2.2.0|^6.4|^7.0"
+            },
+            "conflict": {
+                "spiral/roadrunner": "<2023.1.0",
+                "spiral/roadrunner-cli": "<2.6.0",
+                "spiral/roadrunner-http": "<3.3.0"
+            },
+            "require-dev": {
+                "guzzlehttp/guzzle": "^7.6.1",
+                "inertiajs/inertia-laravel": "^1.3.2|^2.0",
+                "laravel/scout": "^10.2.1",
+                "laravel/socialite": "^5.6.1",
+                "livewire/livewire": "^2.12.3|^3.0",
+                "mockery/mockery": "^1.5.1",
+                "nunomaduro/collision": "^6.4.0|^7.5.2|^8.0",
+                "orchestra/testbench": "^8.21|^9.0|^10.0",
+                "phpstan/phpstan": "^2.1.7",
+                "phpunit/phpunit": "^10.4|^11.5",
+                "spiral/roadrunner-cli": "^2.6.0",
+                "spiral/roadrunner-http": "^3.3.0"
+            },
+            "bin": [
+                "bin/roadrunner-worker",
+                "bin/swoole-server"
+            ],
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "aliases": {
+                        "Octane": "Laravel\\Octane\\Facades\\Octane"
+                    },
+                    "providers": [
+                        "Laravel\\Octane\\OctaneServiceProvider"
+                    ]
+                },
+                "branch-alias": {
+                    "dev-master": "2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laravel\\Octane\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+            "description": "Supercharge your Laravel application's performance.",
+            "keywords": [
+                "frankenphp",
+                "laravel",
+                "octane",
+                "roadrunner",
+                "swoole"
+            ],
+            "support": {
+                "issues": "https://github.com/laravel/octane/issues",
+                "source": "https://github.com/laravel/octane"
+            },
+            "time": "2026-01-22T17:24:46+00:00"
         },
         {
             "name": "laravel/prompts",
@@ -5609,16 +5787,16 @@
         },
         {
             "name": "notchpay/notchpay-php",
-            "version": "1.6.1",
+            "version": "2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/notchpay/notchpay-php.git",
-                "reference": "78f673d2d5a8e88dbe89aa90a297ce6ecfcdc84b"
+                "reference": "0964e77adab2c463a74e261da99609f5e5480430"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/notchpay/notchpay-php/zipball/78f673d2d5a8e88dbe89aa90a297ce6ecfcdc84b",
-                "reference": "78f673d2d5a8e88dbe89aa90a297ce6ecfcdc84b",
+                "url": "https://api.github.com/repos/notchpay/notchpay-php/zipball/0964e77adab2c463a74e261da99609f5e5480430",
+                "reference": "0964e77adab2c463a74e261da99609f5e5480430",
                 "shasum": ""
             },
             "require": {
@@ -5678,9 +5856,9 @@
             ],
             "support": {
                 "issues": "https://github.com/notchpay/notchpay-php/issues",
-                "source": "https://github.com/notchpay/notchpay-php/tree/1.6.1"
+                "source": "https://github.com/notchpay/notchpay-php/tree/2.0"
             },
-            "time": "2024-04-10T07:46:14+00:00"
+            "time": "2025-05-24T10:43:17+00:00"
         },
         {
             "name": "nunomaduro/termwind",
@@ -7025,11 +7203,17 @@
         },
         {
             "name": "shopper/core",
-            "version": "2.x-dev",
+            "version": "v2.4.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/shopperlabs/core.git",
+                "reference": "549dbe09a2cb319fd1cbcd861cb4b9e0637657b9"
+            },
             "dist": {
-                "type": "path",
-                "url": "../shopper/packages/core",
-                "reference": "2b75be27f7ce4d78cc6b28f886ea5bb0ea1c0cd4"
+                "type": "zip",
+                "url": "https://api.github.com/repos/shopperlabs/core/zipball/549dbe09a2cb319fd1cbcd861cb4b9e0637657b9",
+                "reference": "549dbe09a2cb319fd1cbcd861cb4b9e0637657b9",
+                "shasum": ""
             },
             "require": {
                 "ext-intl": "*",
@@ -7053,25 +7237,33 @@
                 ],
                 "psr-4": {
                     "Shopper\\Core\\": "src/",
-                    "Shopper\\Core\\Database\\Factories\\": "database/factories",
-                    "Shopper\\Core\\Database\\Seeders\\": "database/seeders"
+                    "Shopper\\Core\\Database\\Seeders\\": "database/seeders",
+                    "Shopper\\Core\\Database\\Factories\\": "database/factories"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "description": "Laravel Shopper e-commerce core functionality",
-            "transport-options": {
-                "relative": true
-            }
+            "support": {
+                "source": "https://github.com/shopperlabs/core/tree/v2.4.3"
+            },
+            "time": "2026-02-18T11:38:56+00:00"
         },
         {
             "name": "shopper/framework",
-            "version": "2.x-dev",
+            "version": "v2.4.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/shopperlabs/admin.git",
+                "reference": "d64d59e9f3c97c9834c1bc36631ad4cf34090646"
+            },
             "dist": {
-                "type": "path",
-                "url": "../shopper/packages/admin",
-                "reference": "a094edd44a73c13bda8a091f97f884a023b6b59d"
+                "type": "zip",
+                "url": "https://api.github.com/repos/shopperlabs/admin/zipball/d64d59e9f3c97c9834c1bc36631ad4cf34090646",
+                "reference": "d64d59e9f3c97c9834c1bc36631ad4cf34090646",
+                "shasum": ""
             },
             "require": {
                 "bacon/bacon-qr-code": "^2.0",
@@ -7120,35 +7312,40 @@
                     "Shopper\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "description": "A TALL Laravel Headless e-commerce admin panel to create and manage online shop.",
             "keywords": [
+                "Shopper",
                 "admin-panel",
                 "e-commerce",
                 "headless cms",
                 "laravel",
                 "livewire",
                 "shop",
-                "shopper",
                 "store"
             ],
             "support": {
                 "issues": "https://github.com/shopperlabs/framework/issues",
                 "source": "https://github.com/shopperlabs/framework"
             },
-            "transport-options": {
-                "relative": true
-            }
+            "time": "2026-02-16T14:47:40+00:00"
         },
         {
             "name": "shopper/shipping",
-            "version": "2.x-dev",
+            "version": "v2.4.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/shopperlabs/shipping.git",
+                "reference": "3655e0fd807ac6a0d01f61033a5411af69f31aaa"
+            },
             "dist": {
-                "type": "path",
-                "url": "../shopper/packages/shipping",
-                "reference": "a501944fdeae2cfd1a094c5a942e3a04cc05376b"
+                "type": "zip",
+                "url": "https://api.github.com/repos/shopperlabs/shipping/zipball/3655e0fd807ac6a0d01f61033a5411af69f31aaa",
+                "reference": "3655e0fd807ac6a0d01f61033a5411af69f31aaa",
+                "shasum": ""
             },
             "require": {
                 "ivanmitrikeski/laravel-shipping": "^1.0",
@@ -7171,21 +7368,30 @@
                     "Shopper\\Shipping\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "description": "Laravel Shopper shipping providers integration",
-            "transport-options": {
-                "relative": true
-            }
+            "support": {
+                "issues": "https://github.com/shopperlabs/shipping/issues",
+                "source": "https://github.com/shopperlabs/shipping/tree/v2.4.3"
+            },
+            "time": "2026-01-24T01:30:04+00:00"
         },
         {
             "name": "shopper/sidebar",
-            "version": "2.x-dev",
+            "version": "v2.4.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/shopperlabs/sidebar.git",
+                "reference": "5cf1c75f1a4a5c1e9c896186a352a969dd9f6277"
+            },
             "dist": {
-                "type": "path",
-                "url": "../shopper/packages/sidebar",
-                "reference": "25359c9c13570519d200e4ab910c9cf45c2f8333"
+                "type": "zip",
+                "url": "https://api.github.com/repos/shopperlabs/sidebar/zipball/5cf1c75f1a4a5c1e9c896186a352a969dd9f6277",
+                "reference": "5cf1c75f1a4a5c1e9c896186a352a969dd9f6277",
+                "shasum": ""
             },
             "require": {
                 "illuminate/cache": "^11.0|^12.0",
@@ -7208,13 +7414,14 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Shopper\\Sidebar\\": "src/"
-                },
                 "files": [
                     "src/helpers.php"
-                ]
+                ],
+                "psr-4": {
+                    "Shopper\\Sidebar\\": "src/"
+                }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -7230,9 +7437,11 @@
                 "laravel",
                 "sidebar"
             ],
-            "transport-options": {
-                "relative": true
-            }
+            "support": {
+                "issues": "https://github.com/shopperlabs/sidebar/issues",
+                "source": "https://github.com/shopperlabs/sidebar/tree/v2.4.3"
+            },
+            "time": "2026-02-11T14:13:45+00:00"
         },
         {
             "name": "spatie/image",
@@ -10152,6 +10361,94 @@
                 }
             ],
             "time": "2026-01-26T15:07:59+00:00"
+        },
+        {
+            "name": "symfony/psr-http-message-bridge",
+            "version": "v7.4.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/psr-http-message-bridge.git",
+                "reference": "929ffe10bbfbb92e711ac3818d416f9daffee067"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/psr-http-message-bridge/zipball/929ffe10bbfbb92e711ac3818d416f9daffee067",
+                "reference": "929ffe10bbfbb92e711ac3818d416f9daffee067",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.2",
+                "psr/http-message": "^1.0|^2.0",
+                "symfony/http-foundation": "^6.4|^7.0|^8.0"
+            },
+            "conflict": {
+                "php-http/discovery": "<1.15",
+                "symfony/http-kernel": "<6.4"
+            },
+            "require-dev": {
+                "nyholm/psr7": "^1.1",
+                "php-http/discovery": "^1.15",
+                "psr/log": "^1.1.4|^2|^3",
+                "symfony/browser-kit": "^6.4|^7.0|^8.0",
+                "symfony/config": "^6.4|^7.0|^8.0",
+                "symfony/event-dispatcher": "^6.4|^7.0|^8.0",
+                "symfony/framework-bundle": "^6.4.13|^7.1.6|^8.0",
+                "symfony/http-kernel": "^6.4.13|^7.1.6|^8.0",
+                "symfony/runtime": "^6.4.13|^7.1.6|^8.0"
+            },
+            "type": "symfony-bridge",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Bridge\\PsrHttpMessage\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "PSR HTTP message bridge",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "http",
+                "http-message",
+                "psr-17",
+                "psr-7"
+            ],
+            "support": {
+                "source": "https://github.com/symfony/psr-http-message-bridge/tree/v7.4.4"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/nicolas-grekas",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2026-01-03T23:30:35+00:00"
         },
         {
             "name": "symfony/routing",
@@ -15434,7 +15731,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^8.2"
+        "php": "^8.4"
     },
     "platform-dev": {},
     "plugin-api-version": "2.9.0"
