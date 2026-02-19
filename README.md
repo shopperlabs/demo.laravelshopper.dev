@@ -1,6 +1,6 @@
 <p align="center">
     <a href="https://demo.laravelshopper.dev" title="Shopper demo store">
-        <img src="https://docs.laravelshopper.dev/images/demo-store.jpg">
+        <img src="art/demo-store.jpg" alt="Shopper Demo Store">
     </a>
 </p>
 
