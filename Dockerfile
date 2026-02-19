@@ -14,6 +14,12 @@ ENV HEALTHCHECK_PATH="/up"
 #---------------------------------
 FROM base AS composer
 
+USER root
+
+RUN install-php-extensions soap
+
+USER www-data
+
 WORKDIR /var/www/html
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
@@ -61,6 +67,10 @@ ENV \
     PHP_MEMORY_LIMIT=512M \
     OCTANE_SERVER=frankenphp \
     HEALTHCHECK_PATH="/up"
+
+USER root
+
+RUN install-php-extensions soap
 
 USER www-data
 
