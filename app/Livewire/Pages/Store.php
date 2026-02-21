@@ -55,7 +55,7 @@ class Store extends Component
             $this->selectedAttributes[$slug][] = $valueId;
         }
 
-        if (empty($this->selectedAttributes[$slug])) {
+        if (blank($this->selectedAttributes[$slug])) {
             unset($this->selectedAttributes[$slug]);
         }
 
