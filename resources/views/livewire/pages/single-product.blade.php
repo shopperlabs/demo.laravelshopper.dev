@@ -47,9 +47,9 @@
 
                 @if ($product->brand_id)
                     <a
-                        :href="{{ $product->brand->website ?? '#' }}"
+                        href="{{ $product->brand->website ?? '#' }}"
                         target="_blank"
-                        class="cursor-default mt-4 inline-flex font-medium text-primary-500 group group-link-underline"
+                        class="cursor-pointer mt-4 inline-flex font-medium text-primary-500 group group-link-underline"
                     >
                         <span class="link link-underline link-underline-primary">
                         {{ $product->brand->name }}</span>

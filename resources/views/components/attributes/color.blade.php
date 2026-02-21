@@ -1,6 +1,8 @@
-@props(['attribute'])
+@props([
+    'attribute',
+])
 
-<div wire:key="{{ $attribute->id }}" x-data="{ selectedColorAttributes: @entangle('selectedAttributes') }" class="py-6">
+<div wire:key="{{ $attribute->id }}" x-data="{ selectedColorAttributes: @entangle('selectedAttributes.' . $attribute->slug) }" class="py-6">
     <p class="block text-sm font-medium text-zinc-900">{{ $attribute->name }}</p>
 
     @if ($attribute->values->isNotEmpty())
@@ -11,18 +13,17 @@
                         class="relative -m-0.5 flex cursor-pointer items-center justify-center rounded p-0.5"
                     >
                         <input id="{{ $attribute->slug }}-{{ $value->id }}"
-                               wire:model.live.debounce.350ms="selectedAttributes"
                                type="checkbox"
                                class="sr-only"
                                value="{{ $value->id }}"
-                               wire:model.live.debounce.350ms="selectedAttributes"
-                               :checked="selectedColorAttributes.includes('{{ $value->id }}')"
+                               :checked="(selectedColorAttributes || []).includes('{{ $value->id }}')"
+                               x-on:change="$wire.toggleAttribute('{{ $attribute->slug }}', '{{ $value->id }}')"
                         />
                         <span
                             aria-hidden="true"
                             style="background-color: {{ $value->key }} "
                             class="size-6 rounded-full "
-                            :class="selectedColorAttributes.includes('{{ $value->id }}') ? 'ring-2 ring-primary-600 ring-offset-2' : 'border-double border-2 border-black/10' "
+                            :class="(selectedColorAttributes || []).includes('{{ $value->id }}') ? 'ring-2 ring-primary-600 ring-offset-2' : 'border-double border-2 border-black/10' "
                         ></span>
                     </label>
                 </div>

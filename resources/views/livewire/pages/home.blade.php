@@ -50,7 +50,7 @@
                     </x-link>
                 </div>
 
-                <div class="grid grid-cols-1 mt-6 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-8 lg:mt-18">
+                <div class="grid grid-cols-2 mt-6 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-8 lg:mt-18">
                     @foreach ($products as $product)
                         <x-products.card :$product />
                     @endforeach

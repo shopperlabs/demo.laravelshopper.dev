@@ -32,7 +32,7 @@
                                     <p class="block text-sm font-medium text-zinc-900">{{ $attribute->name }}</p>
                                     @if ($attribute->values->isNotEmpty())
                                         <div x-data="{ expanded: false }">
-                                            <flux:checkbox.group wire:model.live.debounce.350ms="selectedAttributes" class="pt-6 space-y-1.5">
+                                            <flux:checkbox.group wire:model.live.debounce.350ms="selectedAttributes.{{ $attribute->slug }}" class="pt-6 space-y-1.5">
                                                 @foreach ($attribute->values as $index => $value)
                                                     <div wire:key="{{ $attribute->slug }}-{{ $value->key }}" x-show="expanded || {{ $index }} < 6">
                                                         <flux:checkbox
@@ -65,7 +65,7 @@
                 <section aria-labelledby="product-heading" class="mt-6 lg:col-span-2 lg:mt-0 xl:col-span-3">
                     <h2 id="product-heading" class="sr-only">{{ __('Products') }}</h2>
 
-                    <div wire:loading.class="opacity-50 pointer-events-none" class="grid grid-cols-1 gap-x-6 gap-y-10 transition-opacity sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+                    <div wire:loading.class="opacity-50 pointer-events-none" class="grid grid-cols-2 gap-x-6 gap-y-10 transition-opacity sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
                         @foreach ($products as $product)
                             <x-products.catalog-card :$product />
                         @endforeach

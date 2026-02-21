@@ -11,6 +11,13 @@
 @source "../../vendor/laravelcm/livewire-slide-overs/resources/views/*.blade.php";
 @source "../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php";
 
+@layer base {
+  button, [role="button"], a, select, summary,
+  [type="button"], [type="reset"], [type="submit"] {
+    cursor: pointer;
+  }
+}
+
 @theme {
   --font-sans: 'Inter var', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   --font-heading: 'Figtree', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
@@ -57,4 +64,3 @@
   --color-success-900: var(--color-green-900);
   --color-success-950: var(--color-green-950);
 }
-
