@@ -31,6 +31,13 @@ final class Shipping extends StepComponent
         $this->sameAsShipping = (bool) session()->get(CheckoutSession::SAME_AS_SHIPPING);
     }
 
+    public function updatedSameAsShipping(): void
+    {
+        if (! $this->sameAsShipping) {
+            $this->billingAddressId = null;
+        }
+    }
+
     public function save(): void
     {
         $this->validate();

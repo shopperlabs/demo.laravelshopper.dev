@@ -24,7 +24,7 @@
                 <!-- Decorative image grid -->
                 @include('includes._decorative_images')
 
-                <flux:button variant="primary" :href="route('store')" class="group">
+                <flux:button variant="primary" :href="route('store')" class="group" wire:navigate>
                     {{ __('Discover now') }}
                     <span
                         class="ml-2 transition duration-200 ease-in-out transform translate-x-0 group-hover:translate-x-1">

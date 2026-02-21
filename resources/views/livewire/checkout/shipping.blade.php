@@ -64,16 +64,24 @@
                     </div>
                 </div>
 
-                <div class="pt-6 mt-10 border-t border-zinc-200 sm:flex sm:items-center sm:justify-end">
-                    <flux:button variant="primary" type="submit" class="w-full sm:w-auto">
-                        {{ __('Continue') }}
+                <div class="pt-6 mt-10 border-t border-zinc-200 flex items-center justify-between">
+                    <x-link :href="route('store')" class="text-sm text-primary-600 hover:text-primary-700">
+                        <span>&larr;</span> {{ __('Return to cart') }}
+                    </x-link>
+                    <flux:button variant="primary" type="submit">
+                        {{ __('Continue to shipping') }}
                     </flux:button>
                 </div>
             </div>
         </form>
     @else
-        <div class="p-4 text-sm font-medium leading-6 text-zinc-700 bg-zinc-50">
+        <div class="p-4 text-sm font-medium leading-6 text-zinc-700 bg-zinc-50 rounded-lg">
             {{ __('You don\'t have a corresponding address.') }}
+        </div>
+        <div class="pt-6 border-t border-zinc-200">
+            <x-link :href="route('store')" class="text-sm text-primary-600 hover:text-primary-700">
+                <span>&larr;</span> {{ __('Return to cart') }}
+            </x-link>
         </div>
     @endif
 </div>
