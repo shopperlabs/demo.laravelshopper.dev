@@ -20,7 +20,7 @@
             @endforeach
         </div>
         <div class="grid grid-cols-2 gap-x-5 lg:flex lg:flex-col lg:items-end lg:justify-end lg:space-y-2 lg:pl-4">
-            <flux:button variant="primary" class="w-full" :href="route('dashboard.orders.detail', ['number' => $order->number])">
+            <flux:button variant="primary" class="w-full" :href="route('dashboard.orders.detail', ['number' => $order->number])" wire:navigate>
                 {{ __('Show details') }}
             </flux:button>
             <flux:button class="w-full">

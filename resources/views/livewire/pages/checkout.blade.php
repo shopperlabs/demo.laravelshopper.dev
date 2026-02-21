@@ -1,62 +1,67 @@
 <div class="bg-white">
-    <!-- Background color split screen for large screens -->
     <div class="fixed top-0 left-0 hidden w-1/2 h-full bg-white lg:block" aria-hidden="true"></div>
-    <div class="fixed top-0 right-0 hidden w-1/2 h-full bg-primary-800 lg:block" aria-hidden="true"></div>
+    <div class="fixed top-0 right-0 hidden w-1/2 h-full bg-zinc-50 border-l border-zinc-200 lg:block" aria-hidden="true"></div>
 
-    <header class="relative text-sm font-medium text-zinc-700 bg-white border-b border-zinc-200">
+    <header class="relative border-b border-zinc-200 bg-white">
         <x-container class="py-4">
-            <div class="relative flex items-center gap-10">
+            <div class="relative flex items-center justify-between">
                 <x-link :href="route('home')">
                     <span class="sr-only">{{ shopper_setting('legal_name') }}</span>
                     <x-brand class="w-auto h-10 text-primary-700" aria-hidden="true" />
                 </x-link>
-                <x-link :href="route('store')" class="inline-flex items-center gap-2 font-medium text-zinc-600 hover:text-zinc-900">
-                    <x-untitledui-arrow-narrow-left class="size-6 text-zinc-400" aria-hidden="true" stroke-width="1.5" />
+                <x-link :href="route('store')" class="inline-flex items-center gap-2 text-sm font-medium text-zinc-600 hover:text-zinc-900">
+                    <x-untitledui-arrow-narrow-left class="size-5 text-zinc-400" aria-hidden="true" stroke-width="1.5" />
                     {{ __('Back to Shopping Cart') }}
                 </x-link>
             </div>
-         </x-container>
+        </x-container>
     </header>
 
-    <x-container class="relative grid grid-cols-1 gap-x-16 lg:grid-cols-2 xl:gap-x-48">
-        <h1 class="sr-only">{{ __('Order information') }}</h1>
+    <h1 class="sr-only">{{ __('Order information') }}</h1>
 
+    <x-container class="relative grid grid-cols-1 gap-x-16 lg:grid-cols-2 xl:gap-x-48">
         <section
             aria-labelledby="summary-heading"
-            class="px-4 pt-16 pb-10 bg-primary-950 sm:px-6 lg:col-start-2 lg:row-start-1 lg:bg-transparent lg:px-0 lg:pb-16"
+            class="px-4 pt-16 pb-10 bg-zinc-50 sm:px-6 lg:col-start-2 lg:row-start-1 lg:bg-transparent lg:px-0 lg:pb-16"
         >
             <div class="max-w-lg mx-auto lg:max-w-none">
-                <h2 id="summary-heading" class="text-lg font-medium text-white">
+                <h2 id="summary-heading" class="text-lg font-medium text-zinc-900">
                     {{ __('Cart summary') }}
                 </h2>
 
-                <ul role="list" class="text-sm font-medium text-white divide-y divide-white/10">
+                <ul role="list" class="text-sm font-medium divide-y divide-zinc-200">
                     @foreach ($items as $item)
                         <x-cart.element :$item />
                     @endforeach
                 </ul>
 
-                <dl class="hidden pt-6 space-y-6 text-sm font-medium text-white border-t border-white/10 lg:block">
+                <dl class="hidden pt-6 space-y-4 text-sm font-medium border-t border-zinc-200 lg:block">
                     <div class="flex items-center justify-between">
-                        <dt class="text-zinc-300">{{ __('Subtotal') }}</dt>
-                        <dd>
+                        <dt class="text-zinc-500">{{ __('Subtotal') }}</dt>
+                        <dd class="text-zinc-900">
                             {{ shopper_money_format(amount: $subtotal, currency: current_currency()) }}
                         </dd>
                     </div>
 
                     <div class="flex items-center justify-between">
-                        <dt class="text-zinc-300">{{ __('Delivery') }}</dt>
-                        <livewire:components.shipping-price />
+                        <dt class="text-zinc-500">{{ __('Shipping') }}</dt>
+                        <dd class="text-zinc-900">
+                            <livewire:components.shipping-price />
+                        </dd>
                     </div>
 
                     <div class="flex items-center justify-between">
-                        <dt class="text-zinc-300">{{ __('Tax') }}</dt>
-                        <livewire:components.tax-price />
+                        <dt class="text-zinc-500">{{ __('Tax') }}</dt>
+                        <dd class="text-zinc-900">
+                            <livewire:components.tax-price />
+                        </dd>
                     </div>
 
-                    <div class="flex items-center justify-between pt-6 border-t border-white/10">
-                        <dt class="text-base">{{ __('Total') }}</dt>
-                        <livewire:components.cart-total />
+                    <div class="flex items-center justify-between pt-6 border-t border-zinc-200">
+                        <dt class="text-base text-zinc-900">{{ __('Total') }}</dt>
+                        <dd class="text-base text-zinc-900">
+                            <livewire:components.cart-total />
+                        </dd>
                     </div>
                 </dl>
 
@@ -64,13 +69,13 @@
                     <div
                         x-data="{ open: false }"
                         @keydown.escape="open = false"
-                        class="fixed inset-x-0 bottom-0 flex flex-col-reverse text-sm font-medium text-white lg:hidden"
+                        class="fixed inset-x-0 bottom-0 flex flex-col-reverse text-sm font-medium lg:hidden"
                     >
-                        <div class="relative z-10 px-4 bg-white border-t border-white/10 sm:px-6">
+                        <div class="relative z-10 px-4 bg-white border-t border-zinc-200 sm:px-6">
                             <div class="max-w-lg mx-auto">
                                 <button
                                     type="button"
-                                    class="flex items-center w-full py-6 font-medium"
+                                    class="flex items-center w-full py-6 font-medium text-zinc-900"
                                     aria-expanded="false"
                                     @click="open = !open"
                                 >
@@ -78,17 +83,8 @@
                                     <span class="mr-2 text-base">
                                         <livewire:components.cart-total />
                                     </span>
-                                    <svg
-                                        class="size-5 text-zinc-500"
-                                        viewBox="0 0 20 20"
-                                        fill="currentColor"
-                                        aria-hidden="true"
-                                    >
-                                        <path
-                                            fill-rule="evenodd"
-                                            d="M14.77 12.79a.75.75 0 01-1.06-.02L10 8.832 6.29 12.77a.75.75 0 11-1.08-1.04l4.25-4.5a.75.75 0 011.08 0l4.25 4.5a.75.75 0 01-.02 1.06z"
-                                            clip-rule="evenodd"
-                                        />
+                                    <svg class="size-5 text-zinc-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M14.77 12.79a.75.75 0 01-1.06-.02L10 8.832 6.29 12.77a.75.75 0 11-1.08-1.04l4.25-4.5a.75.75 0 011.08 0l4.25 4.5a.75.75 0 01-.02 1.06z" clip-rule="evenodd" />
                                     </svg>
                                 </button>
                             </div>
@@ -124,20 +120,24 @@
                             >
                                 <dl class="max-w-lg mx-auto space-y-6">
                                     <div class="flex items-center justify-between">
-                                        <dt class="text-zinc-400">{{ __('SubTotal') }}</dt>
-                                        <dd>
+                                        <dt class="text-zinc-500">{{ __('Subtotal') }}</dt>
+                                        <dd class="text-zinc-900">
                                             {{ shopper_money_format(amount: $subtotal, currency: current_currency()) }}
                                         </dd>
                                     </div>
 
                                     <div class="flex items-center justify-between">
-                                        <dt class="text-zinc-400">{{ __('Delivery') }}</dt>
-                                        <livewire:components.shipping-price />
+                                        <dt class="text-zinc-500">{{ __('Shipping') }}</dt>
+                                        <dd class="text-zinc-900">
+                                            <livewire:components.shipping-price />
+                                        </dd>
                                     </div>
 
                                     <div class="flex items-center justify-between">
-                                        <dt class="text-zinc-400">{{ __('Tax') }}</dt>
-                                        <livewire:components.tax-price />
+                                        <dt class="text-zinc-500">{{ __('Tax') }}</dt>
+                                        <dd class="text-zinc-900">
+                                            <livewire:components.tax-price />
+                                        </dd>
                                     </div>
                                 </dl>
                             </div>
@@ -147,7 +147,7 @@
             </div>
         </section>
 
-        <div class="px-4 pt-16 pb-36 sm:px-6 lg:col-start-1 lg:row-start-1 lg:px-0 lg:pb-16">
+        <div class="flex flex-col gap-10 justify-between px-4 pt-16 sm:px-6 lg:col-start-1 lg:row-start-1 lg:px-0 h-full">
             <livewire:checkout-wizard />
         </div>
     </x-container>

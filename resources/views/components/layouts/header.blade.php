@@ -1,4 +1,7 @@
-<x-banner />
+@if (config('starter-kit.display_banner'))
+    <x-banner />
+@endif
+
 <header class="sticky top-0 z-10 py-3 bg-white/80 border-b border-zinc-200 backdrop-blur-xl">
     <x-container class="flex items-center justify-between px-4">
         <nav role="navigation" class="hidden lg:flex gap-4 lg:flex-1 lg:self-stretch">

@@ -24,7 +24,7 @@
                 <!-- Decorative image grid -->
                 @include('includes._decorative_images')
 
-                <flux:button variant="primary" :href="route('store')" class="group">
+                <flux:button variant="primary" :href="route('store')" class="group" wire:navigate>
                     {{ __('Discover now') }}
                     <span
                         class="ml-2 transition duration-200 ease-in-out transform translate-x-0 group-hover:translate-x-1">
@@ -50,7 +50,7 @@
                     </x-link>
                 </div>
 
-                <div class="grid grid-cols-1 mt-6 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-8 lg:mt-18">
+                <div class="grid grid-cols-2 mt-6 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-8 lg:mt-18">
                     @foreach ($products as $product)
                         <x-products.card :$product />
                     @endforeach

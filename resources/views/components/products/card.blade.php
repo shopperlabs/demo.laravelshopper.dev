@@ -3,7 +3,10 @@
 ])
 
 <div class="relative group">
-    <x-products.thumbnail :$product class='w-full rounded-lg h-56 lg:h-72 xl:h-80' />
+    <x-products.thumbnail
+        :$product
+        class='w-full rounded-lg lg:h-72 xl:h-80'
+    />
 
     <h3 class="mt-4 text-sm text-zinc-700 group-hover:text-zinc-900">
         <x-link :href="route('single-product', $product)">

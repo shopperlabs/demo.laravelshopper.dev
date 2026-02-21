@@ -1,12 +1,19 @@
 <div class="flex flex-col justify-between space-y-10">
     @include('components.checkout-steps')
 
+    @include('components.checkout-summary')
+
     @if(count($options) === 0)
         <div class="flex items-center p-4 space-x-4 rounded-lg ring-1 ring-zinc-200">
             <x-untitledui-shopping-bag class="size-5 text-primary-800" stroke-width="1.5" aria-hidden="true" />
             <p class="text-sm text-zinc-500">
                 {{ __('No delivery option available for your address.') }}
             </p>
+        </div>
+        <div class="pt-6 border-t border-zinc-200">
+            <button wire:click="previousStep" type="button" class="text-sm text-primary-600 hover:text-primary-700">
+                <span>&larr;</span> {{ __('Return to information') }}
+            </button>
         </div>
     @else
         <form wire:submit="save" class="flex-1 space-y-3">
@@ -44,7 +51,7 @@
 
                 <div class="pt-6 mt-10 border-t border-zinc-200 sm:flex sm:items-center sm:justify-end">
                     <flux:button variant="primary" type="submit" class="w-full sm:w-auto">
-                        {{ __('Go to checkout') }}
+                        {{ __('Continue to payment') }}
                     </flux:button>
                 </div>
             </div>

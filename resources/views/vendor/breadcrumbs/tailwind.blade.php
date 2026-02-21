@@ -3,15 +3,15 @@
         @if ($breadcrumbs->count() <= 4)
             @foreach ($breadcrumbs as $breadcrumb)
                 @if ($loop->first)
-                    <flux:breadcrumbs.item :href="$breadcrumb->url" icon="home" />
+                    <flux:breadcrumbs.item :href="$breadcrumb->url" icon="home" wire:navigate />
                 @elseif ($breadcrumb->url && ! $loop->last)
-                    <flux:breadcrumbs.item :href="$breadcrumb->url">{{ $breadcrumb->title }}</flux:breadcrumbs.item>
+                    <flux:breadcrumbs.item :href="$breadcrumb->url" wire:navigate>{{ $breadcrumb->title }}</flux:breadcrumbs.item>
                 @else
                     <flux:breadcrumbs.item>{{ $breadcrumb->title }}</flux:breadcrumbs.item>
                 @endif
             @endforeach
         @else
-            <flux:breadcrumbs.item :href="$breadcrumbs->first()->url" icon="home" />
+            <flux:breadcrumbs.item :href="$breadcrumbs->first()->url" icon="home" wire:navigate />
 
             @php
                 $middle = $breadcrumbs->slice(1, $breadcrumbs->count() - 3);
@@ -23,7 +23,7 @@
                     <flux:button icon="ellipsis-horizontal" variant="ghost" size="sm" />
                     <flux:navmenu>
                         @foreach ($middle as $breadcrumb)
-                            <flux:navmenu.item :href="$breadcrumb->url">{{ $breadcrumb->title }}</flux:navmenu.item>
+                            <flux:navmenu.item :href="$breadcrumb->url" wire:navigate>{{ $breadcrumb->title }}</flux:navmenu.item>
                         @endforeach
                     </flux:navmenu>
                 </flux:dropdown>
@@ -31,7 +31,7 @@
 
             @foreach ($last as $breadcrumb)
                 @if ($breadcrumb->url && ! $loop->last)
-                    <flux:breadcrumbs.item :href="$breadcrumb->url">{{ $breadcrumb->title }}</flux:breadcrumbs.item>
+                    <flux:breadcrumbs.item :href="$breadcrumb->url" wire:navigate>{{ $breadcrumb->title }}</flux:breadcrumbs.item>
                 @else
                     <flux:breadcrumbs.item>{{ $breadcrumb->title }}</flux:breadcrumbs.item>
                 @endif

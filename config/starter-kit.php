@@ -34,4 +34,13 @@ return [
 
     'default_zone' => env('SHOPPER_DEFAULT_ZONE', 'AF'),
 
+    /*
+    |--------------------------------------------------------------------------
+    | Display Discount banner
+    |--------------------------------------------------------------------------
+    |
+    */
+
+    'display_banner' => env('SHOPPER_DISPLAY_BANNER', false),
+
 ];
