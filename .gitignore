@@ -24,3 +24,4 @@ yarn-error.log
 /.idea
 /.vscode
 .mcp.json
+composer.local*.json

@@ -9,6 +9,7 @@ use App\Actions\Product\BuildVariantOptions;
 use App\Actions\Product\ResolveVariantAvailability;
 use App\Models\Product;
 use App\Models\ProductVariant;
+use Darryldecode\Cart\Facades\CartFacade;
 use Exception;
 use Illuminate\Contracts\View\View;
 use InvalidArgumentException;
@@ -132,6 +133,14 @@ final class VariantsSelector extends Component
 
         $this->dispatch('cartUpdated');
         $this->dispatch('notify', type: 'success', title: __('Cart updated'), message: __('Product / variant has been added to your cart'));
+    }
+
+    public function getCartQuantityForModel(): int
+    {
+        $model = $this->selectedVariant ?? $this->product;
+        $item = CartFacade::session(session()->getId())->get($model->id);
+
+        return $item ? (int) $item->quantity : 0;
     }
 
     public function render(): View

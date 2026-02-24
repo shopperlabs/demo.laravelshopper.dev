@@ -25,8 +25,19 @@ final class AddToCart
             throw new InvalidArgumentException(__('This product has no price configured.'));
         }
 
-        if ($model->stock < 1 && ! ($model->allow_backorder ?? false)) {
+        $allowBackorder = $model->allow_backorder ?? false;
+
+        if ($model->stock < 1 && ! $allowBackorder) {
             throw new InvalidArgumentException(__('This product is out of stock.'));
+        }
+
+        if (! $allowBackorder) {
+            $existingItem = CartFacade::session(session()->getId())->get($model->id);
+            $currentQty = $existingItem ? (int) $existingItem->quantity : 0;
+
+            if ($currentQty >= $model->stock) {
+                throw new InvalidArgumentException(__('You have reached the maximum available stock for this product.'));
+            }
         }
 
         $attributes = [];

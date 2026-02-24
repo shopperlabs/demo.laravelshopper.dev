@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use App\Http\Controllers\NotchPayCallBackController;
+use App\Http\Controllers\StripeWebhookController;
 use App\Livewire\Pages;
 use App\Livewire\Pages\Checkout;
 use App\Livewire\Pages\Collection\CollectionProducts;
@@ -20,6 +20,7 @@ Route::get('/blog/{post:slug}', Pages\Blog\Show::class)->name('blog.show');
 
 Route::middleware('auth')->group(function (): void {
     Route::get('/checkout', Checkout::class)->name('checkout');
+    Route::get('/payment/{number}', Pages\StripePayment::class)->name('stripe-payment');
     Volt::route('/dashboard', 'pages.customer.account')->name('dashboard');
 
     Route::prefix('dashboard')->as('dashboard.')->group(function (): void {
@@ -33,6 +34,6 @@ Route::middleware('auth')->group(function (): void {
         ->name('order-confirmed');
 });
 
-Route::get('callback-payment', NotchPayCallBackController::class)->name('notchpay-callback');
+Route::post('/webhooks/stripe', StripeWebhookController::class)->name('stripe-webhook');
 
 require __DIR__.'/auth.php';

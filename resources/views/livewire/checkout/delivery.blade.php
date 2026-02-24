@@ -3,7 +3,7 @@
 
     @include('components.checkout-summary')
 
-    @if(count($options) === 0)
+    @if (count($options) === 0)
         <div class="flex items-center p-4 space-x-4 rounded-lg ring-1 ring-zinc-200">
             <x-untitledui-shopping-bag class="size-5 text-primary-800" stroke-width="1.5" aria-hidden="true" />
             <p class="text-sm text-zinc-500">
@@ -20,29 +20,35 @@
             <flux:error name="currentSelected" />
 
             <div class="max-w-lg mx-auto lg:max-w-none">
-                <flux:radio.group wire:model.live.debounce="currentSelected" variant="cards" class="flex-col">
+                <flux:radio.group wire:model="currentSelected" variant="cards" class="flex-col">
                     @foreach ($options as $option)
-                        <flux:radio value="{{ $option->id }}" class="w-full">
+                        <flux:radio value="{{ $option['service_code'] }}" class="w-full">
                             <div class="flex items-center justify-between w-full">
                                 <div class="flex items-start gap-3">
-                                    <div @class([
-                                        'flex items-center mt-0.5 justify-center size-5 rounded-full border-2 shrink-0',
-                                        'border-primary-600 bg-primary-600' => $currentSelected === $option->id,
-                                        'border-zinc-300' => $currentSelected !== $option->id,
-                                    ])>
-                                        @if ($currentSelected === $option->id)
-                                            <svg class="size-3 text-white" viewBox="0 0 12 12" fill="currentColor">
-                                                <path d="M3.707 5.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4a1 1 0 00-1.414-1.414L5 6.586 3.707 5.293z" />
-                                            </svg>
-                                        @endif
+                                    <div
+                                        :class="$wire.currentSelected == '{{ $option['service_code'] }}' ? 'border-primary-600 bg-primary-600' : 'border-zinc-300'"
+                                        class="flex items-center mt-0.5 justify-center size-5 rounded-full border-2 shrink-0"
+                                    >
+                                        <svg x-show="$wire.currentSelected == '{{ $option['service_code'] }}'" x-cloak class="size-3 text-white" viewBox="0 0 12 12" fill="currentColor">
+                                            <path d="M3.707 5.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4a1 1 0 00-1.414-1.414L5 6.586 3.707 5.293z" />
+                                        </svg>
                                     </div>
-                                    <div class="flex flex-col">
-                                        <span class="text-sm font-medium font-heading">{{ $option->name }}</span>
-                                        <span class="text-sm text-zinc-500">{{ $option->description }}</span>
+                                    <div class="flex items-start gap-4">
+                                        @if ($option['carrier_logo'])
+                                            <img src="{{ $option['carrier_logo'] }}" alt="{{ $option['carrier_name'] }}" class="mt-0.5 size-6 rounded-full object-cover" />
+                                        @endif
+                                        <div class="flex flex-col">
+                                            <span class="text-sm font-medium font-heading">{{ $option['service_name'] }}</span>
+                                            @if ($option['estimated_days'])
+                                                <span class="text-sm text-zinc-500">{{ __(':days days delivery', ['days' => $option['estimated_days']]) }}</span>
+                                            @elseif ($option['description'])
+                                                <span class="text-sm text-zinc-500">{{ $option['description'] }}</span>
+                                            @endif
+                                        </div>
                                     </div>
                                 </div>
                                 <span class="text-sm font-medium text-zinc-900">
-                                    {{ shopper_money_format($option->price, \App\Actions\ZoneSessionManager::getSession()->currencyCode) }}
+                                    {{ shopper_money_format($option['amount'] / 100, $option['currency']) }}
                                 </span>
                             </div>
                         </flux:radio>

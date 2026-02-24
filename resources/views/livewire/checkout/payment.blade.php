@@ -12,25 +12,24 @@
                 <flux:subheading>{{ __('All transactions are secure and encrypted.') }}</flux:subheading>
             </div>
 
-            <flux:radio.group wire:model.live.debounce="currentSelected" variant="cards" class="flex-col mt-5">
+            <flux:radio.group wire:model="currentSelected" variant="cards" class="flex-col mt-5">
                 @foreach ($methods as $method)
-                    <flux:radio value="{{ $method->id }}" class="w-full">
-                        <div class="flex items-center justify-between w-full">
-                            <div class="flex items-start gap-3">
-                                <div @class([
-                                    'flex items-center mt-0.5 justify-center size-5 rounded-full border-2 shrink-0',
-                                    'border-primary-600 bg-primary-600' => $currentSelected === $method->id,
-                                    'border-zinc-300' => $currentSelected !== $method->id,
-                                ])>
-                                    @if ($currentSelected === $method->id)
-                                        <svg class="size-3 text-white" viewBox="0 0 12 12" fill="currentColor">
-                                            <path d="M3.707 5.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4a1 1 0 00-1.414-1.414L5 6.586 3.707 5.293z" />
-                                        </svg>
-                                    @endif
+                    <flux:radio value="{{ $method['id'] }}" class="w-full">
+                        <div class="flex items-center justify-between gap-6 w-full">
+                            <div class="flex items-center gap-3">
+                                <div
+                                    :class="$wire.currentSelected == {{ $method['id'] }} ? 'border-primary-600 bg-primary-600' : 'border-zinc-300'"
+                                    class="flex items-center justify-center size-5 rounded-full border-2 shrink-0"
+                                >
+                                    <svg x-show="$wire.currentSelected == {{ $method['id'] }}" x-cloak class="size-3 text-white" viewBox="0 0 12 12" fill="currentColor">
+                                        <path d="M3.707 5.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4a1 1 0 00-1.414-1.414L5 6.586 3.707 5.293z" />
+                                    </svg>
                                 </div>
-                                <span class="text-sm font-medium font-heading">{{ $method->title }}</span>
+                                <span class="text-sm font-medium font-heading">{{ $method['title'] }}</span>
                             </div>
-                            <x-dynamic-component :component="'icons.payments.' . $method->slug" />
+                            @if ($method['logo'])
+                                <img src="{{ $method['logo'] }}" alt="{{ $method['title'] }}" class="h-5 w-auto object-cover" />
+                            @endif
                         </div>
                     </flux:radio>
                 @endforeach

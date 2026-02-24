@@ -7,11 +7,13 @@
     $dotClass = match ($variant) {
         'info' => 'bg-blue-500',
         'teal' => 'bg-teal-500',
-        'green' => 'bg-green-500',
+        'success' => 'bg-green-500',
         'danger' => 'bg-rose-500',
         'warning' => 'bg-yellow-500',
         'primary' => 'bg-violet-500',
         'sky' => 'bg-sky-500',
+        'indigo' => 'bg-indigo-500',
+        'orange' => 'bg-orange-500',
         default => 'bg-zinc-400',
     };
 @endphp

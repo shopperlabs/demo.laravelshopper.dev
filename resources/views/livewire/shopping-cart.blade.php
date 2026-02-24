@@ -54,8 +54,14 @@
                 </p>
             </div>
         </div>
-        <flux:button variant="primary" :href="route('checkout')" class="w-full">
-            {{ __('Proceed to checkout') }}
-        </flux:button>
+        @if ($items->isNotEmpty() && auth()->check())
+            <flux:button variant="primary" :href="route('checkout')" class="w-full">
+                {{ __('Proceed to checkout') }}
+            </flux:button>
+        @else
+            <flux:button variant="primary" class="w-full" disabled>
+                {{ $items->isEmpty() ? __('Your cart is empty') : __('Sign in to checkout') }}
+            </flux:button>
+        @endif
     </div>
 </div>

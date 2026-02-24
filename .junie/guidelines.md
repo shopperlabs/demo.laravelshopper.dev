@@ -9,9 +9,10 @@ The Laravel Boost guidelines are specifically curated by Laravel maintainers for
 
 This application is a Laravel application and its main Laravel ecosystems package & versions are below. You are an expert with them all. Ensure you abide by these specific packages & versions.
 
-- php - 8.4.17
+- php - 8.4.18
 - filament/filament (FILAMENT) - v4
 - laravel/framework (LARAVEL) - v12
+- laravel/octane (OCTANE) - v2
 - laravel/prompts (PROMPTS) - v0
 - livewire/flux (FLUXUI_FREE) - v2
 - livewire/livewire (LIVEWIRE) - v3
@@ -269,7 +270,7 @@ protected function isAccessible(User $user, ?string $path = null): bool
 
 # Laravel Pint Code Formatter
 
-- You must run `vendor/bin/pint --dirty --format agent` before finalizing changes to ensure your code matches the project's expected style.
+- If you have modified any PHP files, you must run `vendor/bin/pint --dirty --format agent` before finalizing changes to ensure your code matches the project's expected style.
 - Do not run `vendor/bin/pint --test --format agent`, simply run `vendor/bin/pint --format agent` to fix any formatting issues.
 
 === pest/core rules ===
@@ -600,23 +601,26 @@ multi-location inventory:
     $category->ancestors;             // All ancestors
     </code-snippet>
 
-### Orders Orders track purchases with statuses. Use the `OrderStatus` enum: - `OrderStatus::Pending`,
+### Orders Orders use a 3-axis status system:
 
-`OrderStatus::Register`, `OrderStatus::Paid` - `OrderStatus::Shipped`, `OrderStatus::Completed`,
-`OrderStatus::Cancelled`
+- **Lifecycle** (`status`): `OrderStatus::New`, `OrderStatus::Processing`, `OrderStatus::Completed`, `OrderStatus::Cancelled`, `OrderStatus::Archived`
+- **Payment** (`payment_status`): `PaymentStatus::Pending`, `PaymentStatus::Authorized`, `PaymentStatus::Paid`, `PaymentStatus::PartiallyRefunded`, `PaymentStatus::Refunded`, `PaymentStatus::Voided`
+- **Shipping** (`shipping_status`): `ShippingStatus::Unfulfilled`, `ShippingStatus::PartiallyShipped`, `ShippingStatus::Shipped`, `ShippingStatus::PartiallyDelivered`, `ShippingStatus::Delivered`, `ShippingStatus::PartiallyReturned`, `ShippingStatus::Returned`
 
     <code-snippet name="Query orders with relationships" lang="php">
     use Shopper\Core\Models\Order;
     use Shopper\Core\Enum\OrderStatus;
+    use Shopper\Core\Enum\PaymentStatus;
 
     $orders = Order::with(['items', 'customer', 'shippingAddress', 'zone'])
-        ->where('status', OrderStatus::Pending)
+        ->where('status', OrderStatus::Processing)
+        ->where('payment_status', PaymentStatus::Paid)
         ->get();
     </code-snippet>
 
 ### Events Shopper dispatches events for major actions. Listen to these for custom logic: - Products: `ProductCreated`,
 
-`ProductUpdated`, `ProductDeleted` - Orders: `OrderCreated`, `OrderCompleted`, `OrderPaid`, `OrderCancel`,
+`ProductUpdated`, `ProductDeleted` - Orders: `OrderCreated`, `OrderCompleted`, `OrderPaid`, `OrderShipped`, `OrderCancel`,
 `OrderArchived`
 
     <code-snippet name="Listen to Shopper events" lang="php">

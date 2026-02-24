@@ -138,6 +138,9 @@
         $isOutOfStock = ($product->isVariant() && $selectedVariant && $selectedVariant->stock < 1 && ! $selectedVariant->allow_backorder)
             || (! $product->isVariant() && $product->stock < 1);
         $needsVariant = $product->isVariant() && ! $selectedVariant;
+        $isStockLimitReached = ! $needsVariant && ! $isOutOfStock
+            && ! ($currentModel->allow_backorder ?? false)
+            && $this->getCartQuantityForModel() >= $currentModel->stock;
     @endphp
 
     <div class="flex items-center gap-2 mt-10">
@@ -145,7 +148,7 @@
             variant="primary"
             type="submit"
             class="max-w-xs sm:w-full"
-            :disabled="$hasNoPrice || $isOutOfStock || $needsVariant"
+            :disabled="$hasNoPrice || $isOutOfStock || $needsVariant || $isStockLimitReached"
         >
             @if ($needsVariant)
                 {{ __('Choose any variant') }}
@@ -153,6 +156,8 @@
                 {{ __('Unavailable') }}
             @elseif ($isOutOfStock)
                 {{ __('Out of stock') }}
+            @elseif ($isStockLimitReached)
+                {{ __('Stock limit reached') }}
             @else
                 {{ __('Add to cart') }}
             @endif

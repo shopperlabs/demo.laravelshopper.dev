@@ -65,8 +65,14 @@
         <dt class="text-sm font-medium leading-6 text-zinc-900">
             {{ __('Payment method') }}
         </dt>
+        @php
+            $logoUrl = resolve(\Shopper\Payment\Services\PaymentProcessingService::class)
+                ->getLogoUrl($order->paymentMethod);
+        @endphp
         <dd class="flex items-center gap-2 text-sm text-zinc-500">
-            <x-dynamic-component class="size-5" :component="'icons.payments.' . $order->paymentMethod->slug" />
+            @if ($logoUrl)
+                <img src="{{ $logoUrl }}" alt="{{ $order->paymentMethod->title }}" class="h-5 w-auto object-contain" />
+            @endif
             <span class="text-base font-medium leading-6">{{ $order->paymentMethod->title }}</span>
         </dd>
     </dl>

@@ -29,10 +29,25 @@
             {{ shopper_money_format($order->total() + ($order->shippingOption?->price ?? 0), $order->currency_code) }}
         </dd>
     </div>
-    <div class="text-sm">
-        <dt class="font-medium tracking-tighter text-zinc-900">{{ __('Status') }}</dt>
-        <dd class="mt-1 text-zinc-500">
-            <x-order.status :status="$order->status" />
-        </dd>
-    </div>
+    @if ($order->status === \Shopper\Core\Enum\OrderStatus::Cancelled)
+        <div class="text-sm">
+            <dt class="font-medium tracking-tighter text-zinc-900">{{ __('Status') }}</dt>
+            <dd class="mt-1">
+                <x-order.status :status="$order->status" />
+            </dd>
+        </div>
+    @else
+        <div class="text-sm">
+            <dt class="font-medium tracking-tighter text-zinc-900">{{ __('Payment') }}</dt>
+            <dd class="mt-1">
+                <x-order.status :status="$order->payment_status" />
+            </dd>
+        </div>
+        <div class="text-sm">
+            <dt class="font-medium tracking-tighter text-zinc-900">{{ __('Shipping') }}</dt>
+            <dd class="mt-1">
+                <x-order.status :status="$order->shipping_status" />
+            </dd>
+        </div>
+    @endif
 </div>

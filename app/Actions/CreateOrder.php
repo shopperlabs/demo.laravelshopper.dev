@@ -90,6 +90,12 @@ final class CreateOrder
             ]);
         }
 
+        $shippingPrice = (int) (data_get($checkout, 'shipping_option.0.price', 0));
+
+        $order->update([
+            'price_amount' => $order->refresh()->total() + $shippingPrice,
+        ]);
+
         CartFacade::session($sessionId)->clear(); // @phpstan-ignore-line
 
         return $order;

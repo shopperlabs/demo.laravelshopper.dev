@@ -19,7 +19,8 @@ final class Orders extends Component
         return view('livewire.pages.customer.orders.index', [
             'orders' => auth()->user()
                 ->orders()
-                ->with(['items', 'items.product', 'shippingOption', 'shippingAddress', 'billingAddress'])
+                ->notArchived()
+                ->with(['items.product.media', 'shippingOption', 'paymentMethod'])
                 ->latest()
                 ->simplePaginate(7),
         ])

@@ -147,7 +147,7 @@
             </div>
         </section>
 
-        <div class="flex flex-col gap-10 justify-between px-4 pt-16 sm:px-6 lg:col-start-1 lg:row-start-1 lg:px-0 h-full">
+        <div class="flex flex-col gap-10 justify-between px-4 py-10 sm:px-6 lg:col-start-1 lg:row-start-1 lg:px-0 h-full">
             <livewire:checkout-wizard />
         </div>
     </x-container>
