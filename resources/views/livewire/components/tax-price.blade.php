@@ -2,9 +2,14 @@
 
 declare(strict_types=1);
 
-use function Livewire\Volt\{state};
+use App\Actions\CalculateCartTax;
+use function Livewire\Volt\{on, state};
 
-state(['price' => 0])
+state(['price' => (new CalculateCartTax)->handle()['total']]);
+
+on(['cart-price-update' => function () {
+    $this->price = (new CalculateCartTax)->handle()['total'];
+}]);
 
 ?>
 

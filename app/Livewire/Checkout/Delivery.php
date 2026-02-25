@@ -191,7 +191,7 @@ final class Delivery extends StepComponent
             street: $shippingAddress['street_address'] ?? '',
             city: $shippingAddress['city'] ?? '',
             postalCode: $shippingAddress['postal_code'] ?? '',
-            state: '',
+            state: $shippingAddress['state'] ?? '',
             country: $country?->cca2 ?? '',
             company: $shippingAddress['company_name'] ?? null,
             street2: $shippingAddress['street_address_plus'] ?? null,

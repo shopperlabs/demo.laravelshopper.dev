@@ -26,7 +26,8 @@
             {{ __('Total') }}
         </dt>
         <dd class="mt-1 text-zinc-500">
-            {{ shopper_money_format($order->total() + ($order->shippingOption?->price ?? 0), $order->currency_code) }}
+            @php $divisor = is_no_division_currency($order->currency_code) ? 1 : 100; @endphp
+            {{ shopper_money_format($order->price_amount / $divisor, $order->currency_code) }}
         </dd>
     </div>
     @if ($order->status === \Shopper\Core\Enum\OrderStatus::Cancelled)

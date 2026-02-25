@@ -39,6 +39,7 @@ final class CreateOrder
             'street_address' => data_get($checkout, 'shipping_address.street_address'),
             'street_address_plus' => data_get($checkout, 'shipping_address.street_address_plus'),
             'city' => data_get($checkout, 'shipping_address.city'),
+            'state' => data_get($checkout, 'shipping_address.state'),
             'postal_code' => data_get($checkout, 'shipping_address.postal_code'),
             'phone' => data_get($checkout, 'shipping_address.phone_number'),
             // @phpstan-ignore-next-line
@@ -56,6 +57,7 @@ final class CreateOrder
                 'street_address' => data_get($checkout, 'billing_address.street_address'),
                 'street_address_plus' => data_get($checkout, 'billing_address.street_address_plus'),
                 'city' => data_get($checkout, 'billing_address.city'),
+                'state' => data_get($checkout, 'billing_address.state'),
                 'postal_code' => data_get($checkout, 'billing_address.postal_code'),
                 'phone' => data_get($checkout, 'billing_address.phone_number'),
                 // @phpstan-ignore-next-line
@@ -77,8 +79,12 @@ final class CreateOrder
             'payment_method_id' => data_get($checkout, 'payment')[0]['id'],
         ]);
 
+        $taxResult = (new CalculateCartTax)->handle();
+
         // @phpstan-ignore-next-line
         foreach (CartFacade::session($sessionId)->getContent() as $item) {
+            $taxLine = collect($taxResult['lines'])->firstWhere('item_id', $item->id); // @phpstan-ignore-line
+
             OrderItem::query()->create([
                 'order_id' => $order->id,
                 'quantity' => $item->quantity,
@@ -87,13 +93,18 @@ final class CreateOrder
                 'sku' => $item->associatedModel->sku,
                 'product_id' => $item->id,
                 'product_type' => $item->associatedModel->getMorphClass(),
+                'tax_amount' => $taxLine['amount'] ?? 0,
+                'tax_rate_id' => $taxLine['tax_rate_id'] ?? null,
             ]);
         }
 
         $shippingPrice = (int) (data_get($checkout, 'shipping_option.0.price', 0));
+        $total = $order->refresh()->total() + $shippingPrice + $taxResult['total'];
+        $multiplier = is_no_division_currency($order->currency_code) ? 1 : 100;
 
         $order->update([
-            'price_amount' => $order->refresh()->total() + $shippingPrice,
+            'price_amount' => (int) round($total * $multiplier),
+            'tax_amount' => (int) round($taxResult['total'] * $multiplier),
         ]);
 
         CartFacade::session($sessionId)->clear(); // @phpstan-ignore-line

@@ -54,17 +54,24 @@
                         <flux:input wire:model="postal_code" type="text" />
                         <flux:error name="postal_code" />
                     </flux:field>
+
+                    <flux:field>
+                        <flux:label>{{ __('State / Province') }}</flux:label>
+                        <flux:input wire:model="state" type="text" placeholder="e.g. Littoral" />
+                        <flux:error name="state" />
+                    </flux:field>
+
+                    <flux:field>
+                        <flux:label badge="required">{{ __('Country') }}</flux:label>
+                        <flux:select wire:model="country_id" placeholder="{{ __('Select a country') }}">
+                            @foreach ($countries as $key => $country)
+                                <option value="{{ $key }}">{{ $country }}</option>
+                            @endforeach
+                        </flux:select>
+                        <flux:error name="country_id" />
+                    </flux:field>
                 </div>
 
-                <flux:field>
-                    <flux:label badge="required">{{ __('Country') }}</flux:label>
-                    <flux:select wire:model="country_id" placeholder="{{ __('Select a country') }}">
-                        @foreach ($countries as $key => $country)
-                            <option value="{{ $key }}">{{ $country }}</option>
-                        @endforeach
-                    </flux:select>
-                    <flux:error name="country_id" />
-                </flux:field>
 
                 <flux:field>
                     <flux:label>{{ __('Phone Number') }}</flux:label>

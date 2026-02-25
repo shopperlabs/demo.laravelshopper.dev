@@ -1,0 +1,105 @@
+[
+  {
+    "country_code": "CM",
+    "is_tax_inclusive": true,
+    "rates": [
+      {
+        "name": "TVA 19.25%",
+        "code": "CM-TVA",
+        "rate": 19.25,
+        "is_default": true
+      }
+    ]
+  },
+  {
+    "country_code": "CI",
+    "is_tax_inclusive": true,
+    "rates": [
+      {
+        "name": "TVA 18%",
+        "code": "CI-TVA",
+        "rate": 18.0,
+        "is_default": true
+      }
+    ]
+  },
+  {
+    "country_code": "SN",
+    "is_tax_inclusive": true,
+    "rates": [
+      {
+        "name": "TVA 18%",
+        "code": "SN-TVA",
+        "rate": 18.0,
+        "is_default": true
+      }
+    ]
+  },
+  {
+    "country_code": "FR",
+    "is_tax_inclusive": true,
+    "rates": [
+      {
+        "name": "TVA 20%",
+        "code": "FR-TVA",
+        "rate": 20.0,
+        "is_default": true
+      }
+    ]
+  },
+  {
+    "country_code": "DE",
+    "is_tax_inclusive": true,
+    "rates": [
+      {
+        "name": "MwSt 19%",
+        "code": "DE-MWST",
+        "rate": 19.0,
+        "is_default": true
+      }
+    ]
+  },
+  {
+    "country_code": "CA",
+    "is_tax_inclusive": false,
+    "rates": [
+      {
+        "name": "GST 5%",
+        "code": "CA-GST",
+        "rate": 5.0,
+        "is_default": true
+      }
+    ]
+  },
+  {
+    "country_code": "US",
+    "is_tax_inclusive": false,
+    "rates": [],
+    "provinces": [
+      {
+        "province_code": "US-CA",
+        "is_tax_inclusive": false,
+        "rates": [
+          {
+            "name": "Sales Tax 7.25%",
+            "code": "US-CA-ST",
+            "rate": 7.25,
+            "is_default": true
+          }
+        ]
+      },
+      {
+        "province_code": "US-NY",
+        "is_tax_inclusive": false,
+        "rates": [
+          {
+            "name": "Sales Tax 8.875%",
+            "code": "US-NY-ST",
+            "rate": 8.875,
+            "is_default": true
+          }
+        ]
+      }
+    ]
+  }
+]

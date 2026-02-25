@@ -44,6 +44,9 @@ final class AddressForm extends Component
     public ?string $city = null;
 
     #[Validate('nullable|string')]
+    public ?string $state = null;
+
+    #[Validate('nullable|string')]
     public ?string $phone_number = null;
 
     public ?Address $address = null;
@@ -86,7 +89,7 @@ final class AddressForm extends Component
         } else {
             Address::query()->create(array_merge($validated, ['user_id' => Auth::id()]));
 
-            $this->reset('first_name', 'last_name', 'street_address', 'street_address_plus', 'country_id', 'postal_code', 'city', 'phone_number');
+            $this->reset('first_name', 'last_name', 'street_address', 'street_address_plus', 'country_id', 'postal_code', 'city', 'state', 'phone_number');
             $this->type = AddressType::Billing;
         }
 

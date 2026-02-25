@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Actions\CalculateCartTax;
 use App\CheckoutSession;
 use Darryldecode\Cart\Facades\CartFacade;
 use function Livewire\Volt\{on, state};
@@ -10,9 +11,13 @@ state(['price' => CartFacade::session(session()->getId())->getTotal()]);
 
 on(['cart-price-update' => function () {
     $shippingOption = session()->get(CheckoutSession::SHIPPING_OPTION);
-    $this->price = $shippingOption
-        ? (int) $shippingOption[0]['price'] + CartFacade::session(session()->getId())->getTotal()
-        : 0;
+    $shippingPrice = $shippingOption ? (int) $shippingOption[0]['price'] : 0;
+    $subtotal = CartFacade::session(session()->getId())->getTotal();
+
+    $taxResult = (new CalculateCartTax)->handle();
+    $taxTotal = $taxResult['is_inclusive'] ? 0 : $taxResult['total'];
+
+    $this->price = $subtotal + $shippingPrice + $taxTotal;
 }]);
 
 ?>
