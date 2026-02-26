@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace App\Livewire\Checkout;
 
 use App\CheckoutSession;
-use Darryldecode\Cart\Facades\CartFacade;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
 use Livewire\Attributes\Validate;
+use Shopper\Cart\Models\CartLine;
 use Shopper\Core\Models\Carrier;
 use Shopper\Core\Models\CarrierOption;
 use Shopper\Core\Models\Country;
@@ -205,13 +205,16 @@ final class Delivery extends StepComponent
      */
     private function buildPackages(): array
     {
-        $items = CartFacade::session(session()->getId())->getContent();
+        $cart = cartSession();
+        $cart->load('lines.purchasable');
+
         $packages = [];
 
-        foreach ($items as $item) {
-            $model = $item->associatedModel;
+        /** @var CartLine $line */
+        foreach ($cart->lines as $line) {
+            $model = $line->purchasable;
 
-            for ($i = 0; $i < $item->quantity; $i++) {
+            for ($i = 0; $i < $line->quantity; $i++) {
                 $packages[] = new Package(
                     length: (float) ($model->depth_value ?? 10.0),
                     width: (float) ($model->width_value ?? 10.0),

@@ -9,11 +9,11 @@ use App\Actions\Product\BuildVariantOptions;
 use App\Actions\Product\ResolveVariantAvailability;
 use App\Models\Product;
 use App\Models\ProductVariant;
-use Darryldecode\Cart\Facades\CartFacade;
 use Exception;
 use Illuminate\Contracts\View\View;
 use InvalidArgumentException;
 use Livewire\Component;
+use Shopper\Cart\CartSessionManager;
 
 final class VariantsSelector extends Component
 {
@@ -138,9 +138,16 @@ final class VariantsSelector extends Component
     public function getCartQuantityForModel(): int
     {
         $model = $this->selectedVariant ?? $this->product;
-        $item = CartFacade::session(session()->getId())->get($model->id);
+        $cart = app(CartSessionManager::class)->current();
 
-        return $item ? (int) $item->quantity : 0;
+        if (! $cart) {
+            return 0;
+        }
+
+        return (int) ($cart->lines
+            ->where('purchasable_type', $model->getMorphClass())
+            ->where('purchasable_id', $model->getKey())
+            ->first()?->quantity ?? 0);
     }
 
     public function render(): View

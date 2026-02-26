@@ -13,8 +13,8 @@
             @if ($items->isNotempty())
                 <div class="flow-root">
                     <ul role="list" class="-my-6 divide-y divide-zinc-200">
-                        @foreach ($items as $item)
-                            <x-cart.item wire:key="{{ $item->id }}" :$item />
+                        @foreach ($items as $line)
+                            <x-cart.item wire:key="{{ $line->id }}" :$line />
                         @endforeach
                     </ul>
                 </div>
@@ -47,10 +47,11 @@
                 <p>{{ __('Delivery') }}</p>
                 <p class="text-right">{{ __('Calculated at the time of payment') }}</p>
             </div>
+
             <div class="flex items-center justify-between pt-1 pb-1 mb-3 border-b border-zinc-200">
-                <p>{{ __('Subtotal') }}</p>
+                <p>{{ __('Subtotal') }} {{ current_tax_label() }}</p>
                 <p class="text-base text-right text-black">
-                    {{ shopper_money_format($subtotal, currency: current_currency()) }}
+                    {{ format_cents($subtotal) }}
                 </p>
             </div>
         </div>

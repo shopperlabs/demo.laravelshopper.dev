@@ -10,6 +10,8 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\On;
 use Livewire\Attributes\Validate;
+use Shopper\Cart\CartManager;
+use Shopper\Core\Enum\AddressType;
 use Shopper\Core\Models\Address;
 use Spatie\LivewireWizard\Components\StepComponent;
 
@@ -44,13 +46,45 @@ final class Shipping extends StepComponent
 
         session()->forget(CheckoutSession::KEY);
 
-        $shippingAddress = Address::query()->find($this->shippingAddressId)->toArray();
+        /** @var Address $shippingAddress */
+        $shippingAddress = Address::query()->find($this->shippingAddressId);
 
-        session()->put(CheckoutSession::SHIPPING_ADDRESS, $shippingAddress);
+        session()->put(CheckoutSession::SHIPPING_ADDRESS, $shippingAddress->toArray());
         session()->put(CheckoutSession::SAME_AS_SHIPPING, $this->sameAsShipping);
-        session()->put(CheckoutSession::BILLING_ADDRESS, $this->sameAsShipping
+
+        $billingAddress = $this->sameAsShipping
             ? $shippingAddress
-            : Address::query()->find($this->billingAddressId)->toArray());
+            : Address::query()->find($this->billingAddressId);
+
+        session()->put(CheckoutSession::BILLING_ADDRESS, $billingAddress->toArray());
+
+        $cart = cartSession();
+        $cartManager = app(CartManager::class);
+
+        $cartManager->addAddress($cart, AddressType::Shipping, [
+            'first_name' => $shippingAddress->first_name,
+            'last_name' => $shippingAddress->last_name,
+            'company' => $shippingAddress->company_name,
+            'address_1' => $shippingAddress->street_address,
+            'address_2' => $shippingAddress->street_address_plus,
+            'city' => $shippingAddress->city,
+            'state' => $shippingAddress->state,
+            'postal_code' => $shippingAddress->postal_code,
+            'phone' => $shippingAddress->phone_number,
+            'country_id' => $shippingAddress->country_id,
+        ]);
+        $cartManager->addAddress($cart, AddressType::Billing, [
+            'first_name' => $billingAddress->first_name,
+            'last_name' => $billingAddress->last_name,
+            'company' => $billingAddress->company_name,
+            'address_1' => $billingAddress->street_address,
+            'address_2' => $billingAddress->street_address_plus,
+            'city' => $billingAddress->city,
+            'state' => $billingAddress->state,
+            'postal_code' => $billingAddress->postal_code,
+            'phone' => $billingAddress->phone_number,
+            'country_id' => $billingAddress->country_id,
+        ]);
 
         $this->nextStep();
     }

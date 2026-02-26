@@ -5,7 +5,7 @@
 <div {{ $attributes->twMerge(['class' => 'py-4 rounded-xl border border-zinc-200 divide-y divide-zinc-200 divide-dashed']) }}>
     <dl class="px-4 pb-4 space-y-4">
         <div class="flex items-center justify-between text-sm">
-            <dt class="text-zinc-700">{{ __('Subtotal') }}</dt>
+            <dt class="text-zinc-700">{{ __('Subtotal') }} {{ current_tax_label() }}</dt>
             <dd class="font-medium text-zinc-900">
                 {{ shopper_money_format($order->total(), $order->currency_code) }}
             </dd>
@@ -16,19 +16,16 @@
                 {{ shopper_money_format($order->shippingOption?->price ?? 0, $order->currency_code) }}
             </dd>
         </div>
-        @php
-            $divisor = is_no_division_currency($order->currency_code) ? 1 : 100;
-        @endphp
         <div class="flex items-center justify-between text-sm">
             <dt class="text-zinc-700">{{ __('Tax') }}</dt>
             <dd class="font-medium text-zinc-900">
-                {{ shopper_money_format($order->tax_amount / $divisor, $order->currency_code) }}
+                {{ format_cents($order->tax_amount, $order->currency_code) }}
             </dd>
         </div>
         <div class="flex items-center justify-between pt-4 border-t border-zinc-200">
             <dt class="font-medium font-heading text-primary-700">{{ __('Total') }}</dt>
             <dd class="text-base font-bold text-zinc-900">
-                {{ shopper_money_format($order->price_amount / $divisor, $order->currency_code) }}
+                {{ format_cents($order->price_amount, $order->currency_code) }}
             </dd>
         </div>
     </dl>

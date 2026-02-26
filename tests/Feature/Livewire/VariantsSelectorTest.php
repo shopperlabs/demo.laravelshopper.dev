@@ -71,10 +71,7 @@ beforeEach(function (): void {
         'product_id' => $this->product->id,
     ]);
     $this->variantBlueS->values()->attach([$this->blue->id, $this->small->id]);
-    $this->variantBlueS->mutateStock($this->inventory->id, 10, [
-        'event' => 'Initial inventory',
-        'old_quantity' => 0,
-    ]);
+    $this->variantBlueS->mutateStock($this->inventory->id, 10);
 
     // Blue / L - out of stock
     $this->variantBlueL = ProductVariant::factory()->create([
@@ -89,10 +86,7 @@ beforeEach(function (): void {
         'product_id' => $this->product->id,
     ]);
     $this->variantRedS->values()->attach([$this->red->id, $this->small->id]);
-    $this->variantRedS->mutateStock($this->inventory->id, 5, [
-        'event' => 'Initial inventory',
-        'old_quantity' => 0,
-    ]);
+    $this->variantRedS->mutateStock($this->inventory->id, 5);
 
     // Red / L - out of stock
     $this->variantRedL = ProductVariant::factory()->create([

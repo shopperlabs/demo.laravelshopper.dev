@@ -43,11 +43,12 @@ class ProductSeeder extends AbstractSeeder
                 $this->createPrices($productModel, $product->prices ?? []);
 
                 if (isset($product->stock) && $product->stock && $defaultInventory) {
-                    $productModel->mutateStock($defaultInventory->id, $product->stock, [
-                        'event' => 'Initial inventory',
-                        'old_quantity' => $product->stock,
-                        'user_id' => $adminId,
-                    ]);
+                    $productModel->mutateStock(
+                        inventoryId: $defaultInventory->id,
+                        quantity: $product->stock,
+                        oldQuantity: $product->stock,
+                        event: 'Initial inventory',
+                    );
                 }
 
                 if (isset($product->tags) && filled($product->tags)) {
@@ -213,6 +214,7 @@ class ProductSeeder extends AbstractSeeder
         ?int $adminId,
     ): void {
         foreach ($variants as $variant) {
+            /** @var ProductVariant $variantModel */
             $variantModel = $productModel->variants()->create([
                 'name' => $variant->name,
                 'sku' => $variant->sku,
@@ -230,11 +232,12 @@ class ProductSeeder extends AbstractSeeder
             $this->createPrices($variantModel, $variant->prices ?? []);
 
             if (isset($variant->stock) && $variant->stock && $defaultInventory instanceof Inventory) {
-                $variantModel->mutateStock($defaultInventory->id, $variant->stock, [
-                    'event' => 'Initial inventory',
-                    'old_quantity' => $variant->stock,
-                    'user_id' => $adminId,
-                ]);
+                $variantModel->mutateStock(
+                    inventoryId: $defaultInventory->id,
+                    quantity: $variant->stock,
+                    oldQuantity: $variant->stock,
+                    event: 'Initial inventory',
+                );
             }
 
             if ((isset($variant->thumbnail) && filled($variant->thumbnail)) || (isset($variant->images) && filled($variant->images))) {

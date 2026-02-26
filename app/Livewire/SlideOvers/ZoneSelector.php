@@ -13,6 +13,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
 use Laravelcm\LivewireSlideOvers\SlideOverComponent;
 use Livewire\Attributes\Computed;
+use Shopper\Cart\CartSessionManager;
 
 /**
  * @property Collection $countries
@@ -41,6 +42,15 @@ final class ZoneSelector extends SlideOverComponent
             ZoneSessionManager::setSession($selectedZone);
 
             session()->forget(CheckoutSession::KEY);
+
+            $cart = app(CartSessionManager::class)->current();
+
+            if ($cart) {
+                $cart->update([
+                    'zone_id' => $selectedZone->zoneId,
+                    'currency_code' => $selectedZone->currencyCode,
+                ]);
+            }
 
             Cache::forget("home_featured_products_{$oldCurrency}");
             Cache::forget("home_featured_products_{$selectedZone->currencyCode}");

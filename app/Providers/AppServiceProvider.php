@@ -5,12 +5,15 @@ declare(strict_types=1);
 namespace App\Providers;
 
 use App\Models\Category;
+use App\Sidebar\BlogSidebar;
+use Illuminate\Auth\Events\Login;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
+use Shopper\Cart\CartSessionManager;
 use Shopper\Enum\RenderHook;
 use Shopper\Facades\Shopper;
 use Shopper\Sidebar\SidebarBuilder;
@@ -32,7 +35,11 @@ final class AppServiceProvider extends ServiceProvider
             ->renderHook(RenderHook::HeadEnd, fn (): string => Blade::render('@fluxAppearance'))
             ->renderHook(RenderHook::BodyEnd, fn (): string => Blade::render('@fluxScripts'));
 
-        Event::listen(SidebarBuilder::class, \App\Sidebar\BlogSidebar::class);
+        Event::listen(SidebarBuilder::class, BlogSidebar::class);
+
+        Event::listen(Login::class, function (Login $event): void {
+            app(CartSessionManager::class)->associate($event->user);
+        });
 
         View::composer('components.layouts.footer', function ($view): void {
             $view->with(

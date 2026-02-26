@@ -30,16 +30,16 @@
                 </h2>
 
                 <ul role="list" class="text-sm font-medium divide-y divide-zinc-200">
-                    @foreach ($items as $item)
-                        <x-cart.element :$item />
+                    @foreach ($items as $line)
+                        <x-cart.element :$line />
                     @endforeach
                 </ul>
 
                 <dl class="hidden pt-6 space-y-4 text-sm font-medium border-t border-zinc-200 lg:block">
                     <div class="flex items-center justify-between">
-                        <dt class="text-zinc-500">{{ __('Subtotal') }}</dt>
+                        <dt class="text-zinc-500">{{ __('Subtotal') }} {{ current_tax_label() }}</dt>
                         <dd class="text-zinc-900">
-                            {{ shopper_money_format(amount: $subtotal, currency: current_currency()) }}
+                            {{ format_cents($subtotal) }}
                         </dd>
                     </div>
 
@@ -120,9 +120,9 @@
                             >
                                 <dl class="max-w-lg mx-auto space-y-6">
                                     <div class="flex items-center justify-between">
-                                        <dt class="text-zinc-500">{{ __('Subtotal') }}</dt>
+                                        <dt class="text-zinc-500">{{ __('Subtotal') }} {{ current_tax_label() }}</dt>
                                         <dd class="text-zinc-900">
-                                            {{ shopper_money_format(amount: $subtotal, currency: current_currency()) }}
+                                            {{ format_cents($subtotal) }}
                                         </dd>
                                     </div>
 

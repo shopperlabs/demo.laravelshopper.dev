@@ -2,17 +2,19 @@
 
 declare(strict_types=1);
 
-use App\Actions\CalculateCartTax;
+use Shopper\Cart\CartManager;
 use function Livewire\Volt\{on, state};
 
-state(['price' => (new CalculateCartTax)->handle()['total']]);
+state(['price' => function () {
+    return app(CartManager::class)->calculate(cartSession())->taxTotal;
+}]);
 
 on(['cart-price-update' => function () {
-    $this->price = (new CalculateCartTax)->handle()['total'];
+    $this->price = app(CartManager::class)->calculate(cartSession())->taxTotal;
 }]);
 
 ?>
 
 <dd>
-    {{ shopper_money_format(amount: $price, currency: current_currency()) }}
+    {{ format_cents($price) }}
 </dd>

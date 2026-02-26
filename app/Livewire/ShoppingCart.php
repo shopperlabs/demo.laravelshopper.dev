@@ -4,19 +4,21 @@ declare(strict_types=1);
 
 namespace App\Livewire;
 
-use Darryldecode\Cart\CartCollection;
-use Darryldecode\Cart\Facades\CartFacade;
+use App\Models\ProductVariant;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Collection;
 use Laravelcm\LivewireSlideOvers\SlideOverComponent;
 use Livewire\Attributes\On;
+use Shopper\Cart\CartManager;
+use Shopper\Cart\CartSessionManager;
+use Shopper\Cart\Models\CartLine;
 
 final class ShoppingCart extends SlideOverComponent
 {
-    public float $subtotal = 0;
+    public int $subtotal = 0;
 
-    public CartCollection $items;
-
-    public ?string $sessionKey = null;
+    /** @var Collection<int, CartLine> */
+    public Collection $items;
 
     public static function panelMaxWidth(): string
     {
@@ -25,27 +27,41 @@ final class ShoppingCart extends SlideOverComponent
 
     public function mount(): void
     {
-        $sessionKey = session()->getId();
-
-        $this->sessionKey = $sessionKey;
-        $this->items = CartFacade::session($sessionKey)->getContent(); // @phpstan-ignore-line
-        $this->subtotal = CartFacade::session($sessionKey)->getSubTotal(); // @phpstan-ignore-line
+        $this->loadCart();
     }
 
     #[On('cartUpdated')]
-    public function cartUpdated(): void
+    public function loadCart(): void
     {
-        $this->items = CartFacade::session($this->sessionKey)->getContent(); // @phpstan-ignore-line
-        $this->subtotal = CartFacade::session($this->sessionKey)->getSubTotal(); // @phpstan-ignore-line
+        $cart = app(CartSessionManager::class)->current();
+
+        if (! $cart) {
+            $this->items = collect();
+            $this->subtotal = 0;
+
+            return;
+        }
+
+        $cart->load('lines.purchasable');
+        $cart->lines->loadMorph('purchasable', [
+            ProductVariant::class => ['product'],
+        ]);
+        $this->items = $cart->lines;
+
+        $context = app(CartManager::class)->calculate($cart);
+        $this->subtotal = $context->subtotal;
     }
 
-    public function removeToCart(int $id): void
+    public function removeFromCart(int $lineId): void
     {
-        CartFacade::session($this->sessionKey)->remove($id); // @phpstan-ignore-line
+        $cart = cartSession();
 
-        $this->dispatch('notify', type: 'success', title: __('Cart updated'), message: __('The product has been removed from your cart!'));
+        app(CartManager::class)->remove($cart, $lineId);
+
+        $this->loadCart();
 
         $this->dispatch('cartUpdated');
+        $this->dispatch('notify', type: 'success', title: __('Cart updated'), message: __('The product has been removed from your cart!'));
     }
 
     public function render(): View

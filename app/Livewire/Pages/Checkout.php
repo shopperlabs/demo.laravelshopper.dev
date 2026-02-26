@@ -5,22 +5,21 @@ declare(strict_types=1);
 namespace App\Livewire\Pages;
 
 use App\CheckoutSession;
-use Darryldecode\Cart\Facades\CartFacade;
+use App\Models\ProductVariant;
 use Illuminate\Contracts\View\View;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
+use Shopper\Cart\CartManager;
+use Shopper\Cart\CartSessionManager;
 
 #[Layout('components.layouts.templates.light')]
 final class Checkout extends Component
 {
-    public ?string $sessionKey = null;
-
     public function mount(): void
     {
-        $this->sessionKey = session()->getId();
+        $cart = app(CartSessionManager::class)->current();
 
-        // @phpstan-ignore-next-line
-        if (CartFacade::session($this->sessionKey)->isEmpty()) {
+        if (! $cart || $cart->lines->isEmpty()) {
             if (session()->exists(CheckoutSession::KEY)) {
                 session()->forget(CheckoutSession::KEY);
             }
@@ -31,9 +30,17 @@ final class Checkout extends Component
 
     public function render(): View
     {
+        $cart = cartSession();
+        $cart->load('lines.purchasable');
+        $cart->lines->loadMorph('purchasable', [
+            ProductVariant::class => ['product'],
+        ]);
+
+        $context = app(CartManager::class)->calculate($cart);
+
         return view('livewire.pages.checkout', [
-            'items' => CartFacade::session($this->sessionKey)->getContent(), // @phpstan-ignore-line
-            'subtotal' => CartFacade::session($this->sessionKey)->getSubTotal(), // @phpstan-ignore-line
+            'items' => $cart->lines,
+            'subtotal' => $context->subtotal,
         ])
             ->title(__('Proceed to checkout'));
     }

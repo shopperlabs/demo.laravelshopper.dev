@@ -55,10 +55,7 @@ beforeEach(function (): void {
         'product_id' => $this->product->id,
     ]);
     $this->variant->values()->attach([$this->blue->id, $this->small->id]);
-    $this->variant->mutateStock($this->inventory->id, 5, [
-        'event' => 'Initial inventory',
-        'old_quantity' => 0,
-    ]);
+    $this->variant->mutateStock($this->inventory->id, 5);
 
     $this->product->load('variants.values.attribute');
     ProductVariant::loadCurrentStock($this->product->variants);

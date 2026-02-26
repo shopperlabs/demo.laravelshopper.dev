@@ -4,27 +4,26 @@ declare(strict_types=1);
 
 namespace App\Livewire;
 
-use Darryldecode\Cart\Facades\CartFacade;
 use Illuminate\Contracts\View\View;
 use Livewire\Attributes\On;
 use Livewire\Component;
+use Shopper\Cart\CartSessionManager;
 
 final class ShoppingCartButton extends Component
 {
     public int $cartTotalItems = 0;
 
-    public ?string $sessionKey = null;
-
     public function mount(): void
     {
-        $this->sessionKey = session()->getId();
-        $this->cartTotalItems = CartFacade::session($this->sessionKey)->getTotalQuantity(); // @phpstan-ignore-line
+        $this->updateCount();
     }
 
     #[On('cartUpdated')]
-    public function cartUpdated(): void
+    public function updateCount(): void
     {
-        $this->cartTotalItems = CartFacade::session($this->sessionKey)->getTotalQuantity(); // @phpstan-ignore-line
+        $cart = app(CartSessionManager::class)->current();
+
+        $this->cartTotalItems = $cart?->lines->sum('quantity') ?? 0;
     }
 
     public function render(): View
