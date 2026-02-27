@@ -35,6 +35,13 @@
                     @endforeach
                 </ul>
 
+                <div class="hidden py-6 border-t border-zinc-200 lg:block">
+                    <h3 class="text-sm font-medium text-zinc-900">{{ __('Discount code') }}</h3>
+                    <div class="mt-2">
+                        <livewire:components.coupon-code />
+                    </div>
+                </div>
+
                 <dl class="hidden pt-6 space-y-4 text-sm font-medium border-t border-zinc-200 lg:block">
                     <div class="flex items-center justify-between">
                         <dt class="text-zinc-500">{{ __('Subtotal') }} {{ current_tax_label() }}</dt>
@@ -42,6 +49,8 @@
                             {{ format_cents($subtotal) }}
                         </dd>
                     </div>
+
+                    <livewire:components.discount-total />
 
                     <div class="flex items-center justify-between">
                         <dt class="text-zinc-500">{{ __('Shipping') }}</dt>
@@ -118,6 +127,13 @@
                                 @click.away="open = false"
                                 style="display: none"
                             >
+                                <div class="max-w-lg mx-auto mb-6">
+                                    <h3 class="text-sm font-medium text-zinc-900">{{ __('Discount code') }}</h3>
+                                    <div class="mt-2">
+                                        <livewire:components.coupon-code />
+                                    </div>
+                                </div>
+
                                 <dl class="max-w-lg mx-auto space-y-6">
                                     <div class="flex items-center justify-between">
                                         <dt class="text-zinc-500">{{ __('Subtotal') }} {{ current_tax_label() }}</dt>
@@ -125,6 +141,8 @@
                                             {{ format_cents($subtotal) }}
                                         </dd>
                                     </div>
+
+                                    <livewire:components.discount-total />
 
                                     <div class="flex items-center justify-between">
                                         <dt class="text-zinc-500">{{ __('Shipping') }}</dt>
