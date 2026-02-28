@@ -12,14 +12,14 @@
 
     <title>{{ $title ?? 'ShopStation' }} // {{ config('app.name') }}</title>
 
-    <meta name="description" content="ShopStation — A demo storefront powered by Laravel Shopper. Explore products, collections, and a full checkout experience built with Livewire and Tailwind CSS." />
+    <meta name="description" content="ShopStation — A demo storefront powered by Shopper. Explore products, collections, and a full checkout experience built with Livewire and Tailwind CSS." />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="{{ url()->current() }}" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="{{ $title ?? 'ShopStation' }} // {{ config('app.name') }}" />
-    <meta property="og:description" content="ShopStation — A demo storefront powered by Laravel Shopper. Explore products, collections, and a full checkout experience built with Livewire and Tailwind CSS." />
+    <meta property="og:description" content="ShopStation — A demo storefront powered by Shopper. Explore products, collections, and a full checkout experience built with Livewire and Tailwind CSS." />
     <meta property="og:image" content="https://docs.laravelshopper.dev/images/demo-store.jpg" />
     <meta property="og:url" content="{{ url()->current() }}" />
     <meta property="og:site_name" content="{{ config('app.name') }}" />
@@ -27,7 +27,7 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="{{ $title ?? 'ShopStation' }} // {{ config('app.name') }}" />
-    <meta name="twitter:description" content="ShopStation — A demo storefront powered by Laravel Shopper. Explore products, collections, and a full checkout experience built with Livewire and Tailwind CSS." />
+    <meta name="twitter:description" content="ShopStation — A demo storefront powered by Shopper. Explore products, collections, and a full checkout experience built with Livewire and Tailwind CSS." />
     <meta name="twitter:image" content="https://docs.laravelshopper.dev/images/demo-store.jpg" />
 
     <!-- Fonts -->

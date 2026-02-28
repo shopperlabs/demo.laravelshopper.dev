@@ -47,7 +47,7 @@
                 </div>
                 <div>
                     <h3 class="text-sm font-semibold leading-6 text-zinc-900">
-                        Laravel Shopper
+                        Shopper
                     </h3>
                     <ul role="list" class="mt-6 space-y-4">
                         <li>
