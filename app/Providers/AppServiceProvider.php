@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Shopper\Cart\CartSessionManager;
-use Shopper\Enum\RenderHook;
 use Shopper\Facades\Shopper;
 use Shopper\Sidebar\SidebarBuilder;
+use Shopper\View\LayoutRenderHook;
 
 final class AppServiceProvider extends ServiceProvider
 {
@@ -31,9 +31,8 @@ final class AppServiceProvider extends ServiceProvider
 
         Model::preventLazyLoading(! app()->isProduction());
 
-        Shopper::registerViteTheme('resources/css/shopper.css')
-            ->renderHook(RenderHook::HeadEnd, fn (): string => Blade::render('@fluxAppearance'))
-            ->renderHook(RenderHook::BodyEnd, fn (): string => Blade::render('@fluxScripts'));
+        Shopper::renderHook(LayoutRenderHook::HEAD_END, fn (): string => Blade::render('@fluxAppearance'))
+            ->renderHook(LayoutRenderHook::BODY_END, fn (): string => Blade::render('@fluxScripts'));
 
         Event::listen(SidebarBuilder::class, BlogSidebar::class);
 

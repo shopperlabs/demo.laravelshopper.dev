@@ -16,7 +16,7 @@
     "laravel/tinker": "^2.11.1",
     "laravelcm/livewire-slide-overs": "^1.1.1",
     "livewire/flux": "^2.12.2",
-    "livewire/livewire": "^3.7.10",
+    "livewire/livewire": "^3.7.11",
     "livewire/volt": "^1.10.3",
     "mews/purifier": "^3.4.3",
     "notchpay/notchpay-php": "^2.0",
@@ -24,7 +24,7 @@
     "shopper/stripe": "^2.5"
   },
   "require-dev": {
-    "barryvdh/laravel-debugbar": "^4.0.9",
+    "barryvdh/laravel-debugbar": "^4.0.10",
     "driftingly/rector-laravel": ">=2.1.9",
     "fakerphp/faker": "^1.24.1",
     "larastan/larastan": "^3.9.2",
