@@ -25,7 +25,7 @@ class StoreConfigSeeder extends Seeder
         ]);
 
         /** @var string $role */
-        $role = config('shopper.core.roles.admin');
+        $role = config('shopper.admin.roles.admin');
         $admin->assignRole($role);
 
         $this->command->info('Admin user created.');

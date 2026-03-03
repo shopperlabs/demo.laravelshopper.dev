@@ -41,7 +41,7 @@ class CustomerSeeder extends Seeder
                 )
                 ->create();
 
-            $customer->assignRole(config('shopper.core.roles.user'));
+            $customer->assignRole(config('shopper.admin.roles.user'));
 
             return collect([$customer]);
         });

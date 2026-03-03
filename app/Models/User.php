@@ -7,15 +7,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Shopper\Core\Models\Contracts\ShopperUser as InteractWithShopperUser;
-use Shopper\Core\Traits\ShopperUser;
+use Shopper\Models\Contracts\ShopperUser;
+use Shopper\Traits\InteractsWithShopper;
 
-final class User extends Authenticatable implements InteractWithShopperUser
+final class User extends Authenticatable implements ShopperUser
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
-    use ShopperUser;
+    use InteractsWithShopper;
 
     protected $guarded = [];
 
