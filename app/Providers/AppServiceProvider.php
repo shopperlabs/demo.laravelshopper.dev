@@ -37,7 +37,7 @@ final class AppServiceProvider extends ServiceProvider
         Event::listen(SidebarBuilder::class, BlogSidebar::class);
 
         Event::listen(Login::class, function (Login $event): void {
-            app(CartSessionManager::class)->associate($event->user);
+            resolve(CartSessionManager::class)->associate($event->user);
         });
 
         View::composer('components.layouts.footer', function ($view): void {

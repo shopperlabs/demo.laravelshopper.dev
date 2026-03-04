@@ -138,7 +138,7 @@ final class VariantsSelector extends Component
     public function getCartQuantityForModel(): int
     {
         $model = $this->selectedVariant ?? $this->product;
-        $cart = app(CartSessionManager::class)->current();
+        $cart = resolve(CartSessionManager::class)->current();
 
         if (! $cart) {
             return 0;

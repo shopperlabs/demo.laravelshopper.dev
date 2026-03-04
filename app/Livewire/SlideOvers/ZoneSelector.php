@@ -43,7 +43,7 @@ final class ZoneSelector extends SlideOverComponent
 
             session()->forget(CheckoutSession::KEY);
 
-            $cart = app(CartSessionManager::class)->current();
+            $cart = resolve(CartSessionManager::class)->current();
 
             if ($cart) {
                 $cart->update([

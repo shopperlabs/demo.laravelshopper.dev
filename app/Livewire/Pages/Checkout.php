@@ -17,7 +17,7 @@ final class Checkout extends Component
 {
     public function mount(): void
     {
-        $cart = app(CartSessionManager::class)->current();
+        $cart = resolve(CartSessionManager::class)->current();
 
         if (! $cart || $cart->lines->isEmpty()) {
             if (session()->exists(CheckoutSession::KEY)) {
@@ -36,7 +36,7 @@ final class Checkout extends Component
             ProductVariant::class => ['product'],
         ]);
 
-        $context = app(CartManager::class)->calculate($cart);
+        $context = resolve(CartManager::class)->calculate($cart);
 
         return view('livewire.pages.checkout', [
             'items' => $cart->lines,

@@ -124,7 +124,7 @@ final class Payment extends StepComponent
         $service = resolve(PaymentProcessingService::class);
 
         return $service->getMethodsForZone($zone)
-            ->map(fn (PaymentMethod $method) => [
+            ->map(fn (PaymentMethod $method): array => [
                 'id' => $method->id,
                 'title' => $method->title,
                 'slug' => $method->slug,

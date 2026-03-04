@@ -45,9 +45,9 @@ describe(AddToCart::class, function (): void {
 
         expect($line)
             ->quantity->toBe(1)
-            ->unit_price_amount->toBe(2999);
+            ->unit_price_amount->toBe(29.99);
 
-        $cart = app(CartSessionManager::class)->current();
+        $cart = resolve(CartSessionManager::class)->current();
 
         expect($cart->lines)->toHaveCount(1);
     });
@@ -68,7 +68,7 @@ describe(AddToCart::class, function (): void {
 
         expect($line)->quantity->toBe(2);
 
-        $cart = app(CartSessionManager::class)->current();
+        $cart = resolve(CartSessionManager::class)->current();
 
         expect($cart->lines)->toHaveCount(1);
     });

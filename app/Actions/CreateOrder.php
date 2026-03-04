@@ -25,7 +25,7 @@ final class CreateOrder
 
         $cart = cartSession();
 
-        $order = app(CreateOrderFromCartAction::class)->execute($cart);
+        $order = resolve(CreateOrderFromCartAction::class)->execute($cart);
 
         $order->update([
             'shipping_option_id' => data_get($checkout, 'shipping_option.0.id'),
@@ -38,11 +38,11 @@ final class CreateOrder
             $multiplier = is_no_division_currency($order->currency_code) ? 1 : 100;
 
             $order->update([
-                'price_amount' => $order->price_amount + (int) ($shippingPrice * $multiplier),
+                'price_amount' => $order->price_amount + $shippingPrice * $multiplier,
             ]);
         }
 
-        app(CartSessionManager::class)->forget();
+        resolve(CartSessionManager::class)->forget();
 
         return $order;
     }

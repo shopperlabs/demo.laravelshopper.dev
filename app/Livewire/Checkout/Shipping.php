@@ -59,7 +59,7 @@ final class Shipping extends StepComponent
         session()->put(CheckoutSession::BILLING_ADDRESS, $billingAddress->toArray());
 
         $cart = cartSession();
-        $cartManager = app(CartManager::class);
+        $cartManager = resolve(CartManager::class);
 
         $cartManager->addAddress($cart, AddressType::Shipping, [
             'first_name' => $shippingAddress->first_name,

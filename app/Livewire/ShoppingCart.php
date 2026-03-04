@@ -33,7 +33,7 @@ final class ShoppingCart extends SlideOverComponent
     #[On('cartUpdated')]
     public function loadCart(): void
     {
-        $cart = app(CartSessionManager::class)->current();
+        $cart = resolve(CartSessionManager::class)->current();
 
         if (! $cart) {
             $this->items = collect();
@@ -48,7 +48,7 @@ final class ShoppingCart extends SlideOverComponent
         ]);
         $this->items = $cart->lines;
 
-        $context = app(CartManager::class)->calculate($cart);
+        $context = resolve(CartManager::class)->calculate($cart);
         $this->subtotal = $context->subtotal;
     }
 
@@ -56,7 +56,7 @@ final class ShoppingCart extends SlideOverComponent
     {
         $cart = cartSession();
 
-        app(CartManager::class)->remove($cart, $lineId);
+        resolve(CartManager::class)->remove($cart, $lineId);
 
         $this->loadCart();
 

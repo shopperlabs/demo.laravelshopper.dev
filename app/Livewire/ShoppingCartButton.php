@@ -21,7 +21,7 @@ final class ShoppingCartButton extends Component
     #[On('cartUpdated')]
     public function updateCount(): void
     {
-        $cart = app(CartSessionManager::class)->current();
+        $cart = resolve(CartSessionManager::class)->current();
 
         $this->cartTotalItems = $cart?->lines->sum('quantity') ?? 0;
     }

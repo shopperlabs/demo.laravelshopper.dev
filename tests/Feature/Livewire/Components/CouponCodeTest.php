@@ -29,7 +29,7 @@ beforeEach(function (): void {
         'amount' => 5000,
     ]);
 
-    $session = app(CartSessionManager::class);
+    $session = resolve(CartSessionManager::class);
     $this->cart = $session->create([
         'currency_code' => 'USD',
         'customer_id' => $this->user->id,
@@ -200,7 +200,7 @@ describe('Coupon Code Component', function (): void {
             'end_at' => now()->addMonth(),
         ]);
 
-        app(CartManager::class)->applyCoupon($this->cart, 'PREMOUNTED');
+        resolve(CartManager::class)->applyCoupon($this->cart, 'PREMOUNTED');
 
         Volt::test('components.coupon-code')
             ->assertSet('appliedCode', 'PREMOUNTED')
@@ -227,7 +227,7 @@ describe('Discount Total Component', function (): void {
             'end_at' => now()->addMonth(),
         ]);
 
-        app(CartManager::class)->applyCoupon($this->cart, 'SHOW_TOTAL');
+        resolve(CartManager::class)->applyCoupon($this->cart, 'SHOW_TOTAL');
 
         Volt::test('components.discount-total')
             ->assertSee(__('Discount'));

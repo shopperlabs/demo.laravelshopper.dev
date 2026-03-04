@@ -11,7 +11,7 @@ use Shopper\Core\Models\TaxZone;
 if (! function_exists('cartSession')) {
     function cartSession(): Cart
     {
-        $session = app(CartSessionManager::class);
+        $session = resolve(CartSessionManager::class);
         $cart = $session->current();
 
         if (! $cart) {
@@ -63,7 +63,7 @@ if (! function_exists('current_tax_label')) {
 
         $zone = ZoneSessionManager::getSession();
 
-        if (! $zone) {
+        if (! $zone instanceof App\DTO\CountryByZoneData) {
             return $label = '';
         }
 
