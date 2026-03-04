@@ -1,3 +1,5 @@
+@blaze
+
 @props([
     'item',
     'currency_code',

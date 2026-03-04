@@ -1,3 +1,5 @@
+@blaze
+
 @props(['rating' => 0])
 
 <div class="flex items-center">
