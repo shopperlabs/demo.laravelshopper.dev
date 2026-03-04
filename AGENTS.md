@@ -586,9 +586,9 @@ multi-location inventory:
 
     $product->prices()->create([
         'currency_id' => Currency::where('code', 'USD')->first()->id,
-        'amount' => 2999,         // .99
-        'compare_amount' => 3999, // .99 (crossed-out price)
-        'cost_amount' => 1500,    // .00 (cost for profit calc)
+        'amount' => 2999,         // $29.99
+        'compare_amount' => 3999, // $39.99 (crossed-out price)
+        'cost_amount' => 1500,    // $15.00 (cost for profit calc)
     ]);
     </code-snippet>
 

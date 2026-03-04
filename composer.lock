@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f24f4576da9b0472978a948819a3aa7a",
+    "content-hash": "0cb7629dd3b6196705d359f051882e0a",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -7422,11 +7422,17 @@
         },
         {
             "name": "shopper/cart",
-            "version": "2.x-dev",
+            "version": "v2.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/shopperlabs/cart.git",
+                "reference": "b201ad11706b4da109a3c3c4fdac75d3d7022a8e"
+            },
             "dist": {
-                "type": "path",
-                "url": "../shopper/packages/cart",
-                "reference": "cf0ee70e2c9dfc216919d300b37a53377bc32842"
+                "type": "zip",
+                "url": "https://api.github.com/repos/shopperlabs/cart/zipball/b201ad11706b4da109a3c3c4fdac75d3d7022a8e",
+                "reference": "b201ad11706b4da109a3c3c4fdac75d3d7022a8e",
+                "shasum": ""
             },
             "require": {
                 "php": "^8.3",
@@ -7445,22 +7451,30 @@
                     "Shopper\\Cart\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "description": "Shopper cart management with pipeline-based calculation",
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
+            "support": {
+                "issues": "https://github.com/shopperlabs/cart/issues",
+                "source": "https://github.com/shopperlabs/cart/tree/v2.6.0"
+            },
+            "time": "2026-02-27T11:00:41+00:00"
         },
         {
             "name": "shopper/core",
-            "version": "2.x-dev",
+            "version": "v2.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/shopperlabs/core.git",
+                "reference": "9c420239b0cceda073fe97e0a629e18c027d4968"
+            },
             "dist": {
-                "type": "path",
-                "url": "../shopper/packages/core",
-                "reference": "1f12b6d1b4a04985f1b47fe53f9ed4e98d18fb33"
+                "type": "zip",
+                "url": "https://api.github.com/repos/shopperlabs/core/zipball/9c420239b0cceda073fe97e0a629e18c027d4968",
+                "reference": "9c420239b0cceda073fe97e0a629e18c027d4968",
+                "shasum": ""
             },
             "require": {
                 "ext-intl": "*",
@@ -7470,7 +7484,7 @@
                 "illuminate/support": "^11.0|^12.0",
                 "laravel/prompts": "^0.3.5",
                 "php": "^8.3",
-                "spatie/laravel-package-tools": "^1.19",
+                "spatie/laravel-package-tools": "^1.9",
                 "staudenmeir/laravel-adjacency-list": "^1.0"
             },
             "type": "library",
@@ -7487,26 +7501,33 @@
                 ],
                 "psr-4": {
                     "Shopper\\Core\\": "src/",
-                    "Shopper\\Core\\Database\\Factories\\": "database/factories",
-                    "Shopper\\Core\\Database\\Seeders\\": "database/seeders"
+                    "Shopper\\Core\\Database\\Seeders\\": "database/seeders",
+                    "Shopper\\Core\\Database\\Factories\\": "database/factories"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "description": "Shopper e-commerce core functionality",
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
+            "support": {
+                "source": "https://github.com/shopperlabs/core/tree/v2.6.0"
+            },
+            "time": "2026-03-03T19:38:01+00:00"
         },
         {
             "name": "shopper/framework",
-            "version": "2.x-dev",
+            "version": "v2.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/shopperlabs/admin.git",
+                "reference": "09dd232bd2f1c5f4165c03dafa7b3a2a7e5a59fa"
+            },
             "dist": {
-                "type": "path",
-                "url": "../shopper/packages/admin",
-                "reference": "976c1cf517e383136f0d173d8e0678656aee896f"
+                "type": "zip",
+                "url": "https://api.github.com/repos/shopperlabs/admin/zipball/09dd232bd2f1c5f4165c03dafa7b3a2a7e5a59fa",
+                "reference": "09dd232bd2f1c5f4165c03dafa7b3a2a7e5a59fa",
+                "shasum": ""
             },
             "require": {
                 "bacon/bacon-qr-code": "^2.0|^3.0",
@@ -7529,7 +7550,7 @@
                 "jenssegers/agent": "^2.6",
                 "leandrocfe/filament-apex-charts": "^5.0",
                 "livewire/blaze": "^1.0",
-                "mckenziearts/filament-untitledui-icons": "^1.1",
+                "mckenziearts/filament-untitledui-icons": "^1.2",
                 "milon/barcode": "^11.0|^12.0",
                 "php": "^8.3",
                 "pragmarx/google2fa": "^8.0|^9.0",
@@ -7541,7 +7562,7 @@
                 "shopper/sidebar": "self.version",
                 "spatie/laravel-livewire-wizard": "^2.4",
                 "spatie/laravel-medialibrary": "^11.5",
-                "spatie/laravel-package-tools": "^1.19",
+                "spatie/laravel-package-tools": "^1.9",
                 "spatie/laravel-permission": "^6.24",
                 "stevebauman/location": "^7.2"
             },
@@ -7562,6 +7583,7 @@
                     "Shopper\\Database\\Seeders\\": "database/seeders"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -7573,31 +7595,34 @@
             ],
             "description": "A TALL Laravel Headless e-commerce admin panel to create and manage online shop.",
             "keywords": [
+                "Shopper",
                 "admin-panel",
                 "e-commerce",
                 "headless cms",
                 "laravel",
                 "livewire",
                 "shop",
-                "shopper",
                 "store"
             ],
             "support": {
                 "issues": "https://github.com/shopperlabs/framework/issues",
                 "source": "https://github.com/shopperlabs/framework"
             },
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
+            "time": "2026-03-03T22:10:32+00:00"
         },
         {
             "name": "shopper/payment",
-            "version": "2.x-dev",
+            "version": "v2.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/shopperlabs/payment.git",
+                "reference": "d44dd66b6e8c84d97443475ca5d3b3c49ce4ea22"
+            },
             "dist": {
-                "type": "path",
-                "url": "../shopper/packages/payment",
-                "reference": "65b480ea5a81edb687708a07fbeabc209da588f2"
+                "type": "zip",
+                "url": "https://api.github.com/repos/shopperlabs/payment/zipball/d44dd66b6e8c84d97443475ca5d3b3c49ce4ea22",
+                "reference": "d44dd66b6e8c84d97443475ca5d3b3c49ce4ea22",
+                "shasum": ""
             },
             "require": {
                 "php": "^8.3",
@@ -7616,22 +7641,30 @@
                     "Shopper\\Payment\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "description": "Shopper payment providers integration",
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
+            "support": {
+                "issues": "https://github.com/shopperlabs/payment/issues",
+                "source": "https://github.com/shopperlabs/payment/tree/v2.6.0"
+            },
+            "time": "2026-02-28T12:02:11+00:00"
         },
         {
             "name": "shopper/shipping",
-            "version": "2.x-dev",
+            "version": "v2.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/shopperlabs/shipping.git",
+                "reference": "61a70b45881f8a0b5bddfeab16449b45f05df2e8"
+            },
             "dist": {
-                "type": "path",
-                "url": "../shopper/packages/shipping",
-                "reference": "cba6c5cf116cb91be9fb729722d06cdac2b5a10c"
+                "type": "zip",
+                "url": "https://api.github.com/repos/shopperlabs/shipping/zipball/61a70b45881f8a0b5bddfeab16449b45f05df2e8",
+                "reference": "61a70b45881f8a0b5bddfeab16449b45f05df2e8",
+                "shasum": ""
             },
             "require": {
                 "ivanmitrikeski/laravel-shipping": "^1.0",
@@ -7654,22 +7687,30 @@
                     "Shopper\\Shipping\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "description": "Shopper shipping providers integration",
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
+            "support": {
+                "issues": "https://github.com/shopperlabs/shipping/issues",
+                "source": "https://github.com/shopperlabs/shipping/tree/v2.6.0"
+            },
+            "time": "2026-02-28T11:59:09+00:00"
         },
         {
             "name": "shopper/sidebar",
-            "version": "2.x-dev",
+            "version": "v2.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/shopperlabs/sidebar.git",
+                "reference": "5edf7430b90c150902360cd956f9ee42a4e2e487"
+            },
             "dist": {
-                "type": "path",
-                "url": "../shopper/packages/sidebar",
-                "reference": "c5e99889bf3a2738eda06c52af260a809b06f2bc"
+                "type": "zip",
+                "url": "https://api.github.com/repos/shopperlabs/sidebar/zipball/5edf7430b90c150902360cd956f9ee42a4e2e487",
+                "reference": "5edf7430b90c150902360cd956f9ee42a4e2e487",
+                "shasum": ""
             },
             "require": {
                 "illuminate/cache": "^11.0|^12.0",
@@ -7681,7 +7722,7 @@
                 "livewire/livewire": "^3.7",
                 "mckenziearts/blade-untitledui-icons": "^1.4",
                 "php": "^8.3",
-                "spatie/laravel-package-tools": "^1.15"
+                "spatie/laravel-package-tools": "^1.9"
             },
             "type": "library",
             "extra": {
@@ -7692,13 +7733,14 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Shopper\\Sidebar\\": "src/"
-                },
                 "files": [
                     "src/helpers.php"
-                ]
+                ],
+                "psr-4": {
+                    "Shopper\\Sidebar\\": "src/"
+                }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -7714,18 +7756,25 @@
                 "laravel",
                 "sidebar"
             ],
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
+            "support": {
+                "issues": "https://github.com/shopperlabs/sidebar/issues",
+                "source": "https://github.com/shopperlabs/sidebar/tree/v2.6.0"
+            },
+            "time": "2026-03-03T19:19:34+00:00"
         },
         {
             "name": "shopper/stripe",
-            "version": "2.x-dev",
+            "version": "v2.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/shopperlabs/stripe.git",
+                "reference": "cf9b10d2ece7676f11cefe664744681c6f56aba9"
+            },
             "dist": {
-                "type": "path",
-                "url": "../shopper/packages/stripe",
-                "reference": "5a0426fe47073a3c538b265f1888e62431dfe5a9"
+                "type": "zip",
+                "url": "https://api.github.com/repos/shopperlabs/stripe/zipball/cf9b10d2ece7676f11cefe664744681c6f56aba9",
+                "reference": "cf9b10d2ece7676f11cefe664744681c6f56aba9",
+                "shasum": ""
             },
             "require": {
                 "php": "^8.3",
@@ -7745,14 +7794,16 @@
                     "Shopper\\Stripe\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "description": "Stripe payment driver for Shopper",
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
+            "support": {
+                "issues": "https://github.com/shopperlabs/stripe/issues",
+                "source": "https://github.com/shopperlabs/stripe/tree/v2.6.0"
+            },
+            "time": "2026-02-28T12:02:13+00:00"
         },
         {
             "name": "spatie/image",
@@ -12421,16 +12472,16 @@
         },
         {
             "name": "laravel/boost",
-            "version": "v2.2.1",
+            "version": "v2.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/boost.git",
-                "reference": "e27f1616177377fef95296620530c44a7dda4df9"
+                "reference": "2b0366559e9ff591c65ea0321dfb91fd950c2cbd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/boost/zipball/e27f1616177377fef95296620530c44a7dda4df9",
-                "reference": "e27f1616177377fef95296620530c44a7dda4df9",
+                "url": "https://api.github.com/repos/laravel/boost/zipball/2b0366559e9ff591c65ea0321dfb91fd950c2cbd",
+                "reference": "2b0366559e9ff591c65ea0321dfb91fd950c2cbd",
                 "shasum": ""
             },
             "require": {
@@ -12439,7 +12490,7 @@
                 "illuminate/contracts": "^11.45.3|^12.41.1",
                 "illuminate/routing": "^11.45.3|^12.41.1",
                 "illuminate/support": "^11.45.3|^12.41.1",
-                "laravel/mcp": "^0.5.1",
+                "laravel/mcp": "^0.5.1|^0.6.0",
                 "laravel/prompts": "^0.3.10",
                 "laravel/roster": "^0.5.0",
                 "php": "^8.2"
@@ -12483,7 +12534,7 @@
                 "issues": "https://github.com/laravel/boost/issues",
                 "source": "https://github.com/laravel/boost"
             },
-            "time": "2026-02-25T16:07:36+00:00"
+            "time": "2026-03-03T14:36:03+00:00"
         },
         {
             "name": "laravel/breeze",
@@ -12548,16 +12599,16 @@
         },
         {
             "name": "laravel/mcp",
-            "version": "v0.5.9",
+            "version": "v0.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/mcp.git",
-                "reference": "39e8da60eb7bce4737c5d868d35a3fe78938c129"
+                "reference": "28860a10ca0cc5433e25d897ba7af844e6c7b6a2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/mcp/zipball/39e8da60eb7bce4737c5d868d35a3fe78938c129",
-                "reference": "39e8da60eb7bce4737c5d868d35a3fe78938c129",
+                "url": "https://api.github.com/repos/laravel/mcp/zipball/28860a10ca0cc5433e25d897ba7af844e6c7b6a2",
+                "reference": "28860a10ca0cc5433e25d897ba7af844e6c7b6a2",
                 "shasum": ""
             },
             "require": {
@@ -12617,7 +12668,7 @@
                 "issues": "https://github.com/laravel/mcp/issues",
                 "source": "https://github.com/laravel/mcp"
             },
-            "time": "2026-02-17T19:05:53+00:00"
+            "time": "2026-02-24T08:43:06+00:00"
         },
         {
             "name": "laravel/pint",
@@ -16154,10 +16205,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "shopper/framework": 20,
-        "shopper/stripe": 20
-    },
+    "stability-flags": {},
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

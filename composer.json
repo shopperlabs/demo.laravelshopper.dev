@@ -20,15 +20,15 @@
     "livewire/volt": "^1.10.3",
     "mews/purifier": "^3.4.3",
     "notchpay/notchpay-php": "^2.0",
-    "shopper/framework": "^2.5",
-    "shopper/stripe": "^2.5"
+    "shopper/framework": "^2.6",
+    "shopper/stripe": "^2.6"
   },
   "require-dev": {
     "barryvdh/laravel-debugbar": "^4.0.10",
     "driftingly/rector-laravel": ">=2.1.9",
     "fakerphp/faker": "^1.24.1",
     "larastan/larastan": "^3.9.3",
-    "laravel/boost": "^2.2.1",
+    "laravel/boost": "^2.2.2",
     "laravel/breeze": "^2.3.8",
     "laravel/pint": "^1.27.1",
     "mockery/mockery": "^1.6.12",
