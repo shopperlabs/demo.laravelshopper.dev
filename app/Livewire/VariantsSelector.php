@@ -144,7 +144,7 @@ final class VariantsSelector extends Component
             return 0;
         }
 
-        return (int) ($cart->lines
+        return (int) ($cart->lines // @phpstan-ignore-line
             ->where('purchasable_type', $model->getMorphClass())
             ->where('purchasable_id', $model->getKey())
             ->first()?->quantity ?? 0);

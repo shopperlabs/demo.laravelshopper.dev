@@ -15,7 +15,7 @@ use Shopper\Cart\Models\CartLine;
 
 final class ShoppingCart extends SlideOverComponent
 {
-    public int $subtotal = 0;
+    public int|float $subtotal = 0;
 
     /** @var Collection<int, CartLine> */
     public Collection $items;
