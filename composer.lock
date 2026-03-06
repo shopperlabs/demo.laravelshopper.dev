@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0cb7629dd3b6196705d359f051882e0a",
+    "content-hash": "39bdbb02ba990f437de4f8b4a442b9af",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -3897,16 +3897,16 @@
         },
         {
             "name": "league/commonmark",
-            "version": "2.8.0",
+            "version": "2.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/commonmark.git",
-                "reference": "4efa10c1e56488e658d10adf7b7b7dcd19940bfb"
+                "reference": "84b1ca48347efdbe775426f108622a42735a6579"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/4efa10c1e56488e658d10adf7b7b7dcd19940bfb",
-                "reference": "4efa10c1e56488e658d10adf7b7b7dcd19940bfb",
+                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/84b1ca48347efdbe775426f108622a42735a6579",
+                "reference": "84b1ca48347efdbe775426f108622a42735a6579",
                 "shasum": ""
             },
             "require": {
@@ -3931,9 +3931,9 @@
                 "phpstan/phpstan": "^1.8.2",
                 "phpunit/phpunit": "^9.5.21 || ^10.5.9 || ^11.0.0",
                 "scrutinizer/ocular": "^1.8.1",
-                "symfony/finder": "^5.3 | ^6.0 | ^7.0",
-                "symfony/process": "^5.4 | ^6.0 | ^7.0",
-                "symfony/yaml": "^2.3 | ^3.0 | ^4.0 | ^5.0 | ^6.0 | ^7.0",
+                "symfony/finder": "^5.3 | ^6.0 | ^7.0 || ^8.0",
+                "symfony/process": "^5.4 | ^6.0 | ^7.0 || ^8.0",
+                "symfony/yaml": "^2.3 | ^3.0 | ^4.0 | ^5.0 | ^6.0 | ^7.0 || ^8.0",
                 "unleashedtech/php-coding-standard": "^3.1.1",
                 "vimeo/psalm": "^4.24.0 || ^5.0.0 || ^6.0.0"
             },
@@ -4000,7 +4000,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-11-26T21:48:24+00:00"
+            "time": "2026-03-05T21:37:03+00:00"
         },
         {
             "name": "league/config",
@@ -7422,7 +7422,7 @@
         },
         {
             "name": "shopper/cart",
-            "version": "v2.6.0",
+            "version": "v2.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/shopperlabs/cart.git",
@@ -7458,22 +7458,22 @@
             "description": "Shopper cart management with pipeline-based calculation",
             "support": {
                 "issues": "https://github.com/shopperlabs/cart/issues",
-                "source": "https://github.com/shopperlabs/cart/tree/v2.6.0"
+                "source": "https://github.com/shopperlabs/cart/tree/v2.6.1"
             },
             "time": "2026-02-27T11:00:41+00:00"
         },
         {
             "name": "shopper/core",
-            "version": "v2.6.0",
+            "version": "v2.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/shopperlabs/core.git",
-                "reference": "9c420239b0cceda073fe97e0a629e18c027d4968"
+                "reference": "fa3eb0f6514c4bfff2df3f8c49d393886c65311e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/shopperlabs/core/zipball/9c420239b0cceda073fe97e0a629e18c027d4968",
-                "reference": "9c420239b0cceda073fe97e0a629e18c027d4968",
+                "url": "https://api.github.com/repos/shopperlabs/core/zipball/fa3eb0f6514c4bfff2df3f8c49d393886c65311e",
+                "reference": "fa3eb0f6514c4bfff2df3f8c49d393886c65311e",
                 "shasum": ""
             },
             "require": {
@@ -7511,22 +7511,22 @@
             ],
             "description": "Shopper e-commerce core functionality",
             "support": {
-                "source": "https://github.com/shopperlabs/core/tree/v2.6.0"
+                "source": "https://github.com/shopperlabs/core/tree/v2.6.1"
             },
-            "time": "2026-03-03T19:38:01+00:00"
+            "time": "2026-03-06T08:15:35+00:00"
         },
         {
             "name": "shopper/framework",
-            "version": "v2.6.0",
+            "version": "v2.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/shopperlabs/admin.git",
-                "reference": "09dd232bd2f1c5f4165c03dafa7b3a2a7e5a59fa"
+                "reference": "4786a56612f4c18c09713b101c91ae21d2aa051b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/shopperlabs/admin/zipball/09dd232bd2f1c5f4165c03dafa7b3a2a7e5a59fa",
-                "reference": "09dd232bd2f1c5f4165c03dafa7b3a2a7e5a59fa",
+                "url": "https://api.github.com/repos/shopperlabs/admin/zipball/4786a56612f4c18c09713b101c91ae21d2aa051b",
+                "reference": "4786a56612f4c18c09713b101c91ae21d2aa051b",
                 "shasum": ""
             },
             "require": {
@@ -7608,11 +7608,11 @@
                 "issues": "https://github.com/shopperlabs/framework/issues",
                 "source": "https://github.com/shopperlabs/framework"
             },
-            "time": "2026-03-03T22:10:32+00:00"
+            "time": "2026-03-06T08:37:02+00:00"
         },
         {
             "name": "shopper/payment",
-            "version": "v2.6.0",
+            "version": "v2.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/shopperlabs/payment.git",
@@ -7648,13 +7648,13 @@
             "description": "Shopper payment providers integration",
             "support": {
                 "issues": "https://github.com/shopperlabs/payment/issues",
-                "source": "https://github.com/shopperlabs/payment/tree/v2.6.0"
+                "source": "https://github.com/shopperlabs/payment/tree/v2.6.1"
             },
             "time": "2026-02-28T12:02:11+00:00"
         },
         {
             "name": "shopper/shipping",
-            "version": "v2.6.0",
+            "version": "v2.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/shopperlabs/shipping.git",
@@ -7694,22 +7694,22 @@
             "description": "Shopper shipping providers integration",
             "support": {
                 "issues": "https://github.com/shopperlabs/shipping/issues",
-                "source": "https://github.com/shopperlabs/shipping/tree/v2.6.0"
+                "source": "https://github.com/shopperlabs/shipping/tree/v2.6.1"
             },
             "time": "2026-02-28T11:59:09+00:00"
         },
         {
             "name": "shopper/sidebar",
-            "version": "v2.6.0",
+            "version": "v2.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/shopperlabs/sidebar.git",
-                "reference": "5edf7430b90c150902360cd956f9ee42a4e2e487"
+                "reference": "00ae0a26548cea3ca28357f92d16cf0e9353b679"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/shopperlabs/sidebar/zipball/5edf7430b90c150902360cd956f9ee42a4e2e487",
-                "reference": "5edf7430b90c150902360cd956f9ee42a4e2e487",
+                "url": "https://api.github.com/repos/shopperlabs/sidebar/zipball/00ae0a26548cea3ca28357f92d16cf0e9353b679",
+                "reference": "00ae0a26548cea3ca28357f92d16cf0e9353b679",
                 "shasum": ""
             },
             "require": {
@@ -7719,8 +7719,8 @@
                 "illuminate/routing": "^11.0|^12.0",
                 "illuminate/support": "^11.0|^12.0",
                 "illuminate/view": "^11.0|^12.0",
-                "livewire/livewire": "^3.7",
-                "mckenziearts/blade-untitledui-icons": "^1.4",
+                "livewire/livewire": "^3.7|^4.0",
+                "mckenziearts/blade-untitledui-icons": "^1.5",
                 "php": "^8.3",
                 "spatie/laravel-package-tools": "^1.9"
             },
@@ -7758,13 +7758,13 @@
             ],
             "support": {
                 "issues": "https://github.com/shopperlabs/sidebar/issues",
-                "source": "https://github.com/shopperlabs/sidebar/tree/v2.6.0"
+                "source": "https://github.com/shopperlabs/sidebar/tree/v2.6.1"
             },
-            "time": "2026-03-03T19:19:34+00:00"
+            "time": "2026-03-05T23:10:40+00:00"
         },
         {
             "name": "shopper/stripe",
-            "version": "v2.6.0",
+            "version": "v2.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/shopperlabs/stripe.git",
@@ -7801,7 +7801,7 @@
             "description": "Stripe payment driver for Shopper",
             "support": {
                 "issues": "https://github.com/shopperlabs/stripe/issues",
-                "source": "https://github.com/shopperlabs/stripe/tree/v2.6.0"
+                "source": "https://github.com/shopperlabs/stripe/tree/v2.6.1"
             },
             "time": "2026-02-28T12:02:13+00:00"
         },
@@ -11999,16 +11999,16 @@
         },
         {
             "name": "driftingly/rector-laravel",
-            "version": "2.1.9",
+            "version": "2.1.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/driftingly/rector-laravel.git",
-                "reference": "aee9d4a1d489e7ec484fc79f33137f8ee051b3f7"
+                "reference": "84ea7e03f4a2d9d33e303559ed7e3280bfdb8d01"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/driftingly/rector-laravel/zipball/aee9d4a1d489e7ec484fc79f33137f8ee051b3f7",
-                "reference": "aee9d4a1d489e7ec484fc79f33137f8ee051b3f7",
+                "url": "https://api.github.com/repos/driftingly/rector-laravel/zipball/84ea7e03f4a2d9d33e303559ed7e3280bfdb8d01",
+                "reference": "84ea7e03f4a2d9d33e303559ed7e3280bfdb8d01",
                 "shasum": ""
             },
             "require": {
@@ -12029,9 +12029,9 @@
             "description": "Rector upgrades rules for Laravel Framework",
             "support": {
                 "issues": "https://github.com/driftingly/rector-laravel/issues",
-                "source": "https://github.com/driftingly/rector-laravel/tree/2.1.9"
+                "source": "https://github.com/driftingly/rector-laravel/tree/2.1.11"
             },
-            "time": "2025-12-25T23:31:36+00:00"
+            "time": "2026-03-05T19:46:28+00:00"
         },
         {
             "name": "fakerphp/faker",
@@ -12739,16 +12739,16 @@
         },
         {
             "name": "laravel/roster",
-            "version": "v0.5.0",
+            "version": "v0.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/roster.git",
-                "reference": "56904a78f4d7360c1c490ced7deeebf9aecb8c0e"
+                "reference": "5089de7615f72f78e831590ff9d0435fed0102bb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/roster/zipball/56904a78f4d7360c1c490ced7deeebf9aecb8c0e",
-                "reference": "56904a78f4d7360c1c490ced7deeebf9aecb8c0e",
+                "url": "https://api.github.com/repos/laravel/roster/zipball/5089de7615f72f78e831590ff9d0435fed0102bb",
+                "reference": "5089de7615f72f78e831590ff9d0435fed0102bb",
                 "shasum": ""
             },
             "require": {
@@ -12796,7 +12796,7 @@
                 "issues": "https://github.com/laravel/roster/issues",
                 "source": "https://github.com/laravel/roster"
             },
-            "time": "2026-02-17T17:33:35+00:00"
+            "time": "2026-03-05T07:58:43+00:00"
         },
         {
             "name": "mockery/mockery",
@@ -13619,16 +13619,16 @@
         },
         {
             "name": "php-debugbar/php-debugbar",
-            "version": "v3.4.1",
+            "version": "v3.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-debugbar/php-debugbar.git",
-                "reference": "ee9c718797a4c1fdf6c4d980cb3edcc1eeeddcc7"
+                "reference": "486b32fd98efe9a3c10f0b24c0caabc187f78f04"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-debugbar/php-debugbar/zipball/ee9c718797a4c1fdf6c4d980cb3edcc1eeeddcc7",
-                "reference": "ee9c718797a4c1fdf6c4d980cb3edcc1eeeddcc7",
+                "url": "https://api.github.com/repos/php-debugbar/php-debugbar/zipball/486b32fd98efe9a3c10f0b24c0caabc187f78f04",
+                "reference": "486b32fd98efe9a3c10f0b24c0caabc187f78f04",
                 "shasum": ""
             },
             "require": {
@@ -13705,7 +13705,7 @@
             ],
             "support": {
                 "issues": "https://github.com/php-debugbar/php-debugbar/issues",
-                "source": "https://github.com/php-debugbar/php-debugbar/tree/v3.4.1"
+                "source": "https://github.com/php-debugbar/php-debugbar/tree/v3.5.1"
             },
             "funding": [
                 {
@@ -13717,7 +13717,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-02-26T11:40:30+00:00"
+            "time": "2026-03-05T20:37:33+00:00"
         },
         {
             "name": "php-debugbar/symfony-bridge",
