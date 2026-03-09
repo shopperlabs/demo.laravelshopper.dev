@@ -55,16 +55,10 @@ if (! function_exists('current_currency')) {
 if (! function_exists('current_tax_label')) {
     function current_tax_label(): string
     {
-        static $label = null;
-
-        if ($label !== null) {
-            return $label;
-        }
-
         $zone = ZoneSessionManager::getSession();
 
         if (! $zone instanceof App\DTO\CountryByZoneData) {
-            return $label = '';
+            return '';
         }
 
         $taxZone = TaxZone::query()
@@ -72,6 +66,6 @@ if (! function_exists('current_tax_label')) {
             ->whereNull('province_code')
             ->first();
 
-        return $label = $taxZone?->is_tax_inclusive ? __('TTC') : __('HT');
+        return $taxZone?->is_tax_inclusive ? __('TTC') : __('HT');
     }
 }
