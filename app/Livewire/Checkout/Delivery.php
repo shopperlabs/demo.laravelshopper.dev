@@ -55,11 +55,7 @@ final class Delivery extends StepComponent
             return;
         }
 
-        $this->options = Cache::remember(
-            "shipping_rates_zone_{$zone->id}",
-            self::CACHE_TTL,
-            fn (): array => $this->fetchRates($zone, $shippingAddress),
-        );
+        $this->options = $this->fetchRates($zone, $shippingAddress);
     }
 
     public function save(): void
@@ -78,7 +74,9 @@ final class Delivery extends StepComponent
         session()->push(CheckoutSession::SHIPPING_OPTION, [
             'id' => $selectedOption['service_code'],
             'name' => $selectedOption['service_name'],
-            'price' => $selectedOption['amount'] / 100,
+            'price' => is_no_division_currency($selectedOption['currency'])
+                ? $selectedOption['amount']
+                : $selectedOption['amount'] / 100,
             'service_code' => $selectedOption['service_code'],
             'carrier_code' => $selectedOption['carrier_code'],
             'currency' => $selectedOption['currency'],
@@ -90,6 +88,9 @@ final class Delivery extends StepComponent
         $this->nextStep();
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     public function stepInfo(): array
     {
         return [
