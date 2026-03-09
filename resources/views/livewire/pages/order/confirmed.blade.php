@@ -12,6 +12,7 @@ state(['order' => null]);
 mount(function (string $number): void {
         $this->order = Order::with(['items.product', 'shippingOption', 'shippingAddress', 'paymentMethod'])
             ->where('number', $number)
+            ->where('customer_id', auth()->id())
             ->firstOrFail();
 });
 
