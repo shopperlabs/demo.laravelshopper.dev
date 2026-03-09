@@ -34,6 +34,6 @@ Route::middleware('auth')->group(function (): void {
         ->name('order-confirmed');
 });
 
-Route::post('/webhooks/stripe', StripeWebhookController::class)->name('stripe-webhook');
+Route::post('/webhooks/stripe', StripeWebhookController::class)->name('stripe-webhook')->middleware('throttle:60,1');
 
 require __DIR__.'/auth.php';
