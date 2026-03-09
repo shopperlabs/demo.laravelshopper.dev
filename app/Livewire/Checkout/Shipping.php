@@ -47,14 +47,15 @@ final class Shipping extends StepComponent
         session()->forget(CheckoutSession::KEY);
 
         /** @var Address $shippingAddress */
-        $shippingAddress = Address::query()->find($this->shippingAddressId);
+        $shippingAddress = Auth::user()->addresses()->findOrFail($this->shippingAddressId);
 
         session()->put(CheckoutSession::SHIPPING_ADDRESS, $shippingAddress->toArray());
         session()->put(CheckoutSession::SAME_AS_SHIPPING, $this->sameAsShipping);
 
+        /** @var Address $billingAddress */
         $billingAddress = $this->sameAsShipping
             ? $shippingAddress
-            : Address::query()->find($this->billingAddressId);
+            : Auth::user()->addresses()->findOrFail($this->billingAddressId);
 
         session()->put(CheckoutSession::BILLING_ADDRESS, $billingAddress->toArray());
 
@@ -89,6 +90,9 @@ final class Shipping extends StepComponent
         $this->nextStep();
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     public function stepInfo(): array
     {
         return [
