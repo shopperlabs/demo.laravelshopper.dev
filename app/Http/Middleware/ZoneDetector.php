@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Middleware;
 
-use App\Actions\CountriesWithZone;
+use App\Actions\GetCountriesByZone;
 use App\Actions\ZoneSessionManager;
 use Closure;
 use Illuminate\Http\Request;
@@ -15,22 +15,9 @@ final class ZoneDetector
 {
     public function handle(Request $request, Closure $next): Response
     {
-        // @Todo: Detect the user geolocation ip to retrieve country
-        $geoLocation = session()->get('ip-geolocation');
+        $countries = resolve(GetCountriesByZone::class)->handle();
 
-        $countries = (new CountriesWithZone)->handle();
-
-        if ($geoLocation) {
-            $userZone = $countries->firstWhere('countryCode', $geoLocation->countryCode);
-
-            if ($userZone && ! ZoneSessionManager::checkSession()) {
-                ZoneSessionManager::setSession($userZone);
-            } else {
-                $this->setDefaultZone($countries);
-            }
-        } else {
-            $this->setDefaultZone($countries);
-        }
+        $this->setDefaultZone($countries);
 
         return $next($request);
     }

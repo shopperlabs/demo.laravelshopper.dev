@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Livewire\SlideOvers;
 
-use App\Actions\CountriesWithZone;
+use App\Actions\GetCountriesByZone;
 use App\Actions\ZoneSessionManager;
 use App\CheckoutSession;
 use App\DTO\CountryByZoneData;
@@ -28,7 +28,7 @@ final class ZoneSelector extends SlideOverComponent
     #[Computed]
     public function countries(): Collection
     {
-        return (new CountriesWithZone)->handle();
+        return resolve(GetCountriesByZone::class)->handle();
     }
 
     public function selectZone(int $countryId): void

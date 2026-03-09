@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Livewire\Modals\Customer;
 
-use App\Actions\CountriesWithZone;
+use App\Actions\GetCountriesByZone;
 use App\Actions\ZoneSessionManager;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
@@ -62,7 +62,7 @@ final class AddressForm extends Component
         $this->countries = Country::query()
             ->whereIn(
                 column: 'id',
-                values: (new CountriesWithZone)
+                values: resolve(GetCountriesByZone::class)
                     ->handle()
                     ->where('zoneId', ZoneSessionManager::getSession()?->zoneId)->pluck('countryId')
             )
