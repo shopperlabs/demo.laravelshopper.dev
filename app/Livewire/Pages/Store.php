@@ -14,7 +14,7 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use Shopper\Core\Models\Attribute;
 
-class Store extends Component
+final class Store extends Component
 {
     use WithPagination;
 

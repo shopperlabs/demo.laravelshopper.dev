@@ -12,7 +12,7 @@ use Shopper\Core\Models\Order;
 use Shopper\Payment\Facades\Payment;
 use Shopper\Payment\Models\PaymentTransaction;
 
-class StripeWebhookController extends Controller
+final class StripeWebhookController extends Controller
 {
     public function __invoke(Request $request): JsonResponse
     {
