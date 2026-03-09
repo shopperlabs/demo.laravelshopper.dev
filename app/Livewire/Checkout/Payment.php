@@ -85,7 +85,7 @@ final class Payment extends StepComponent
         if ($result->clientSecret) {
             session()->put('stripe_payment', [
                 'client_secret' => $result->clientSecret,
-                'publishable_key' => $result->data['publishable_key'] ?? config('stripe.publishable_key'),
+                'publishable_key' => $result->data['publishable_key'] ?? config('shopper.payment.drivers.stripe.credentials.publishable_key'),
             ]);
 
             $this->redirect(route('stripe-payment', ['number' => $order->number]));
