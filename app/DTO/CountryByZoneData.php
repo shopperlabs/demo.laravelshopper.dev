@@ -8,7 +8,7 @@ final class CountryByZoneData
 {
     public function __construct(
         public int $zoneId,
-        public string $zoneCode,
+        public ?string $zoneCode,
         public string $zoneName,
         public int $countryId,
         public string $countryName,
