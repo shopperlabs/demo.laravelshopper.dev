@@ -18,12 +18,14 @@ final class GetCountriesByZone
 
     public static function flush(): void
     {
-        Cache::forget(self::CACHE_KEY);
+        Cache::forget(self::CACHE_KEY.'_'.app()->getLocale());
     }
 
     public function handle(): Collection
     {
-        return Cache::remember(self::CACHE_KEY, self::CACHE_TTL, function (): Collection {
+        $cacheKey = self::CACHE_KEY.'_'.app()->getLocale();
+
+        return Cache::remember($cacheKey, self::CACHE_TTL, function (): Collection {
             $zones = Zone::with(['currency', 'countries'])
                 ->scopes('enabled')
                 ->get();

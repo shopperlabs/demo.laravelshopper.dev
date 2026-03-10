@@ -1,4 +1,6 @@
-@props(['address'])
+@props([
+    'address',
+])
 
 <div class="relative flex min-h-62.5 overflow-hidden justify-between border border-zinc-200 bg-white rounded-lg px-5 py-6">
     @if ($address->type === \Shopper\Core\Enum\AddressType::Billing)

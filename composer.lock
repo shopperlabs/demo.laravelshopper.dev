@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "507fcabd1b1bd17df56a23fbad3f1735",
+    "content-hash": "459789a25ab486da7156544837031ed6",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -2696,16 +2696,16 @@
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "2.8.0",
+            "version": "2.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "21dc724a0583619cd1652f673303492272778051"
+                "reference": "718f1ee6a878be5290af3557aeda0c91278361d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/21dc724a0583619cd1652f673303492272778051",
-                "reference": "21dc724a0583619cd1652f673303492272778051",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/718f1ee6a878be5290af3557aeda0c91278361d9",
+                "reference": "718f1ee6a878be5290af3557aeda0c91278361d9",
                 "shasum": ""
             },
             "require": {
@@ -2792,7 +2792,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/psr7/issues",
-                "source": "https://github.com/guzzle/psr7/tree/2.8.0"
+                "source": "https://github.com/guzzle/psr7/tree/2.8.1"
             },
             "funding": [
                 {
@@ -2808,7 +2808,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-08-23T21:21:41+00:00"
+            "time": "2026-03-10T09:55:26+00:00"
         },
         {
             "name": "guzzlehttp/uri-template",
@@ -3332,16 +3332,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v12.53.0",
+            "version": "v12.54.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "f57f035c0d34503d9ff30be76159bb35a003cd1f"
+                "reference": "e908e117421bcade301b174aba2d3e8cc1e1f213"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/f57f035c0d34503d9ff30be76159bb35a003cd1f",
-                "reference": "f57f035c0d34503d9ff30be76159bb35a003cd1f",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/e908e117421bcade301b174aba2d3e8cc1e1f213",
+                "reference": "e908e117421bcade301b174aba2d3e8cc1e1f213",
                 "shasum": ""
             },
             "require": {
@@ -3362,7 +3362,7 @@
                 "guzzlehttp/uri-template": "^1.0",
                 "laravel/prompts": "^0.3.0",
                 "laravel/serializable-closure": "^1.3|^2.0",
-                "league/commonmark": "^2.7",
+                "league/commonmark": "^2.8.1",
                 "league/flysystem": "^3.25.1",
                 "league/flysystem-local": "^3.25.1",
                 "league/uri": "^7.5.1",
@@ -3550,20 +3550,20 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2026-02-24T14:35:15+00:00"
+            "time": "2026-03-10T15:30:40+00:00"
         },
         {
             "name": "laravel/octane",
-            "version": "v2.14.0",
+            "version": "v2.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/octane.git",
-                "reference": "5d6eb82d12596f2d73e5c8b23c0abe896938fa0e"
+                "reference": "37b6175920bde50584ee4e2fa30ce4ae0f11ae36"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/octane/zipball/5d6eb82d12596f2d73e5c8b23c0abe896938fa0e",
-                "reference": "5d6eb82d12596f2d73e5c8b23c0abe896938fa0e",
+                "url": "https://api.github.com/repos/laravel/octane/zipball/37b6175920bde50584ee4e2fa30ce4ae0f11ae36",
+                "reference": "37b6175920bde50584ee4e2fa30ce4ae0f11ae36",
                 "shasum": ""
             },
             "require": {
@@ -3640,20 +3640,20 @@
                 "issues": "https://github.com/laravel/octane/issues",
                 "source": "https://github.com/laravel/octane"
             },
-            "time": "2026-02-20T14:34:10+00:00"
+            "time": "2026-03-10T14:27:22+00:00"
         },
         {
             "name": "laravel/prompts",
-            "version": "v0.3.13",
+            "version": "v0.3.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/prompts.git",
-                "reference": "ed8c466571b37e977532fb2fd3c272c784d7050d"
+                "reference": "9f0e371244eedfe2ebeaa72c79c54bb5df6e0176"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/prompts/zipball/ed8c466571b37e977532fb2fd3c272c784d7050d",
-                "reference": "ed8c466571b37e977532fb2fd3c272c784d7050d",
+                "url": "https://api.github.com/repos/laravel/prompts/zipball/9f0e371244eedfe2ebeaa72c79c54bb5df6e0176",
+                "reference": "9f0e371244eedfe2ebeaa72c79c54bb5df6e0176",
                 "shasum": ""
             },
             "require": {
@@ -3697,9 +3697,9 @@
             "description": "Add beautiful and user-friendly forms to your command-line applications.",
             "support": {
                 "issues": "https://github.com/laravel/prompts/issues",
-                "source": "https://github.com/laravel/prompts/tree/v0.3.13"
+                "source": "https://github.com/laravel/prompts/tree/v0.3.14"
             },
-            "time": "2026-02-06T12:17:10+00:00"
+            "time": "2026-03-01T09:02:38+00:00"
         },
         {
             "name": "laravel/serializable-closure",
@@ -4907,28 +4907,28 @@
         },
         {
             "name": "livewire/volt",
-            "version": "v1.10.3",
+            "version": "v1.10.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/livewire/volt.git",
-                "reference": "40e56558614bb25b0651255613b7a66b9d12df31"
+                "reference": "8b58d1bfbe9a7b377ddeb26848746113afb58e5b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/livewire/volt/zipball/40e56558614bb25b0651255613b7a66b9d12df31",
-                "reference": "40e56558614bb25b0651255613b7a66b9d12df31",
+                "url": "https://api.github.com/repos/livewire/volt/zipball/8b58d1bfbe9a7b377ddeb26848746113afb58e5b",
+                "reference": "8b58d1bfbe9a7b377ddeb26848746113afb58e5b",
                 "shasum": ""
             },
             "require": {
-                "laravel/framework": "^10.38.2|^11.0|^12.0",
+                "laravel/framework": "^10.38.2|^11.0|^12.0|^13.0",
                 "livewire/livewire": "^3.6.1|^4.0",
                 "php": "^8.1"
             },
             "require-dev": {
                 "laravel/folio": "^1.1",
-                "orchestra/testbench": "^8.36|^9.15|^10.8",
+                "orchestra/testbench": "^8.36|^9.15|^10.8|^11.0",
                 "pestphp/pest": "^2.9.5|^3.0|^4.0",
-                "phpstan/phpstan": "^1.10"
+                "phpstan/phpstan": "^1.10|^2.1"
             },
             "type": "library",
             "extra": {
@@ -4974,7 +4974,7 @@
                 "issues": "https://github.com/livewire/volt/issues",
                 "source": "https://github.com/livewire/volt"
             },
-            "time": "2026-02-20T19:56:55+00:00"
+            "time": "2026-03-05T19:21:22+00:00"
         },
         {
             "name": "maennchen/zipstream-php",
@@ -7422,7 +7422,7 @@
         },
         {
             "name": "shopper/cart",
-            "version": "v2.6.2",
+            "version": "v2.6.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/shopperlabs/cart.git",
@@ -7458,22 +7458,22 @@
             "description": "Shopper cart management with pipeline-based calculation",
             "support": {
                 "issues": "https://github.com/shopperlabs/cart/issues",
-                "source": "https://github.com/shopperlabs/cart/tree/v2.6.2"
+                "source": "https://github.com/shopperlabs/cart/tree/v2.6.3"
             },
             "time": "2026-02-27T11:00:41+00:00"
         },
         {
             "name": "shopper/core",
-            "version": "v2.6.2",
+            "version": "v2.6.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/shopperlabs/core.git",
-                "reference": "fa3eb0f6514c4bfff2df3f8c49d393886c65311e"
+                "reference": "233dc7a687d7bdabb0b85bbab5d0eeb8c19ed766"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/shopperlabs/core/zipball/fa3eb0f6514c4bfff2df3f8c49d393886c65311e",
-                "reference": "fa3eb0f6514c4bfff2df3f8c49d393886c65311e",
+                "url": "https://api.github.com/repos/shopperlabs/core/zipball/233dc7a687d7bdabb0b85bbab5d0eeb8c19ed766",
+                "reference": "233dc7a687d7bdabb0b85bbab5d0eeb8c19ed766",
                 "shasum": ""
             },
             "require": {
@@ -7511,22 +7511,22 @@
             ],
             "description": "Shopper e-commerce core functionality",
             "support": {
-                "source": "https://github.com/shopperlabs/core/tree/v2.6.2"
+                "source": "https://github.com/shopperlabs/core/tree/v2.6.3"
             },
-            "time": "2026-03-06T08:15:35+00:00"
+            "time": "2026-03-09T11:58:41+00:00"
         },
         {
             "name": "shopper/framework",
-            "version": "v2.6.2",
+            "version": "v2.6.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/shopperlabs/admin.git",
-                "reference": "4786a56612f4c18c09713b101c91ae21d2aa051b"
+                "reference": "571b8809eb96f49e4a10c6ed76faf31dba8ecae2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/shopperlabs/admin/zipball/4786a56612f4c18c09713b101c91ae21d2aa051b",
-                "reference": "4786a56612f4c18c09713b101c91ae21d2aa051b",
+                "url": "https://api.github.com/repos/shopperlabs/admin/zipball/571b8809eb96f49e4a10c6ed76faf31dba8ecae2",
+                "reference": "571b8809eb96f49e4a10c6ed76faf31dba8ecae2",
                 "shasum": ""
             },
             "require": {
@@ -7608,11 +7608,11 @@
                 "issues": "https://github.com/shopperlabs/framework/issues",
                 "source": "https://github.com/shopperlabs/framework"
             },
-            "time": "2026-03-06T08:37:02+00:00"
+            "time": "2026-03-09T12:05:11+00:00"
         },
         {
             "name": "shopper/payment",
-            "version": "v2.6.2",
+            "version": "v2.6.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/shopperlabs/payment.git",
@@ -7648,13 +7648,13 @@
             "description": "Shopper payment providers integration",
             "support": {
                 "issues": "https://github.com/shopperlabs/payment/issues",
-                "source": "https://github.com/shopperlabs/payment/tree/v2.6.2"
+                "source": "https://github.com/shopperlabs/payment/tree/v2.6.3"
             },
             "time": "2026-02-28T12:02:11+00:00"
         },
         {
             "name": "shopper/shipping",
-            "version": "v2.6.2",
+            "version": "v2.6.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/shopperlabs/shipping.git",
@@ -7694,13 +7694,13 @@
             "description": "Shopper shipping providers integration",
             "support": {
                 "issues": "https://github.com/shopperlabs/shipping/issues",
-                "source": "https://github.com/shopperlabs/shipping/tree/v2.6.2"
+                "source": "https://github.com/shopperlabs/shipping/tree/v2.6.3"
             },
             "time": "2026-02-28T11:59:09+00:00"
         },
         {
             "name": "shopper/sidebar",
-            "version": "v2.6.2",
+            "version": "v2.6.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/shopperlabs/sidebar.git",
@@ -7758,13 +7758,13 @@
             ],
             "support": {
                 "issues": "https://github.com/shopperlabs/sidebar/issues",
-                "source": "https://github.com/shopperlabs/sidebar/tree/v2.6.2"
+                "source": "https://github.com/shopperlabs/sidebar/tree/v2.6.3"
             },
             "time": "2026-03-05T23:10:40+00:00"
         },
         {
             "name": "shopper/stripe",
-            "version": "v2.6.2",
+            "version": "v2.6.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/shopperlabs/stripe.git",
@@ -7801,7 +7801,7 @@
             "description": "Stripe payment driver for Shopper",
             "support": {
                 "issues": "https://github.com/shopperlabs/stripe/issues",
-                "source": "https://github.com/shopperlabs/stripe/tree/v2.6.2"
+                "source": "https://github.com/shopperlabs/stripe/tree/v2.6.3"
             },
             "time": "2026-03-06T10:03:05+00:00"
         },
@@ -11759,16 +11759,16 @@
     "packages-dev": [
         {
             "name": "barryvdh/laravel-debugbar",
-            "version": "v4.1.1",
+            "version": "v4.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fruitcake/laravel-debugbar.git",
-                "reference": "048876cf8ffdd8af2b82306289e2c0453fa0b059"
+                "reference": "b48a68c4f8ffcdfa3a10d49930da4b03588dc87b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fruitcake/laravel-debugbar/zipball/048876cf8ffdd8af2b82306289e2c0453fa0b059",
-                "reference": "048876cf8ffdd8af2b82306289e2c0453fa0b059",
+                "url": "https://api.github.com/repos/fruitcake/laravel-debugbar/zipball/b48a68c4f8ffcdfa3a10d49930da4b03588dc87b",
+                "reference": "b48a68c4f8ffcdfa3a10d49930da4b03588dc87b",
                 "shasum": ""
             },
             "require": {
@@ -11842,7 +11842,7 @@
             ],
             "support": {
                 "issues": "https://github.com/fruitcake/laravel-debugbar/issues",
-                "source": "https://github.com/fruitcake/laravel-debugbar/tree/v4.1.1"
+                "source": "https://github.com/fruitcake/laravel-debugbar/tree/v4.1.3"
             },
             "funding": [
                 {
@@ -11854,7 +11854,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-03-08T08:20:19+00:00"
+            "time": "2026-03-09T14:55:04+00:00"
         },
         {
             "name": "brianium/paratest",
@@ -12538,29 +12538,29 @@
         },
         {
             "name": "laravel/breeze",
-            "version": "v2.3.8",
+            "version": "v2.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/breeze.git",
-                "reference": "1a29c5792818bd4cddf70b5f743a227e02fbcfcd"
+                "reference": "26c4a6db35abfbf302aa26d338e0b6487844f3c9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/breeze/zipball/1a29c5792818bd4cddf70b5f743a227e02fbcfcd",
-                "reference": "1a29c5792818bd4cddf70b5f743a227e02fbcfcd",
+                "url": "https://api.github.com/repos/laravel/breeze/zipball/26c4a6db35abfbf302aa26d338e0b6487844f3c9",
+                "reference": "26c4a6db35abfbf302aa26d338e0b6487844f3c9",
                 "shasum": ""
             },
             "require": {
-                "illuminate/console": "^11.0|^12.0",
-                "illuminate/filesystem": "^11.0|^12.0",
-                "illuminate/support": "^11.0|^12.0",
-                "illuminate/validation": "^11.0|^12.0",
+                "illuminate/console": "^11.0|^12.0|^13.0",
+                "illuminate/filesystem": "^11.0|^12.0|^13.0",
+                "illuminate/support": "^11.0|^12.0|^13.0",
+                "illuminate/validation": "^11.0|^12.0|^13.0",
                 "php": "^8.2.0",
-                "symfony/console": "^7.0"
+                "symfony/console": "^7.0|^8.0"
             },
             "require-dev": {
-                "laravel/framework": "^11.0|^12.0",
-                "orchestra/testbench-core": "^9.0|^10.0",
+                "laravel/framework": "^11.0|^12.0|^13.0",
+                "orchestra/testbench-core": "^9.0|^10.0|^11.0",
                 "phpstan/phpstan": "^2.0"
             },
             "type": "library",
@@ -12595,20 +12595,20 @@
                 "issues": "https://github.com/laravel/breeze/issues",
                 "source": "https://github.com/laravel/breeze"
             },
-            "time": "2025-07-18T18:49:59+00:00"
+            "time": "2026-02-21T13:32:22+00:00"
         },
         {
             "name": "laravel/mcp",
-            "version": "v0.6.0",
+            "version": "v0.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/mcp.git",
-                "reference": "28860a10ca0cc5433e25d897ba7af844e6c7b6a2"
+                "reference": "289bcfaa8df43232a39e4b2411a592fe1073131f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/mcp/zipball/28860a10ca0cc5433e25d897ba7af844e6c7b6a2",
-                "reference": "28860a10ca0cc5433e25d897ba7af844e6c7b6a2",
+                "url": "https://api.github.com/repos/laravel/mcp/zipball/289bcfaa8df43232a39e4b2411a592fe1073131f",
+                "reference": "289bcfaa8df43232a39e4b2411a592fe1073131f",
                 "shasum": ""
             },
             "require": {
@@ -12668,7 +12668,7 @@
                 "issues": "https://github.com/laravel/mcp/issues",
                 "source": "https://github.com/laravel/mcp"
             },
-            "time": "2026-02-24T08:43:06+00:00"
+            "time": "2026-03-10T13:52:13+00:00"
         },
         {
             "name": "laravel/pint",
