@@ -6,7 +6,7 @@ namespace App\Models;
 
 use App\Traits\HasProductPricing;
 use Database\Factories\ProductVariantFactory;
-use Shopper\Core\Models\ProductVariant as Model;
+use Shopper\Models\ProductVariant as Model;
 
 final class ProductVariant extends Model
 {

@@ -8,7 +8,7 @@ use App\Traits\HasProductPricing;
 use Database\Factories\ProductFactory;
 use Illuminate\Database\Eloquent\Attributes\Scope;
 use Illuminate\Database\Eloquent\Builder;
-use Shopper\Core\Models\Product as Model;
+use Shopper\Models\Product as Model;
 
 final class Product extends Model
 {
